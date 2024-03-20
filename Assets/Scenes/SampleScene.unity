@@ -225,6 +225,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 228020699665436898, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b550eea334ce21b44bf9b13813b108ee, type: 2}
+    - target: {fileID: 228020699665436898, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b550eea334ce21b44bf9b13813b108ee, type: 2}
+    - target: {fileID: 228020699665436898, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: b550eea334ce21b44bf9b13813b108ee, type: 2}
+    - target: {fileID: 1144052204886975504, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f492bddf2abaa84d8e0d33f0b09d802, type: 2}
+    - target: {fileID: 1144052204886975504, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f492bddf2abaa84d8e0d33f0b09d802, type: 2}
+    - target: {fileID: 1357648709955992325, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aecfc6e37a0dea74aa1ae1fa4696a395, type: 2}
+    - target: {fileID: 1357648709955992325, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: aecfc6e37a0dea74aa1ae1fa4696a395, type: 2}
+    - target: {fileID: 1357648709955992325, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: aecfc6e37a0dea74aa1ae1fa4696a395, type: 2}
     - target: {fileID: 4054302904839129166, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Name
       value: scene
