@@ -5,8 +5,8 @@ using UnityEngine;
 public class Cameraview : MonoSingleton<Cameraview>
 {
     // Start is called before the first frame update
-    public float mincamera;
-    public float maxcamera;
+    [HideInInspector] public float mincamera;
+    [HideInInspector] public float maxcamera;
 
         void Start()
         {

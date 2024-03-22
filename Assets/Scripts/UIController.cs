@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.UI;
+using TMPro;
 
 public class UIController : MonoSingleton<UIController>
 {
+    public static new UIController Instance { get; private set; }
+
     public GameObject PauseButton;
     public GameObject ResumeButton;
 
-    void Start()
+    public TMP_Text scoreText;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetScore(int score)
     {
-        
+        scoreText.text = "Score: " + score;
     }
+
     public void HidePauseButton()
     { PauseButton.SetActive(false); }
     public void ShowPauseButton()

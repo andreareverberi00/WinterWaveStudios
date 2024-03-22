@@ -42,6 +42,7 @@ public class WasteController : MonoBehaviour
 
         if (wasteHolder != null && binHolder != null && wasteHolder.wasteData.wasteType == binHolder.binData.acceptsType)
         {
+            GameController.Instance.
             Debug.Log("Correct sorting!");
             WastePool.Instance.ReturnWaste(wasteSelected);
             return true;

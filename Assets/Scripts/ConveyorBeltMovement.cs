@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ConveyorBeltMovement : MonoBehaviour
 {
-    public float speed = 1; 
+    [Range(1f,5f)]
+    public float speed = 1;
+
     private Rigidbody rb;
     private float elapsedTime = 0f;
     public  float increaseSpeedInterval = 10;
@@ -16,6 +18,7 @@ public class ConveyorBeltMovement : MonoBehaviour
         lenght = GetComponent<Renderer>().bounds.size.x;
         //StartCoroutine(MoveObject());
     }
+
     //IEnumerator MoveObject()
     //{
     //    while (true)
@@ -32,24 +35,20 @@ public class ConveyorBeltMovement : MonoBehaviour
 //    }
 //}
 
-void Update()
+    void Update()
     {
-        //elapsedTime += Time.deltaTime; 
+        elapsedTime += Time.deltaTime; 
 
         if (elapsedTime >= increaseSpeedInterval)
         {
             SpeedUp();
             elapsedTime = 0f;
         }
-        Movement();
-        
-
+        Movement();     
     }
 
     void Movement()
     {
-
-     
 
          if (transform.position.y >= 0)
         {
@@ -58,7 +57,7 @@ void Update()
             if (transform.position.x >= Cameraview.Instance.maxcamera +lenght)
             {
 
-                transform.position = new Vector3(Cameraview.Instance.mincamera-lenght/2,transform.position.y,transform.position.z);
+                transform.position = new Vector3(Cameraview.Instance.mincamera-lenght/1.65f,transform.position.y,transform.position.z);
                 
             }
          }
@@ -67,7 +66,7 @@ void Update()
             rb.velocity = Vector3.left * speed;
             if (transform.position.x <= Cameraview.Instance.mincamera-lenght)
             {
-                transform.position = new Vector3(Cameraview.Instance.maxcamera+lenght/2 , transform.position.y, transform.position.z);
+                transform.position = new Vector3(Cameraview.Instance.maxcamera+lenght/1.65f , transform.position.y, transform.position.z);
 
             }
 
@@ -75,9 +74,7 @@ void Update()
     }
     void SpeedUp()
     {
-
             speed+=0.1f;
-
     }
 
 

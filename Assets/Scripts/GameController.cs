@@ -8,14 +8,22 @@ public class GameController : MonoSingleton<GameController>
     //public GameObject RbotPrefab;
     // private Player player;
     //public Player Player { get { return player; } }
+
+    private int score;
+    [SerializeField] private int scoreToAdd;
     private bool isPaused = false;
+
     private void Start()
     {
         StartNewGame();
         UIController.Instance.ShowPauseButton();
         UIController.Instance.HideResumeButton();
     }
-
+    public void AddScore() 
+    {
+        score+=scoreToAdd;
+        UIController.Instance.SetScore(score);
+    }
     void StartNewGame()
     {
         CreateRobot();
