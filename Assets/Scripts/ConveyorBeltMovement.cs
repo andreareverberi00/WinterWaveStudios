@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ConveyorBeltMovement : MonoBehaviour
 {
-    public int speed = 1; 
+    public float speed = 1; 
     private Rigidbody rb;
     private float elapsedTime = 0f;
-    private float increaseSpeedInterval = 10; 
-
-
+    public  float increaseSpeedInterval = 10;
+    public float lenght;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        lenght = GetComponent<Renderer>().bounds.size.x;
         //StartCoroutine(MoveObject());
     }
     //IEnumerator MoveObject()
@@ -33,7 +34,7 @@ public class ConveyorBeltMovement : MonoBehaviour
 
 void Update()
     {
-        elapsedTime += Time.deltaTime; 
+        //elapsedTime += Time.deltaTime; 
 
         if (elapsedTime >= increaseSpeedInterval)
         {
@@ -48,33 +49,34 @@ void Update()
     void Movement()
     {
 
-        if (transform.position.y <= -0.60)
-        {
-            rb.velocity = Vector3.left * speed;
-            if (transform.position.x <= -8)
-            {
-                transform.position = new Vector3(12.13f, -0.63f, -1.53f);
+     
 
-            }
-
-        }
-
-        else if (transform.position.y >= 0.36)
+         if (transform.position.y >= 0)
         {
 
             rb.velocity = Vector3.right * speed;
-            if (transform.position.x >= 13)
+            if (transform.position.x >= Cameraview.Instance.maxcamera +lenght)
             {
 
-                transform.position = new Vector3(-8.63f, 0.37f, -1.53f);
+                transform.position = new Vector3(Cameraview.Instance.mincamera-lenght/2,transform.position.y,transform.position.z);
                 
             }
+         }
+        else if (transform.position.y <= 0)
+        {
+            rb.velocity = Vector3.left * speed;
+            if (transform.position.x <= Cameraview.Instance.mincamera-lenght)
+            {
+                transform.position = new Vector3(Cameraview.Instance.maxcamera+lenght/2 , transform.position.y, transform.position.z);
+
+            }
+
         }
     }
     void SpeedUp()
     {
 
-            speed++;
+            speed+=0.1f;
 
     }
 
