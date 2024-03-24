@@ -5,7 +5,7 @@ using UnityEngine;
 public class WasteController : MonoBehaviour
 {
     //[SerializeField] private List<Bin> activeBins = new List<Bin>();
-    [SerializeField] private Vector3 spawnPosition = new Vector3(0f, 5f, 0f);
+    [SerializeField] private Transform spawnPosition;
     //[SerializeField] private float initialSpawnDelay = 2f;
     [SerializeField] private float spawnInterval = 3f;
 
@@ -27,7 +27,7 @@ public class WasteController : MonoBehaviour
     private void SpawnWaste()
     {
         GameObject waste = WastePool.Instance.GetWaste();
-        waste.transform.position = spawnPosition;
+        waste.transform.position = spawnPosition.position;
     }
 
     /*private void AdjustSpawnTiming()
@@ -42,7 +42,6 @@ public class WasteController : MonoBehaviour
 
         if (wasteHolder != null && binHolder != null && wasteHolder.wasteData.wasteType == binHolder.binData.acceptsType)
         {
-            GameController.Instance.
             Debug.Log("Correct sorting!");
             WastePool.Instance.ReturnWaste(wasteSelected);
             return true;
