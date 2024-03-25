@@ -22,11 +22,11 @@ public class Cameraview : MonoSingleton<Cameraview>
             float cameraMaxY = camera.transform.position.y + cameraHeight / 2f;
         maxcamera = cameraMaxX;
         mincamera = cameraMinX;
-            Debug.Log("Camera Bounds:");
+            /*Debug.Log("Camera Bounds:");
             Debug.Log("Min X: " + cameraMinX);
             Debug.Log("Max X: " + cameraMaxX);
             Debug.Log("Min Y: " + cameraMinY);
-            Debug.Log("Max Y: " + cameraMaxY);
+            Debug.Log("Max Y: " + cameraMaxY);*/
         }
     
 
