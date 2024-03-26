@@ -17,12 +17,14 @@ public class WasteDataHolder : MonoBehaviour
                 {
                     Debug.Log("Correct sorting!");
                     ScoreController.Instance.AddScore();
+                    //ScoreController.Instance.amount=ScoreController.Instance.amount + 5;
                 }
                 else
                 {
                     Debug.Log("Incorrect sorting.");
                     //ScoreController.Instance.RemoveScore();
                     BatteryController.Instance.ConsumeEnergy();
+                    //ScoreController.Instance.amount=ScoreController.Instance.startedamount;
                 }
             }
         }
