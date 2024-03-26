@@ -10,6 +10,7 @@ public class ConveyorBeltMovement : MonoBehaviour
     private Rigidbody rb;
     private float elapsedTime = 0f;
     public  float increaseSpeedInterval = 10;
+    public float acceleration;
     public float lenght;
     void Start()
     {
@@ -74,7 +75,7 @@ public class ConveyorBeltMovement : MonoBehaviour
     }
     void SpeedUp()
     {
-            speed+=0.1f;
+            speed+=acceleration;
     }
 
 
