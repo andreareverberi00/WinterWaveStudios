@@ -30,7 +30,7 @@ public class WasteController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval+Random.Range(-0.25f,0.25f));
             SpawnWaste();
             //AdjustSpawnTiming();
         }
@@ -47,7 +47,7 @@ public class WasteController : MonoBehaviour
         spawnInterval = Mathf.Max(spawnInterval * 0.95f, 1f);
     }*/
 
-    public bool CheckWasteAndBin(GameObject wasteSelected, GameObject binSelected)
+    /*public bool CheckWasteAndBin(GameObject wasteSelected, GameObject binSelected)
     {
         WasteDataHolder wasteHolder = wasteSelected.GetComponent<WasteDataHolder>();
         BinDataHolder binHolder = binSelected.GetComponent<BinDataHolder>();
@@ -64,6 +64,6 @@ public class WasteController : MonoBehaviour
             WastePool.Instance.ReturnWaste(wasteSelected);
             return false;
         }
-    }
+    }*/
 
 }

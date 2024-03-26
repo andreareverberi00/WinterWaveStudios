@@ -3,29 +3,35 @@ using UnityEngine;
 public class WasteDataHolder : MonoBehaviour
 {
     public Waste wasteData;
-
     void OnTriggerEnter(Collider other)
     {
-        // Controlla se l'oggetto che ha innescato il trigger è un Bin
         if (other.CompareTag("Bin"))
         {
-            // Ottieni il BinDataHolder dall'oggetto con cui hai colliso
             BinDataHolder binHolder = other.GetComponent<BinDataHolder>();
             if (binHolder != null && wasteData != null)
             {
-                // Controlla se il tipo di rifiuto corrisponde al tipo accettato dal Bin
-                if (wasteData.wasteType == binHolder.binData.acceptsType)
+                bool isCorrectSorting = wasteData.wasteType == binHolder.binData.acceptsType;
+                WastePool.Instance.ReturnWaste(gameObject);
+
+                if (isCorrectSorting)
                 {
                     Debug.Log("Correct sorting!");
+                    ScoreController.Instance.AddScore();
                 }
                 else
                 {
                     Debug.Log("Incorrect sorting.");
+                    //ScoreController.Instance.RemoveScore();
+                    BatteryController.Instance.ConsumeEnergy();
                 }
-                // Indipendentemente dal risultato, il rifiuto viene restituito al pool
-                WastePool.Instance.ReturnWaste(gameObject);
             }
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Floor"))
+                WastePool.Instance.ReturnWaste(gameObject);
+
     }
     private void Update()
     {
