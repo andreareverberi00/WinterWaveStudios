@@ -139,7 +139,7 @@ public class TouchPhysics : MonoBehaviour {
 				RCH.collider.gameObject.GetComponent<Rigidbody>() != null && !AlreadyTouched
 				)
 			{
-				
+				RCH.collider.gameObject.GetComponent<Rigidbody>().constraints=RigidbodyConstraints.None;
 				Vector3 WorldPosition =  screenRay.GetPoint(RCH.distance);
 
 				if (AutoTouchDistance)
