@@ -7,8 +7,8 @@ public class BatteryController : MonoBehaviour
     public int maxEnergy = 100;
     public int consumeEnergyAmount = 20;
 
-    public float energyDrainRate = 1f; // Quanta energia viene consumata ogni secondo.
-    public float energyDrainInterval = 1f; // Intervallo in secondi a cui l'energia si riduce.
+    public float energyDrainRate = 1f;
+    public float energyDrainInterval = 1f;
 
     private void Awake()
     {
@@ -25,7 +25,6 @@ public class BatteryController : MonoBehaviour
     }
     private void DrainEnergy()
     {
-        // Riduce l'energia basata sul tasso di consumo e aggiorna l'UI
         currentEnergy = Mathf.Max(currentEnergy - Mathf.RoundToInt(energyDrainRate * energyDrainInterval), 0);
         UIController.Instance.UpdateEnergy(currentEnergy);
         CheckForGameOver();
@@ -42,7 +41,7 @@ public class BatteryController : MonoBehaviour
     {
         if (currentEnergy <= 0)
         {
-            // Logica di Game Over
+            // Game Over
             // UIController.Instance.ShowGameOverScreen();
         }
     }

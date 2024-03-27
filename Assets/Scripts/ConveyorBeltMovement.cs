@@ -7,12 +7,16 @@ public class ConveyorBeltMovement : MonoBehaviour
     [Range(1f,5f)]
     public float speed = 1;
 
+    [Range(5f, 6f)]
+    public float maxSpeed = 6f;
+
     private Rigidbody rb;
     private float elapsedTime = 0f;
     public  float increaseSpeedInterval = 10;
     public float acceleration;
     public float lenght;
     Vector3 startposition;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -47,7 +51,7 @@ public class ConveyorBeltMovement : MonoBehaviour
             elapsedTime = 0f;
         }
         Movement();
-        Debug.Log(transform.position.z);
+        //Debug.Log(transform.position.z);
     }
 
     void Movement()
@@ -77,7 +81,8 @@ public class ConveyorBeltMovement : MonoBehaviour
     }
     void SpeedUp()
     {
-            //speed+=acceleration;
+        if(speed<maxSpeed)
+            speed+=acceleration;
     }
 
 

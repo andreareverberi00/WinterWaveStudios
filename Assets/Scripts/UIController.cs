@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoSingleton<UIController>
 {
@@ -32,7 +30,14 @@ public class UIController : MonoSingleton<UIController>
             energySlider.value = newEnergy;
         }
     }
-
+    public void Restart() 
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void HidePauseButton()
     { PauseButton.SetActive(false); }
     public void ShowPauseButton()

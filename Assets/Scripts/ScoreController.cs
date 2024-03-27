@@ -16,7 +16,7 @@ public class ScoreController : MonoBehaviour
         {
             Instance = this;
         }
-        Score = 0; // Inizializza il punteggio a 0
+        Score = 0; 
     }
 
     public void AddScore()
@@ -29,14 +29,13 @@ public class ScoreController : MonoBehaviour
         Score -= amount;
         if (Score < 0)
         {
-            Score = 0; // Impedisce al punteggio di scendere sotto lo 0
+            Score = 0;
         }
         UpdateScoreUI();
     }
 
     private void UpdateScoreUI()
     {
-        // Aggiorna l'UI del punteggio
         UIController.Instance.SetScore(Score);
         Debug.Log("Score: " + Score);
     }

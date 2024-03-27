@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour
 {
-    public int energyAmount = 20; 
+    public int energyAmount = 10; 
 
     private void OnMouseDown()
     {
@@ -13,7 +13,7 @@ public class Battery : MonoBehaviour
     {
         if (transform.position.x >= Cameraview.Instance.maxcamera)
         {
-            Destroy(gameObject);
+            WastePool.Instance.ReturnWaste(gameObject);
         }
     }
 }

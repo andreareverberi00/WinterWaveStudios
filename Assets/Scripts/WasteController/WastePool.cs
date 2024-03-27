@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,55 +6,64 @@ public class WastePool : MonoBehaviour
 {
     public static WastePool Instance { get; private set; }
 
-    [SerializeField] private List<GameObject> wastePrefabs; // Lista di diversi prefabs di rifiuti
-    [SerializeField] private int poolSize = 20; // Dimensione del pool per ogni tipo di prefab
-    private List<Queue<GameObject>> pools = new List<Queue<GameObject>>(); // Lista di code, una per ogni tipo di prefab
+    [SerializeField] private List<GameObject> wastePrefabs;
+    [SerializeField] private GameObject batteryPrefab; 
+    [SerializeField] private int poolSize = 20; 
+    [SerializeField] private int batteryPoolSize = 5; 
+    private List<GameObject> pool = new List<GameObject>(); 
 
     private void Awake()
     {
-        Instance = this;
-        InitializePools();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+        InitializePool();
     }
 
-    private void InitializePools()
+    private void InitializePool()
     {
-        // Inizializza un pool per ogni tipo di prefab
         foreach (GameObject prefab in wastePrefabs)
         {
-            var newPool = new Queue<GameObject>();
             for (int i = 0; i < poolSize; i++)
             {
                 var newWaste = Instantiate(prefab);
                 newWaste.SetActive(false);
-                newPool.Enqueue(newWaste);
+                pool.Add(newWaste);
             }
-            pools.Add(newPool); // Aggiunge il nuovo pool alla lista di pools
+        }
+
+        // BatteryPool
+        for (int i = 0; i < batteryPoolSize; i++)
+        {
+            var newBattery = Instantiate(batteryPrefab);
+            newBattery.SetActive(false);
+            pool.Add(newBattery);
         }
     }
 
     public GameObject GetWaste()
     {
-        // Scegli un pool casuale dalla lista dei pools
-        int randomIndex = Random.Range(0, pools.Count);
-        var pool = pools[randomIndex];
-
-        // Se la coda scelta è vuota, usa il pool successivo
         if (pool.Count == 0)
         {
-            randomIndex = (randomIndex + 1) % pools.Count;
-            pool = pools[randomIndex];
+            Debug.LogError("Pool is empty");
+            return null;
         }
 
-        // Prende un GameObject dal pool
-        var waste = pool.Dequeue();
-        waste.SetActive(true);
-        return waste;
+        int randomIndex = Random.Range(0, pool.Count);
+        GameObject selectedWaste = pool[randomIndex];
+        pool.RemoveAt(randomIndex);
+        selectedWaste.SetActive(true);
+        return selectedWaste;
     }
 
     public void ReturnWaste(GameObject waste)
     {
         waste.SetActive(false);
-        // Semplicemente rimette il GameObject in uno dei pools senza distinzione
-        pools[Random.Range(0, pools.Count)].Enqueue(waste);
+        pool.Add(waste);
     }
 }
