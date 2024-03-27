@@ -9,4 +9,11 @@ public class Battery : MonoBehaviour
         BatteryController.Instance.CollectBattery(energyAmount);
         WastePool.Instance.ReturnWaste(gameObject);
     }
+    private void Update()
+    {
+        if (transform.position.x >= Cameraview.Instance.maxcamera)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
