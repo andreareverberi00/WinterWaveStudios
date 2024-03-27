@@ -12,11 +12,12 @@ public class ConveyorBeltMovement : MonoBehaviour
     public  float increaseSpeedInterval = 10;
     public float acceleration;
     public float lenght;
+    Vector3 startposition;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
         lenght = GetComponent<Renderer>().bounds.size.x;
+        startposition = transform.position;
         //StartCoroutine(MoveObject());
     }
 
@@ -45,7 +46,8 @@ public class ConveyorBeltMovement : MonoBehaviour
             SpeedUp();
             elapsedTime = 0f;
         }
-        Movement();     
+        Movement();
+        Debug.Log(transform.position.z);
     }
 
     void Movement()
@@ -58,7 +60,7 @@ public class ConveyorBeltMovement : MonoBehaviour
             if (transform.position.x >= Cameraview.Instance.maxcamera +lenght)
             {
 
-                transform.position = new Vector3(Cameraview.Instance.mincamera-lenght/1.65f,transform.position.y,transform.position.z);
+                transform.position = new Vector3(Cameraview.Instance.mincamera-lenght/2.3f,transform.position.y,startposition.z);
                 
             }
          }
@@ -67,7 +69,7 @@ public class ConveyorBeltMovement : MonoBehaviour
             rb.velocity = Vector3.left * speed;
             if (transform.position.x <= Cameraview.Instance.mincamera-lenght)
             {
-                transform.position = new Vector3(Cameraview.Instance.maxcamera+lenght/1.65f , transform.position.y, transform.position.z);
+                transform.position = new Vector3(Cameraview.Instance.maxcamera+lenght/2.3f , transform.position.y,startposition.z);
 
             }
 
@@ -75,7 +77,7 @@ public class ConveyorBeltMovement : MonoBehaviour
     }
     void SpeedUp()
     {
-            speed+=acceleration;
+            //speed+=acceleration;
     }
 
 
