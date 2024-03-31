@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cameraview : MonoSingleton<Cameraview>
+public class CameraView : MonoSingleton<CameraView>
 {
     // Start is called before the first frame update
     [HideInInspector] public float mincamera;

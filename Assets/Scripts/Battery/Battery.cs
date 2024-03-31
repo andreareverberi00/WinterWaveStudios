@@ -11,7 +11,7 @@ public class Battery : MonoBehaviour
     }
     private void Update()
     {
-        if (transform.position.x >= Cameraview.Instance.maxcamera)
+        if (transform.position.x >= CameraView.Instance.maxcamera)
         {
             WastePool.Instance.ReturnWaste(gameObject);
         }
