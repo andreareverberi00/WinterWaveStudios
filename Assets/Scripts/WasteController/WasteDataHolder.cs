@@ -35,7 +35,11 @@ public class WasteDataHolder : MonoBehaviour
     }
     private void Update()
     {
-        if (transform.position.x >= CameraView.Instance.maxcamera)
+        if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y >= 0 )
+        {
+            transform.position=new Vector3(transform.position.x-1 ,0.5f,transform.position.z);
+        }
+        if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y <= 0)
         {
             WastePool.Instance.ReturnWaste(gameObject);
         }
