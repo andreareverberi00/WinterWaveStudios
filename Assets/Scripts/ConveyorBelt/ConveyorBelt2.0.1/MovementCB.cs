@@ -36,6 +36,7 @@ public class MovementCB: MonoBehaviour
         {
             AddSpeed();
         }
+
     }
 
     // Fixed update for physics

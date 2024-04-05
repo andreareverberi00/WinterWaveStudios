@@ -6,6 +6,7 @@ public class WasteController : MonoBehaviour
 {
     //[SerializeField] private List<Bin> activeBins = new List<Bin>();
     [SerializeField] private Transform spawnPosition;
+    [SerializeField] private Transform spawnPosition2;
     //[SerializeField] private float initialSpawnDelay = 2f;
     [SerializeField] private float spawnInterval = 3f;
     public static WasteController Instance { get; private set; }
@@ -32,6 +33,9 @@ public class WasteController : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval+Random.Range(-0.25f,0.25f));
             SpawnWaste();
+            if(ConveyorBeltController.Instance.anotherspawn==true)
+            { SpawnWaste2(); }
+            
             //AdjustSpawnTiming();
         }
     }
@@ -40,6 +44,11 @@ public class WasteController : MonoBehaviour
     {
         GameObject waste = WastePool.Instance.GetWaste();
         waste.transform.position = spawnPosition.position;
+    }
+    private void SpawnWaste2()
+    {
+        GameObject waste = WastePool.Instance.GetWaste();
+        waste.transform.position = spawnPosition2.position;
     }
 
     /*private void AdjustSpawnTiming()

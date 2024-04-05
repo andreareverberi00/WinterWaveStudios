@@ -16,8 +16,8 @@ public class GameController : MonoSingleton<GameController>
     private void Start()
     {
         StartNewGame();
-        UIController.Instance.ShowPauseButton();
-        UIController.Instance.HideResumeButton();
+        //UIController.Instance.ShowPauseButton();
+        //UIController.Instance.HideResumeButton();
     }
     public void AddScore() 
     {
@@ -27,7 +27,7 @@ public class GameController : MonoSingleton<GameController>
     void StartNewGame()
     {
         CreateRobot();
-        ConveyorBeltController.Instance.CreateAPiece();
+        ConveyorBeltController.Instance.ActiveObj();
     }
 
     void CreateRobot()
@@ -43,15 +43,15 @@ public class GameController : MonoSingleton<GameController>
     {
         Time.timeScale = 0; // Ferma il tempo nel gioco
         isPaused = true;
-        UIController.Instance.ShowResumeButton();
-        UIController.Instance.HidePauseButton();
+        //UIController.Instance.ShowResumeButton();
+        //UIController.Instance.HidePauseButton();
     }
     public void ResumeGame()
     {
         Time.timeScale = 1; // Riprende il tempo nel gioco
         isPaused = false;
-        UIController.Instance.ShowPauseButton();
-        UIController.Instance.HideResumeButton();
+        //UIController.Instance.ShowPauseButton();
+        //UIController.Instance.HideResumeButton();
 
     }
 

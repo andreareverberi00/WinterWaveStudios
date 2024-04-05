@@ -5,31 +5,31 @@ using UnityEngine;
 public class ConveyorBeltController : MonoSingleton<ConveyorBeltController>
 {
     public GameObject Belt;
+    public GameObject Belt2;
+    public GameObject Wastepoint;
+    public GameObject Wastepoint2;
+    public bool anotherspawn=false;
+    public int secondtoActive = 10;
+    private bool isObjectSpawned = false;
 
     void Start()
     {
         
+        Belt.SetActive(true);
+        Belt2.SetActive(false);
+        Wastepoint.SetActive(true);
+        Wastepoint2.SetActive(false);
     }
 
-    // Update is called once per frame
-    public  void CreateAPiece()
+    IEnumerator ActiveObject(float secondtoActive)
     {
-
-    GameObject CB1 = Instantiate(Belt, new Vector3(-8.63f, 0.37f, -1.53f), Quaternion.Euler(0,90,0));
-    GameObject CB2 = Instantiate(Belt, new Vector3(-3.43f, 0.37f, -1.53f), Quaternion.Euler(0, 90, 0));
-    GameObject CB3 = Instantiate(Belt, new Vector3(1.76f, 0.37f, -1.53f), Quaternion.Euler(0, 90, 0));
-    GameObject CB4= Instantiate(Belt, new Vector3(6.93f, 0.37f, -1.53f), Quaternion.Euler(0, 90, 0));
-    GameObject CB5= Instantiate(Belt, new Vector3(12.13f, 0.37f, -1.53f), Quaternion.Euler(0, 90, 0));
-
-        GameObject CB6 = Instantiate(Belt, new Vector3(-8.63f, -0.63f, -1.53f), Quaternion.Euler(0, 90, 0));
-        GameObject CB7 = Instantiate(Belt, new Vector3(-3.43f, -0.63f, -1.53f), Quaternion.Euler(0, 90, 0));
-        GameObject CB8 = Instantiate(Belt, new Vector3(1.76f, -0.63f, -1.53f), Quaternion.Euler(0, 90, 0));
-        GameObject CB9 = Instantiate(Belt, new Vector3(6.93f, -0.63f, -1.53f), Quaternion.Euler(0, 90, 0));
-        GameObject CB10 = Instantiate(Belt, new Vector3(12.13f, -0.63f, -1.53f), Quaternion.Euler(0, 90, 0));
-
-
+        yield return new WaitForSeconds(secondtoActive);
+        Belt2.SetActive(true);
+        Wastepoint2.SetActive(true);
+        anotherspawn = true;
     }
-
-    //}
-
+    public void ActiveObj()
+    {
+        StartCoroutine(ActiveObject(secondtoActive));
+    }
 }
