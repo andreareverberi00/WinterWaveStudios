@@ -5,17 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoSingleton<UIController>
 {
-    public static new UIController Instance { get; private set; }
 
-    //public GameObject PauseButton;
-    //public GameObject ResumeButton;
+    public GameObject PauseButton;
+    public GameObject ResumeButton;
 
     public TMP_Text scoreText;
     public Slider energySlider; 
 
     private void Awake()
     {
-        Instance = this;
         energySlider.value=energySlider.maxValue;
     }
 
@@ -38,12 +36,12 @@ public class UIController : MonoSingleton<UIController>
     {
         Application.Quit();
     }
-    //public void HidePauseButton()
-    //{ PauseButton.SetActive(false); }
-    //public void ShowPauseButton()
-    //{ PauseButton.SetActive(true); }
-    //public void HideResumeButton()
-    //{ ResumeButton.SetActive(false); }
-    //public void ShowResumeButton()
-    //{ ResumeButton.SetActive(true); }
+    public void HidePauseButton()
+    { PauseButton.SetActive(false); }
+    public void ShowPauseButton()
+    { PauseButton.SetActive(true); }
+    public void HideResumeButton()
+    { ResumeButton.SetActive(false); }
+    public void ShowResumeButton()
+    { ResumeButton.SetActive(true); }
 }
