@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class BatteryController : MonoBehaviour
+public class BatteryController : MonoSingleton<BatteryController>
 {
-    public static BatteryController Instance { get; private set; }
     public int currentEnergy { get; private set; }
     public int maxEnergy = 100;
     public int consumeEnergyAmount = 20;
@@ -10,16 +9,8 @@ public class BatteryController : MonoBehaviour
     public float energyDrainRate = 1f;
     public float energyDrainInterval = 1f;
 
-    private void Awake()
+    private void Start()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
         currentEnergy = maxEnergy;
         InvokeRepeating("DrainEnergy", energyDrainInterval, energyDrainInterval);
     }
@@ -41,8 +32,14 @@ public class BatteryController : MonoBehaviour
     {
         if (currentEnergy <= 0)
         {
-            // Game Over
-            // UIController.Instance.ShowGameOverScreen();
+            // Al termine della partita
+            int finalScore = ScoreController.Instance.Score;
+            int correctThrows = ScoreController.Instance.CorrectlyThrownWastes;
+            int missedThrows = ScoreController.Instance.MissedWastes;
+            string grade = ScoreController.Instance.CalculateGrade();
+
+            UIController.Instance.ShowGameOverPanel(finalScore, correctThrows, missedThrows, grade);
+
         }
     }
 

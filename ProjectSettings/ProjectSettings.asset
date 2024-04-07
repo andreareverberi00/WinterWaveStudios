@@ -768,8 +768,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Turbo Trash
-  metroPackageVersion: 
+  metroPackageName: TurboTrash
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -777,7 +777,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Turbo Trash
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Turbo Trash
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
