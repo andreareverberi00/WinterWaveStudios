@@ -23,7 +23,7 @@ public class ThrowController : MonoBehaviour
     public float xForceFactor;
     public float yForceFactor = 5;
     public float zForceFactor = 5;
-
+    public LayerMask LayerMask;
 
     void SetupWaste(GameObject selectedWaste)
     {
@@ -76,7 +76,7 @@ public class ThrowController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit _hit;
 
-            if (Physics.Raycast(ray, out _hit, 50f)&&_hit.collider.gameObject.CompareTag(selectableObjectTag))
+            if (Physics.Raycast(ray, out _hit, 50f,LayerMask))
             {
                 SetupWaste(_hit.transform.gameObject);
 

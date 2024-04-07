@@ -7,13 +7,13 @@ public class Battery : MonoBehaviour
     private void OnMouseDown()
     {
         BatteryController.Instance.CollectBattery(energyAmount);
-        WastePool.Instance.ReturnWaste(gameObject);
+        WastePool.Instance.ReturnBattery(gameObject);
     }
     private void Update()
     {
         if (transform.position.x >= CameraView.Instance.maxcamera)
         {
-            WastePool.Instance.ReturnWaste(gameObject);
+            WastePool.Instance.ReturnBattery(gameObject);
         }
     }
 }

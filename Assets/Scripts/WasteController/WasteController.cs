@@ -4,66 +4,93 @@ using UnityEngine;
 
 public class WasteController : MonoBehaviour
 {
-    //[SerializeField] private List<Bin> activeBins = new List<Bin>();
+    [SerializeField] private List<BinDataHolder> activeBins = new List<BinDataHolder>();
     [SerializeField] private Transform spawnPosition;
-    //[SerializeField] private float initialSpawnDelay = 2f;
     [SerializeField] private float spawnInterval = 3f;
+    [SerializeField,Range(0,100)] private int spawnBatteryProbability=10;
+
     public static WasteController Instance { get; private set; }
 
-    private void Awake()
+    void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
-    private void Start()
+
+    void Start()
     {
         StartCoroutine(SpawnRoutine());
     }
 
-    private IEnumerator SpawnRoutine()
+    IEnumerator SpawnRoutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnInterval+Random.Range(-0.25f,0.25f));
-            SpawnWaste();
-            //AdjustSpawnTiming();
+            yield return new WaitForSeconds(spawnInterval + Random.Range(-0.25f, 0.25f));
+
+            bool spawnBattery = Random.Range(0, 100) < spawnBatteryProbability;
+
+            if (spawnBattery)
+            {
+                SpawnBattery();
+            }
+            else
+            {
+                SpawnWaste();
+            }
         }
     }
 
-    private void SpawnWaste()
+    void SpawnBattery()
     {
-        GameObject waste = WastePool.Instance.GetWaste();
-        waste.transform.position = spawnPosition.position;
+        GameObject battery = WastePool.Instance.GetBattery();
+        if (battery != null)
+        {
+            battery.transform.position = spawnPosition.position;
+        }
     }
 
-    /*private void AdjustSpawnTiming()
-    {
-        spawnInterval = Mathf.Max(spawnInterval * 0.95f, 1f);
-    }*/
 
-    /*public bool CheckWasteAndBin(GameObject wasteSelected, GameObject binSelected)
+    void SpawnWaste()
     {
-        WasteDataHolder wasteHolder = wasteSelected.GetComponent<WasteDataHolder>();
-        BinDataHolder binHolder = binSelected.GetComponent<BinDataHolder>();
-
-        if (wasteHolder != null && binHolder != null && wasteHolder.wasteData.wasteType == binHolder.binData.acceptsType)
+        GameObject waste = WastePool.Instance.GetWasteMatchingBins(activeBins);
+        if (waste != null)
         {
-            Debug.Log("Correct sorting!");
-            WastePool.Instance.ReturnWaste(wasteSelected);
-            return true;
+            waste.transform.position = spawnPosition.position;
         }
         else
         {
-            Debug.Log("Incorrect sorting.");
-            WastePool.Instance.ReturnWaste(wasteSelected);
-            return false;
+            Debug.LogWarning("No matching waste available to spawn.");
         }
-    }*/
+    }
 
+    public void AddBin(BinDataHolder newBin)
+    {
+        if (!activeBins.Contains(newBin))
+        {
+            activeBins.Add(newBin);
+        }
+    }
+    public void ActivateBin(BinDataHolder binDataHolder)
+    {
+        if (!activeBins.Contains(binDataHolder))
+        {
+            activeBins.Add(binDataHolder);
+        }
+    }
+
+    public void RemoveBin(BinDataHolder binToRemove)
+    {
+        if (activeBins.Contains(binToRemove))
+        {
+            activeBins.Remove(binToRemove);
+        }
+    }
 }

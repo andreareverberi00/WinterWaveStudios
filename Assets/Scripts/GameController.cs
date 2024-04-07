@@ -1,59 +1,77 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
 {
+    [SerializeField] private GameObject[] bins; 
+    [SerializeField] private GameObject conveyorBelt; 
 
-    //public GameObject RbotPrefab;
-    // private Player player;
-    //public Player Player { get { return player; } }
-
-    private int score;
-    [SerializeField] private int scoreToAdd;
+    [SerializeField] private int scoreToAdd = 10; 
+    private int score = 0;
     private bool isPaused = false;
+    
+    public float timeToAddFirstBin = 10f;
+    public float timeToAddSecondBin = 20f;
+    public float timeToAddConveyorBelt = 30f;
+    public float timeToAddThirdBin = 40f;
 
     private void Start()
     {
         StartNewGame();
-        UIController.Instance.ShowPauseButton();
-        UIController.Instance.HideResumeButton();
     }
-    public void AddScore() 
-    {
-        score+=scoreToAdd;
-        UIController.Instance.SetScore(score);
-    }
+
     void StartNewGame()
     {
-        CreateRobot();
-        ConveyorBeltController.Instance.CreateAPiece();
+        foreach (var bin in bins)
+        {
+            bin.SetActive(false);
+        }
+
+        bins[0].SetActive(true);
+        bins[1].SetActive(true);
+
+        StartCoroutine(ActivateBin(timeToAddFirstBin, 2)); 
+        StartCoroutine(ActivateBin(timeToAddSecondBin, 3)); 
+        StartCoroutine(ActivateSecondConveyorBelt(timeToAddConveyorBelt)); 
+        StartCoroutine(ActivateBin(timeToAddThirdBin, 4)); 
     }
 
-    void CreateRobot()
+    IEnumerator ActivateBin(float delay, int binIndex)
     {
-        //GameObject robot = Instantiate(RbotPrefab, Vector3.zero, Quaternion.identity);
-        //player = playerGO.GetComponent<Player>();
+        if (binIndex < bins.Length)
+        {
+            yield return new WaitForSeconds(delay);
+            bins[binIndex].SetActive(true);
+            WasteController.Instance.ActivateBin(bins[binIndex].GetComponentInChildren<BinDataHolder>());
+        }
     }
-    private void QuitGame()
-    {
 
+
+    IEnumerator ActivateSecondConveyorBelt(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        // Es: conveyorBelt.ActivateSecondBelt();
     }
+
+    public void AddScore()
+    {
+        score += scoreToAdd;
+        UIController.Instance.SetScore(score);
+    }
+
     public void PauseGame()
     {
-        Time.timeScale = 0; // Ferma il tempo nel gioco
+        Time.timeScale = 0;
         isPaused = true;
         UIController.Instance.ShowResumeButton();
         UIController.Instance.HidePauseButton();
     }
+
     public void ResumeGame()
     {
-        Time.timeScale = 1; // Riprende il tempo nel gioco
+        Time.timeScale = 1;
         isPaused = false;
         UIController.Instance.ShowPauseButton();
         UIController.Instance.HideResumeButton();
-
     }
-
 }
-
