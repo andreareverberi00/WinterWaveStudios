@@ -1765,13 +1765,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 4eabbe777e001684994ff136a512c87b, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1063619378240555735, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+    - {fileID: 2175518378995657636, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7868013130410078620, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
-      insertIndex: 7
+      insertIndex: 6
       addedObject: {fileID: 1683620574}
     - targetCorrespondingSourceObject: {fileID: 7048702805038764722, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
-      insertIndex: 1
+      insertIndex: 0
       addedObject: {fileID: 724100798}
     - targetCorrespondingSourceObject: {fileID: 3796675988232569338, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       insertIndex: -1
@@ -3456,7 +3458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.845
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3504,7 +3506,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 201f5b2c81b8cd64cb95156a65cd0e0e, type: 2}
     - target: {fileID: 919132149155446097, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_Name
-      value: speaker2
+      value: Speaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1660016100091177900, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3529,6 +3535,14 @@ PrefabInstance:
     - target: {fileID: 1660016100091177900, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2231595283643976149, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239894598265077863, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5673205670555336034, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_Materials.Array.data[0]
