@@ -3,6 +3,7 @@ using UnityEngine;
 public class WasteDataHolder : MonoBehaviour
 {
     public Waste wasteData;
+    public GameObject Portal;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))
@@ -33,6 +34,11 @@ public class WasteDataHolder : MonoBehaviour
     {
         if(collision.collider.CompareTag("Floor"))
                 WastePool.Instance.ReturnWaste(gameObject);
+        if (collision.collider.GetType() == typeof(CapsuleCollider))
+        {
+            Debug.Log("Collisione con un oggetto che ha un capsule collider");
+            transform.position = new Vector3(Portal.transform.position.x+0.1f, Portal.transform.position.y, Portal.transform.position.z);
+        }
 
     }
     private void Update()
