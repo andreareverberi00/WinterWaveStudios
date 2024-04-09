@@ -7,13 +7,19 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int Score { get; private set; }
     public int CorrectlyThrownWastes { get; private set; }
     public int MissedWastes { get; private set; }
+    public int ConsecutiveCorrectThrows { get; private set; }
 
-    public int amount;
+    public int amount; 
+    public int numberOfCorrectThrowsForReward = 4; 
+    public int rewardScore = 10; 
+    public int rewardEnergy = 10;
+
     private void Start()
     {
-        Score = 0; 
+        Score = 0;
         CorrectlyThrownWastes = 0;
         MissedWastes = 0;
+        ConsecutiveCorrectThrows = 0;
     }
 
     public void AddScore()
@@ -33,11 +39,28 @@ public class ScoreController : MonoSingleton<ScoreController>
     public void RecordCorrectThrow()
     {
         CorrectlyThrownWastes++;
+        ConsecutiveCorrectThrows++;
+        CheckForReward();
     }
 
     public void RecordMissedThrow()
     {
         MissedWastes++;
+        ConsecutiveCorrectThrows = 0;
+    }
+
+    private void CheckForReward()
+    {
+        if (ConsecutiveCorrectThrows >= numberOfCorrectThrowsForReward) 
+        {
+            Score += rewardScore;
+            // or BatteryController.Instance.CollectBattery(10);
+
+            ConsecutiveCorrectThrows = 0;
+            UpdateScoreUI();
+
+            UIController.Instance.ShowStreakFeedback(numberOfCorrectThrowsForReward);
+        }
     }
     private void UpdateScoreUI()
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class UIController : MonoSingleton<UIController>
 {
@@ -9,18 +10,20 @@ public class UIController : MonoSingleton<UIController>
     public GameObject ResumeButton;
 
     public TMP_Text scoreText;
-    public Slider energySlider;
+    public Image energySlider;
 
     public GameObject gameOverPanel;
     public TMP_Text finalScoreText;
     public TMP_Text correctThrowsText;
     public TMP_Text missedThrowsText;
     public TMP_Text gradeText;
+    public TMP_Text streakFeedbackText;
 
     private void Start()
     {
-        energySlider.value=energySlider.maxValue;
+        energySlider.fillAmount=1f;
         gameOverPanel.SetActive(false);
+        streakFeedbackText.gameObject.SetActive(false);
     }
 
     public void SetScore(int score)
@@ -31,7 +34,9 @@ public class UIController : MonoSingleton<UIController>
     {
         if (energySlider != null)
         {
-            energySlider.value = newEnergy;
+            float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
+            print(clampedEnergy);
+            energySlider.fillAmount = clampedEnergy;
         }
     }
     public void Restart() 
@@ -53,6 +58,19 @@ public class UIController : MonoSingleton<UIController>
 
         //HidePauseButton();
         //HideResumeButton();
+    }
+    public void ShowStreakFeedback(int streakCount)
+    {
+        streakFeedbackText.text = "Streak of " + streakCount + "!";
+        streakFeedbackText.gameObject.SetActive(true);
+
+        StartCoroutine(HideStreakFeedback());
+    }
+
+    IEnumerator HideStreakFeedback()
+    {
+        yield return new WaitForSeconds(2f);
+        streakFeedbackText.gameObject.SetActive(false);
     }
 
     public void HidePauseButton()
