@@ -28,7 +28,7 @@ public class UIController : MonoSingleton<UIController>
 
     public void SetScore(int score)
     {
-        scoreText.text = score.ToString("D2");
+        scoreText.text = score.ToString("0000");
     }
     public void UpdateEnergy(int newEnergy)
     {
