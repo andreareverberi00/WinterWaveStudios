@@ -64,15 +64,15 @@ public class GameController : MonoSingleton<GameController>
     {
         Time.timeScale = 0;
         isPaused = true;
-        UIController.Instance.ShowResumeButton();
         UIController.Instance.HidePauseButton();
+        UIController.Instance.ShowPausePanel();
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
         isPaused = false;
+        UIController.Instance.HidePausePanel();
         UIController.Instance.ShowPauseButton();
-        UIController.Instance.HideResumeButton();
     }
 }

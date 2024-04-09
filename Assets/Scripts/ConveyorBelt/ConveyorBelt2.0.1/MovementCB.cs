@@ -45,8 +45,6 @@ public class MovementCB: MonoBehaviour
             //AddSpeed();
             AddSpeedSpeaker();
         }
-        Debug.Log(speed);
-        Debug.Log(SpeakerController.Instance.Speed);
     }
 
     // Fixed update for physics

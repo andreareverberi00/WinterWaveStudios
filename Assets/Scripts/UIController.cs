@@ -13,6 +13,8 @@ public class UIController : MonoSingleton<UIController>
     public Image energySlider;
 
     public GameObject gameOverPanel;
+    public GameObject pausePanel;
+
     public TMP_Text finalScoreText;
     public TMP_Text correctThrowsText;
     public TMP_Text missedThrowsText;
@@ -23,6 +25,7 @@ public class UIController : MonoSingleton<UIController>
     {
         energySlider.fillAmount=1f;
         gameOverPanel.SetActive(false);
+        pausePanel.SetActive(false);
         streakFeedbackText.gameObject.SetActive(false);
     }
 
@@ -55,9 +58,10 @@ public class UIController : MonoSingleton<UIController>
         missedThrowsText.text = "Missed Throws: " + missedThrows;
         gradeText.text = "Grade: " + grade;
 
-        //HidePauseButton();
-        //HideResumeButton();
+        HidePausePanel();
+        HidePauseButton();
     }
+
     public void ShowStreakFeedback(int streakCount)
     {
         streakFeedbackText.text = "Streak of " + streakCount + "!";
@@ -72,12 +76,16 @@ public class UIController : MonoSingleton<UIController>
         streakFeedbackText.gameObject.SetActive(false);
     }
 
+    public void HidePausePanel()
+    { 
+        pausePanel.SetActive(false);
+    }
+    public void ShowPausePanel()
+    {
+        pausePanel.SetActive(true);
+    }
     public void HidePauseButton()
     { PauseButton.SetActive(false); }
     public void ShowPauseButton()
     { PauseButton.SetActive(true); }
-    public void HideResumeButton()
-    { ResumeButton.SetActive(false); }
-    public void ShowResumeButton()
-    { ResumeButton.SetActive(true); }
 }
