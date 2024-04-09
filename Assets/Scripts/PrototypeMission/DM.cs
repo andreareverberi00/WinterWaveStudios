@@ -30,7 +30,7 @@ public class DM : ScriptableObject
 
         foreach(MissionGoals objective in Goals)
         {
-            objectiveText += objective.GetObjectiveText();
+            //objectiveText += objective.GetObjectiveText();
             objectiveText += "\n";
         }
 

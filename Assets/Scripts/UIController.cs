@@ -28,14 +28,13 @@ public class UIController : MonoSingleton<UIController>
 
     public void SetScore(int score)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = score.ToString("D2");
     }
     public void UpdateEnergy(int newEnergy)
     {
         if (energySlider != null)
         {
             float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
-            print(clampedEnergy);
             energySlider.fillAmount = clampedEnergy;
         }
     }
