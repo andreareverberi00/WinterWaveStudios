@@ -20,6 +20,7 @@ public class GameController : MonoSingleton<GameController>
         StartNewGame();
     }
 
+
     void StartNewGame()
     {
         foreach (var bin in bins)
