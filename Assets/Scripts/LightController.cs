@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Light : MonoBehaviour
+public class LightController : MonoBehaviour
 {
     public Light luceRuotante;
     public Light luceRuotante2;

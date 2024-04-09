@@ -373,7 +373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 188237286}
   - component: {fileID: 188237285}
-  - component: {fileID: 188237287}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -420,22 +419,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1235922325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &188237287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188237284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de2f89a958b34645a02131b8d5943b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  luceRuotante: {fileID: 1473290591}
-  luceRuotante2: {fileID: 1124903683}
-  Speaker: {fileID: 1816103666}
-  velocitaRotazione: 100
 --- !u!1 &200561415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1308,16 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!108 &455522410 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 8304501729234999995, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+  m_PrefabInstance: {fileID: 726657204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &455522411 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3428539426443140512, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+  m_PrefabInstance: {fileID: 726657204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &714903996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4607711780836106204, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
@@ -1338,6 +1331,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1502717419716585084, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: luceRuotante2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4054302904839129166, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Name
       value: Envinroment
@@ -1382,7 +1379,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3471674476828403800, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+    - {fileID: 1502717419716585084, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2158,17 +2157,54 @@ MonoBehaviour:
   spawnPosition: {fileID: 1417924664}
   spawnInterval: 2.25
   spawnBatteryProbability: 10
---- !u!114 &1124903683 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3471674476828403800, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
-  m_PrefabInstance: {fileID: 726657204}
+--- !u!1 &1120203563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120203564}
+  - component: {fileID: 1120203565}
+  m_Layer: 0
+  m_Name: LightController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120203564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120203563}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235922325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120203565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120203563}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0de2f89a958b34645a02131b8d5943b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  luceRuotante: {fileID: 455522411}
+  luceRuotante2: {fileID: 455522410}
+  Speaker: {fileID: 1816103666}
+  velocitaRotazione: 100
 --- !u!1 &1174821600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,6 +2324,7 @@ Transform:
   - {fileID: 1330708484}
   - {fileID: 188237286}
   - {fileID: 1733906412}
+  - {fileID: 1120203564}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330708482
@@ -2607,17 +2644,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1235922325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1473290591 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1502717419716585084, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
-  m_PrefabInstance: {fileID: 726657204}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de2f89a958b34645a02131b8d5943b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1488996998
 GameObject:
   m_ObjectHideFlags: 0
