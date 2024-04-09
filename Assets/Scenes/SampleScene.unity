@@ -429,13 +429,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 188237284}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de2f89a958b34645a02131b8d5943b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 19b748bc7fa3cac4ab2f5c7369a52b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   luceRuotante: {fileID: 1473290591}
   luceRuotante2: {fileID: 1124903683}
   Speaker: {fileID: 1816103666}
-  velocitaRotazione: 100
+  velocitaRotazione: 30
 --- !u!1 &200561415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,9 +1338,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3864216388737152637, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4054302904839129166, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Name
       value: Envinroment
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757134606122138867, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757134606122138867, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757134606122138867, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7868013130410078620, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1381,6 +1397,10 @@ PrefabInstance:
     - target: {fileID: 7868013130410078620, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149553670509789438, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
