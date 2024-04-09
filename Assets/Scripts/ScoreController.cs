@@ -74,19 +74,23 @@ public class ScoreController : MonoSingleton<ScoreController>
 
         float correctPercentage = (float) CorrectlyThrownWastes/ (CorrectlyThrownWastes + MissedWastes) * 100;
 
-        if (correctPercentage >= 90)
+        if (correctPercentage >= 98)
+        {
+            return "S";
+        }
+        else if (correctPercentage >= 90)
         {
             return "A";
         }
-        else if (correctPercentage >= 75)
+        else if (correctPercentage >= 80)
         {
             return "B";
         }
-        else if (correctPercentage >= 50)
+        else if (correctPercentage >= 70)
         {
             return "C";
         }
-        else if (correctPercentage >= 25)
+        else if (correctPercentage >= 60)
         {
             return "D";
         }
