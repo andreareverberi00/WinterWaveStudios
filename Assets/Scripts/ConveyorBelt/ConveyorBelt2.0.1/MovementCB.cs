@@ -5,17 +5,23 @@ using UnityEngine;
 public class MovementCB: MonoBehaviour
 {
     [SerializeField]
-    private float speed, conveyorSpeed;
+    private float speed, conveyorSpeed,initialspeed,ac;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
     private List<GameObject> onBelt;
+    [SerializeField]
     public bool accelaration ;
+    [SerializeField]
     private Material material;
+    [SerializeField]
     private float elapsedTime = 0f;
+    [SerializeField]
     public float increaseSpeedInterval = 10;
+    [SerializeField]
     public float accelerationspeed = 0;
-    private int firstrun ;
+    [SerializeField]
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +29,9 @@ public class MovementCB: MonoBehaviour
          * This should only be necessary if the belts are using the same material and are moving different speeds
          */
         material = GetComponent<MeshRenderer>().material;
-        accelaration = false;
+        initialspeed = speed;
+        ac = speed * 2;
+        //accelaration = false;
     }
 
     // Update is called once per frame
@@ -34,9 +42,11 @@ public class MovementCB: MonoBehaviour
    
         if(accelaration==true)
         {
-            AddSpeed();
+            //AddSpeed();
+            AddSpeedSpeaker();
         }
-
+        Debug.Log(speed);
+        Debug.Log(SpeakerController.Instance.Speed);
     }
 
     // Fixed update for physics
@@ -59,7 +69,7 @@ public class MovementCB: MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         onBelt.Remove(collision.gameObject);
-        firstrun=1;
+
     }
     void AddSpeed()
     {
@@ -73,5 +83,16 @@ public class MovementCB: MonoBehaviour
 
         }
 
+    }
+    void AddSpeedSpeaker()
+    {
+        if(SpeakerController.Instance.Speed==true)
+        {
+            speed = ac;
+        }
+        else
+        {
+            speed = initialspeed;
+        }
     }
 }
