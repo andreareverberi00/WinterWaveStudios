@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luceRuotante: {fileID: 1473290591}
-  luceRuotante2: {fileID: 0}
+  luceRuotante2: {fileID: 1124903683}
   Speaker: {fileID: 1816103666}
   velocitaRotazione: 100
 --- !u!1 &200561415
@@ -2158,6 +2158,17 @@ MonoBehaviour:
   spawnPosition: {fileID: 1417924664}
   spawnInterval: 2.25
   spawnBatteryProbability: 10
+--- !u!114 &1124903683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3471674476828403800, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+  m_PrefabInstance: {fileID: 726657204}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de2f89a958b34645a02131b8d5943b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1174821600
 GameObject:
   m_ObjectHideFlags: 0
