@@ -1,8 +1,8 @@
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIController : MonoSingleton<UIController>
 {
@@ -23,7 +23,7 @@ public class UIController : MonoSingleton<UIController>
 
     private void Start()
     {
-        energySlider.fillAmount=1f;
+        energySlider.fillAmount = 1f;
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
         streakFeedbackText.gameObject.SetActive(false);
@@ -41,7 +41,7 @@ public class UIController : MonoSingleton<UIController>
             energySlider.fillAmount = clampedEnergy;
         }
     }
-    public void Restart() 
+    public void Restart()
     {
         SceneManager.LoadScene("SampleScene");
     }
@@ -51,7 +51,7 @@ public class UIController : MonoSingleton<UIController>
     }
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
     {
-        gameOverPanel.SetActive(true); 
+        gameOverPanel.SetActive(true);
 
         finalScoreText.text = "Final Score: " + finalScore;
         correctThrowsText.text = "Correct Throws: " + correctThrows;
@@ -77,7 +77,7 @@ public class UIController : MonoSingleton<UIController>
     }
 
     public void HidePausePanel()
-    { 
+    {
         pausePanel.SetActive(false);
     }
     public void ShowPausePanel()

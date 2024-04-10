@@ -1302,8 +1302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61527d6c54524b40b8d7680cfcdbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 35
-  layerMask:
+  minSwipeDistance: 0
+  throwSpeed: 15
+  selectableLayerMask:
     serializedVersion: 2
     m_Bits: 8
 --- !u!1 &663172125

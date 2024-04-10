@@ -1,13 +1,11 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System.Text;
 
 [System.Serializable]
 public class MissionGoals
 {
     //  throw 50 glass items in correct bin,
-//    play a full run without plastic items,
-//use only bins in the first row,
+    //    play a full run without plastic items,
+    //use only bins in the first row,
     public int PlasticCount;
     //public MonsterPrototype.eMonsterID TargetType;
 

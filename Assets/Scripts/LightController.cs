@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LightController : MonoBehaviour
@@ -18,7 +16,7 @@ public class LightController : MonoBehaviour
         // Ruota la luce attorno all'asse Y
         spotlight.transform.Rotate(Vector3.left, rotationSpeed * Time.deltaTime);
         spotlight2.transform.Rotate(Vector3.right, rotationSpeed * Time.deltaTime);
-        if(SpeakerController.Instance.Speed==true)
+        if (SpeakerController.Instance.Speed == true)
         {
             Spotlight.SetActive(true);
         }

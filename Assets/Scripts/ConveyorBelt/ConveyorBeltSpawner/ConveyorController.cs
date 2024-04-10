@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ConveyorController : MonoBehaviour
@@ -14,7 +13,7 @@ public class ConveyorController : MonoBehaviour
         StartCoroutine(SpawnObjectEvery10Seconds());
         Instantiate(Belt, transform.position, Quaternion.identity);
         Instantiate(W, transform.position, Quaternion.identity);
-        position = new Vector3 (0,0,z);
+        position = new Vector3(0, 0, z);
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class ConveyorController : MonoBehaviour
         {
             Instantiate(Belt, position, Quaternion.identity);
             Instantiate(W, position, Quaternion.identity);
-            position = new Vector3(0,0,z+2);
+            position = new Vector3(0, 0, z + 2);
             yield return new WaitForSeconds(10f);
         }
     }

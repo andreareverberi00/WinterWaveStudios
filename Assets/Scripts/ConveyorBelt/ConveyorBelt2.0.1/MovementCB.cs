@@ -1,17 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementCB: MonoBehaviour
+public class MovementCB : MonoBehaviour
 {
     [SerializeField]
-    private float speed, conveyorSpeed,initialspeed,ac;
+    private float speed, conveyorSpeed, initialspeed, ac;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
     private List<GameObject> onBelt;
     [SerializeField]
-    public bool accelaration ;
+    public bool accelaration;
     [SerializeField]
     private Material material;
     [SerializeField]
@@ -39,8 +38,8 @@ public class MovementCB: MonoBehaviour
     {
         // Move the conveyor belt texture to make it look like it's moving
         material.mainTextureOffset += new Vector2(1, 0) * conveyorSpeed * Time.deltaTime;
-   
-        if(accelaration==true)
+
+        if (accelaration == true)
         {
             //AddSpeed();
             AddSpeedSpeaker();
@@ -71,20 +70,20 @@ public class MovementCB: MonoBehaviour
     }
     void AddSpeed()
     {
-         elapsedTime += Time.deltaTime;
+        elapsedTime += Time.deltaTime;
 
         if (elapsedTime >= increaseSpeedInterval)
         {
             elapsedTime = 0f;
             speed += accelerationspeed;
-            conveyorSpeed += 0.065f*accelerationspeed;
+            conveyorSpeed += 0.065f * accelerationspeed;
 
         }
 
     }
     void AddSpeedSpeaker()
     {
-        if(SpeakerController.Instance.Speed==true)
+        if (SpeakerController.Instance.Speed == true)
         {
             speed = ac;
         }

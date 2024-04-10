@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Mission", menuName = "Create New Mission")]
 public class DM : ScriptableObject
@@ -13,7 +13,7 @@ public class DM : ScriptableObject
     {
         get
         {
-            foreach(MissionGoals goal in Goals)
+            foreach (MissionGoals goal in Goals)
             {
                 if (!goal.IsComplete)
                 {
@@ -28,7 +28,7 @@ public class DM : ScriptableObject
     {
         string objectiveText = "";
 
-        foreach(MissionGoals objective in Goals)
+        foreach (MissionGoals objective in Goals)
         {
             //objectiveText += objective.GetObjectiveText();
             objectiveText += "\n";
@@ -40,7 +40,7 @@ public class DM : ScriptableObject
 
     public void Reset()
     {
-        foreach(MissionGoals o in Goals)
+        foreach (MissionGoals o in Goals)
         {
             o.Reset();
         }

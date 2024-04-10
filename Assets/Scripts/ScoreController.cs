@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using static Waste;
 
 public class ScoreController : MonoSingleton<ScoreController>
 {
@@ -9,9 +7,9 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int MissedWastes { get; private set; }
     public int ConsecutiveCorrectThrows { get; private set; }
 
-    public int amount; 
-    public int numberOfCorrectThrowsForReward = 4; 
-    public int rewardScore = 10; 
+    public int amount;
+    public int numberOfCorrectThrowsForReward = 4;
+    public int rewardScore = 10;
     public int rewardEnergy = 10;
 
     private void Start()
@@ -51,7 +49,7 @@ public class ScoreController : MonoSingleton<ScoreController>
 
     private void CheckForReward()
     {
-        if (ConsecutiveCorrectThrows >= numberOfCorrectThrowsForReward) 
+        if (ConsecutiveCorrectThrows >= numberOfCorrectThrowsForReward)
         {
             Score += rewardScore;
             // or BatteryController.Instance.CollectBattery(10);
@@ -72,7 +70,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         if (CorrectlyThrownWastes + MissedWastes == 0)
             return "N/A"; // No throws were made
 
-        float correctPercentage = (float) CorrectlyThrownWastes/ (CorrectlyThrownWastes + MissedWastes) * 100;
+        float correctPercentage = (float)CorrectlyThrownWastes / (CorrectlyThrownWastes + MissedWastes) * 100;
 
         if (correctPercentage >= 98)
         {

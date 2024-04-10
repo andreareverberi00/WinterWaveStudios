@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
 {
-    [SerializeField] private GameObject[] bins; 
-    [SerializeField] private GameObject conveyorBelt; 
+    [SerializeField] private GameObject[] bins;
+    [SerializeField] private GameObject conveyorBelt;
 
-    [SerializeField] private int scoreToAdd = 10; 
+    [SerializeField] private int scoreToAdd = 10;
     private int score = 0;
     private bool isPaused = false;
-    
+
     public float timeToAddFirstBin = 10f;
     public float timeToAddSecondBin = 20f;
     public float timeToAddConveyorBelt = 30f;
@@ -31,10 +31,10 @@ public class GameController : MonoSingleton<GameController>
         bins[0].SetActive(true);
         bins[1].SetActive(true);
 
-        StartCoroutine(ActivateBin(timeToAddFirstBin, 2)); 
-        StartCoroutine(ActivateBin(timeToAddSecondBin, 3)); 
-        StartCoroutine(ActivateSecondConveyorBelt(timeToAddConveyorBelt)); 
-        StartCoroutine(ActivateBin(timeToAddThirdBin, 4)); 
+        StartCoroutine(ActivateBin(timeToAddFirstBin, 2));
+        StartCoroutine(ActivateBin(timeToAddSecondBin, 3));
+        StartCoroutine(ActivateSecondConveyorBelt(timeToAddConveyorBelt));
+        StartCoroutine(ActivateBin(timeToAddThirdBin, 4));
     }
 
     IEnumerator ActivateBin(float delay, int binIndex)

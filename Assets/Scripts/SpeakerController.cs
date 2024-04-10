@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeakerController : MonoSingleton <SpeakerController>
+public class SpeakerController : MonoSingleton<SpeakerController>
 {
     private int seconds;
-    public int secondacc=10;
+    public int secondacc = 10;
     public bool Speed = false;
     void Start()
     {
@@ -29,12 +28,12 @@ public class SpeakerController : MonoSingleton <SpeakerController>
     {
         StartCoroutine(Istant());
     }
-   IEnumerator Istant()
+    IEnumerator Istant()
     {
         Speed = true;
         yield return new WaitForSeconds(10);
         Speed = false;
-        
+
     }
-   
+
 }

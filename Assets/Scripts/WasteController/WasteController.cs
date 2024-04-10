@@ -7,7 +7,7 @@ public class WasteController : MonoBehaviour
     [SerializeField] private List<BinDataHolder> activeBins = new List<BinDataHolder>();
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private float spawnInterval = 3f;
-    [SerializeField,Range(0,100)] private int spawnBatteryProbability=10;
+    [SerializeField, Range(0, 100)] private int spawnBatteryProbability = 10;
 
     public static WasteController Instance { get; private set; }
 
