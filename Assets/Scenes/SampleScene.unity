@@ -373,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188237286}
   - component: {fileID: 188237285}
+  - component: {fileID: 188237287}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -419,6 +420,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1235922325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188237287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188237284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c012f0b998a21414fa5cb11b4c4b1b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waste: {fileID: 11400000, guid: 4768ec165bd85fa4aa22c9ff18bd61d9, type: 2}
+  Counter: 0
+  Counter2: 0
 --- !u!1 &200561415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &433097485
 Transform:
   m_ObjectHideFlags: 0
@@ -1530,6 +1546,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4051694184630632661, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1204359165}
     - targetCorrespondingSourceObject: {fileID: 3864216388737152637, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1473290594}
@@ -2488,6 +2507,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174821600}
   m_CullTransparentMesh: 1
+--- !u!114 &1204359165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347031927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c684601fbf7234f9a83fec4795b986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  binData: {fileID: 0}
 --- !u!1 &1205276726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,7 +2977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1330708483
 MonoBehaviour:
   m_ObjectHideFlags: 0

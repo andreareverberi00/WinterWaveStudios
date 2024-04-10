@@ -44,6 +44,12 @@ public class UIController : MonoSingleton<UIController>
     public void Restart() 
     {
         SceneManager.LoadScene("SampleScene");
+        PlayerPrefs.SetInt("score", TestMissions.Instance.Counter);
+        PlayerPrefs.Save();
+        Debug.Log("Score saved to PlayerPrefs: " + TestMissions.Instance.Counter);
+
+      
+
     }
     public void Quit()
     {
