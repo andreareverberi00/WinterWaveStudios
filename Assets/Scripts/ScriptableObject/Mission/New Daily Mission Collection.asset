@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec08dbaa7e2588409c6a9834de784e4, type: 3}
   m_Name: New Daily Mission Collection
   m_EditorClassIdentifier: 
-  Missions: []
+  Missions:
+  - {fileID: 11400000, guid: bd19d263fe9632d448b367a9f796f72b, type: 2}
+  - {fileID: 11400000, guid: 0c4dad75e5b097d4ab27cebc1255a0e9, type: 2}
