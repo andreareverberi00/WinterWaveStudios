@@ -27,6 +27,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
     void IstantSpeed()
     {
         StartCoroutine(Istant());
+        ScoreController.Instance.AddOvertimePeriod();
     }
     IEnumerator Istant()
     {

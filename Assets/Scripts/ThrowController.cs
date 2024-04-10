@@ -3,11 +3,10 @@ using UnityEngine;
 public class ThrowController : MonoBehaviour
 {
     private GameObject selectedWaste;
+    Rigidbody rb;
 
-    private float startTime, endTime, swipeDistance, swipeTime;
+    private float startTime, endTime, swipeTime;
     private Vector2 lastMousePosition;
-
-    public float minSwipeDistance = 0;
 
     [SerializeField]
     private float throwSpeed = 35f;
@@ -18,9 +17,8 @@ public class ThrowController : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
 
-    Rigidbody rb;
-
     public LayerMask selectableLayerMask;
+    public Vector3 force = new Vector3(1,1,1);
 
     void SetupWaste(GameObject selectedWaste)
     {
@@ -28,6 +26,7 @@ public class ThrowController : MonoBehaviour
         rb = this.selectedWaste.GetComponent<Rigidbody>();
         startPosition = this.selectedWaste.transform.position;
         startRotation = this.selectedWaste.transform.rotation;
+        rb.constraints = RigidbodyConstraints.None;
     }
     void ResetProperties()
     {
@@ -35,7 +34,6 @@ public class ThrowController : MonoBehaviour
 
         startTime = 0;
         endTime = 0;
-        swipeDistance = 0;
         swipeTime = 0;
 
         thrown = holding = false;
@@ -47,6 +45,7 @@ public class ThrowController : MonoBehaviour
         selectedWaste.transform.rotation = startRotation;
         selectedWaste = null;
         rb.velocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
 
     void PickupBall()
@@ -56,12 +55,12 @@ public class ThrowController : MonoBehaviour
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(mousePos);
         selectedWaste.transform.position = newPosition;
         selectedWaste.transform.rotation = startRotation;
-        //Vector3.Lerp(Ball.transform.position, newPosition, 80f * Time.deltaTime);
+        //Vector3.Lerp(selectedWaste.transform.position, newPosition, 80f * Time.deltaTime);
     }
 
     private void Update()
     {
-        if (holding)
+        if (holding&&selectedWaste)
             PickupBall();
 
         if (thrown)
@@ -83,6 +82,7 @@ public class ThrowController : MonoBehaviour
                 }
             }
         }
+
         if (holding && Input.GetMouseButtonUp(0))
         {
             endTime = Time.time;
@@ -111,18 +111,19 @@ public class ThrowController : MonoBehaviour
         float x = (mousePos.x / Screen.width) - (lastMousePosition.x / Screen.width);
         x = Mathf.Abs(Input.mousePosition.x - lastMousePosition.x) / Screen.width * 100 * x;
 
-        Vector3 direction = new Vector3(x, 0f, 1f);
+        Vector3 direction = new Vector3(x*force.x, 0f, 1f*force.z);
         direction = Camera.main.transform.TransformDirection(direction);
 
         Debug.DrawLine(selectedWaste.transform.position, selectedWaste.transform.position + direction, Color.red, 2f);
 
-        rb.AddForce((direction * speed / 2f) + (Vector3.up * speed));
+        rb.AddForce((direction * speed / 2f) + (Vector3.up * speed*force.y));
 
         holding = false;
         thrown = true;
 
-        ResetProperties();
+        selectedWaste.GetComponent<WasteDataHolder>().StartCoroutine("ReturnWaste");
 
+        ResetProperties();
     }
 
 }

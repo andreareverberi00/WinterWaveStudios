@@ -3,13 +3,15 @@ using UnityEngine;
 public class ScoreController : MonoSingleton<ScoreController>
 {
     public int Score { get; private set; }
+    public int OvertimePeriods { get; private set; }
+
     public int CorrectlyThrownWastes { get; private set; }
     public int MissedWastes { get; private set; }
     public int ConsecutiveCorrectThrows { get; private set; }
 
     public int amount;
     public int numberOfCorrectThrowsForReward = 4;
-    public int rewardScore = 10;
+    public int rewardScore = 50;
     public int rewardEnergy = 10;
 
     private void Start()
@@ -24,6 +26,11 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         Score += amount;
         UpdateScoreUI();
+    }
+    public void AddOvertimePeriod()
+    {
+        OvertimePeriods ++;
+        UpdateOvertimePeriodsUI();
     }
     public void RemoveScore()
     {
@@ -63,7 +70,10 @@ public class ScoreController : MonoSingleton<ScoreController>
     private void UpdateScoreUI()
     {
         UIController.Instance.SetScore(Score);
-        Debug.Log("Score: " + Score);
+    }
+    private void UpdateOvertimePeriodsUI()
+    {
+        UIController.Instance.SetOvertimePeriods(OvertimePeriods);
     }
     public string CalculateGrade()
     {

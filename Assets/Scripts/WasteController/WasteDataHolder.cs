@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class WasteDataHolder : MonoBehaviour
 {
     public Waste wasteData;
     public GameObject Portal;
-    public int Counter=0;
+    public int Counter = 0;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))
@@ -21,12 +22,12 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
                     BatteryController.Instance.CollectBattery(10);
-                    if(wasteData.wasteType==Waste.WasteType.Plastic)
+                    if (wasteData.wasteType == Waste.WasteType.Plastic)
                     {
                         TestMissions.Instance.Counter++;
                         TestMissions.Instance.Counter2++;
                     }
-                    if(wasteData.wasteType == Waste.WasteType.Metal)
+                    if (wasteData.wasteType == Waste.WasteType.Metal)
                     {
                         TestMissions.Instance.Counter2++;
                     }
@@ -36,7 +37,7 @@ public class WasteDataHolder : MonoBehaviour
                     }
 
                 }
-               
+
                 else
                 {
                     Debug.Log("Incorrect sorting.");
@@ -49,7 +50,10 @@ public class WasteDataHolder : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Floor"))
+        {
             WastePool.Instance.ReturnWaste(gameObject);
+            ScoreController.Instance.RecordMissedThrow();
+        }
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
 
@@ -66,7 +70,14 @@ public class WasteDataHolder : MonoBehaviour
         if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y <= 0)
         {
             WastePool.Instance.ReturnWaste(gameObject);
+            //BatteryController.Instance.ConsumeEnergy();
         }
-        
+    }
+    public IEnumerator ReturnWaste()
+    {
+        yield return new WaitForSeconds(4f);
+        WastePool.Instance.ReturnWaste(gameObject);
+        ScoreController.Instance.RecordMissedThrow();
+        BatteryController.Instance.ConsumeEnergy();
     }
 }

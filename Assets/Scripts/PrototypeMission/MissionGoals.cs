@@ -7,7 +7,7 @@ public class MissionGoals
     //    play a full run without plastic items,
     //use only bins in the first row,
     public int PlasticCount;
-    public Waste.WasteType target ;
+    public Waste.WasteType target;
 
     // explore quests
     public bool RunwithoutPlastic;

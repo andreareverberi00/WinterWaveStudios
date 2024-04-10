@@ -10,6 +10,8 @@ public class UIController : MonoSingleton<UIController>
     public GameObject ResumeButton;
 
     public TMP_Text scoreText;
+    public TMP_Text overtimePeriodsText;
+
     public Image energySlider;
 
     public GameObject gameOverPanel;
@@ -33,6 +35,10 @@ public class UIController : MonoSingleton<UIController>
     {
         scoreText.text = score.ToString("0000");
     }
+    public void SetOvertimePeriods(int overtimePeriods)
+    {
+        overtimePeriodsText.text = overtimePeriods.ToString();
+    }
     public void UpdateEnergy(int newEnergy)
     {
         if (energySlider != null)
@@ -48,7 +54,7 @@ public class UIController : MonoSingleton<UIController>
         PlayerPrefs.Save();
         Debug.Log("Score saved to PlayerPrefs: " + TestMissions.Instance.Counter);
 
-      
+
 
     }
     public void Quit()
