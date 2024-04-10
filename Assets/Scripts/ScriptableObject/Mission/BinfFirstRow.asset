@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4fa19f2fe261c64a85ca1a486958508, type: 3}
-  m_Name: New Mission
+  m_Name: BinfFirstRow
   m_EditorClassIdentifier: 
-  MissionName: 
-  MissionText: 
+  MissionName: BinfFirstRow
+  MissionText: use only bins in the first row
   Goals: []

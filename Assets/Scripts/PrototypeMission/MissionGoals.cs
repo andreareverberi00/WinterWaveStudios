@@ -9,7 +9,7 @@ public class MissionGoals
 //    play a full run without plastic items,
 //use only bins in the first row,
     public int PlasticCount;
-    //public MonsterPrototype.eMonsterID TargetType;
+    public Waste.WasteType target ;
 
     // explore quests
     public bool RunwithoutPlastic;
@@ -27,7 +27,7 @@ public class MissionGoals
         ObjectiveCount++;
 
         //  throw 50 glass items in correct bin,
-        if (PlasticCount >= 50 /*&& ObjectiveCount >= PlasticCount*/)
+        if (PlasticCount >= 50 && ObjectiveCount >= PlasticCount)
         {
             isComplete = true;
         }

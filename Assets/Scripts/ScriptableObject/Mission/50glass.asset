@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4fa19f2fe261c64a85ca1a486958508, type: 3}
-  m_Name: New Mission 2
+  m_Name: 50glass
   m_EditorClassIdentifier: 
-  MissionName: 
-  MissionText: 
+  MissionName: 50 correct glass
+  MissionText: throw 50 glass items in correct bin,
   Goals: []
