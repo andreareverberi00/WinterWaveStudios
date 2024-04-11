@@ -3,7 +3,6 @@ using UnityEngine;
 public class GravityBox : MonoBehaviour
 {
     private Transform targetPoint;
-    public float attractionForce = 10f;
 
     private void Start()
     {
@@ -19,7 +18,8 @@ public class GravityBox : MonoBehaviour
             if (rb != null)
             {
                 Vector3 direction = (targetPoint.position - other.transform.position).normalized;
-                rb.AddForce(direction * attractionForce, ForceMode.Acceleration);
+                rb.AddForce(direction * GravityBoxController.Instance.AttractionForce, ForceMode.Acceleration);
+                Debug.Log(GravityBoxController.Instance.AttractionForce);
             }
         }
     }
