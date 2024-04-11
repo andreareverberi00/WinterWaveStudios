@@ -515,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188237286}
   - component: {fileID: 188237285}
+  - component: {fileID: 188237287}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -540,7 +541,6 @@ MonoBehaviour:
   - {fileID: 347031925}
   - {fileID: 347031924}
   - {fileID: 347031923}
-  conveyorBelt: {fileID: 0}
   scoreToAdd: 10
   timeToAddFirstBin: 10
   timeToAddSecondBin: 20
@@ -561,6 +561,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1235922325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188237287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188237284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c012f0b998a21414fa5cb11b4c4b1b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Counter: 0
+  Counter2: 0
+  AntiCounter2: 0
 --- !u!1 &200561415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3730,6 +3745,7 @@ MonoBehaviour:
   energySlider: {fileID: 829985899}
   gameOverPanel: {fileID: 1174821600}
   pausePanel: {fileID: 1035209094}
+  IsGameOver: 0
   finalScoreText: {fileID: 1490553775}
   correctThrowsText: {fileID: 36493606}
   missedThrowsText: {fileID: 1637939774}

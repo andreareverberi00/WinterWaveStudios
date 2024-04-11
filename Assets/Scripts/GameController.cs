@@ -4,8 +4,6 @@ using UnityEngine;
 public class GameController : MonoSingleton<GameController>
 {
     [SerializeField] private GameObject[] bins;
-    [SerializeField] private GameObject conveyorBelt;
-
     [SerializeField] private int scoreToAdd = 10;
     private int score = 0;
     private bool isPaused = false;
