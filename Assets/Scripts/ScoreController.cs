@@ -3,6 +3,8 @@ using UnityEngine;
 public class ScoreController : MonoSingleton<ScoreController>
 {
     public int Score { get; private set; }
+    public int Highscore { get; private set; }
+
     public int OvertimePeriods { get; private set; }
 
     public int CorrectlyThrownWastes { get; private set; }
@@ -16,6 +18,8 @@ public class ScoreController : MonoSingleton<ScoreController>
 
     private void Start()
     {
+        Highscore = PlayerPrefs.GetInt("Highscore", 0);
+
         Score = 0;
         CorrectlyThrownWastes = 0;
         MissedWastes = 0;
@@ -27,11 +31,22 @@ public class ScoreController : MonoSingleton<ScoreController>
         Score += amount;
         UpdateScoreUI();
     }
+
+    private void UpdateHighscore()
+    {
+        if (Score > Highscore)
+        {
+            Highscore = Score;
+            PlayerPrefs.SetInt("Highscore", Highscore);
+        }
+    }
+
     public void AddOvertimePeriod()
     {
-        OvertimePeriods ++;
+        OvertimePeriods++;
         UpdateOvertimePeriodsUI();
     }
+
     public void RemoveScore()
     {
         Score -= amount;
@@ -41,6 +56,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         }
         UpdateScoreUI();
     }
+
     public void RecordCorrectThrow()
     {
         CorrectlyThrownWastes++;
@@ -59,7 +75,6 @@ public class ScoreController : MonoSingleton<ScoreController>
         if (ConsecutiveCorrectThrows >= numberOfCorrectThrowsForReward)
         {
             Score += rewardScore;
-            // or BatteryController.Instance.CollectBattery(10);
 
             ConsecutiveCorrectThrows = 0;
             UpdateScoreUI();
@@ -67,16 +82,21 @@ public class ScoreController : MonoSingleton<ScoreController>
             UIController.Instance.ShowStreakFeedback(numberOfCorrectThrowsForReward);
         }
     }
+
     private void UpdateScoreUI()
     {
         UIController.Instance.SetScore(Score);
     }
+
     private void UpdateOvertimePeriodsUI()
     {
         UIController.Instance.SetOvertimePeriods(OvertimePeriods);
     }
+
     public string CalculateGrade()
     {
+        UpdateHighscore();
+
         if (CorrectlyThrownWastes + MissedWastes == 0)
             return "N/A"; // No throws were made
 
@@ -107,5 +127,4 @@ public class ScoreController : MonoSingleton<ScoreController>
             return "F";
         }
     }
-
 }
