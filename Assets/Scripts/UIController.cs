@@ -16,7 +16,7 @@ public class UIController : MonoSingleton<UIController>
 
     public GameObject gameOverPanel;
     public GameObject pausePanel;
-
+    public bool IsGameOver;
     public TMP_Text finalScoreText;
     public TMP_Text correctThrowsText;
     public TMP_Text missedThrowsText;
@@ -29,6 +29,7 @@ public class UIController : MonoSingleton<UIController>
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
         streakFeedbackText.gameObject.SetActive(false);
+        IsGameOver = false;
     }
 
     public void SetScore(int score)
@@ -64,7 +65,7 @@ public class UIController : MonoSingleton<UIController>
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
     {
         gameOverPanel.SetActive(true);
-
+        GameOver();
         finalScoreText.text = "Final Score: " + finalScore;
         correctThrowsText.text = "Correct Throws: " + correctThrows;
         missedThrowsText.text = "Missed Throws: " + missedThrows;
@@ -92,6 +93,7 @@ public class UIController : MonoSingleton<UIController>
     {
         pausePanel.SetActive(false);
     }
+
     public void ShowPausePanel()
     {
         pausePanel.SetActive(true);
@@ -100,4 +102,8 @@ public class UIController : MonoSingleton<UIController>
     { PauseButton.SetActive(false); }
     public void ShowPauseButton()
     { PauseButton.SetActive(true); }
+    void GameOver()
+    {
+        IsGameOver = true;
+    }
 }

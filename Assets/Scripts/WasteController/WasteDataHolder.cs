@@ -22,19 +22,7 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
                     BatteryController.Instance.CollectBattery(10);
-                    if (wasteData.wasteType == Waste.WasteType.Plastic)
-                    {
-                        TestMissions.Instance.Counter++;
-                        TestMissions.Instance.Counter2++;
-                    }
-                    if (wasteData.wasteType == Waste.WasteType.Metal)
-                    {
-                        TestMissions.Instance.Counter2++;
-                    }
-                    if (wasteData.wasteType == Waste.WasteType.Glass)
-                    {
-                        TestMissions.Instance.Counter2++;
-                    }
+                    FirstRow();
 
                 }
 
@@ -79,5 +67,26 @@ public class WasteDataHolder : MonoBehaviour
         WastePool.Instance.ReturnWaste(gameObject);
         ScoreController.Instance.RecordMissedThrow();
         BatteryController.Instance.ConsumeEnergy();
+    }
+
+    void FirstRow()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Plastic)
+        {
+            TestMissions.Instance.Counter++;
+            TestMissions.Instance.Counter2++;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Metal)
+        {
+            TestMissions.Instance.Counter2++;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Glass)
+        {
+            TestMissions.Instance.Counter2++;
+        }
+        else if(wasteData.wasteType == Waste.WasteType.Organic || wasteData.wasteType == Waste.WasteType.Paper)
+        {
+            TestMissions.Instance.AntiCounter2++;
+        }
     }
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class TestMissions : MonoSingleton<TestMissions>
 {
-    public Waste waste;
     public int Counter;
     public int Counter2;
+    public int AntiCounter2;
     //public BinDataHolder binholder;
     //private bool MIssion1;
     // Start is called before the first frame update
@@ -16,14 +16,29 @@ public class TestMissions : MonoSingleton<TestMissions>
     // Update is called once per frame
     void Update()
     {
-        if (waste.wasteType.GetType() == typeof(Waste.WasteType)/*binholder.binData.acceptsType*/)
-        {
-            //Debug.Log("PLASTICA");
-        }
+
         int score = PlayerPrefs.GetInt("score", 0);
         score = score + Counter;
-        Debug.Log("Counter :" + Counter);
-        Debug.Log("Counter2 :" + Counter2);
+        //Debug.Log("Counter :" + Counter);
+        //Debug.Log("Counter2 :" + Counter2);
+        //Mission();
+        Mission2();
+
 
     }
+    void Mission()
+    {
+        if(Counter>49)
+        {
+            Debug.Log("Mission 50 plastic complete");
+        }
+    }
+    void Mission2()
+    {
+        if (AntiCounter2 <= 0 && Counter2 != 0 && UIController.Instance.IsGameOver==true)
+        {
+            Debug.Log("Mission firstrow complete");
+        }
+    }
+
 }
