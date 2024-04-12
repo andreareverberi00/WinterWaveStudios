@@ -4,7 +4,10 @@ public class ScoreController : MonoSingleton<ScoreController>
 {
     public int Score { get; private set; }
     public int Highscore { get; private set; }
+    public int Coins { get; private set; }
 
+    public int coinsForEveryXScore = 100; // Ogni 100 punti guadagnerai un certo numero di monete
+    public int coinsReward = 10; // Numero di monete guadagnate per ogni soglia raggiunta
     public int OvertimePeriods { get; private set; }
 
     public int CorrectlyThrownWastes { get; private set; }
@@ -19,6 +22,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     private void Start()
     {
         Highscore = PlayerPrefs.GetInt("Highscore", 0);
+        Coins = PlayerPrefs.GetInt("Coins", 0);
 
         Score = 0;
         CorrectlyThrownWastes = 0;
@@ -31,7 +35,16 @@ public class ScoreController : MonoSingleton<ScoreController>
         Score += amount;
         UpdateScoreUI();
     }
-
+    private void RewardCoins()
+    {
+        if (Score >= coinsForEveryXScore)
+        {
+            int multiplier = Score / coinsForEveryXScore; // Quante volte il giocatore ha raggiunto la soglia
+            Coins += multiplier * coinsReward;
+            PlayerPrefs.SetInt("Coins", Coins); // Salva le monete nel PlayerPrefs
+            Score -= coinsForEveryXScore * multiplier; // Resetta i punti che hanno già contribuito alla ricompensa
+        }
+    }
     private void UpdateHighscore()
     {
         if (Score > Highscore)
@@ -96,6 +109,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     public string CalculateGrade()
     {
         UpdateHighscore();
+        RewardCoins();
 
         if (CorrectlyThrownWastes + MissedWastes == 0)
             return "N/A"; // No throws were made
