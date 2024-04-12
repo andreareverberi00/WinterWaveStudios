@@ -7,7 +7,7 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private int scoreToAdd = 10;
     private int score = 0;
     private bool isPaused = false;
-
+    public int time;
     public float timeToAddFirstBin = 10f;
     public float timeToAddSecondBin = 20f;
     public float timeToAddConveyorBelt = 30f;
@@ -73,4 +73,5 @@ public class GameController : MonoSingleton<GameController>
         UIController.Instance.HidePausePanel();
         UIController.Instance.ShowPauseButton();
     }
+   
 }
