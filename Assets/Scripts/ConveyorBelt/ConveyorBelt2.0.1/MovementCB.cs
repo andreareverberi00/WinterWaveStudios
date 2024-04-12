@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovementCB : MonoBehaviour
 {
     [SerializeField]
-    private float speed, conveyorSpeed, initialspeed, ac;
+    private float speed, conveyorSpeed, initialspeed, ac,initialcb,cb;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
@@ -30,6 +30,8 @@ public class MovementCB : MonoBehaviour
         material = GetComponent<MeshRenderer>().material;
         initialspeed = speed;
         ac = speed * 2;
+        initialcb = conveyorSpeed;
+        cb = conveyorSpeed * 2;
         //accelaration = false;
     }
 
@@ -86,10 +88,12 @@ public class MovementCB : MonoBehaviour
         if (SpeakerController.Instance.Speed == true)
         {
             speed = ac;
+            conveyorSpeed = cb;
         }
         else
         {
             speed = initialspeed;
+            conveyorSpeed = initialcb;
         }
     }
 }
