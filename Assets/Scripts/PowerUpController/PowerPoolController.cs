@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class PowePoolController : MonoSingleton<PowePoolController>
 {
     [SerializeField] private Transform spawnPosition;
