@@ -19,7 +19,6 @@ public class GravityBox : MonoBehaviour
             {
                 Vector3 direction = (targetPoint.position - other.transform.position).normalized;
                 rb.AddForce(direction * GravityBoxController.Instance.AttractionForce, ForceMode.Acceleration);
-                Debug.Log(GravityBoxController.Instance.AttractionForce);
             }
         }
     }

@@ -2,30 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WasteController : MonoBehaviour
+public class WasteController : MonoSingleton<WasteController>
 {
     [SerializeField] private List<BinDataHolder> activeBins = new List<BinDataHolder>();
     [SerializeField] private Transform spawnPosition;
-    [SerializeField] private float spawnInterval = 3f;
+    [SerializeField] private float initialSpawnInterval = 2.5f;
+    [SerializeField] private float minimumSpawnInterval = 1.5f; // Il minimo intervallo di spawn raggiungibile
+    [SerializeField] private float spawnDecayRate = 0.05f; // La quantità di tempo che si sottrae dall'intervallo di spawn
     [SerializeField, Range(0, 100)] private int spawnBatteryProbability = 10;
 
-    public static WasteController Instance { get; private set; }
-
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    [Header("Debug")]
+    [SerializeField] private float spawnInterval;
 
     void Start()
     {
+        spawnInterval = initialSpawnInterval;
         StartCoroutine(SpawnRoutine());
     }
 
@@ -33,10 +24,8 @@ public class WasteController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnInterval + Random.Range(-0.25f, 0.25f));
-
+            yield return new WaitForSeconds(spawnInterval);
             bool spawnBattery = Random.Range(0, 100) < spawnBatteryProbability;
-
             if (spawnBattery)
             {
                 SpawnBattery();
@@ -45,6 +34,17 @@ public class WasteController : MonoBehaviour
             {
                 SpawnWaste();
             }
+
+            UpdateSpawnInterval();
+        }
+    }
+
+    void UpdateSpawnInterval()
+    {
+        if (spawnInterval > minimumSpawnInterval)
+        {
+            spawnInterval -= spawnDecayRate;
+            spawnInterval = Mathf.Max(spawnInterval, minimumSpawnInterval);
         }
     }
 

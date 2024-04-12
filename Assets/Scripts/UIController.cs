@@ -50,17 +50,20 @@ public class UIController : MonoSingleton<UIController>
     }
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Main");
         PlayerPrefs.SetInt("score", TestMissions.Instance.Counter);
         PlayerPrefs.Save();
         Debug.Log("Score saved to PlayerPrefs: " + TestMissions.Instance.Counter);
 
-
-
     }
     public void Quit()
     {
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
         Application.Quit();
+    #endif
     }
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
     {

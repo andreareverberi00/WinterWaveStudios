@@ -27,6 +27,7 @@ public class ThrowController : MonoBehaviour
         startPosition = this.selectedWaste.transform.position;
         startRotation = this.selectedWaste.transform.rotation;
         rb.constraints = RigidbodyConstraints.None;
+        rb.velocity = Vector3.zero;
     }
     void ResetProperties()
     {
