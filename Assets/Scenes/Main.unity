@@ -2301,7 +2301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
-  conveyorSpeed: 0.00478
+  conveyorSpeed: 0.055
   initialspeed: 0
   ac: 0
   initialcb: 0
@@ -2668,6 +2668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934ab4ee6c44bc84c8330b9f244c5dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinsForEveryXScore: 100
+  coinsReward: 10
   amount: 10
   numberOfCorrectThrowsForReward: 3
   rewardScore: 50
@@ -4313,7 +4315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
-  conveyorSpeed: 0.00478
+  conveyorSpeed: 0.055
   initialspeed: 0
   ac: 0
   initialcb: 0
