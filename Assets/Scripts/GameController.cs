@@ -12,9 +12,12 @@ public class GameController : MonoSingleton<GameController>
     public float timeToAddSecondBin = 20f;
     public float timeToAddConveyorBelt = 30f;
     public float timeToAddThirdBin = 40f;
-
+    public AudioClip audioClip;
+    public AudioSource audiosource;
     private void Start()
     {
+
+        audiosource.PlayOneShot(audioClip);
         StartNewGame();
     }
 

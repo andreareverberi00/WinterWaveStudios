@@ -698,6 +698,8 @@ MonoBehaviour:
   timeToAddSecondBin: 20
   timeToAddConveyorBelt: 30
   timeToAddThirdBin: 40
+  audioClip: {fileID: 8300000, guid: fa9d5e791f429f647aab5a515db17a2f, type: 3}
+  audiosource: {fileID: 1664358547}
 --- !u!4 &188237286
 Transform:
   m_ObjectHideFlags: 0

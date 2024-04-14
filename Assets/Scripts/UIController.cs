@@ -59,11 +59,14 @@ public class UIController : MonoSingleton<UIController>
     }
     public void Quit()
     {
-    #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-    #else
-        Application.Quit();
-    #endif
+       
+        //#if UNITY_EDITOR
+        //    UnityEditor.EditorApplication.isPlaying = false;
+        //#else
+        //    Application.Quit();
+        //#endif
+        SceneManager.LoadScene("Menu");
+
     }
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
     {

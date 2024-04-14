@@ -3,10 +3,12 @@ using UnityEngine;
 public class CustomizationController : MonoSingleton<CustomizationController>
 {
     public int coins; // Monete disponibili per l'utente
-    // Altre variabili per gestire lo stato di sblocco e la selezione
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     void Start()
     {
+        audioSource.PlayOneShot(audioClip);
         LoadCustomizationData();
     }
 
