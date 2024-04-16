@@ -9,24 +9,24 @@ public class PowerSlow : MonoBehaviour
     {
         transform.position = new Vector3(100, 100, 100);
         StartCoroutine(SlowDownGame());
-       
-       
+
+
 
     }
-    
-    
+
+
     IEnumerator SlowDownGame()
     {
-        
-      
-        Time.timeScale = 0.5f; 
+
+        //Time.timeScale = 0.5f;
+        GameController.Instance.slow = true;
         yield return new WaitForSeconds(10f);
-       
-        Time.timeScale = 1f;
+        GameController.Instance.slow = false;
+        //Time.timeScale = 1;
         PowerPool.Instance.ReturnPower(gameObject);
- 
+
     }
- 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Floor"))
@@ -38,5 +38,6 @@ public class PowerSlow : MonoBehaviour
         }
 
     }
+    
 
 }

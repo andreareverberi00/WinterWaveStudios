@@ -7,7 +7,7 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private int scoreToAdd = 10;
     private int score = 0;
     private bool isPaused = false;
-
+    public bool slow = false;
     public float timeToAddFirstBin = 10f;
     public float timeToAddSecondBin = 20f;
     public float timeToAddConveyorBelt = 30f;

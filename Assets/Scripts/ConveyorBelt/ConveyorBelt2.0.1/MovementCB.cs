@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovementCB : MonoBehaviour
 {
     [SerializeField]
-    private float speed, conveyorSpeed, initialspeed, ac,initialcb,cb;
+    public float speed, conveyorSpeed, initialspeed, ac,initialcb,cb;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
@@ -46,6 +46,15 @@ public class MovementCB : MonoBehaviour
             //AddSpeed();
             AddSpeedSpeaker();
         }
+        if(GameController.Instance.slow==true)
+        {
+            SlowTime();
+        }
+        else if(GameController.Instance.slow == false)
+        {
+            NormalTime();
+        }
+        //Debug.Log(speed);
     }
 
     // Fixed update for physics
@@ -91,6 +100,36 @@ public class MovementCB : MonoBehaviour
             conveyorSpeed = cb;
         }
         else
+        {
+            speed = initialspeed;
+            conveyorSpeed = initialcb;
+        }
+    }
+    public void SlowTime()
+    {
+        if (speed == initialspeed && conveyorSpeed==initialcb)
+        {
+            Debug.Log("tempo rallentato ");
+            speed = speed * 0.5f;
+            conveyorSpeed = conveyorSpeed * 0.5f;
+
+    }
+        if(speed==accelerationspeed && conveyorSpeed == 0.065f*accelerationspeed)
+        {
+            speed = speed* 1/(accelerationspeed*2);
+            conveyorSpeed = conveyorSpeed* 1 / (accelerationspeed*0.065f* 2);
+        }
+        else if (speed == ac && conveyorSpeed == cb)
+{
+    speed = speed * 0.25f;
+    conveyorSpeed = conveyorSpeed * 0.25f;
+}
+
+    }
+
+    public void NormalTime()
+    {
+        if(speed!=initialspeed && conveyorSpeed!=initialcb)
         {
             speed = initialspeed;
             conveyorSpeed = initialcb;
