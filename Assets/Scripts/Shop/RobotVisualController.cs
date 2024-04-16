@@ -1,27 +1,24 @@
 using UnityEngine;
 
-public class RobotVisualController : MonoBehaviour
+public class RobotVisualController : MonoSingleton<RobotVisualController>
 {
     [SerializeField]
-    private GameObject baseAntenna;
-    [SerializeField]
-    private GameObject tankAntenna;
-    [SerializeField]
-    private GameObject proAntenna;
+    private GameObject[] antennas; // Array che contiene tutti i modelli di antenna
 
     [SerializeField]
-    private GameObject[] perkObjects; // Array di oggetti perk che possono essere attivati/disattivati
+    private GameObject[] perks; // Array che contiene tutti i modelli di perk
 
     [SerializeField]
-    private float rotationSpeed = 1f;
+    private float rotationSpeed = 1f; // Velocità di rotazione del modello
 
     [SerializeField]
-    private bool rotateModel = true;
+    private bool rotateModel = true; // Controllo per abilitare/disabilitare la rotazione
 
     private void Start()
     {
         UpdateVisuals();
     }
+
     private void Update()
     {
         if (rotateModel)
@@ -29,30 +26,41 @@ public class RobotVisualController : MonoBehaviour
             RotateModel();
         }
     }
-    private void RotateModel() 
+
+    private void RotateModel()
     {
-        transform.Rotate(Vector3.forward, rotationSpeed*Time.deltaTime);
+        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
     }
+
     public void UpdateVisuals()
     {
-        // Ottieni la personalizzazione selezionata dall'utente
-        string selectedAntenna = PlayerPrefs.GetString("SelectedAntenna", "base");
+        // Leggi le preferenze salvate per selezionare la corretta antenna e i perk
+        string selectedAntenna = PlayerPrefs.GetString("SelectedAntenna", "baseAntenna");
         string selectedPerk = PlayerPrefs.GetString("SelectedPerk", "");
 
-        // Aggiorna l'antenna
-        baseAntenna.SetActive(selectedAntenna == "base");
-        tankAntenna.SetActive(selectedAntenna == "tank");
-        proAntenna.SetActive(selectedAntenna == "pro");
-
-        // Aggiorna i perk
-        foreach (var perkObject in perkObjects)
+        Debug.Log("Antenna selezionata: " + selectedAntenna);
+        Debug.Log("Perk selezionato: " + selectedPerk);
+        // Disattiva tutti gli elementi e attiva solo quelli selezionati
+        foreach (var antenna in antennas)
         {
-            // Assumi che ogni perkObject abbia un nome che corrisponde al nome del perk
-            perkObject.SetActive(perkObject.name == selectedPerk);
+            antenna.SetActive(antenna.name == selectedAntenna);
         }
 
-        // Potrebbe essere necessario aggiungere logica aggiuntiva se le combinazioni di perk e antenne sono più complesse.
+        foreach (var perk in perks)
+        {
+            perk.SetActive(perk.name == selectedPerk);
+        }
+    }
+    public void SelectAntenna(string antennaName)
+    {
+        PlayerPrefs.SetString("SelectedAntenna", antennaName);
+        UpdateVisuals();
     }
 
-    // Altri metodi per attivare/disattivare specifiche parti visive del robot...
+    public void SelectPerk(string perkName)
+    {
+        PlayerPrefs.SetString("SelectedPerk", perkName);
+        UpdateVisuals();
+    }
+
 }

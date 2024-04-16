@@ -1,51 +1,35 @@
+using System.Security.Cryptography;
+using UnityEditor;
 using UnityEngine;
 
 public class CustomizationController : MonoSingleton<CustomizationController>
 {
     public int coins; // Monete disponibili per l'utente
-    public AudioSource audioSource;
-    public AudioClip audioClip;
 
     void Start()
     {
-        audioSource.PlayOneShot(audioClip);
-        LoadCustomizationData();
+        PlayerPrefs.SetInt("Coins", coins); // Imposta le monete iniziali //da rimuovere perchè è solo per test
+        LoadCoins();
     }
 
-    public void LoadCustomizationData()
+    [ContextMenu("Clear Player Prefs")]
+    public void ClearPlayerPrefs()
     {
-        // Carica dati salvati
-        coins = PlayerPrefs.GetInt("Coins", 0);
-        // Carica lo stato di sblocco per antenne e perk
-    }
+        PlayerPrefs.DeleteAll();
+        Debug.Log("PlayerPrefs Cleared");
 
-    public void PurchaseItem(int cost)
-    {
-        if (coins >= cost)
+        //Clear shop item bought status
+        var shopItems = FindObjectsOfType<ShopItemDataHolder>();
+        foreach (var shopItem in shopItems)
         {
-            coins -= cost;
-            PlayerPrefs.SetInt(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.gameObject.name, 1);
-            PlayerPrefs.SetInt("Coins", coins);
-            PlayerPrefs.Save();
+            shopItem.itemData.bought = false;
         }
-        else
-        {
-            Debug.Log("Not enough coins to purchase this item.");
-        }
-
     }
 
-    public void SelectAntenna(string antennaName)
+    public void LoadCoins()
     {
-        PlayerPrefs.SetString("SelectedAntenna", antennaName);
-        PlayerPrefs.Save();
+        coins = PlayerPrefs.GetInt("Coins");
+        UICustomizationController.Instance.UpdateUI();
     }
 
-    public void SelectPerk(string perkName)
-    {
-        PlayerPrefs.SetString("SelectedPerk", perkName);
-        PlayerPrefs.Save();
-    }
-
-    // Altri metodi per gestire la customizzazione...
 }

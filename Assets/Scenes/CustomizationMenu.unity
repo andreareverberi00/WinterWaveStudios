@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 203679819}
   - component: {fileID: 203679818}
   m_Layer: 0
-  m_Name: TankAntenna
+  m_Name: AntennaTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 342100393}
   - component: {fileID: 342100392}
   m_Layer: 0
-  m_Name: ProAntenna
+  m_Name: AntennaPro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1236,6 +1236,7 @@ GameObject:
   - component: {fileID: 453914385}
   - component: {fileID: 453914384}
   - component: {fileID: 453914383}
+  - component: {fileID: 453914386}
   m_Layer: 5
   m_Name: OrganicPerk
   m_TagString: Untagged
@@ -1346,6 +1347,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453914381}
   m_CullTransparentMesh: 1
+--- !u!114 &453914386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453914381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 5bea402581f2f64459b62d74559fbdc9, type: 2}
 --- !u!1001 &539811332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,10 +1443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 135b96f350964e4478a95cafd19f9e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAntenna: {fileID: 1682523120}
-  tankAntenna: {fileID: 203679817}
-  proAntenna: {fileID: 342100391}
-  perkObjects:
+  antennas:
+  - {fileID: 1682523120}
+  - {fileID: 342100391}
+  - {fileID: 203679817}
+  perks:
   - {fileID: 1421656612}
   - {fileID: 685935295}
   - {fileID: 421702875}
@@ -1457,6 +1472,7 @@ GameObject:
   - component: {fileID: 600634633}
   - component: {fileID: 600634632}
   - component: {fileID: 600634631}
+  - component: {fileID: 600634634}
   m_Layer: 5
   m_Name: MetalPerk
   m_TagString: Untagged
@@ -1567,6 +1583,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600634629}
   m_CullTransparentMesh: 1
+--- !u!114 &600634634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600634629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: d9258ebebc93ff740b0b2ed1c473782c, type: 2}
 --- !u!1 &647823414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,6 +2207,7 @@ GameObject:
   - component: {fileID: 959570948}
   - component: {fileID: 959570947}
   - component: {fileID: 959570946}
+  - component: {fileID: 959570949}
   m_Layer: 5
   m_Name: GlassPerk
   m_TagString: Untagged
@@ -2288,6 +2318,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959570944}
   m_CullTransparentMesh: 1
+--- !u!114 &959570949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959570944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 050eff617229a07409c9741daae27f44, type: 2}
 --- !u!1 &986504669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1069760603}
   - component: {fileID: 1069760602}
+  - component: {fileID: 1069760604}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2421,6 +2465,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1069760604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069760601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1072984413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,8 +2896,9 @@ GameObject:
   - component: {fileID: 1160585074}
   - component: {fileID: 1160585073}
   - component: {fileID: 1160585072}
+  - component: {fileID: 1160585075}
   m_Layer: 5
-  m_Name: Pro
+  m_Name: AntennaPro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2900,19 +2968,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1160585073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1790892979}
-        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
-        m_MethodName: PurchaseItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 200
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1160585073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,6 +3007,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160585070}
   m_CullTransparentMesh: 1
+--- !u!114 &1160585075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160585070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 6cef5d69aa0ca7c42b950e067439ad07, type: 2}
 --- !u!1 &1265753071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3804,6 +3873,7 @@ GameObject:
   - component: {fileID: 1547350033}
   - component: {fileID: 1547350032}
   - component: {fileID: 1547350031}
+  - component: {fileID: 1547350034}
   m_Layer: 5
   m_Name: PlasticPerk
   m_TagString: Untagged
@@ -3914,6 +3984,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547350029}
   m_CullTransparentMesh: 1
+--- !u!114 &1547350034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547350029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 696127d1b11d66f4e99e580c65a89061, type: 2}
 --- !u!1 &1586041030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,7 +4412,7 @@ GameObject:
   - component: {fileID: 1682523122}
   - component: {fileID: 1682523121}
   m_Layer: 0
-  m_Name: BaseAntenna
+  m_Name: AntennaBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4433,8 +4516,9 @@ GameObject:
   - component: {fileID: 1690005968}
   - component: {fileID: 1690005967}
   - component: {fileID: 1690005966}
+  - component: {fileID: 1690005969}
   m_Layer: 5
-  m_Name: Base
+  m_Name: AntennaBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4504,19 +4588,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1690005967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1790892979}
-        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
-        m_MethodName: PurchaseItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 200
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1690005967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4555,6 +4627,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690005964}
   m_CullTransparentMesh: 1
+--- !u!114 &1690005969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690005964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: b2655426530102a4bacdbe8dcdd20464, type: 2}
 --- !u!1 &1711959599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4567,8 +4652,9 @@ GameObject:
   - component: {fileID: 1711959603}
   - component: {fileID: 1711959602}
   - component: {fileID: 1711959601}
+  - component: {fileID: 1711959604}
   m_Layer: 5
-  m_Name: Tank
+  m_Name: AntennaTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4638,19 +4724,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1711959602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1790892979}
-        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
-        m_MethodName: PurchaseItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 200
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1711959602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4689,6 +4763,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711959599}
   m_CullTransparentMesh: 1
+--- !u!114 &1711959604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711959599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 5c364707127d5dd4da05ceb4e3fac96e, type: 2}
 --- !u!1 &1714812732
 GameObject:
   m_ObjectHideFlags: 0
@@ -4734,17 +4821,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 258337857}
-  antennaButtons:
-  - {fileID: 1690005966}
-  - {fileID: 1711959601}
-  - {fileID: 1160585072}
-  perkButtons:
-  - {fileID: 453914383}
-  - {fileID: 1547350031}
-  - {fileID: 1728778068}
-  - {fileID: 959570946}
-  - {fileID: 600634631}
-  robotVisualController: {fileID: 539811334}
 --- !u!1 &1728778066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,6 +4833,7 @@ GameObject:
   - component: {fileID: 1728778070}
   - component: {fileID: 1728778069}
   - component: {fileID: 1728778068}
+  - component: {fileID: 1728778071}
   m_Layer: 5
   m_Name: PaperPerk
   m_TagString: Untagged
@@ -4867,6 +4944,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728778066}
   m_CullTransparentMesh: 1
+--- !u!114 &1728778071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728778066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb36015de7c86a244b8ae0fe7aec36f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: fc570b6d339d4da4b8b6d39c50144fe2, type: 2}
 --- !u!1 &1788667016
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,9 +5035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c0e9a13122fa94491e0591d283e467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
-  audioSource: {fileID: 1139230679}
-  audioClip: {fileID: 8300000, guid: fa9d5e791f429f647aab5a515db17a2f, type: 3}
+  coins: 300
 --- !u!1 &1853476818
 GameObject:
   m_ObjectHideFlags: 0
