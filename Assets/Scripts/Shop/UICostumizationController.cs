@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UICustomizationController : MonoSingleton<UICustomizationController>
 {
@@ -14,5 +15,8 @@ public class UICustomizationController : MonoSingleton<UICustomizationController
     {
         coinsText.text = PlayerPrefs.GetInt("Coins", 0).ToString();
     }
-
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
