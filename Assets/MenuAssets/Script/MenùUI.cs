@@ -11,6 +11,9 @@ public class MenùUI : MonoSingleton<MenùUI>
     public GameObject Play;
     public GameObject Custom;
     public GameObject IDk;
+
+    public TMP_Text highscoreText;
+
     void Start()
     {
         CreditsText.SetActive(false);
@@ -19,6 +22,7 @@ public class MenùUI : MonoSingleton<MenùUI>
         Custom.SetActive(true);
         IDk.SetActive(true);
         Credit.SetActive(true);
+        highscoreText.text = "Highscore: "+PlayerPrefs.GetInt("Highscore", 0).ToString();
     }
 
     // Update is called once per frame

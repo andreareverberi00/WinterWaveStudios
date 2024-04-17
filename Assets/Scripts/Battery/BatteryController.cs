@@ -25,6 +25,7 @@ public class BatteryController : MonoSingleton<BatteryController>
     {
         currentEnergy = Mathf.Min(currentEnergy + energyAmount, maxEnergy);
         UIController.Instance.UpdateEnergy(currentEnergy);
+        AudioController.Instance.PlaySound("Battery_bar_increase");
         CheckForGameOver();
     }
 
