@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: 
   cost: 80
   itemType: 1
-  bought: 1
+  bought: 0
   itemCostText: {fileID: 0}
