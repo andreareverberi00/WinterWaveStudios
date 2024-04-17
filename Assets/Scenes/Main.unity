@@ -1536,11 +1536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61527d6c54524b40b8d7680cfcdbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 15
+  throwSpeed: 12
   selectableLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  force: {x: 1, y: 1.3, z: 1.5}
+  force: {x: 1, y: 1.2, z: 1.3}
 --- !u!1 &663172125
 GameObject:
   m_ObjectHideFlags: 0
