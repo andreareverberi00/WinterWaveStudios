@@ -6,21 +6,17 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private GameObject[] bins;
     [SerializeField] private int scoreToAdd = 10;
     private int score = 0;
-    private bool isPaused = false;
     public bool slow = false;
-    public float timeToAddFirstBin = 10f;
-    public float timeToAddSecondBin = 20f;
-    public float timeToAddConveyorBelt = 30f;
-    public float timeToAddThirdBin = 40f;
-    public AudioClip audioClip;
-    public AudioSource audiosource;
+
+    // Punti necessari per attivare ciascun bin
+    public int pointsToActivateFirstBin = 50;
+    public int pointsToActivateSecondBin = 100;
+    public int pointsToActivateThirdBin = 150;
+
     private void Start()
     {
-
-        audiosource.PlayOneShot(audioClip);
         StartNewGame();
     }
-
 
     void StartNewGame()
     {
@@ -31,49 +27,44 @@ public class GameController : MonoSingleton<GameController>
 
         bins[0].SetActive(true);
         bins[1].SetActive(true);
-
-        StartCoroutine(ActivateBin(timeToAddFirstBin, 2));
-        StartCoroutine(ActivateBin(timeToAddSecondBin, 3));
-        StartCoroutine(ActivateSecondConveyorBelt(timeToAddConveyorBelt));
-        StartCoroutine(ActivateBin(timeToAddThirdBin, 4));
-    }
-
-    IEnumerator ActivateBin(float delay, int binIndex)
-    {
-        if (binIndex < bins.Length)
-        {
-            yield return new WaitForSeconds(delay);
-            bins[binIndex].SetActive(true);
-            WasteController.Instance.ActivateBin(bins[binIndex].GetComponentInChildren<BinDataHolder>());
-        }
-    }
-
-
-    IEnumerator ActivateSecondConveyorBelt(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        // Es: conveyorBelt.ActivateSecondBelt();
     }
 
     public void AddScore()
     {
         score += scoreToAdd;
-        UIController.Instance.SetScore(score);
+        CheckAndActivateBins();
+    }
+
+    private void CheckAndActivateBins()
+    {
+        if (score >= pointsToActivateFirstBin && !bins[2].activeSelf)
+        {
+            bins[2].SetActive(true);
+            WasteController.Instance.ActivateBin(bins[2].GetComponentInChildren<BinDataHolder>());
+        }
+        if (score >= pointsToActivateSecondBin && !bins[3].activeSelf)
+        {
+            bins[3].SetActive(true);
+            WasteController.Instance.ActivateBin(bins[3].GetComponentInChildren<BinDataHolder>());
+        }
+        if (score >= pointsToActivateThirdBin && !bins[4].activeSelf)
+        {
+            bins[4].SetActive(true);
+            WasteController.Instance.ActivateBin(bins[4].GetComponentInChildren<BinDataHolder>());
+        }
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
-        isPaused = true;
-        UIController.Instance.HidePauseButton();
         UIController.Instance.ShowPausePanel();
+        UIController.Instance.HidePauseButton();
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        isPaused = false;
-        UIController.Instance.HidePausePanel();
         UIController.Instance.ShowPauseButton();
+        UIController.Instance.HidePausePanel();
     }
 }

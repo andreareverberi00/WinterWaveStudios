@@ -33,6 +33,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     public void AddScore()
     {
         Score += amount;
+        GameController.Instance.AddScore();
         UpdateScoreUI();
     }
     private void RewardCoins()
