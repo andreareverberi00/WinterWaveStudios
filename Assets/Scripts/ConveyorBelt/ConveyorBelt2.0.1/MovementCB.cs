@@ -20,6 +20,7 @@ public class MovementCB : MonoBehaviour
     [SerializeField]
     public float accelerationspeed = 0;
     [SerializeField]
+    //public bool isMoved=false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,18 +65,25 @@ public class MovementCB : MonoBehaviour
         for (int i = 0; i <= onBelt.Count - 1; i++)
         {
             onBelt[i].GetComponent<Rigidbody>().velocity = speed * direction;
+            //if(isMoved==true)
+            //{
+            //    onBelt[i].GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //}
         }
     }
 
     // When something collides with the belt
     private void OnCollisionEnter(Collision collision)
     {
+        //isMoved = false;
         onBelt.Add(collision.gameObject);
+        
     }
 
     // When something leaves the belt
     private void OnCollisionExit(Collision collision)
     {
+        //isMoved = true;
         onBelt.Remove(collision.gameObject);
 
     }
