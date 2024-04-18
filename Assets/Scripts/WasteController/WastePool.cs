@@ -89,24 +89,56 @@ public class WastePool : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No matching waste found for active bins.");
+            Debug.LogWarning("No matching waste found for active bins. Regenerating wastes...");
+            RegenerateWastes(activeBins);
             return null;
         }
     }
+
+    private void RegenerateWastes(List<BinDataHolder> activeBins)
+    {
+        // Logica di rigenerazione dei waste basata sui tipi attivi
+        foreach (var bin in activeBins)
+        {
+            WasteType type = bin.binData.acceptsType;
+            if (wastePools.ContainsKey(type))
+            {
+                for (int i = 0; i < poolSize; i++) // Potresti voler limitare il numero di rigenerazioni
+                {
+                    var newWaste = Instantiate(wastePrefabs.Find(p => p.GetComponent<WasteDataHolder>().wasteData.wasteType == type));
+                    newWaste.SetActive(false);
+                    wastePools[type].Enqueue(newWaste);
+                }
+            }
+        }
+    }
+
 
 
     public GameObject GetBattery()
     {
         if (batteryPool.Count == 0)
         {
-            Debug.LogError("Battery pool is empty.");
-            return null;
+            // Se il pool è vuoto, rigenera le batterie
+            Debug.LogWarning("Battery pool is empty, regenerating batteries...");
+            RegenerateBatteries();
         }
 
         var battery = batteryPool.Dequeue();
         battery.SetActive(true);
         return battery;
     }
+
+    private void RegenerateBatteries()
+    {
+        for (int i = 0; i < batteryPoolSize; i++)
+        {
+            var newBattery = Instantiate(batteryPrefab);
+            newBattery.SetActive(false);
+            batteryPool.Enqueue(newBattery);
+        }
+    }
+
 
     public void ReturnWaste(GameObject waste)
     {
