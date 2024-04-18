@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RobotVisualController : MonoSingleton<RobotVisualController>
+public class RobotVisualController : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] antennas; // Array che contiene tutti i modelli di antenna
@@ -14,8 +14,18 @@ public class RobotVisualController : MonoSingleton<RobotVisualController>
     [SerializeField]
     private bool rotateModel = true; // Controllo per abilitare/disabilitare la rotazione
 
+    public static RobotVisualController Instance { get; private set; }
+
     private void Start()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         UpdateVisuals();
     }
 

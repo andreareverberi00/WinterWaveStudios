@@ -19,6 +19,7 @@ public class ThrowController : MonoBehaviour
 
     public LayerMask selectableLayerMask;
     public Vector3 force = new Vector3(1,1,1);
+    public Vector3 maxForce = new Vector3(10, 10, 10);
 
     void SetupWaste(GameObject selectedWaste)
     {
@@ -89,7 +90,7 @@ public class ThrowController : MonoBehaviour
             endTime = Time.time;
             swipeTime = endTime - startTime;
 
-            if (swipeTime < 1f && lastMousePosition.y < Input.mousePosition.y)
+            if (swipeTime < 0.8f && lastMousePosition.y < Input.mousePosition.y)
             {
                 CalculateAndApplyForce(Input.mousePosition);
             }
@@ -107,12 +108,20 @@ public class ThrowController : MonoBehaviour
     private void CalculateAndApplyForce(Vector2 mousePos)
     {
         float differenceY = (mousePos.y - lastMousePosition.y) / Screen.height * 100;
+
+        if(differenceY>maxForce.y)
+            differenceY = maxForce.y;
+
         speed = throwSpeed * differenceY;
 
         float x = (mousePos.x / Screen.width) - (lastMousePosition.x / Screen.width);
         x = Mathf.Abs(Input.mousePosition.x - lastMousePosition.x) / Screen.width * 100 * x;
 
-        Vector3 direction = new Vector3(x*force.x, 0f, 1f*force.z);
+        // if x>maxForce.x, x = maxForce.x
+        if (x > maxForce.x)
+            x = maxForce.x;
+
+        Vector3 direction = new Vector3(x*force.x, 0f, force.z);
         direction = Camera.main.transform.TransformDirection(direction);
 
         Debug.DrawLine(selectedWaste.transform.position, selectedWaste.transform.position + direction, Color.red, 2f);

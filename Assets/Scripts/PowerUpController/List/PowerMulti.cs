@@ -17,9 +17,9 @@ public class PowerMulti : MonoBehaviour
     IEnumerator MultiplicatorGame()
     {
         
-        ScoreController.Instance.amount=ScoreController.Instance.amount * 2;// rallenta il gioco al 50%
+        ScoreController.Instance.scoreAmount=ScoreController.Instance.scoreAmount * 2;// rallenta il gioco al 50%
         yield return new WaitForSeconds(10f); // attendi per 10 secondi
-        ScoreController.Instance.amount = ScoreController.Instance.amount / 2;
+        ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
         PowerPool.Instance.ReturnPower(gameObject);
     }
     private void OnCollisionEnter(Collision collision)

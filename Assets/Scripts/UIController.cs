@@ -28,8 +28,8 @@ public class UIController : MonoSingleton<UIController>
         energySlider.fillAmount = 1f;
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
-        streakFeedbackText.gameObject.SetActive(false);
         IsGameOver = false;
+        ShowMaxStreak();
     }
 
     public void SetScore(int score)
@@ -81,19 +81,11 @@ public class UIController : MonoSingleton<UIController>
         HidePauseButton();
     }
 
-    public void ShowStreakFeedback(int streakCount)
+    public void ShowMaxStreak(int streakCount=0)
     {
-        streakFeedbackText.text = "Streak of " + streakCount + "!";
-        streakFeedbackText.gameObject.SetActive(true);
-
-        StartCoroutine(HideStreakFeedback());
+        streakFeedbackText.text = "Max streak: " + streakCount;
     }
 
-    IEnumerator HideStreakFeedback()
-    {
-        yield return new WaitForSeconds(2f);
-        streakFeedbackText.gameObject.SetActive(false);
-    }
 
     public void HidePausePanel()
     {

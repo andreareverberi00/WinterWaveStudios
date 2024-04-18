@@ -13,11 +13,12 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int CorrectlyThrownWastes { get; private set; }
     public int MissedWastes { get; private set; }
     public int ConsecutiveCorrectThrows { get; private set; }
+    public int HighestConsecutiveCorrectThrows { get; private set; }  // Record per la sessione corrente
 
-    public int amount;
-    public int numberOfCorrectThrowsForReward = 4;
-    public int rewardScore = 50;
-    public int rewardEnergy = 10;
+    public int scoreAmount;
+    //public int numberOfCorrectThrowsForReward = 4;
+    public int rewardScore = 10;
+    //public int rewardEnergy = 10;
 
     private void Start()
     {
@@ -28,11 +29,13 @@ public class ScoreController : MonoSingleton<ScoreController>
         CorrectlyThrownWastes = 0;
         MissedWastes = 0;
         ConsecutiveCorrectThrows = 0;
+        HighestConsecutiveCorrectThrows = 0;
+
     }
 
     public void AddScore()
     {
-        Score += amount;
+        Score += scoreAmount;
         GameController.Instance.AddScore();
         UpdateScoreUI();
     }
@@ -63,7 +66,7 @@ public class ScoreController : MonoSingleton<ScoreController>
 
     public void RemoveScore()
     {
-        Score -= amount;
+        Score -= scoreAmount;
         if (Score < 0)
         {
             Score = 0;
@@ -75,26 +78,19 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         CorrectlyThrownWastes++;
         ConsecutiveCorrectThrows++;
-        CheckForReward();
+        if (ConsecutiveCorrectThrows > HighestConsecutiveCorrectThrows)
+        {
+            HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;
+            Score += rewardScore;
+
+        }
+        UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
     }
 
     public void RecordMissedThrow()
     {
         MissedWastes++;
         ConsecutiveCorrectThrows = 0;
-    }
-
-    private void CheckForReward()
-    {
-        if (ConsecutiveCorrectThrows >= numberOfCorrectThrowsForReward)
-        {
-            Score += rewardScore;
-
-            ConsecutiveCorrectThrows = 0;
-            UpdateScoreUI();
-
-            UIController.Instance.ShowStreakFeedback(numberOfCorrectThrowsForReward);
-        }
     }
 
     private void UpdateScoreUI()
