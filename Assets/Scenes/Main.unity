@@ -6300,6 +6300,7 @@ MonoBehaviour:
   soundEffectSource: {fileID: 1474463981}
   audioClips:
   - {fileID: 8300000, guid: f6b88b47bd2d2084897d7605ddd0c601, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &1694049242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6369,6 +6370,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fe4f30311a506547929604cc6932d05, type: 3}
+=======
+  - {fileID: 8300000, guid: ead31061eb5e9f2408f61d01aa9a32e5, type: 3}
+  - {fileID: 8300000, guid: a7093be6cbb04774db6f5ddc92f20204, type: 3}
+  - {fileID: 8300000, guid: 56dbbeefbea59cb4ebb0280d2b19c2ef, type: 3}
+  - {fileID: 8300000, guid: 3aaadaa80440251408f1c77316da8319, type: 3}
+  - {fileID: 8300000, guid: 654a5a1af50bd5341adc9c308e3b5073, type: 3}
+>>>>>>> 64b92948eedf3eb2cbc4949b4f2c5f18c97e3cee
 --- !u!1 &1704674704
 GameObject:
   m_ObjectHideFlags: 0
