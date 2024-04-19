@@ -32,7 +32,6 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordMissedThrow();
                     BatteryController.Instance.ConsumeEnergy();
                 }
-                PlaySoundBasedOnWasteType();
             }
         }
     }
@@ -42,7 +41,6 @@ public class WasteDataHolder : MonoBehaviour
         {
             WastePool.Instance.ReturnWaste(gameObject);
             ScoreController.Instance.RecordMissedThrow();
-            PlaySoundBasedOnWasteType(); // Suono quando il rifiuto cade a terra
         }
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
@@ -89,30 +87,6 @@ public class WasteDataHolder : MonoBehaviour
         else if(wasteData.wasteType == Waste.WasteType.Organic || wasteData.wasteType == Waste.WasteType.Paper)
         {
             TestMissions.Instance.AntiCounter2++;
-        }
-    }
-    private void PlaySoundBasedOnWasteType()
-    {
-        switch (wasteData.wasteType)
-        {
-            case Waste.WasteType.Plastic:
-                AudioController.Instance.PlaySound("Plastic_bottle_squeezing");
-                break;
-            case Waste.WasteType.Metal:
-                AudioController.Instance.PlaySound("Metal_hit");
-                break;
-            case Waste.WasteType.Glass:
-                AudioController.Instance.PlaySound("Glass_bottles_fall");
-                break;
-            case Waste.WasteType.Paper:
-                AudioController.Instance.PlaySound("Cardboard_box_drop");
-                break;
-            case Waste.WasteType.Organic:
-                AudioController.Instance.PlaySound("Banana_splat");
-                break;
-            default:
-                Debug.LogError("Unsupported waste type for sound.");
-                break;
         }
     }
 }
