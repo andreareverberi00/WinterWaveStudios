@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MenùUI : MonoSingleton<MenùUI>
+public class MenùUI : MonoBehaviour
 {
     public GameObject CreditsText;
     public GameObject Credit;

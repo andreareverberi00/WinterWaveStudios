@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameMenu : MonoSingleton<GameMenu>
+public class GameMenu : MonoBehaviour
 {
-    
+    public MenùUI Menu;
 
     public void Play(string Main)
     {
@@ -24,10 +24,10 @@ public class GameMenu : MonoSingleton<GameMenu>
     }
     public void Credits()
     {
-        MenùUI.Instance.CREDITS();
+        Menu.CREDITS();
     }
     public void ReturnToMenu()
     {
-        MenùUI.Instance.BackToMenu();
+        Menu.BackToMenu();
     }
 }
