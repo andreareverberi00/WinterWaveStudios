@@ -81,8 +81,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         if (ConsecutiveCorrectThrows > HighestConsecutiveCorrectThrows)
         {
             HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;
-            Score += rewardScore;
-
+            AddScore();
         }
         UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
     }

@@ -40,7 +40,7 @@ public class MovementCB : MonoBehaviour
     private void Update()
     {
         // Move the conveyor belt texture to make it look like it's moving
-        material.mainTextureOffset += new Vector2(1, 0) * conveyorSpeed * Time.deltaTime;
+        material.mainTextureOffset += new Vector2(0, 1) * conveyorSpeed * Time.deltaTime;
 
         if (accelaration == true)
         {
