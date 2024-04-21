@@ -554,7 +554,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.14083163, y: 0.19999616, z: 0.0612636}
+  m_Size: {x: 3, y: 3, z: 0.0612636}
   m_Center: {x: 0, y: 0, z: 0.0000009536743}
 --- !u!54 &53556585
 Rigidbody:
@@ -3305,7 +3305,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.19999997, y: 0.2130305, z: 0.050000027}
+  m_Size: {x: 3, y: 3, z: 0.050000027}
   m_Center: {x: 0.00000023841858, y: 0, z: -0.00000023841858}
 --- !u!114 &978307950
 MonoBehaviour:
@@ -6475,6 +6475,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1961739041}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e72b2bb71de658b448404f0ded631fb0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e72b2bb71de658b448404f0ded631fb0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e72b2bb71de658b448404f0ded631fb0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.3691964
       objectReference: {fileID: 0}
@@ -7623,11 +7631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b52704cc518af049a264eea6bb5d473, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b52704cc518af049a264eea6bb5d473, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8b52704cc518af049a264eea6bb5d473, type: 3}
       propertyPath: m_LocalScale.z
@@ -7986,7 +7994,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.192593, y: 0.25499076, z: 0.1955641}
+  m_Size: {x: 3, y: 3, z: 0.1955641}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1959330025
 Rigidbody:
@@ -8161,11 +8169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7ac2319ff4942e64d8b25c0a7b6295fb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7ac2319ff4942e64d8b25c0a7b6295fb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7ac2319ff4942e64d8b25c0a7b6295fb, type: 3}
       propertyPath: m_LocalScale.z
@@ -8431,6 +8439,10 @@ PrefabInstance:
     - target: {fileID: 5847519496933092209, guid: 650747536bfba634e8fecae14773bba6, type: 3}
       propertyPath: Portal
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006076677128121696, guid: 650747536bfba634e8fecae14773bba6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6006076677128121696, guid: 650747536bfba634e8fecae14773bba6, type: 3}
       propertyPath: m_LocalPosition.x
