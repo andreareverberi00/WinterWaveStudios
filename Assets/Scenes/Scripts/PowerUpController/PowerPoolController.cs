@@ -30,7 +30,7 @@ public class PowePoolController : MonoSingleton<PowePoolController>
             {
                 SpawnMulti();
             }
-            if (RandomPowerSpawn >= 31 && RandomPowerSpawn <= 60)
+            if (RandomPowerSpawn >= 61 && RandomPowerSpawn <= 100  )
             {
                 SpawnGravity();
             }

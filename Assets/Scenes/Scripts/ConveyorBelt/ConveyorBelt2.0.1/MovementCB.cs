@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovementCB : MonoBehaviour
 {
     [SerializeField]
-    public float speed, conveyorSpeed, initialspeed, ac,initialcb,cb;
+    private float speed, conveyorSpeed, initialspeed, ac,initialcb,cb;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
@@ -41,11 +41,13 @@ public class MovementCB : MonoBehaviour
     {
         // Move the conveyor belt texture to make it look like it's moving
         material.mainTextureOffset += new Vector2(0, 1) * conveyorSpeed * Time.deltaTime;
+      
 
         if (accelaration == true)
         {
             //AddSpeed();
             AddSpeedSpeaker();
+
         }
         if(GameController.Instance.slow==true)
         {
@@ -53,7 +55,7 @@ public class MovementCB : MonoBehaviour
         }
         else if(GameController.Instance.slow == false)
         {
-            NormalTime();
+            AddSpeedSpeaker();
         }
         //Debug.Log(speed);
     }
@@ -135,12 +137,5 @@ public class MovementCB : MonoBehaviour
 
     }
 
-    public void NormalTime()
-    {
-        if(speed!=initialspeed && conveyorSpeed!=initialcb)
-        {
-            speed = initialspeed;
-            conveyorSpeed = initialcb;
-        }
-    }
+
 }
