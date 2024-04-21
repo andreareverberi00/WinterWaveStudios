@@ -65,7 +65,7 @@ public class WasteDataHolder : MonoBehaviour
     }
     public IEnumerator ReturnWaste()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.5f);
         WastePool.Instance.ReturnWaste(gameObject);
         ScoreController.Instance.RecordMissedThrow();
         BatteryController.Instance.ConsumeEnergy();
