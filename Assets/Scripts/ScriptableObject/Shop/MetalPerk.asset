@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MetalPerk
   m_EditorClassIdentifier: 
   itemName: 
-  cost: 80
+  cost: 500
   itemType: 1
   bought: 0
   itemCostText: {fileID: 0}

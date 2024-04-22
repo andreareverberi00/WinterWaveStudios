@@ -35,7 +35,7 @@ public class CustomizationController : MonoSingleton<CustomizationController>
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            PlayerPrefs.SetInt("Coins", 1000);
+            PlayerPrefs.SetInt("Coins", 999);
             UICustomizationController.Instance.UpdateUI();
         }
     }

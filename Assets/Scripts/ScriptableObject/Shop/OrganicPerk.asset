@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OrganicPerk
   m_EditorClassIdentifier: 
   itemName: 
-  cost: 80
+  cost: 500
   itemType: 1
-  bought: 0
+  bought: 1
   itemCostText: {fileID: 0}
