@@ -18,9 +18,9 @@ public class GameMenu : MonoBehaviour
     {
         SceneManager.LoadScene(Shop);
     }
-    public void IDK()
+    public void Options()
     {
-
+        Menu.OPTIONS();
     }
     public void Credits()
     {
