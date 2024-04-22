@@ -8,7 +8,7 @@ public class PowerPool : MonoBehaviour
     [SerializeField] private GameObject slowPrefab;
     [SerializeField] private GameObject multiPrefab;
     [SerializeField] private GameObject gravityPrefab;
-    [SerializeField] private int PowerPoolSize = 2;
+    [SerializeField] private int PowerPoolSize = 3;
     private Queue<GameObject> powerPool = new Queue<GameObject>();
     void Awake()
     {

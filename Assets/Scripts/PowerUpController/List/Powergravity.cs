@@ -33,7 +33,6 @@ public class Powergravity : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject otherObject = collision.gameObject;
         if (collision.collider.CompareTag("Floor"))
             PowerPool.Instance.ReturnPower(gameObject);
         if (collision.collider.GetType() == typeof(CapsuleCollider))
@@ -44,7 +43,7 @@ public class Powergravity : MonoBehaviour
         if (collision.collider.GetType() == typeof(BoxCollider))
         {
             isGrounded = true;
-            Jump();
+            //Jump();
         }
 
     }

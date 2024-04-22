@@ -31,7 +31,6 @@ public class PowerMulti : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject otherObject = collision.gameObject;
 
         if (collision.collider.CompareTag("Floor"))
             PowerPool.Instance.ReturnPower(gameObject);
@@ -43,7 +42,7 @@ public class PowerMulti : MonoBehaviour
         if (collision.collider.GetType() == typeof(BoxCollider))
         {
             isGrounded = true;
-            Jump();
+            //Jump();
         }
     }
     void Jump()

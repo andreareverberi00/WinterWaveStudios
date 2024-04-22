@@ -37,9 +37,7 @@ public class PowerSlow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject otherObject = collision.gameObject;
 
-        
         
             if (collision.collider.CompareTag("Floor"))
             PowerPool.Instance.ReturnPower(gameObject);
@@ -51,7 +49,7 @@ public class PowerSlow : MonoBehaviour
         if (collision.collider.GetType() == typeof(BoxCollider))
         {
             isGrounded = true;
-            Jump();
+            //Jump();
             Debug.Log("sium");
         }
                 
