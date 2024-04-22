@@ -8,7 +8,7 @@ public class CustomizationController : MonoSingleton<CustomizationController>
 
     void Start()
     {
-        PlayerPrefs.SetInt("Coins", coins); // Imposta le monete iniziali //da rimuovere perchè è solo per test
+        //PlayerPrefs.SetInt("Coins", coins); // Imposta le monete iniziali //da rimuovere perchè è solo per test
         LoadCoins();
     }
 
@@ -31,5 +31,12 @@ public class CustomizationController : MonoSingleton<CustomizationController>
         coins = PlayerPrefs.GetInt("Coins");
         UICustomizationController.Instance.UpdateUI();
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            PlayerPrefs.SetInt("Coins", 1000);
+            UICustomizationController.Instance.UpdateUI();
+        }
+    }
 }

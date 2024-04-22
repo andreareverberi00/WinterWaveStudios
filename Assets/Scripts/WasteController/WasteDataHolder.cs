@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class WasteDataHolder : MonoBehaviour
@@ -33,6 +34,7 @@ public class WasteDataHolder : MonoBehaviour
                     BatteryController.Instance.ConsumeEnergy();
                 }
                 PlaySoundBasedOnWasteType();
+                VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position);
             }
         }
     }
@@ -43,12 +45,15 @@ public class WasteDataHolder : MonoBehaviour
             WastePool.Instance.ReturnWaste(gameObject);
             ScoreController.Instance.RecordMissedThrow();
             PlaySoundBasedOnWasteType();
+            VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position);
+
         }
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
 
             transform.position = new Vector3(Portal.transform.position.x + 0.1f, Portal.transform.position.y, Portal.transform.position.z);
         }
+
 
     }
     private void Update()
