@@ -7,7 +7,8 @@ public enum VFXType
     Explosion,
     Sparkles,
     Smoke,
-    PowerUp
+    PowerUp,
+    CorrectSorting
 }
 
 public class VFXController : MonoSingleton<VFXController>

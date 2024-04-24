@@ -23,6 +23,8 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
                     BatteryController.Instance.CollectBattery(10);
+                    VFXController.Instance.PlayVFXAtPosition(VFXType.CorrectSorting, transform.position, 1f);
+
                     //int compliments;
                     //compliments = Random.Range(1, 6);
                     //Compliment(compliments);
@@ -35,13 +37,14 @@ public class WasteDataHolder : MonoBehaviour
                     Debug.Log("Incorrect sorting.");
                     ScoreController.Instance.RecordMissedThrow();
                     BatteryController.Instance.ConsumeEnergy();
+                    VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position, 3f);
+
                     //int insults;
                     //insults = Random.Range(1,7);
                     //Insult(insults);
 
                 }
                 PlaySoundBasedOnWasteType();
-                VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position,3f);
             }
         }
     }
@@ -51,6 +54,7 @@ public class WasteDataHolder : MonoBehaviour
         {
             WastePool.Instance.ReturnWaste(gameObject);
             ScoreController.Instance.RecordMissedThrow();
+            BatteryController.Instance.ConsumeEnergy();
             PlaySoundBasedOnWasteType();
             VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position,3f);
 

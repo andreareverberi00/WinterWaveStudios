@@ -143,7 +143,6 @@ public class ThrowController : MonoBehaviour
         float x = (mousePos.x / Screen.width) - (lastMousePosition.x / Screen.width);
         x = Mathf.Abs(Input.mousePosition.x - lastMousePosition.x) / Screen.width * 100 * x;
 
-        // if x>maxForce.x, x = maxForce.x
         if (x > maxForce.x)
             x = maxForce.x;
 
