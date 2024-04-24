@@ -1003,7 +1003,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 453914384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Organic_Perk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &453914384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,7 +1153,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 600634632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Metal_Perk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &600634632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,7 +2122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 959570947}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Glass_Perk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &959570947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3317,7 +3353,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1160585073}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Pro_Antenna
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1160585073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4402,7 +4450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1547350032}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Plastic_Perk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1547350032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4882,7 +4942,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1690005967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Base_Antenna
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1690005967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5019,7 +5091,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1711959602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Tank_Antenna
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1711959602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5277,7 +5361,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1728778069}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790892979}
+        m_TargetAssemblyTypeName: CustomizationController, Assembly-CSharp
+        m_MethodName: Paper_Perk
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1728778069
 MonoBehaviour:
   m_ObjectHideFlags: 0

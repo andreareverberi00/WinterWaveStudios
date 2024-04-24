@@ -5,7 +5,6 @@ using UnityEngine;
 public class CustomizationController : MonoSingleton<CustomizationController>
 {
     public int coins; // Monete disponibili per l'utente
-
     void Start()
     {
         //PlayerPrefs.SetInt("Coins", coins); // Imposta le monete iniziali //da rimuovere perchè è solo per test
@@ -39,4 +38,61 @@ public class CustomizationController : MonoSingleton<CustomizationController>
             UICustomizationController.Instance.UpdateUI();
         }
     }
+    public void Pro_Antenna()
+    {
+        ScoreController.Instance.scoreAmount = 30;
+        BatteryController.Instance.consumeEnergyAmount = 20;
+    }
+    public void Tank_Antenna()
+    {
+        ScoreController.Instance.scoreAmount = 3;
+        BatteryController.Instance.consumeEnergyAmount = 1;
+    }
+    public void Base_Antenna()
+    {
+        ScoreController.Instance.scoreAmount = 10;
+        BatteryController.Instance.consumeEnergyAmount = 5;
+    }
+    public void Organic_Perk()
+    {
+        PerksController.Instance.organic = true;
+        PerksController.Instance.metal = false;
+        PerksController.Instance.paper = false;
+        PerksController.Instance.plastic = false;
+        PerksController.Instance.glass = false;
+
+    }
+    public void Glass_Perk()
+    {
+        PerksController.Instance.organic = false;
+        PerksController.Instance.metal = false;
+        PerksController.Instance.paper = false;
+        PerksController.Instance.plastic = false;
+        PerksController.Instance.glass = true;
+    }
+    public void Metal_Perk()
+    {
+        PerksController.Instance.organic = false;
+        PerksController.Instance.metal = true;
+        PerksController.Instance.paper = false;
+        PerksController.Instance.plastic = false;
+        PerksController.Instance.glass = false;
+    }
+    public void Plastic_Perk()
+    {
+        PerksController.Instance.organic = false;
+        PerksController.Instance.metal = false;
+        PerksController.Instance.paper = false;
+        PerksController.Instance.plastic = true;
+        PerksController.Instance.glass = false;
+    }
+    public void Paper_Perk()
+    {
+        PerksController.Instance.organic = false;
+        PerksController.Instance.metal = false;
+        PerksController.Instance.paper = true;
+        PerksController.Instance.plastic = false;
+        PerksController.Instance.glass = false;
+    }
+
 }

@@ -23,7 +23,7 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
                     BatteryController.Instance.CollectBattery(10);
-                    FirstRow();
+                    //FirstRow();
 
                 }
 
@@ -67,6 +67,8 @@ public class WasteDataHolder : MonoBehaviour
             WastePool.Instance.ReturnWaste(gameObject);
             //BatteryController.Instance.ConsumeEnergy();
         }
+        PerkVerification();
+
     }
     public IEnumerator ReturnWaste()
     {
@@ -76,26 +78,92 @@ public class WasteDataHolder : MonoBehaviour
         BatteryController.Instance.ConsumeEnergy();
     }
 
-    void FirstRow()
+    //void FirstRow()
+    //{
+    //    if (wasteData.wasteType == Waste.WasteType.Plastic)
+    //    {
+    //        TestMissions.Instance.Counter++;
+    //        TestMissions.Instance.Counter2++;
+    //    }
+    //    if (wasteData.wasteType == Waste.WasteType.Metal)
+    //    {
+    //        TestMissions.Instance.Counter2++;
+    //    }
+    //    if (wasteData.wasteType == Waste.WasteType.Glass)
+    //    {
+    //        TestMissions.Instance.Counter2++;
+    //    }
+    //    else if(wasteData.wasteType == Waste.WasteType.Organic || wasteData.wasteType == Waste.WasteType.Paper)
+    //    {
+    //        TestMissions.Instance.AntiCounter2++;
+    //    }
+    //}
+    void PerkPlastic()
     {
         if (wasteData.wasteType == Waste.WasteType.Plastic)
         {
-            TestMissions.Instance.Counter++;
-            TestMissions.Instance.Counter2++;
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Paper)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+ 
+
+    }
+    void PerkGlass()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Glass)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Plastic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+
+
+    }
+    void PerkPaper()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Paper)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Organic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+
+
+    }
+    void PerkMetal()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Metal)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Organic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+
+
+    }
+    void PerkOrganic()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Organic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
         }
         if (wasteData.wasteType == Waste.WasteType.Metal)
         {
-            TestMissions.Instance.Counter2++;
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
         }
-        if (wasteData.wasteType == Waste.WasteType.Glass)
-        {
-            TestMissions.Instance.Counter2++;
-        }
-        else if(wasteData.wasteType == Waste.WasteType.Organic || wasteData.wasteType == Waste.WasteType.Paper)
-        {
-            TestMissions.Instance.AntiCounter2++;
-        }
+
+
     }
+
     private void PlaySoundBasedOnWasteType()
     {
         switch (wasteData.wasteType)
@@ -119,5 +187,29 @@ public class WasteDataHolder : MonoBehaviour
                 Debug.LogError("Unsupported waste type for sound.");
                 break;
         }
+    }
+    void PerkVerification()
+    {
+        if(PerksController.Instance.paper==true)
+        {
+            PerkPaper();
+        }
+        if (PerksController.Instance.glass == true)
+        {
+            PerkGlass();
+        }
+        if (PerksController.Instance.plastic == true)
+        {
+            PerkPlastic();
+        }
+        if (PerksController.Instance.metal == true)
+        {
+            PerkMetal();
+        }
+        if (PerksController.Instance.organic == true)
+        {
+            PerkOrganic();
+        }
+    
     }
 }
