@@ -11,7 +11,7 @@ public class ShopItemDataHolder : MonoBehaviour
     {
         itemData.name= gameObject.name; // Assicurati che il nome dell'oggetto corrisponda al nome dello scriptable object
         itemData.itemCostText = gameObject.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-        itemData.itemCostText.text=itemData.bought?"":"Cost: " + itemData.cost.ToString();
+        //itemData.itemCostText.text=itemData.bought?"":"Cost: " + itemData.cost.ToString();
 
         // check the playerprefs to see selected antenna and perk
         if(itemData.itemType == ShopItemType.Antenna)
@@ -108,8 +108,8 @@ public class ShopItemDataHolder : MonoBehaviour
         }
 
     }
-    private void OnDisable()
-    {
-        purchaseButton.onClick.RemoveListener(PurchaseItem);
-    }
+    //private void OnDisable()
+    //{
+    //    purchaseButton.onClick.RemoveListener(PurchaseItem);
+    //}
 }

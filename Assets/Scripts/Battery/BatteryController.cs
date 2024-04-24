@@ -4,7 +4,7 @@ public class BatteryController : MonoSingleton<BatteryController>
 {
     public int currentEnergy { get; private set; }
     public int maxEnergy = 100;
-    public int consumeEnergyAmount = 20;
+    public int consumeEnergyAmount = 5;
 
     public float energyDrainRate = 1f;
     public float energyDrainInterval = 1f;

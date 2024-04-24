@@ -23,7 +23,10 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
                     BatteryController.Instance.CollectBattery(10);
-                    FirstRow();
+                    int compliments;
+                    compliments = Random.Range(1, 6);
+                    Compliment(compliments);
+                    //FirstRow();
 
                 }
 
@@ -32,6 +35,10 @@ public class WasteDataHolder : MonoBehaviour
                     Debug.Log("Incorrect sorting.");
                     ScoreController.Instance.RecordMissedThrow();
                     BatteryController.Instance.ConsumeEnergy();
+                    int insults;
+                    insults = Random.Range(1,7);
+                    Insult(insults);
+
                 }
                 PlaySoundBasedOnWasteType();
                 VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position);
@@ -67,6 +74,8 @@ public class WasteDataHolder : MonoBehaviour
             WastePool.Instance.ReturnWaste(gameObject);
             //BatteryController.Instance.ConsumeEnergy();
         }
+        PerkVerification();
+
     }
     public IEnumerator ReturnWaste()
     {
@@ -76,26 +85,92 @@ public class WasteDataHolder : MonoBehaviour
         BatteryController.Instance.ConsumeEnergy();
     }
 
-    void FirstRow()
+    //void FirstRow()
+    //{
+    //    if (wasteData.wasteType == Waste.WasteType.Plastic)
+    //    {
+    //        TestMissions.Instance.Counter++;
+    //        TestMissions.Instance.Counter2++;
+    //    }
+    //    if (wasteData.wasteType == Waste.WasteType.Metal)
+    //    {
+    //        TestMissions.Instance.Counter2++;
+    //    }
+    //    if (wasteData.wasteType == Waste.WasteType.Glass)
+    //    {
+    //        TestMissions.Instance.Counter2++;
+    //    }
+    //    else if(wasteData.wasteType == Waste.WasteType.Organic || wasteData.wasteType == Waste.WasteType.Paper)
+    //    {
+    //        TestMissions.Instance.AntiCounter2++;
+    //    }
+    //}
+    void PerkPlastic()
     {
         if (wasteData.wasteType == Waste.WasteType.Plastic)
         {
-            TestMissions.Instance.Counter++;
-            TestMissions.Instance.Counter2++;
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Paper)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+ 
+
+    }
+    void PerkGlass()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Glass)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Plastic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+
+
+    }
+    void PerkPaper()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Paper)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Organic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+
+
+    }
+    void PerkMetal()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Metal)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
+        }
+        if (wasteData.wasteType == Waste.WasteType.Organic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        }
+
+
+    }
+    void PerkOrganic()
+    {
+        if (wasteData.wasteType == Waste.WasteType.Organic)
+        {
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount * 2;
         }
         if (wasteData.wasteType == Waste.WasteType.Metal)
         {
-            TestMissions.Instance.Counter2++;
+            ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
         }
-        if (wasteData.wasteType == Waste.WasteType.Glass)
-        {
-            TestMissions.Instance.Counter2++;
-        }
-        else if(wasteData.wasteType == Waste.WasteType.Organic || wasteData.wasteType == Waste.WasteType.Paper)
-        {
-            TestMissions.Instance.AntiCounter2++;
-        }
+
+
     }
+
     private void PlaySoundBasedOnWasteType()
     {
         switch (wasteData.wasteType)
@@ -118,6 +193,80 @@ public class WasteDataHolder : MonoBehaviour
             default:
                 Debug.LogError("Unsupported waste type for sound.");
                 break;
+        }
+    }
+    void PerkVerification()
+    {
+        if(PerksController.Instance.paper==true)
+        {
+            PerkPaper();
+        }
+        if (PerksController.Instance.glass == true)
+        {
+            PerkGlass();
+        }
+        if (PerksController.Instance.plastic == true)
+        {
+            PerkPlastic();
+        }
+        if (PerksController.Instance.metal == true)
+        {
+            PerkMetal();
+        }
+        if (PerksController.Instance.organic == true)
+        {
+            PerkOrganic();
+        }
+    
+    }
+    void Insult(int I)
+    {
+        switch (I)
+        {
+            case 1:
+                SpeakerSpeakController.Instance.PlaySound("insult 1");
+                break;
+            case 2:
+                SpeakerSpeakController.Instance.PlaySound("insult 2");
+                break;
+            case 3:
+                SpeakerSpeakController.Instance.PlaySound("insult 3");
+                break;
+            case 4:
+                SpeakerSpeakController.Instance.PlaySound("insult 4");
+                break;
+            case 5:
+                SpeakerSpeakController.Instance.PlaySound("insult 5");
+                break;
+            case 6:
+                SpeakerSpeakController.Instance.PlaySound("insult 6");
+                break;
+                //default:
+                //    break;
+        }
+    }
+    void Compliment(int I)
+    {
+        switch (I)
+        {
+            case 1:
+                SpeakerSpeakController.Instance.PlaySound("compliment 1");
+                break;
+            case 2:
+                SpeakerSpeakController.Instance.PlaySound("compliment 2");
+                break;
+            case 3:
+                SpeakerSpeakController.Instance.PlaySound("compliment 3");
+                break;
+            case 4:
+                SpeakerSpeakController.Instance.PlaySound("compliment 4");
+                break;
+            case 5:
+                SpeakerSpeakController.Instance.PlaySound("compliment 5");
+                break;
+
+                //default:
+                //    break;
         }
     }
 }
