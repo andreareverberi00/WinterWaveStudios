@@ -20,11 +20,12 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int rewardScore = 10;
     //public int rewardEnergy = 10;
     private int tempScore;
-    private void Start()
+    bool alreadystreak;
+       private void Start()
     {
         Highscore = PlayerPrefs.GetInt("Highscore", 0);
         Coins = PlayerPrefs.GetInt("Coins", 0);
-
+        alreadystreak = false;
         Score = 0;
         CorrectlyThrownWastes = 0;
         MissedWastes = 0;
@@ -85,6 +86,7 @@ public class ScoreController : MonoSingleton<ScoreController>
             int compliments;
             compliments = Random.Range(1, 6);
             Compliment(compliments);
+            alreadystreak = true;
         }
         if (ConsecutiveCorrectThrows > HighestConsecutiveCorrectThrows)
         {
@@ -99,9 +101,15 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         MissedWastes++;
         ConsecutiveCorrectThrows = 0;
-        int insults;
-        insults = Random.Range(1, 7);
-        Insult(insults);
+       if(alreadystreak==true)
+        {
+            int insults;
+            insults = Random.Range(1, 7);
+            Insult(insults);
+            alreadystreak = false;
+
+        }
+
     }
 
     private void UpdateScoreUI()
@@ -199,4 +207,5 @@ public class ScoreController : MonoSingleton<ScoreController>
                 //    break;
         }
     }
+  
 }
