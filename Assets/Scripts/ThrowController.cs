@@ -20,7 +20,7 @@ public class ThrowController : MonoBehaviour
     public LayerMask selectableLayerMask;
     public Vector3 force = new Vector3(1,1,1);
     public Vector3 maxForce = new Vector3(10, 10, 10);
-
+    private bool alreadyHighlighted = false;
     void SetupWaste(GameObject selectedWaste)
     {
         this.selectedWaste = selectedWaste;
@@ -57,16 +57,42 @@ public class ThrowController : MonoBehaviour
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(mousePos);
         selectedWaste.transform.position = newPosition;
         selectedWaste.transform.rotation = startRotation;
-        //Vector3.Lerp(selectedWaste.transform.position, newPosition, 80f * Time.deltaTime);
+
+         //Vector3.Lerp(selectedWaste.transform.position, newPosition, 80f * Time.deltaTime);
     }
 
+    void HighlightCorrectBin() {  
+        if (selectedWaste != null)
+        {
+            Vector3? binPosition = WasteController.Instance.GetBinPositionForWasteType(selectedWaste.GetComponent<WasteDataHolder>());
+            if (binPosition.HasValue&&!alreadyHighlighted)
+            {
+                print("Highlighting bin");
+                VFXController.Instance.PlayVFXAtPosition(VFXType.Sparkles, binPosition.Value, 2f);
+                alreadyHighlighted = true;
+            }
+        }
+    }
+    void StopHighlightCorrectBin() 
+    {
+        VFXController.Instance.PlayVFXAtPosition(VFXType.Sparkles, new Vector3(100,0,0), 0f);
+    }
     private void Update()
     {
-        if (holding&&selectedWaste)
+        if (holding && selectedWaste)
+        {
             PickupBall();
+            HighlightCorrectBin();
+        }
+        else
+        {
+            alreadyHighlighted= false;
+            StopHighlightCorrectBin();
+        }
 
         if (thrown)
             return;
+    
 
         if (Input.GetMouseButtonDown(0))
         {

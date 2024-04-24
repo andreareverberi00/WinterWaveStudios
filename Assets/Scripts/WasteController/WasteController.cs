@@ -85,6 +85,20 @@ public class WasteController : MonoSingleton<WasteController>
             activeBins.Add(binDataHolder);
         }
     }
+    public Vector3? GetBinPositionForWasteType(WasteDataHolder type)
+    {
+        foreach (BinDataHolder bin in activeBins)
+        {
+            if (bin.binData.acceptsType == type.wasteData.wasteType)
+            {
+                Debug.Log("Bin: " + bin.binData + " Type: " + type.wasteData);
+
+                return bin.transform.position;
+            }
+        }
+        Debug.LogWarning("No bin found for waste type: " + type);
+        return null; // Nessun bin trovato per questo tipo di rifiuto
+    }
 
     public void RemoveBin(BinDataHolder binToRemove)
     {

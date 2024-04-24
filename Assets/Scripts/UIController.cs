@@ -22,6 +22,7 @@ public class UIController : MonoSingleton<UIController>
     public TMP_Text missedThrowsText;
     public TMP_Text gradeText;
     public TMP_Text streakFeedbackText;
+    public TMP_Text coinsText;
 
     private void Start()
     {
@@ -78,6 +79,7 @@ public class UIController : MonoSingleton<UIController>
         correctThrowsText.text = "Correct Throws: " + correctThrows;
         missedThrowsText.text = "Missed Throws: " + missedThrows;
         gradeText.text = "Grade: " + grade;
+        coinsText.text = "Coins: "+PlayerPrefs.GetInt("Coins").ToString();
 
         HidePausePanel();
         HidePauseButton();

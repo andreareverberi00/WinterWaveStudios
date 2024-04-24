@@ -19,7 +19,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     //public int numberOfCorrectThrowsForReward = 4;
     public int rewardScore = 10;
     //public int rewardEnergy = 10;
-
+    private int tempScore;
     private void Start()
     {
         Highscore = PlayerPrefs.GetInt("Highscore", 0);
@@ -41,12 +41,13 @@ public class ScoreController : MonoSingleton<ScoreController>
     }
     private void RewardCoins()
     {
-        if (Score >= coinsForEveryXScore)
+        if (tempScore >= coinsForEveryXScore)
         {
-            int multiplier = Score / coinsForEveryXScore; // Quante volte il giocatore ha raggiunto la soglia
+            tempScore=Score;
+            int multiplier = tempScore / coinsForEveryXScore; // Quante volte il giocatore ha raggiunto la soglia
             Coins += multiplier * coinsReward;
             PlayerPrefs.SetInt("Coins", Coins); // Salva le monete nel PlayerPrefs
-            Score -= coinsForEveryXScore * multiplier; // Resetta i punti che hanno già contribuito alla ricompensa
+            tempScore -= coinsForEveryXScore * multiplier; // Resetta i punti che hanno già contribuito alla ricompensa
         }
     }
     private void UpdateHighscore()

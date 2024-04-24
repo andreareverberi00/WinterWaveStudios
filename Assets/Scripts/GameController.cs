@@ -8,6 +8,7 @@ public class GameController : MonoSingleton<GameController>
     private int score = 0;
     public bool slow = false;
 
+    public Transform RobotTransform;
     // Punti necessari per attivare ciascun bin
     public int pointsToActivateFirstBin = 50;
     public int pointsToActivateSecondBin = 100;
@@ -34,7 +35,10 @@ public class GameController : MonoSingleton<GameController>
         score += scoreToAdd;
         CheckAndActivateBins();
     }
-
+    public Vector3 GetRobotPosition() 
+    {
+        return RobotTransform.position;
+    }
     private void CheckAndActivateBins()
     {
         if (score >= pointsToActivateFirstBin && !bins[2].activeSelf)

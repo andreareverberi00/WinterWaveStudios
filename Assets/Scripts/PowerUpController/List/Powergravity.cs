@@ -27,6 +27,7 @@ public class Powergravity : MonoBehaviour
     {
         
         GravityBoxController.Instance.AttractionForce = AttractionForce;
+        VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp, GameController.Instance.GetRobotPosition(), 10f);
         yield return new WaitForSeconds(10f); // attendi per 10 secondi
         GravityBoxController.Instance.AttractionForce = previousval; // ripristina la velocità normale del gioco
         PowerPool.Instance.ReturnPower(gameObject);

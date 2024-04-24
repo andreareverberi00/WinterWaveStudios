@@ -1,11 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
 public enum VFXType
 {
     Explosion,
     Sparkles,
     Smoke,
-    Firework
+    PowerUp
 }
 
 public class VFXController : MonoSingleton<VFXController>
@@ -20,31 +22,42 @@ public class VFXController : MonoSingleton<VFXController>
     [SerializeField]
     private VFXEntry[] vfxEntries;
     private Dictionary<VFXType, GameObject> vfxDictionary = new Dictionary<VFXType, GameObject>();
+    private Dictionary<VFXType, GameObject> activeVFXInstances = new Dictionary<VFXType, GameObject>();
 
     void Start()
     {
         foreach (var entry in vfxEntries)
         {
             vfxDictionary[entry.type] = entry.prefab;
-            print(vfxDictionary[entry.type]);
         }
     }
 
-    public void PlayVFXAtPosition(VFXType type, Vector3 position)
+    public void PlayVFXAtPosition(VFXType type, Vector3 position, float duration)
     {
-        Debug.Log("Playing VFX at position: " + position.ToString() + "of type: "+ type);
+        if (activeVFXInstances.TryGetValue(type, out GameObject existingVFXInstance))
+        {
+            if (existingVFXInstance != null)
+            {
+                Destroy(existingVFXInstance); // Destroy the existing VFX instance
+            }
+        }
+
         if (vfxDictionary.TryGetValue(type, out GameObject vfxPrefab))
         {
             GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
-            Destroy(vfxInstance, 5f); // Assumi che l'effetto visivo si auto-distrugga dopo 5 secondi
+            activeVFXInstances[type] = vfxInstance; // Update the active instance
+            StartCoroutine(ManageVFXLifetime(vfxInstance, type, duration));
         }
         else
         {
-            Debug.LogWarning("VFX type not found: " + type.ToString());
+            Debug.LogWarning("VFX type not found: " + type);
         }
     }
-    public void printmessage()
+
+    private IEnumerator ManageVFXLifetime(GameObject vfxInstance, VFXType type, float duration)
     {
-        Debug.Log("Hello");
+        yield return new WaitForSeconds(duration);
+        Destroy(vfxInstance);
+        activeVFXInstances[type] = null; // Reset the reference once the VFX is destroyed
     }
 }

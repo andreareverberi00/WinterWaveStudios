@@ -41,7 +41,7 @@ public class WasteDataHolder : MonoBehaviour
 
                 }
                 PlaySoundBasedOnWasteType();
-                VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position);
+                VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position,3f);
             }
         }
     }
@@ -52,7 +52,7 @@ public class WasteDataHolder : MonoBehaviour
             WastePool.Instance.ReturnWaste(gameObject);
             ScoreController.Instance.RecordMissedThrow();
             PlaySoundBasedOnWasteType();
-            VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position);
+            VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position,3f);
 
         }
         if (collision.collider.GetType() == typeof(CapsuleCollider))
