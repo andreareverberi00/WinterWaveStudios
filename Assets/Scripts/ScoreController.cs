@@ -79,9 +79,17 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         CorrectlyThrownWastes++;
         ConsecutiveCorrectThrows++;
+         if(ConsecutiveCorrectThrows % 5 == 0  && ConsecutiveCorrectThrows!=0)
+        {
+
+            int compliments;
+            compliments = Random.Range(1, 6);
+            Compliment(compliments);
+        }
         if (ConsecutiveCorrectThrows > HighestConsecutiveCorrectThrows)
         {
             HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;
+           
             AddScore();
         }
         UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
@@ -91,6 +99,9 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         MissedWastes++;
         ConsecutiveCorrectThrows = 0;
+        int insults;
+        insults = Random.Range(1, 7);
+        Insult(insults);
     }
 
     private void UpdateScoreUI()
@@ -136,6 +147,56 @@ public class ScoreController : MonoSingleton<ScoreController>
         else
         {
             return "F";
+        }
+    }
+    void Insult(int I)
+    {
+        switch (I)
+        {
+            case 1:
+                SpeakerSpeakController.Instance.PlaySound("insult 1");
+                break;
+            case 2:
+                SpeakerSpeakController.Instance.PlaySound("insult 2");
+                break;
+            case 3:
+                SpeakerSpeakController.Instance.PlaySound("insult 3");
+                break;
+            case 4:
+                SpeakerSpeakController.Instance.PlaySound("insult 4");
+                break;
+            case 5:
+                SpeakerSpeakController.Instance.PlaySound("insult 5");
+                break;
+            case 6:
+                SpeakerSpeakController.Instance.PlaySound("insult 6");
+                break;
+                //default:
+                //    break;
+        }
+    }
+    void Compliment(int I)
+    {
+        switch (I)
+        {
+            case 1:
+                SpeakerSpeakController.Instance.PlaySound("compliment 1");
+                break;
+            case 2:
+                SpeakerSpeakController.Instance.PlaySound("compliment 2");
+                break;
+            case 3:
+                SpeakerSpeakController.Instance.PlaySound("compliment 3");
+                break;
+            case 4:
+                SpeakerSpeakController.Instance.PlaySound("compliment 4");
+                break;
+            case 5:
+                SpeakerSpeakController.Instance.PlaySound("compliment 5");
+                break;
+
+                //default:
+                //    break;
         }
     }
 }

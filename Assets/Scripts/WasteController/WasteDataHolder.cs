@@ -23,9 +23,9 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
                     BatteryController.Instance.CollectBattery(10);
-                    int compliments;
-                    compliments = Random.Range(1, 6);
-                    Compliment(compliments);
+                    //int compliments;
+                    //compliments = Random.Range(1, 6);
+                    //Compliment(compliments);
                     //FirstRow();
 
                 }
@@ -35,9 +35,9 @@ public class WasteDataHolder : MonoBehaviour
                     Debug.Log("Incorrect sorting.");
                     ScoreController.Instance.RecordMissedThrow();
                     BatteryController.Instance.ConsumeEnergy();
-                    int insults;
-                    insults = Random.Range(1,7);
-                    Insult(insults);
+                    //int insults;
+                    //insults = Random.Range(1,7);
+                    //Insult(insults);
 
                 }
                 PlaySoundBasedOnWasteType();
@@ -219,54 +219,5 @@ public class WasteDataHolder : MonoBehaviour
         }
     
     }
-    void Insult(int I)
-    {
-        switch (I)
-        {
-            case 1:
-                SpeakerSpeakController.Instance.PlaySound("insult 1");
-                break;
-            case 2:
-                SpeakerSpeakController.Instance.PlaySound("insult 2");
-                break;
-            case 3:
-                SpeakerSpeakController.Instance.PlaySound("insult 3");
-                break;
-            case 4:
-                SpeakerSpeakController.Instance.PlaySound("insult 4");
-                break;
-            case 5:
-                SpeakerSpeakController.Instance.PlaySound("insult 5");
-                break;
-            case 6:
-                SpeakerSpeakController.Instance.PlaySound("insult 6");
-                break;
-                //default:
-                //    break;
-        }
-    }
-    void Compliment(int I)
-    {
-        switch (I)
-        {
-            case 1:
-                SpeakerSpeakController.Instance.PlaySound("compliment 1");
-                break;
-            case 2:
-                SpeakerSpeakController.Instance.PlaySound("compliment 2");
-                break;
-            case 3:
-                SpeakerSpeakController.Instance.PlaySound("compliment 3");
-                break;
-            case 4:
-                SpeakerSpeakController.Instance.PlaySound("compliment 4");
-                break;
-            case 5:
-                SpeakerSpeakController.Instance.PlaySound("compliment 5");
-                break;
-
-                //default:
-                //    break;
-        }
-    }
+  
 }
