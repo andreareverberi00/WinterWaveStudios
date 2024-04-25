@@ -12,10 +12,21 @@ public class GameController : MonoSingleton<GameController>
     public int pointsToActivateFirstBin = 50;
     public int pointsToActivateSecondBin = 100;
     public int pointsToActivateThirdBin = 150;
+    public GameObject Audio1;
+    public GameObject Audio2;
     private void Start()
     {
         StartNewGame();
-
+        if(Pushed.Instance.pushed==true)
+        {
+            Audio1.SetActive(true);
+            Audio2.SetActive(true);
+        }
+        else
+        {
+            Audio1.SetActive(false);
+            Audio2.SetActive(false);
+        }
     }
 
     void StartNewGame()

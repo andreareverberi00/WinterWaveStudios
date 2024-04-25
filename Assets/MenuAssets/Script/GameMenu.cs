@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
     public MenùUI Menu;
-    public bool isPushed;
+ 
     private void Start()
     {
 
@@ -15,7 +15,7 @@ public class GameMenu : MonoBehaviour
     {
 
         // Carica la scena specificata
-        isPushed = true;
+        Pushed.Instance.pushed = true;
         SceneManager.LoadScene(Main);
         
 

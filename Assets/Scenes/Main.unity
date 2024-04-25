@@ -561,6 +561,11 @@ MonoBehaviour:
   pointsToActivateFirstBin: 50
   pointsToActivateSecondBin: 100
   pointsToActivateThirdBin: 150
+<<<<<<< Updated upstream
+=======
+  Audio1: {fileID: 1689570891}
+  Audio2: {fileID: 1913314287}
+>>>>>>> Stashed changes
 --- !u!4 &188237286
 Transform:
   m_ObjectHideFlags: 0
