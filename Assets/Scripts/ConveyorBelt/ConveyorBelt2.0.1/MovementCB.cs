@@ -22,6 +22,8 @@ public class MovementCB : MonoBehaviour
     [SerializeField]
     //public bool isMoved=false;
 
+    private bool powerupIsActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,9 +49,8 @@ public class MovementCB : MonoBehaviour
         {
             //AddSpeed();
             AddSpeedSpeaker();
-
         }
-        if(GameController.Instance.slow==true)
+        if (GameController.Instance.slow==true)
         {
             SlowTime();
         }
@@ -108,11 +109,18 @@ public class MovementCB : MonoBehaviour
         {
             speed = ac;
             conveyorSpeed = cb;
+
+            if (!powerupIsActive)
+            {
+                VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp2X, SpeakerController.Instance.GetPosition(), 10f);
+                powerupIsActive = true;
+            }
         }
         else
         {
             speed = initialspeed;
             conveyorSpeed = initialcb;
+            powerupIsActive = false;
         }
     }
     public void SlowTime()

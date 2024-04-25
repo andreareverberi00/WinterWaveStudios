@@ -6,6 +6,11 @@ public class SpeakerController : MonoSingleton<SpeakerController>
     private int seconds;
     public int secondacc = 10;
     public bool Speed = false;
+
+    public Vector3 GetPosition()
+    {
+        return transform.GetChild(1).transform.position;
+    }
     void Start()
     {
         seconds = Random.Range(45, 60);
@@ -27,6 +32,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
     void IstantSpeed()
     {
         StartCoroutine(Istant());
+        VFXController.Instance.PlayVFXAtPosition(VFXType.SpeakerSound, GetPosition(), 2f);
         ScoreController.Instance.AddOvertimePeriod();
     }
     IEnumerator Istant()
