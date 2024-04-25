@@ -16,6 +16,9 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int HighestConsecutiveCorrectThrows { get; private set; }  // Record per la sessione corrente
 
     public int scoreAmount;
+    public int half;
+    public int Double;
+    public int initial;
     //public int numberOfCorrectThrowsForReward = 4;
     public int rewardScore = 10;
     //public int rewardEnergy = 10;
@@ -23,6 +26,9 @@ public class ScoreController : MonoSingleton<ScoreController>
     bool alreadystreak;
        private void Start()
     {
+        initial = scoreAmount;
+        half = scoreAmount / 2;
+        Double = scoreAmount * 2;
         Highscore = PlayerPrefs.GetInt("Highscore", 0);
         Coins = PlayerPrefs.GetInt("Coins", 0);
         alreadystreak = false;
