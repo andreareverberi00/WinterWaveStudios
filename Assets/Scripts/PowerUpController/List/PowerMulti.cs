@@ -26,6 +26,8 @@ public class PowerMulti : MonoBehaviour
         
         ScoreController.Instance.scoreAmount=ScoreController.Instance.scoreAmount * 2;// rallenta il gioco al 50%
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp, GameController.Instance.GetRobotPosition(), 10f);
+        VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp2X, SpeakerController.Instance.GetPosition(), 10f);
+   
         yield return new WaitForSeconds(10f); // attendi per 10 secondi
         ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
         PowerPool.Instance.ReturnPower(gameObject);

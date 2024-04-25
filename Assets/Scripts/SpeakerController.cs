@@ -32,7 +32,6 @@ public class SpeakerController : MonoSingleton<SpeakerController>
     void IstantSpeed()
     {
         StartCoroutine(Istant());
-        VFXController.Instance.PlayVFXAtPosition(VFXType.SpeakerSound, GetPosition(), 2f);
         ScoreController.Instance.AddOvertimePeriod();
     }
     IEnumerator Istant()

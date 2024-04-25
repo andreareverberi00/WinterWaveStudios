@@ -31,6 +31,7 @@ public class SpeakerSpeakController : MonoSingleton<SpeakerSpeakController>
                 soundEffectSource.Stop();
             }
             soundEffectSource.PlayOneShot(clip);
+            VFXController.Instance.PlayVFXAtPosition(VFXType.SpeakerSound, SpeakerController.Instance.GetPosition(), 5f);
         }
         else
         {
