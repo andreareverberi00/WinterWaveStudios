@@ -114,6 +114,7 @@ public class ScoreController : MonoSingleton<ScoreController>
             insults = Random.Range(1, 7);
             Insult(insults);
             alreadystreak = false;
+            //
 
         }
 
