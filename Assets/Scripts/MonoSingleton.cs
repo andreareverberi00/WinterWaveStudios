@@ -7,8 +7,8 @@ public abstract class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
     {
         if (instance != null)
         {
-            //Debug.LogError("Instance of this singleton " + (T)this + " already exists, deleting!");
-            //Destroy(gameObject);
+            Debug.LogError("Instance of this singleton " + (T)this + " already exists, deleting!");
+            Destroy(gameObject);
         }
         else
         {
