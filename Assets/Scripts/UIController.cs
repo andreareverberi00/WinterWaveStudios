@@ -80,7 +80,7 @@ public class UIController : MonoSingleton<UIController>
         missedThrowsText.text = "Missed Throws: " + missedThrows;
         gradeText.text = "Grade: " + grade;
         coinsText.text = "Coins: "+PlayerPrefs.GetInt("Coins").ToString();
-
+        Time.timeScale = 0;
         HidePausePanel();
         HidePauseButton();
     }

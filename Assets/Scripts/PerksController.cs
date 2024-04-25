@@ -9,5 +9,9 @@ public class PerksController : MonoSingleton<PerksController>
     public bool glass;
     public bool paper;
     public bool organic;
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
 }

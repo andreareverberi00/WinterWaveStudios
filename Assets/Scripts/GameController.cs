@@ -7,16 +7,15 @@ public class GameController : MonoSingleton<GameController>
     [SerializeField] private int scoreToAdd = 10;
     private int score = 0;
     public bool slow = false;
-
     public Transform RobotTransform;
     // Punti necessari per attivare ciascun bin
     public int pointsToActivateFirstBin = 50;
     public int pointsToActivateSecondBin = 100;
     public int pointsToActivateThirdBin = 150;
-
     private void Start()
     {
         StartNewGame();
+
     }
 
     void StartNewGame()

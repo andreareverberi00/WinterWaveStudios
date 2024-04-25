@@ -9,6 +9,7 @@ public class CustomizationController : MonoSingleton<CustomizationController>
     {
         //PlayerPrefs.SetInt("Coins", coins); // Imposta le monete iniziali //da rimuovere perchè è solo per test
         LoadCoins();
+        
     }
 
     [ContextMenu("Clear Player Prefs")]

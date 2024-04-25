@@ -37,6 +37,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         MissedWastes = 0;
         ConsecutiveCorrectThrows = 0;
         HighestConsecutiveCorrectThrows = 0;
+        DontDestroyOnLoad(this.gameObject);
 
     }
 

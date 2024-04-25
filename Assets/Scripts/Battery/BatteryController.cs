@@ -13,6 +13,7 @@ public class BatteryController : MonoSingleton<BatteryController>
     {
         currentEnergy = maxEnergy;
         InvokeRepeating("DrainEnergy", energyDrainInterval, energyDrainInterval);
+        DontDestroyOnLoad(this.gameObject);
     }
     private void DrainEnergy()
     {

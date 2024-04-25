@@ -561,6 +561,7 @@ MonoBehaviour:
   pointsToActivateFirstBin: 50
   pointsToActivateSecondBin: 100
   pointsToActivateThirdBin: 150
+  isPushed: 0
 --- !u!4 &188237286
 Transform:
   m_ObjectHideFlags: 0
