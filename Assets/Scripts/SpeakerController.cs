@@ -6,7 +6,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
     private int seconds;
     public int secondacc = 10;
     public bool Speed = false;
-
+    public bool alreadyplayed;
     public Vector3 GetPosition()
     {
         return transform.GetChild(1).transform.position;
@@ -39,7 +39,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
         Speed = true;
         yield return new WaitForSeconds(10);
         Speed = false;
-        LightController.Instance.alreadyplayed = false;
+        alreadyplayed = false;
 
     }
 
