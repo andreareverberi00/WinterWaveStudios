@@ -93,11 +93,13 @@ public class UIController : MonoSingleton<UIController>
 
     public void HidePausePanel()
     {
+        AudioListener.volume = 1;
         pausePanel.SetActive(false);
     }
 
     public void ShowPausePanel()
     {
+        AudioListener.volume = 0;
         pausePanel.SetActive(true);
     }
     public void HidePauseButton()
