@@ -89,7 +89,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         ConsecutiveCorrectThrows++;
          if(ConsecutiveCorrectThrows % 5 == 0  && ConsecutiveCorrectThrows!=0)
         {
-
+            
             int compliments;
             compliments = Random.Range(1, 6);
             Compliment(compliments);
@@ -114,7 +114,6 @@ public class ScoreController : MonoSingleton<ScoreController>
             insults = Random.Range(1, 7);
             Insult(insults);
             alreadystreak = false;
-            //
 
         }
 
@@ -140,11 +139,11 @@ public class ScoreController : MonoSingleton<ScoreController>
 
         float correctPercentage = (float)CorrectlyThrownWastes / (CorrectlyThrownWastes + MissedWastes) * 100;
 
-        if (correctPercentage >= 98)
+        if (correctPercentage >= 90)
         {
             return "S";
         }
-        else if (correctPercentage >= 90)
+        else if (correctPercentage >= 85)
         {
             return "A";
         }
@@ -159,6 +158,10 @@ public class ScoreController : MonoSingleton<ScoreController>
         else if (correctPercentage >= 60)
         {
             return "D";
+        }
+        else if (correctPercentage >= 50)
+        {
+            return "E";
         }
         else
         {

@@ -702,9 +702,9 @@ MonoBehaviour:
   scoreToAdd: 10
   slow: 0
   RobotTransform: {fileID: 631865172}
-  pointsToActivateFirstBin: 50
-  pointsToActivateSecondBin: 100
-  pointsToActivateThirdBin: 150
+  pointsToActivateFirstBin: 100
+  pointsToActivateSecondBin: 250
+  pointsToActivateThirdBin: 400
 --- !u!4 &188237286
 Transform:
   m_ObjectHideFlags: 0
@@ -4880,7 +4880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnergy: 100
-  consumeEnergyAmount: 12
+  consumeEnergyAmount: 10
   energyDrainRate: 1
   energyDrainInterval: 1
 --- !u!4 &1384702684

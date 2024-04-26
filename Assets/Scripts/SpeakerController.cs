@@ -13,7 +13,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
     }
     void Start()
     {
-        seconds = Random.Range(45, 60);
+        seconds = Random.Range(30, 41);
         //Debug.Log(seconds);
         StartCoroutine(SpeakerSpeedUp());
     }
@@ -23,7 +23,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
         while (true)
         {
             yield return new WaitForSeconds(seconds);
-            seconds = Random.Range(45, 60) + secondacc;
+            seconds = Random.Range(30, 41) + secondacc;
             //Debug.Log(seconds + "try2");
             IstantSpeed();
         }

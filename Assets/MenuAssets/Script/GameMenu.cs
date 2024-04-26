@@ -7,19 +7,12 @@ public class GameMenu : MonoBehaviour
 {
     public MenùUI Menu;
     public bool isPushed;
-    private void Start()
-    {
 
-    }
     public void Play(string Main)
     {
-
         // Carica la scena specificata
         isPushed = true;
         SceneManager.LoadScene(Main);
-        
-
-
     }
     public void Custom( string Shop)
     {

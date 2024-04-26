@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: AntennaPro
   cost: 2000
   itemType: 0
-  bought: 0
+  bought: 1
   itemCostText: {fileID: 0}

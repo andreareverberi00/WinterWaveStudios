@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class MenùUI : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class MenùUI : MonoBehaviour
     public GameObject OptionS;
 
     public TMP_Text highscoreText;
+    public Toggle musicToggle;
 
     void Start()
     {
@@ -25,12 +27,14 @@ public class MenùUI : MonoBehaviour
         Options.SetActive(true);
         Credit.SetActive(true);
         highscoreText.text = "Highscore: "+PlayerPrefs.GetInt("Highscore", 0).ToString();
+        musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMusicEnabled()
     {
-        
+        bool isEnabled = musicToggle.isOn;
+        AudioListener.volume = isEnabled ? 1 : 0;
+        PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);
     }
 
     public void CREDITS()
