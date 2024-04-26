@@ -41,18 +41,18 @@ public class CustomizationController : MonoSingleton<CustomizationController>
     }
     public void Pro_Antenna()
     {
-        ScoreController.Instance.scoreAmount = 20;
+        ScoreController.Instance.scoreAmount = 30;
         BatteryController.Instance.consumeEnergyAmount = 20;
     }
     public void Tank_Antenna()
     {
-        ScoreController.Instance.scoreAmount = 5;
-        BatteryController.Instance.consumeEnergyAmount = 5;
+        ScoreController.Instance.scoreAmount = 3;
+        BatteryController.Instance.consumeEnergyAmount = 1;
     }
     public void Base_Antenna()
     {
         ScoreController.Instance.scoreAmount = 10;
-        BatteryController.Instance.consumeEnergyAmount = 10;
+        BatteryController.Instance.consumeEnergyAmount = 5;
     }
     public void Organic_Perk()
     {
