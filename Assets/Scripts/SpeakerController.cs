@@ -39,6 +39,7 @@ public class SpeakerController : MonoSingleton<SpeakerController>
         Speed = true;
         yield return new WaitForSeconds(10);
         Speed = false;
+        LightController.Instance.alreadyplayed = false;
 
     }
 
