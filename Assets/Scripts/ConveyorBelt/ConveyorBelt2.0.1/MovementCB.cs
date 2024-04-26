@@ -68,6 +68,7 @@ public class MovementCB : MonoBehaviour
         for (int i = 0; i <= onBelt.Count - 1; i++)
         {
             onBelt[i].GetComponent<Rigidbody>().velocity = speed * direction;
+
             //if(isMoved==true)
             //{
             //    onBelt[i].GetComponent<Rigidbody>().velocity = Vector3.zero;

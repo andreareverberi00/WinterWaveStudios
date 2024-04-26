@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowController : MonoBehaviour
+public class ThrowController : MonoSingleton<ThrowController>
 {
     private GameObject selectedWaste;
     Rigidbody rb;
@@ -29,6 +29,7 @@ public class ThrowController : MonoBehaviour
         startRotation = this.selectedWaste.transform.rotation;
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = Vector3.zero;
+        Debug.Log(rb.velocity);
     }
     void ResetProperties()
     {
