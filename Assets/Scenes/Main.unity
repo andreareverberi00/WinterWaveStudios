@@ -2644,6 +2644,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d8d6b4090f1cc96468826d79c1655ce9, type: 3}
   - {fileID: 8300000, guid: 6a2593f06bac7b346951dd8f1e2cb7df, type: 3}
   - {fileID: 8300000, guid: 97b553593da95be40a8014e0e234e5bb, type: 3}
+  - {fileID: 8300000, guid: 5c2667b018ffdae42ba9faccd195868b, type: 3}
+  - {fileID: 8300000, guid: 630b913d6619ed947b168174b5bc6223, type: 3}
 --- !u!1001 &862432731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4776,6 +4778,7 @@ MonoBehaviour:
   spotlight: {fileID: 1473290596}
   spotlight2: {fileID: 1160794031}
   Spotlight: {fileID: 1816103666}
+  alreadyplayed: 0
 --- !u!1001 &1383595462
 PrefabInstance:
   m_ObjectHideFlags: 0

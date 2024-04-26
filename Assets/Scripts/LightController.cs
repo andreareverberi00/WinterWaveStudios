@@ -1,14 +1,15 @@
 using UnityEngine;
 
-public class LightController : MonoBehaviour
+public class LightController : MonoSingleton<LightController>
 {
     public float rotationSpeed = 30f;
     public Light spotlight;
     public Light spotlight2;
     public GameObject Spotlight;
+    public bool alreadyplayed;
     void Start()
     {
-        //spotlight = GetComponent<Light>(); // Ottieni il componente Light
+        alreadyplayed = false; //spotlight = GetComponent<Light>(); // Ottieni il componente Light
     }
 
     void Update()
@@ -19,6 +20,14 @@ public class LightController : MonoBehaviour
         if (SpeakerController.Instance.Speed == true)
         {
             Spotlight.SetActive(true);
+            if(alreadyplayed==false)
+            {
+                int i;
+                i = Random.Range(0, 2);
+                OvertimeSound(i);
+            }
+         
+
         }
         else
         {
@@ -26,4 +35,17 @@ public class LightController : MonoBehaviour
         }
     }
 
+    void OvertimeSound(int i)
+    {
+        if (i == 1)
+        {
+            SpeakerSpeakController.Instance.PlaySound("overtime_1");
+            alreadyplayed = true;
+        }
+        if (i == 2)
+        {
+            SpeakerSpeakController.Instance.PlaySound("overtime_2");
+            alreadyplayed = true;
+        }
+    }
 }
