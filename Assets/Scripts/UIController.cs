@@ -52,6 +52,7 @@ public class UIController : MonoSingleton<UIController>
     public void Restart()
     {
         Time.timeScale = 1;
+        AudioListener.volume = 1;
         SceneManager.LoadScene("Main");
         PlayerPrefs.SetInt("score", TestMissions.Instance.Counter);
         PlayerPrefs.Save();

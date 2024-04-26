@@ -4033,7 +4033,6 @@ MonoBehaviour:
   spotlight: {fileID: 1473290596}
   spotlight2: {fileID: 1160794031}
   Spotlight: {fileID: 1816103666}
-  alreadyplayed: 0
 --- !u!1 &1384702682
 GameObject:
   m_ObjectHideFlags: 0

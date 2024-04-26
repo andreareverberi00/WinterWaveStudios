@@ -1755,6 +1755,38 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &3929444010832823811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2495718669189605577}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2495718669189605577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3929444010832823811}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0151083, y: 4.970546, z: -6.9747114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6581563667103347120}
+  m_Father: {fileID: 7868013130410078620}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4054302904839129166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,7 +1821,6 @@ Transform:
   - {fileID: 3796675988232569338}
   - {fileID: 4720168688865034533}
   - {fileID: 3799404070271059302}
-  - {fileID: 6581563667103347120}
   - {fileID: 1874051283000745871}
   - {fileID: 5431690471867044662}
   - {fileID: 6406035976304569087}
@@ -1800,6 +1831,7 @@ Transform:
   - {fileID: 8036192179604446011}
   - {fileID: 8231111855925960992}
   - {fileID: 6326648882509813598}
+  - {fileID: 2495718669189605577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4107935597525210758
@@ -10801,19 +10833,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7868013130410078620}
+    m_TransformParent: {fileID: 2495718669189605577}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.630627
+      value: 16.615519
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.503
+      value: -5.473546
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: 4.9747114
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10821,15 +10853,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10944,6 +10976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondacc: 10
   Speed: 0
+  alreadyplayed: 0
 --- !u!114 &3733354582546928101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10960,7 +10993,6 @@ MonoBehaviour:
   spotlight: {fileID: 3428539426443140512}
   spotlight2: {fileID: 8304501729234999995}
   Spotlight: {fileID: 5532755359906829239}
-  alreadyplayed: 0
 --- !u!4 &6581563667103347120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b74f422d2c7e011468fe17e264fa3eaf, type: 3}
