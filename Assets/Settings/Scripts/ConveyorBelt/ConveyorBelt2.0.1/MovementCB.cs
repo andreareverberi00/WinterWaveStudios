@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovementCB : MonoBehaviour
 {
     [SerializeField]
-    private float speed, conveyorSpeed, initialspeed, ac,initialcb,cb;
+    private  float speed, conveyorSpeed, initialspeed, ac,initialcb,cb,texturedir;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
@@ -42,7 +42,7 @@ public class MovementCB : MonoBehaviour
     private void Update()
     {
         // Move the conveyor belt texture to make it look like it's moving
-        material.mainTextureOffset += new Vector2(0, 1) * conveyorSpeed * Time.deltaTime;
+        material.mainTextureOffset += new Vector2(0, texturedir) * conveyorSpeed * Time.deltaTime;
       
 
         if (accelaration == true)

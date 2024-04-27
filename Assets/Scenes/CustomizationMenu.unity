@@ -4315,6 +4315,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604588039}
   m_CullTransparentMesh: 1
+--- !u!1 &1626847318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626847320}
+  - component: {fileID: 1626847319}
+  m_Layer: 0
+  m_Name: SceneLink2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1626847319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626847318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a960ac685221c6b448faab0cf73db3de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1626847320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626847318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7589347, y: 2.229652, z: -0.022450209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668117665
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1790892978}
   - component: {fileID: 1790892979}
+  - component: {fileID: 1790892980}
   m_Layer: 0
   m_Name: CustomizationController
   m_TagString: Untagged
@@ -5195,6 +5240,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+--- !u!114 &1790892980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790892977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0ca8d72ae7d1c4ca7048f77364a041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseantenna: 0
+  tankantenna: 0
+  proantenna: 0
+  perkpaper: 0
+  perkglass: 0
+  perkplastic: 0
+  perkorganic: 0
+  perkmetal: 0
 --- !u!1 &1853476818
 GameObject:
   m_ObjectHideFlags: 0
@@ -6119,3 +6184,4 @@ SceneRoots:
   - {fileID: 1902454434}
   - {fileID: 1868803011}
   - {fileID: 986094588}
+  - {fileID: 1626847320}

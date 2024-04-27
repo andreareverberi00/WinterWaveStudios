@@ -7,6 +7,7 @@ public class WasteDataHolder : MonoBehaviour
     public Waste wasteData;
     public GameObject Portal;
     public int Counter = 0;
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))
@@ -61,8 +62,10 @@ public class WasteDataHolder : MonoBehaviour
         }
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
+            transform.position = new Vector3(Portal.transform.position.x - 0.1f, Portal.transform.position.y, Portal.transform.position.z);
+            
 
-            transform.position = new Vector3(Portal.transform.position.x + 0.1f, Portal.transform.position.y, Portal.transform.position.z);
+            
         }
 
 
@@ -78,7 +81,9 @@ public class WasteDataHolder : MonoBehaviour
             WastePool.Instance.ReturnWaste(gameObject);
             //BatteryController.Instance.ConsumeEnergy();
         }
-        PerkVerification();
+        if( PerkController.Instance.nocustom==false) //Gamemenu.Instance.nocustom==false)
+        { PerkVerification(); }
+        
 
     }
     public IEnumerator ReturnWaste()
@@ -221,27 +226,27 @@ public class WasteDataHolder : MonoBehaviour
     }
     void PerkVerification()
     {
-        if(PerksController.Instance.paper==true)
+        if (Scene_Link2.Instance.perkglass == true)
         {
             PerkPaper();
         }
-        if (PerksController.Instance.glass == true)
+        if (Scene_Link2.Instance.perkpaper == true)
         {
             PerkGlass();
         }
-        if (PerksController.Instance.plastic == true)
+        if (Scene_Link2.Instance.perkplastic == true)
         {
             PerkPlastic();
         }
-        if (PerksController.Instance.metal == true)
+        if (Scene_Link2.Instance.perkorganic == true)
         {
             PerkMetal();
         }
-        if (PerksController.Instance.organic == true)
+        if (Scene_Link2.Instance.perkmetal == true)
         {
             PerkOrganic();
         }
-    
+
     }
-  
+
 }
