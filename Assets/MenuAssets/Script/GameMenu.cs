@@ -21,6 +21,7 @@ public class GameMenu : MonoBehaviour
         nocustom = !nocustom;
         PlayerPrefs.SetInt("valoreBool", nocustom ? 1 : 0);
         PlayerPrefs.Save();
+        Scenelink.Instance.play = true;
         SceneManager.LoadScene(Main);
     }
     public void Custom( string Shop)

@@ -7,7 +7,7 @@ public class WasteDataHolder : MonoBehaviour
     public Waste wasteData;
     public GameObject Portal;
     public int Counter = 0;
-    
+    public PerkController pk;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))
@@ -72,18 +72,13 @@ public class WasteDataHolder : MonoBehaviour
     }
     private void Update()
     {
-        if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y >= 0)
-        {
-            transform.position = new Vector3(transform.position.x - 1, 0.5f, transform.position.z);
-        }
-        if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y <= 0)
-        {
-            WastePool.Instance.ReturnWaste(gameObject);
-            //BatteryController.Instance.ConsumeEnergy();
-        }
-        if( PerkController.Instance.nocustom==false) //Gamemenu.Instance.nocustom==false)
-        { PerkVerification(); }
         
+        Camera();
+        if(pk.nocustom==true)
+        {
+            PerkVerification();
+        }
+
 
     }
     public IEnumerator ReturnWaste()
@@ -224,7 +219,7 @@ public class WasteDataHolder : MonoBehaviour
                 break;
         }
     }
-    void PerkVerification()
+   public void PerkVerification()
     {
         if (Scene_Link2.Instance.perkglass == true)
         {
@@ -248,5 +243,16 @@ public class WasteDataHolder : MonoBehaviour
         }
 
     }
-
+    void Camera()
+    {
+        if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y >= 0)
+        {
+            transform.position = new Vector3(transform.position.x - 1, 0.5f, transform.position.z);
+        }
+        if (transform.position.x >= CameraView.Instance.maxcamera && transform.position.y <= 0)
+        {
+            WastePool.Instance.ReturnWaste(gameObject);
+            //BatteryController.Instance.ConsumeEnergy();
+        }
+    }
 }

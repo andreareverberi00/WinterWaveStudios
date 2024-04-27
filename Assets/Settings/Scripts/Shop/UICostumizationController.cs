@@ -17,6 +17,7 @@ public class UICustomizationController : MonoSingleton<UICustomizationController
     }
     public void BackToMenu()
     {
+        Scenelink.Instance.play = false;
         SceneManager.LoadScene("Menu");
     }
 }

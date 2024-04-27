@@ -1831,6 +1831,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 278928228652583973, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
+    - target: {fileID: 1035608763624989499, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
     - target: {fileID: 1564031556423113687, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: texturedir
       value: 1
@@ -1843,10 +1851,22 @@ PrefabInstance:
       propertyPath: conveyorSpeed
       value: 0.077
       objectReference: {fileID: 0}
+    - target: {fileID: 2208653819434778963, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
     - target: {fileID: 2213526912510869526, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2214574457958200382, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
+    - target: {fileID: 2458094361293561875, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
     - target: {fileID: 4054302904839129166, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Name
       value: Envinroment
@@ -1887,6 +1907,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4671206892444452107, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
     - target: {fileID: 5838771059359532483, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: texturedir
       value: 1
@@ -1907,6 +1931,14 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7250605726754858230, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
+    - target: {fileID: 7749748685972262172, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
     - target: {fileID: 7868013130410078620, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.4706268
@@ -2003,6 +2035,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8569641844126927365, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: pk
+      value: 
+      objectReference: {fileID: 1530463277}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4435,6 +4471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseButton: {fileID: 1243588909}
   ResumeButton: {fileID: 663172125}
+  perkcontroller: {fileID: 1530463277}
   scoreText: {fileID: 267705058}
   overtimePeriodsText: {fileID: 1061513736}
   energySlider: {fileID: 829985899}
@@ -4673,6 +4710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255eb6368b5d26d47bf7087ef21b0fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nocustom: 1
+  clearstate: 0
 --- !u!1 &1552153702
 GameObject:
   m_ObjectHideFlags: 0

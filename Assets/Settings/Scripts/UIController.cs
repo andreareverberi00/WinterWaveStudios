@@ -8,7 +8,7 @@ public class UIController : MonoSingleton<UIController>
 {
     public GameObject PauseButton;
     public GameObject ResumeButton;
-
+    public PerkController perkcontroller;
     public TMP_Text scoreText;
     public TMP_Text overtimePeriodsText;
 
@@ -68,6 +68,8 @@ public class UIController : MonoSingleton<UIController>
         //    Application.Quit();
         //#endif
 
+        //Restart();
+        perkcontroller.nocustom= false;
         Restart();
         SceneManager.LoadScene("Menu");
 
