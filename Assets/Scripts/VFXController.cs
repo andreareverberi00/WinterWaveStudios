@@ -27,12 +27,15 @@ public class VFXController : MonoSingleton<VFXController>
     private Dictionary<VFXType, GameObject> vfxDictionary = new Dictionary<VFXType, GameObject>();
     private Dictionary<VFXType, GameObject> activeVFXInstances = new Dictionary<VFXType, GameObject>();
 
+    GameObject vfxContainer;
+
     void Start()
     {
         foreach (var entry in vfxEntries)
         {
             vfxDictionary[entry.type] = entry.prefab;
         }
+        vfxContainer = new GameObject("VFX");
     }
 
     public void PlayVFXAtPosition(VFXType type, Vector3 position, float duration)
@@ -48,6 +51,7 @@ public class VFXController : MonoSingleton<VFXController>
         if (vfxDictionary.TryGetValue(type, out GameObject vfxPrefab))
         {
             GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
+            vfxInstance.transform.SetParent(vfxContainer.transform);
             activeVFXInstances[type] = vfxInstance; // Update the active instance
             StartCoroutine(ManageVFXLifetime(vfxInstance, type, duration));
         }

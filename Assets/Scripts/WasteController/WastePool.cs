@@ -30,6 +30,10 @@ public class WastePool : MonoBehaviour
 
     void InitializePools()
     {
+        GameObject propsContainer = new GameObject("Wastes and Batteries");
+
+        GameObject wasteContainer = new GameObject("Wastes");
+        wasteContainer.transform.SetParent(propsContainer.transform);
         // Inizializza i pool per i tipi di rifiuti
         foreach (GameObject prefab in wastePrefabs)
         {
@@ -41,19 +45,26 @@ public class WastePool : MonoBehaviour
             {
                 wastePools[wasteType] = new Queue<GameObject>();
             }
+            GameObject wasteSectionPerWaste= new GameObject(dataHolder.name);
+            wasteSectionPerWaste.transform.SetParent(wasteContainer.transform);
 
             for (int i = 0; i < poolSize; i++)
             {
                 var newWaste = Instantiate(prefab);
+                newWaste.transform.SetParent(wasteSectionPerWaste.transform);
                 newWaste.SetActive(false);
                 wastePools[wasteType].Enqueue(newWaste);
             }
         }
 
         // Inizializza il pool per le batterie
+        GameObject batteryContainer = new GameObject("Batteries");
+        batteryContainer.transform.SetParent(propsContainer.transform);
+
         for (int i = 0; i < batteryPoolSize; i++)
         {
             var newBattery = Instantiate(batteryPrefab);
+            newBattery.transform.SetParent(batteryContainer.transform);
             newBattery.SetActive(false);
             batteryPool.Enqueue(newBattery);
         }

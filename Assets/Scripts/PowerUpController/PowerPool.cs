@@ -25,21 +25,26 @@ public class PowerPool : MonoBehaviour
 
     void InitializePools()
     {
+        GameObject powerUpContainer = new GameObject("Power Ups");
+
         for (int i = 0; i < PowerPoolSize; i++)
         {
             var newpower = Instantiate(slowPrefab);
+            newpower.transform.SetParent(powerUpContainer.transform);
             newpower.SetActive(false);
             powerPool.Enqueue(newpower);
         }
         for (int i = 0; i < PowerPoolSize; i++)
         {
             var newpower2 = Instantiate(multiPrefab);
+            newpower2.transform.SetParent(powerUpContainer.transform);
             newpower2.SetActive(false);
             powerPool.Enqueue(newpower2);
         }
         for (int i = 0; i < PowerPoolSize; i++)
         {
             var newpower = Instantiate(gravityPrefab);
+            newpower.transform.SetParent(powerUpContainer.transform);
             newpower.SetActive(false);
             powerPool.Enqueue(newpower);
         }
