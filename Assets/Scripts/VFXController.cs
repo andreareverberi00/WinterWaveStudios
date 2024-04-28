@@ -10,7 +10,8 @@ public enum VFXType
     PowerUp,
     PowerUp2X,
     SpeakerSound,
-    CorrectSorting
+    CorrectSorting,
+    MagnetPowerUp
 }
 
 public class VFXController : MonoSingleton<VFXController>
@@ -38,9 +39,9 @@ public class VFXController : MonoSingleton<VFXController>
         vfxContainer = new GameObject("VFX");
     }
 
-    public void PlayVFXAtPosition(VFXType type, Vector3 position, float duration)
+    public void PlayVFXAtPosition(VFXType type, Vector3 position, float duration, bool canHaveMultipleInstances=false)
     {
-        if (activeVFXInstances.TryGetValue(type, out GameObject existingVFXInstance))
+        if (activeVFXInstances.TryGetValue(type, out GameObject existingVFXInstance)&&!canHaveMultipleInstances)
         {
             if (existingVFXInstance != null)
             {
@@ -60,7 +61,19 @@ public class VFXController : MonoSingleton<VFXController>
             Debug.LogWarning("VFX type not found: " + type);
         }
     }
-
+    public void PlayVFXAsChild(VFXType type, Transform parentTransform, Vector3 position, float duration)
+    {
+        if (vfxDictionary.TryGetValue(type, out GameObject vfxPrefab))
+        {
+            GameObject vfxInstance = Instantiate(vfxPrefab, position, Quaternion.identity);
+            vfxInstance.transform.SetParent(parentTransform);
+            StartCoroutine(ManageVFXLifetime(vfxInstance, VFXType.CorrectSorting, duration));
+        }
+        else
+        {
+            Debug.LogWarning("VFX type not found: " + VFXType.CorrectSorting);
+        }
+    }
     private IEnumerator ManageVFXLifetime(GameObject vfxInstance, VFXType type, float duration)
     {
         yield return new WaitForSeconds(duration);

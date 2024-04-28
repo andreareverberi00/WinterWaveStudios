@@ -18,8 +18,8 @@ public class Powergravity : MonoBehaviour
     {
         transform.position = new Vector3(100, 100, 100);
         StartCoroutine(MultiplicatorGame());
+        GameController.Instance.PlayMagnetVFXOnAllBins();
         previousval = GravityBoxController.Instance.AttractionForce;
-
     }
 
 
@@ -36,24 +36,16 @@ public class Powergravity : MonoBehaviour
     {
         if (collision.collider.CompareTag("Floor"))
             PowerPool.Instance.ReturnPower(gameObject);
+
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
-            //Debug.Log("Collisione con un oggetto che ha un capsule collider");
             transform.position = new Vector3(Portal.transform.position.x - 0.1f, Portal.transform.position.y, Portal.transform.position.z);
         }
         if (collision.collider.GetType() == typeof(BoxCollider))
         {
             isGrounded = true;
-            //Jump();
         }
 
     }
-    void Jump()
-    {
-        if(isGrounded==true)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-        
-    }
+
 }

@@ -968,7 +968,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 2d46ed16e4342c846beb83ec89f8f7a9, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 4007d7d463243814ba3ddb4d3d16f4f0, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1855,6 +1855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Envinroment
       objectReference: {fileID: 0}
+    - target: {fileID: 4178416309539661502, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4607711780836106204, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Name
       value: Battery
@@ -2635,6 +2639,8 @@ MonoBehaviour:
     prefab: {fileID: 6236496438686221993, guid: d8682f2af73a0b14dab85ae49f25451e, type: 3}
   - type: 2
     prefab: {fileID: 8487402871801164198, guid: 90375796f996bff4cabed66da5e558cb, type: 3}
+  - type: 7
+    prefab: {fileID: 750517558408082469, guid: d6a0909abd5e4d24a810c62a5aaefdb2, type: 3}
 --- !u!1 &1035209094
 GameObject:
   m_ObjectHideFlags: 0

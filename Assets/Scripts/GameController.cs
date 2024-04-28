@@ -12,6 +12,10 @@ public class GameController : MonoSingleton<GameController>
     public int pointsToActivateFirstBin = 50;
     public int pointsToActivateSecondBin = 100;
     public int pointsToActivateThirdBin = 150;
+
+    bool isMagnetActive = false;
+    private float magnetVFXDuration = 10f; // Durata totale del VFX
+    private float magnetVFXEndTime; // Momento in cui il VFX deve terminare
     private void Start()
     {
         StartNewGame();
@@ -37,6 +41,26 @@ public class GameController : MonoSingleton<GameController>
     public Vector3 GetRobotPosition() 
     {
         return RobotTransform.position;
+    }
+    public void PlayMagnetVFXOnAllBins()
+    {
+        if (!isMagnetActive)
+        {
+            Vector3 offset = new Vector3(0, 1, 0); // Rialza il VFX sopra al bin di 1 metro.
+            foreach (var bin in bins)
+            {
+                    Vector3 vfxPosition = bin.transform.position + offset;
+                    VFXController.Instance.PlayVFXAsChild(VFXType.MagnetPowerUp,bin.transform, vfxPosition, 10f);
+            }
+            StartCoroutine(ResetPlayMagnetVFX());
+        }
+    }
+
+    IEnumerator ResetPlayMagnetVFX ()
+    {
+        isMagnetActive = true;
+        yield return new WaitForSeconds(10f);
+        isMagnetActive = false;
     }
     private void CheckAndActivateBins()
     {
