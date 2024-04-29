@@ -63,7 +63,7 @@ public class WasteDataHolder : MonoBehaviour
         }
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
-            transform.position = new Vector3(Portal.transform.position.x - 0.1f, Portal.transform.position.y, Portal.transform.position.z);
+            transform.position = new Vector3(Portal.transform.position.x + 0.1f, Portal.transform.position.y, Portal.transform.position.z);
         }
     }
 

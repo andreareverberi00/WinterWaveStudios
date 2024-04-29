@@ -45,7 +45,7 @@ public class PowerSlow : MonoBehaviour
         if (collision.collider.GetType() == typeof(CapsuleCollider))
         {
             //Debug.Log("Collisione con un oggetto che ha un capsule collider");
-            transform.position = new Vector3(Portal.transform.position.x - 0.1f, Portal.transform.position.y, Portal.transform.position.z);
+            transform.position = new Vector3(Portal.transform.position.x + 0.1f, Portal.transform.position.y, Portal.transform.position.z);
         }
         if (collision.collider.GetType() == typeof(BoxCollider))
         {
