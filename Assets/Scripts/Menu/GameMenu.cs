@@ -6,22 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
     public MenùUI Menu;
-    public bool nocustom;
+ 
 
     void Start()
     {
-        // Carica il valore bool salvato se esiste, altrimenti imposta il valore di default a true
-        nocustom = PlayerPrefs.GetInt("nocustom", 1) == 1;
+
     }
 
 
     public void Play(string Main)
     {
-        // Carica la scena specificata
-        nocustom = !nocustom;
-        PlayerPrefs.SetInt("valoreBool", nocustom ? 1 : 0);
-        PlayerPrefs.Save();
-        Scenelink.Instance.play = true;
+
         SceneManager.LoadScene(Main);
     }
     public void Custom( string Shop)

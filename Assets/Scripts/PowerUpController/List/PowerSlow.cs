@@ -51,7 +51,7 @@ public class PowerSlow : MonoBehaviour
         {
             isGrounded = true;
             //Jump();
-            Debug.Log("sium");
+
         }
                 
     }

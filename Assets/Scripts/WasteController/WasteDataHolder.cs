@@ -70,7 +70,7 @@ public class WasteDataHolder : MonoBehaviour
     private void Update()
     {    
         Camera();
-        if(pk.nocustom==true)
+        if(pk.nocustom==false)
         {
             PerkVerification();
         }

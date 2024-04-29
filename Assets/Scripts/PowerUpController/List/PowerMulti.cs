@@ -16,7 +16,7 @@ public class PowerMulti : MonoBehaviour
     {
         transform.position = new Vector3(100, 100, 100);
         StartCoroutine(MultiplicatorGame());
-        PowerPool.Instance.ReturnPower(gameObject);
+        //PowerPool.Instance.ReturnPower(gameObject);
 
     }
 
@@ -24,12 +24,12 @@ public class PowerMulti : MonoBehaviour
     IEnumerator MultiplicatorGame()
     {
         
-        ScoreController.Instance.scoreAmount=ScoreController.Instance.scoreAmount * 2;// rallenta il gioco al 50%
+        ScoreController.Instance.scoreAmount=ScoreController.Instance.scoreAmount * 2;
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp, GameController.Instance.GetRobotPosition(), 10f);
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp2X, SpeakerController.Instance.GetPosition(), 10f);
-   
-        yield return new WaitForSeconds(10f); // attendi per 10 secondi
-        ScoreController.Instance.scoreAmount = ScoreController.Instance.scoreAmount / 2;
+        yield return new WaitForSeconds(10f);
+        Debug.Log("torna normale");
+        ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
         PowerPool.Instance.ReturnPower(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
