@@ -34,7 +34,7 @@ public class MovementCB : MonoBehaviour
         initialspeed = speed;
         ac = speed * 2;
         initialcb = conveyorSpeed;
-        cb = conveyorSpeed * 2;
+        cb = 0.175f;
         //accelaration = false;
     }
 
@@ -99,7 +99,7 @@ public class MovementCB : MonoBehaviour
         {
             elapsedTime = 0f;
             speed += accelerationspeed;
-            conveyorSpeed += 0.065f * accelerationspeed;
+            conveyorSpeed += 0.077f * accelerationspeed;
 
         }
 
