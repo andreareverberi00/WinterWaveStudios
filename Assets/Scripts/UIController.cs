@@ -6,20 +6,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoSingleton<UIController>
 {
-<<<<<<< Updated upstream
     [Header("Panels")]
-=======
-    public GameObject PauseButton;
-    public GameObject ResumeButton;
-    public PerkController perkcontroller;
-    public TMP_Text scoreText;
-    public TMP_Text overtimePeriodsText;
-    bool quit;
-    bool restart;
-    bool Default;
-    public Image energySlider;
-
->>>>>>> Stashed changes
     public GameObject gameOverPanel;
     public GameObject pausePanel;
     public GameObject optionPanel;
@@ -80,13 +67,6 @@ public class UIController : MonoSingleton<UIController>
         {
             float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
             energySlider.fillAmount = clampedEnergy;
-            //if(Default)
-            //{ 
-            //if((clampedEnergy <= 10))
-            //{
-            //    //SpeakerController.Instance 
-            //}
-            //}    
         }
     }
     public void Restart()
