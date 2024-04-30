@@ -11,7 +11,8 @@ public class UIController : MonoSingleton<UIController>
     public PerkController perkcontroller;
     public TMP_Text scoreText;
     public TMP_Text overtimePeriodsText;
-
+    bool quit;
+    bool restart;
     public Image energySlider;
 
     public GameObject gameOverPanel;
@@ -23,6 +24,7 @@ public class UIController : MonoSingleton<UIController>
     public TMP_Text gradeText;
     public TMP_Text streakFeedbackText;
     public TMP_Text coinsText;
+    public Toggle musicToggle;
 
     private void Start()
     {
@@ -51,12 +53,10 @@ public class UIController : MonoSingleton<UIController>
     }
     public void Restart()
     {
+        restart = true;
         Time.timeScale = 1;
         AudioListener.volume = 1;
         SceneManager.LoadScene("Main");
-        PlayerPrefs.SetInt("score", TestMissions.Instance.Counter);
-        PlayerPrefs.Save();
-        Debug.Log("Score saved to PlayerPrefs: " + TestMissions.Instance.Counter);
 
     }
     public void Quit()
@@ -68,9 +68,10 @@ public class UIController : MonoSingleton<UIController>
         //    Application.Quit();
         //#endif
 
-        //Restart();
-        perkcontroller.nocustom= false;
-        Restart();
+        //perkcontroller.nocustom= false;
+        quit=true;
+        Time.timeScale = 1;
+        AudioListener.volume = 1;
         SceneManager.LoadScene("Menu");
 
     }
@@ -112,5 +113,38 @@ public class UIController : MonoSingleton<UIController>
     void GameOver()
     {
         IsGameOver = true;
+    }
+    IEnumerator WaitandLoad()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Menu");
+
+
+    }
+    IEnumerator WaitandLoad2()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Main");
+
+
+    }
+    public void SetMusicEnabled()
+    {
+        bool isEnabled = musicToggle.isOn;
+        AudioListener.volume = isEnabled ? 1 : 0;
+        PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);
+    }
+    private void Update()
+    {
+        if(quit=true )
+        {
+            StartCoroutine(WaitandLoad());
+            quit = false;
+        }
+        if (restart = true)
+        {
+            StartCoroutine(WaitandLoad2());
+            restart = false;
+        }
     }
 }
