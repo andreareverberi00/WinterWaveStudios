@@ -161,5 +161,4 @@ public class ThrowController : MonoSingleton<ThrowController>
 
         ResetProperties();
     }
-
 }
