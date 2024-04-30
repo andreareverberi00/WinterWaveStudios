@@ -25,6 +25,7 @@ public class UIController : MonoSingleton<UIController>
     public TMP_Text streakFeedbackText;
     public TMP_Text coinsText;
     public Toggle musicToggle;
+    public GameObject OptionBackground;
 
     private void Start()
     {
@@ -74,6 +75,10 @@ public class UIController : MonoSingleton<UIController>
         AudioListener.volume = 1;
         SceneManager.LoadScene("Menu");
 
+    }
+    public void Option()
+    {
+        OptionBackground.SetActive(true);
     }
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
     {
