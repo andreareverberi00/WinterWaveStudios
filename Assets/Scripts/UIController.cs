@@ -67,6 +67,14 @@ public class UIController : MonoSingleton<UIController>
         {
             float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
             energySlider.fillAmount = clampedEnergy;
+
+            //if(Default)
+            //{ 
+            //if((clampedEnergy <= 10))
+            //{
+            //    //SpeakerController.Instance 
+            //}
+            //}  
         }
     }
     public void Restart()
@@ -78,18 +86,11 @@ public class UIController : MonoSingleton<UIController>
     }
     public void Quit()
     {
-
-        //#if UNITY_EDITOR
-        //    UnityEditor.EditorApplication.isPlaying = false;
-        //#else
-        //    Application.Quit();
-        //#endif
-
         //perkcontroller.nocustom= false;
+
         quit=true;
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
-
     }
 
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
