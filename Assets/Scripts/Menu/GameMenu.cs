@@ -6,22 +6,27 @@ using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
     public MenùUI Menu;
- 
+    private bool play;
+    private bool shop;
 
     void Start()
     {
-
+        play = false;
+        shop = false;
     }
 
 
-    public void Play(string Main)
+    public void Play()
     {
-
-        SceneManager.LoadScene(Main);
+        play=true;
+        //StartCoroutine(WaitandLoad());
+        
+        
     }
-    public void Custom( string Shop)
+    public void Custom()
     {
-        SceneManager.LoadScene(Shop);
+        shop = true;
+        StartCoroutine(WaitandLoad2());
     }
     public void Options()
     {
@@ -34,5 +39,35 @@ public class GameMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         Menu.BackToMenu();
+    }
+
+    IEnumerator WaitandLoad()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Main");
+        
+        
+    }
+    IEnumerator WaitandLoad2()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("CustomizationMenu");
+
+
+    }
+    private void Update()
+    {
+        if(play==true && shop==false)
+        {
+            
+            StartCoroutine(WaitandLoad());
+            play = false;
+        }
+        if (play == false && shop == true)
+        {
+            StartCoroutine(WaitandLoad2());
+            shop = false;
+        }
+        
     }
 }

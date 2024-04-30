@@ -9,6 +9,8 @@ public class BatteryController : MonoSingleton<BatteryController>
     public float energyDrainRate = 1f;
     public float energyDrainInterval = 1f;
 
+    public bool infiniteEnergy = false;
+
     private void Start()
     {
         currentEnergy = maxEnergy;
@@ -44,7 +46,15 @@ public class BatteryController : MonoSingleton<BatteryController>
 
         }
     }
-
+    public void Awake()
+    {
+        if (infiniteEnergy)
+        {
+            maxEnergy=100;
+            energyDrainRate = 0;
+            consumeEnergyAmount = 0;
+        }
+    }
     public void ConsumeEnergy()
     {
         currentEnergy = Mathf.Max(currentEnergy - consumeEnergyAmount, 0);
