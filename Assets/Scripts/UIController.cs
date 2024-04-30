@@ -6,34 +6,51 @@ using UnityEngine.UI;
 
 public class UIController : MonoSingleton<UIController>
 {
-    public GameObject PauseButton;
-    public GameObject ResumeButton;
-    public PerkController perkcontroller;
-    public TMP_Text scoreText;
-    public TMP_Text overtimePeriodsText;
-    bool quit;
-    bool restart;
-    public Image energySlider;
-
+    [Header("Panels")]
     public GameObject gameOverPanel;
     public GameObject pausePanel;
-    public bool IsGameOver;
+    public GameObject optionPanel;
+    public GameObject restartPanel;
+    public GameObject quitPanel;
+    [Space(10)]
+
+
+    [Header("Texts")]
     public TMP_Text finalScoreText;
     public TMP_Text correctThrowsText;
     public TMP_Text missedThrowsText;
     public TMP_Text gradeText;
     public TMP_Text streakFeedbackText;
     public TMP_Text coinsText;
+    public TMP_Text scoreText;
+    public TMP_Text overtimePeriodsText;
+    [Space(10)]
+
+    [Header("Misc")]
+    public GameObject PauseButton;
+    public GameObject ResumeButton;
+    public PerkController perkcontroller;
+    bool quit;
+    bool restart;
+    public Image energySlider;
+
     public Toggle musicToggle;
-    public GameObject OptionBackground;
+    public bool IsGameOver;
 
     private void Start()
     {
         energySlider.fillAmount = 1f;
+
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
+        optionPanel.SetActive(false);
+        restartPanel.SetActive(false);
+        quitPanel.SetActive(false);
+
         IsGameOver = false;
         ShowMaxStreak();
+        musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
+
     }
 
     public void SetScore(int score)
@@ -56,7 +73,6 @@ public class UIController : MonoSingleton<UIController>
     {
         restart = true;
         Time.timeScale = 1;
-        AudioListener.volume = 1;
         SceneManager.LoadScene("Main");
 
     }
@@ -72,14 +88,10 @@ public class UIController : MonoSingleton<UIController>
         //perkcontroller.nocustom= false;
         quit=true;
         Time.timeScale = 1;
-        AudioListener.volume = 1;
         SceneManager.LoadScene("Menu");
 
     }
-    public void Option()
-    {
-        OptionBackground.SetActive(true);
-    }
+
     public void ShowGameOverPanel(int finalScore, int correctThrows, int missedThrows, string grade)
     {
         gameOverPanel.SetActive(true);
@@ -102,13 +114,13 @@ public class UIController : MonoSingleton<UIController>
 
     public void HidePausePanel()
     {
-        AudioListener.volume = 1;
+        //AudioListener.volume = 1;
         pausePanel.SetActive(false);
     }
 
     public void ShowPausePanel()
     {
-        AudioListener.volume = 0;
+        //AudioListener.volume = 0;
         pausePanel.SetActive(true);
     }
     public void HidePauseButton()
@@ -118,6 +130,30 @@ public class UIController : MonoSingleton<UIController>
     void GameOver()
     {
         IsGameOver = true;
+    }
+    public void HideOptionPanel()
+    {
+        optionPanel.SetActive(false);
+    }
+    public void ShowOptionPanel()
+    {
+        optionPanel.SetActive(true);
+    }
+    public void HideRestartPanel()
+    {
+        restartPanel.SetActive(false);
+    }
+    public void ShowRestartPanel()
+    {
+        restartPanel.SetActive(true);
+    }
+    public void HideQuitPanel()
+    {
+        quitPanel.SetActive(false);
+    }
+    public void ShowQuitPanel()
+    {
+        quitPanel.SetActive(true);
     }
     IEnumerator WaitandLoad()
     {
@@ -141,12 +177,12 @@ public class UIController : MonoSingleton<UIController>
     }
     private void Update()
     {
-        if(quit=true )
+        if(quit==true )
         {
             StartCoroutine(WaitandLoad());
             quit = false;
         }
-        if (restart = true)
+        if (restart == true)
         {
             StartCoroutine(WaitandLoad2());
             restart = false;
