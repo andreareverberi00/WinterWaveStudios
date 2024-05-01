@@ -13,7 +13,7 @@ public class MenùUI : MonoBehaviour
     public GameObject Custom;
     public GameObject Options;
     public GameObject OptionS;
-
+    public GameObject nametext;
     public TMP_Text highscoreText;
     public Toggle musicToggle;
 
@@ -26,6 +26,7 @@ public class MenùUI : MonoBehaviour
         Custom.SetActive(true);
         Options.SetActive(true);
         Credit.SetActive(true);
+        nametext.SetActive(true);
         highscoreText.text = "Highscore: "+PlayerPrefs.GetInt("Highscore", 0).ToString();
         musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
     }
@@ -40,6 +41,7 @@ public class MenùUI : MonoBehaviour
     public void CREDITS()
     {
         CreditsText.SetActive(true);
+        nametext.SetActive(false);
         OptionS.SetActive(false);
         Menu.SetActive(true);
         Play.SetActive(false);
@@ -51,6 +53,7 @@ public class MenùUI : MonoBehaviour
    public void BackToMenu()
     {
         CreditsText.SetActive(false);
+        nametext.SetActive(true);
         OptionS.SetActive(false);
         Menu.SetActive(false);
         Play.SetActive(true);
@@ -61,6 +64,7 @@ public class MenùUI : MonoBehaviour
     public void OPTIONS()
     {
         CreditsText.SetActive(false);
+        nametext.SetActive(false);
         OptionS.SetActive(true);
         Menu.SetActive(true);
         Play.SetActive(false);

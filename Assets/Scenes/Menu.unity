@@ -5827,7 +5827,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1241592023
 Transform:
@@ -5863,6 +5863,7 @@ MonoBehaviour:
   Custom: {fileID: 740519302}
   Options: {fileID: 1191684332}
   OptionS: {fileID: 379648421}
+  nametext: {fileID: 45567931}
   highscoreText: {fileID: 860480583}
   musicToggle: {fileID: 676485310}
 --- !u!1 &1256533961
