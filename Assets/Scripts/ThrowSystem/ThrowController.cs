@@ -2,25 +2,27 @@ using UnityEngine;
 
 public class ThrowController : MonoSingleton<ThrowController>
 {
-    private GameObject selectedWaste;
+    GameObject selectedWaste;
     Rigidbody rb;
 
-    private float startTime, endTime, swipeTime;
-    private Vector2 lastMousePosition;
+    float startTime, endTime, swipeTime;
 
     [SerializeField]
-    private float throwSpeed = 35f;
-    private float speed;
+    float dragTimer = 0f, speed=5f;
 
-    private bool thrown, holding;
+    Vector2 startMousePosition;
 
-    private Vector3 startPosition;
-    private Quaternion startRotation;
+    bool thrown, holding;
+
+    Vector3 startPosition;
+    Quaternion startRotation;
 
     public LayerMask selectableLayerMask;
+
     public Vector3 force = new Vector3(1,1,1);
-    public Vector3 maxForce = new Vector3(10, 10, 10);
-    private bool alreadyHighlighted = false;
+
+    bool alreadyHighlighted = false;
+
     void SetupWaste(GameObject selectedWaste)
     {
         this.selectedWaste = selectedWaste;
@@ -29,15 +31,15 @@ public class ThrowController : MonoSingleton<ThrowController>
         startRotation = this.selectedWaste.transform.rotation;
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = Vector3.zero;
-        Debug.Log(rb.velocity);
     }
     void ResetProperties()
     {
-        lastMousePosition = Vector2.zero;
+        startMousePosition = Vector2.zero;
 
         startTime = 0;
         endTime = 0;
         swipeTime = 0;
+        dragTimer = 0;
 
         thrown = holding = false;
     }
@@ -58,7 +60,6 @@ public class ThrowController : MonoSingleton<ThrowController>
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(mousePos);
         selectedWaste.transform.position = newPosition;
         selectedWaste.transform.rotation = startRotation;
-
          //Vector3.Lerp(selectedWaste.transform.position, newPosition, 80f * Time.deltaTime);
     }
 
@@ -74,36 +75,43 @@ public class ThrowController : MonoSingleton<ThrowController>
             }
         }
     }
+
     void StopHighlightCorrectBin() 
     {
         VFXController.Instance.PlayVFXAtPosition(VFXType.Sparkles, new Vector3(100,0,0), 0f);
     }
+
     private void Update()
     {
+        // Se sto tenendo un rifiuto e non è null
         if (holding && selectedWaste)
         {
+            print(rb.velocity);
+            dragTimer += Time.deltaTime;
             PickupBall();
             HighlightCorrectBin();
         }
         else
         {
+            dragTimer = 0f;
             alreadyHighlighted= false;
             StopHighlightCorrectBin();
         }
-
+        // Se ho già lanciato il rifiuto non faccio niente
         if (thrown)
             return;
     
-
+        // Se clicco
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit _hit;
 
+            // Se colpisco un oggetto selezionabile
             if (Physics.Raycast(ray, out _hit, 50f, selectableLayerMask))
             {
                 SetupWaste(_hit.transform.gameObject);
-
+                
                 if (_hit.transform == selectedWaste.transform)
                 {
                     startTime = Time.time;
@@ -111,54 +119,50 @@ public class ThrowController : MonoSingleton<ThrowController>
                 }
             }
         }
-
+        // Se sto tenendo il rifiuto e rilascio il mouse
         if (holding && Input.GetMouseButtonUp(0))
         {
             endTime = Time.time;
             swipeTime = endTime - startTime;
 
-            if (swipeTime < 0.8f && lastMousePosition.y < Input.mousePosition.y)
+            // Se il tempo di swipe è minore di 0.8 secondi e il movimento del mouse è verso l'alto
+            if (swipeTime < 0.8f && startMousePosition.y < Input.mousePosition.y)
             {
-                CalculateAndApplyForce(Input.mousePosition);
+                LaunchObject(Input.mousePosition);
             }
             else
             {
                 ResetSelectedWasteProperties();
+                ResetProperties();
             }
         }
-        if (Input.GetMouseButtonDown(0))
+        // Se sto tenendo il rifiuto e muovo il mouse
+        if (Input.GetMouseButton(0))
         {
-            lastMousePosition = Input.mousePosition;
+            // Se ci ho messo troppo a lanciare il rifiuto aggiorno la posizione del mouse
+            if (dragTimer>0.9f)
+            {
+                startMousePosition = Input.mousePosition;
+                dragTimer = 0f;
+            }
         }
     }
-
-    private void CalculateAndApplyForce(Vector2 mousePos)
+    void LaunchObject(Vector2 lastMousePos)
     {
-        float differenceY = (mousePos.y - lastMousePosition.y) / Screen.height * 100;
 
-        if(differenceY>maxForce.y)
-            differenceY = maxForce.y;
+        Vector2 swipeDirection = lastMousePos - startMousePosition;
 
-        speed = throwSpeed * differenceY;
+        print("Swipe direction: " + swipeDirection);
 
-        float x = (mousePos.x / Screen.width) - (lastMousePosition.x / Screen.width);
-        x = Mathf.Abs(Input.mousePosition.x - lastMousePosition.x) / Screen.width * 100 * x;
+        Vector3 launchDirection = new Vector3(swipeDirection.x, 0, swipeDirection.y).normalized;
 
-        if (x > maxForce.x)
-            x = maxForce.x;
-
-        Vector3 direction = new Vector3(x*force.x, 0f, force.z);
-        direction = Camera.main.transform.TransformDirection(direction);
-
-        Debug.DrawLine(selectedWaste.transform.position, selectedWaste.transform.position + direction, Color.red, 2f);
-
-        rb.AddForce((direction * speed / 2f) + (Vector3.up * speed*force.y));
+        rb.AddForce(launchDirection * speed + force, ForceMode.Impulse);
 
         holding = false;
         thrown = true;
 
         selectedWaste.GetComponent<WasteDataHolder>().StartCoroutine("ReturnWaste");
-
         ResetProperties();
+
     }
 }

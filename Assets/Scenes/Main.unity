@@ -1820,12 +1820,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61527d6c54524b40b8d7680cfcdbefa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwSpeed: 12
+  dragTimer: 0
+  speed: 5
   selectableLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  force: {x: 0.8, y: 1.2, z: 1.3}
-  maxForce: {x: 2.6, y: 35, z: 5}
+  force: {x: 0.3, y: 0.2, z: 0.5}
 --- !u!1 &621290575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9103,6 +9103,10 @@ PrefabInstance:
       propertyPath: pk
       value: 
       objectReference: {fileID: 1530463277}
+    - target: {fileID: 4353237164357196865, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: speed
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4369709881346090510, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
@@ -9115,6 +9119,10 @@ PrefabInstance:
       propertyPath: pk
       value: 
       objectReference: {fileID: 1530463277}
+    - target: {fileID: 5766882058629594776, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: speed
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5850117023521595436, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
