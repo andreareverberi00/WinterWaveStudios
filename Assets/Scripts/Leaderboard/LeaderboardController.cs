@@ -14,17 +14,36 @@ public class LeaderboardController : MonoBehaviour
     private string publicLeaderboardKey = "5e3cd2b5ed3928e4efa6a4d4cc2467f55fda3d9e553344ff251313e80f995f2f";
 
     public TMP_InputField playerNameInput;
+    string playerName;
 
     private void Start()
     {
         // Carica il nome salvato al caricamento del gioco
-        if (PlayerPrefs.HasKey("PlayerName"))
+        if (PlayerPrefs.HasKey("PlayerName")&&playerNameInput)
         {
             playerNameInput.text = PlayerPrefs.GetString("PlayerName");
         }
+        else
+        {
+            playerName = "Player" + Random.Range(100, 1000);
+            playerNameInput.text = playerName;
+            PlayerPrefs.SetString("PlayerName", playerName);
+            PlayerPrefs.Save();
+        }
         // Aggiungi un listener per salvare il nome ogni volta che viene modificato
-        playerNameInput.onValueChanged.AddListener(SaveName);
-        GetLeaderboard();
+        if(playerNameInput)
+            playerNameInput.onValueChanged.AddListener(SaveName);
+
+        if(names.Count>0&&scores.Count>0)
+            GetLeaderboard();
+    }
+
+    // Cancella i valori salvati
+    [ContextMenu("Clear Saved Values")]
+    public void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("Clear Saved Values");
     }
 
     void SaveName(string newName)

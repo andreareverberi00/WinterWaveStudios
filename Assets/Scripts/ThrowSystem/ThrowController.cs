@@ -151,10 +151,9 @@ public class ThrowController : MonoSingleton<ThrowController>
     {
 
         Vector2 swipeDirection = lastMousePos - startMousePosition;
-
-        print("Swipe direction: " + swipeDirection);
-
         Vector3 launchDirection = new Vector3(swipeDirection.x, 0, swipeDirection.y).normalized;
+
+        Debug.DrawRay(startMousePosition, launchDirection * speed, Color.red, 2f);
 
         rb.AddForce(launchDirection * speed + force, ForceMode.Impulse);
 
