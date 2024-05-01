@@ -23,6 +23,9 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int rewardScore = 10;
     //public int rewardEnergy = 10;
     private int tempScore;
+
+    public LeaderboardScoreManager leaderboardScoreManager;
+
     bool alreadystreak;
        private void Start()
     {
@@ -133,6 +136,8 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         UpdateHighscore();
         RewardCoins();
+
+        leaderboardScoreManager.SubmitScore(Score);
 
         if (CorrectlyThrownWastes + MissedWastes == 0)
             return "N/A"; // No throws were made

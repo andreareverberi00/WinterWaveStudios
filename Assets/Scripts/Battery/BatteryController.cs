@@ -11,13 +11,21 @@ public class BatteryController : MonoSingleton<BatteryController>
 
     public bool infiniteEnergy = false;
 
-    public LeaderboardScoreManager leaderboardScoreManager;
+    //public LeaderboardScoreManager leaderboardScoreManager;
 
     private void Start()
     {
         currentEnergy = maxEnergy;
         InvokeRepeating("DrainEnergy", energyDrainInterval, energyDrainInterval);
-        DontDestroyOnLoad(this.gameObject);
+
+        DontDestroyOnLoad(this.gameObject); //Check if this is necessary
+
+        if (infiniteEnergy)
+        {
+            maxEnergy = 100;
+            energyDrainRate = 0;
+            consumeEnergyAmount = 0;
+        }
     }
     private void DrainEnergy()
     {
@@ -46,19 +54,14 @@ public class BatteryController : MonoSingleton<BatteryController>
 
             UIController.Instance.ShowGameOverPanel(finalScore, correctThrows, missedThrows, grade);
 
-            leaderboardScoreManager.SubmitScore(finalScore); // Invia il punteggio alla leaderboard
+            //leaderboardScoreManager.SubmitScore(finalScore); // Invia il punteggio alla leaderboard
 
         }
     }
-    public void Awake()
+    /*public void Awake()
     {
-        if (infiniteEnergy)
-        {
-            maxEnergy=100;
-            energyDrainRate = 0;
-            consumeEnergyAmount = 0;
-        }
-    }
+     
+    }*/
     public void ConsumeEnergy()
     {
         currentEnergy = Mathf.Max(currentEnergy - consumeEnergyAmount, 0);

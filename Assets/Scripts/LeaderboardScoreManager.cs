@@ -15,8 +15,13 @@ public class LeaderboardScoreManager : MonoBehaviour
     public UnityEvent<string, int> submitScoreEvent;
 
     public void SubmitScore(int finalScore)
-    {
-        print(inputName.text + " " + finalScore.ToString());
-        submitScoreEvent.Invoke(inputName.text, finalScore);
+    {   
+        string playerName = "Player"+Random.Range(100,1000);
+        if (PlayerPrefs.HasKey("PlayerName"))
+        {
+            playerName = PlayerPrefs.GetString("PlayerName");
+        }
+
+        submitScoreEvent.Invoke(playerName, finalScore);
     }
 }
