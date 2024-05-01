@@ -7,16 +7,16 @@ using System.Diagnostics;
 
 public class LeaderboardScoreManager : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI inputScore;
+    // [SerializeField]
+    // private TextMeshProUGUI inputScore;
     [SerializeField]
     private TMP_InputField inputName;
 
     public UnityEvent<string, int> submitScoreEvent;
 
-    public void SubmitScore()
+    public void SubmitScore(int finalScore)
     {
-        print(inputName.text + " " + inputScore.text);
-        submitScoreEvent.Invoke(inputName.text, int.Parse(inputScore.text));
+        print(inputName.text + " " + finalScore.ToString());
+        submitScoreEvent.Invoke(inputName.text, finalScore);
     }
 }

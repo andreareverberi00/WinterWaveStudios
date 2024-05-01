@@ -3074,6 +3074,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875177891}
   m_CullTransparentMesh: 1
+--- !u!1 &910224767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910224769}
+  - component: {fileID: 910224768}
+  m_Layer: 0
+  m_Name: LeaderboardScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &910224768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910224767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9269711d8683135449f3164534cf18d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputName: {fileID: 0}
+  submitScoreEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &910224769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910224767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 849.4976, y: 713.43536, z: -1379.0046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942094214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5250,6 +5298,8 @@ MonoBehaviour:
   consumeEnergyAmount: 10
   energyDrainRate: 1
   energyDrainInterval: 1
+  infiniteEnergy: 0
+  leaderboardScoreManager: {fileID: 910224768}
 --- !u!4 &1384702684
 Transform:
   m_ObjectHideFlags: 0
@@ -5731,7 +5781,6 @@ MonoBehaviour:
   perkcontroller: {fileID: 1530463277}
   energySlider: {fileID: 829985899}
   musicToggle: {fileID: 1418677828}
-  OptionBackground: {fileID: 0}
   IsGameOver: 0
 --- !u!4 &1488997000
 Transform:
@@ -9327,3 +9376,4 @@ SceneRoots:
   - {fileID: 200561419}
   - {fileID: 1913314288}
   - {fileID: 102004700}
+  - {fileID: 910224769}

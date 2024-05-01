@@ -11,6 +11,8 @@ public class BatteryController : MonoSingleton<BatteryController>
 
     public bool infiniteEnergy = false;
 
+    public LeaderboardScoreManager leaderboardScoreManager;
+
     private void Start()
     {
         currentEnergy = maxEnergy;
@@ -43,6 +45,8 @@ public class BatteryController : MonoSingleton<BatteryController>
             string grade = ScoreController.Instance.CalculateGrade();
 
             UIController.Instance.ShowGameOverPanel(finalScore, correctThrows, missedThrows, grade);
+
+            leaderboardScoreManager.SubmitScore(finalScore); // Invia il punteggio alla leaderboard
 
         }
     }
