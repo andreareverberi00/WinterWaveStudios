@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowController : MonoSingleton<ThrowController>
+public class ThrowControllerModified : MonoSingleton<ThrowController>
 {
     GameObject selectedWaste;
     Rigidbody rb;
@@ -19,7 +19,7 @@ public class ThrowController : MonoSingleton<ThrowController>
 
     public LayerMask selectableLayerMask;
 
-    public Vector3 force = new Vector3(1,1,1);
+    public Vector3 force = new Vector3(0,0,7);
 
     bool alreadyHighlighted = false;
 
@@ -154,7 +154,7 @@ public class ThrowController : MonoSingleton<ThrowController>
 
         Debug.DrawRay(selectedWaste.transform.position, launchDirection * speed+force, Color.red, 2f);
         
-        rb.AddForce(launchDirection * speed + force, ForceMode.Impulse);
+        rb.AddForce(force, ForceMode.Impulse);
 
         holding = false;
         thrown = true;

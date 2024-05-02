@@ -18,6 +18,9 @@ public class LeaderboardController : MonoBehaviour
 
     private void Start()
     {
+        if(playerNameInput)
+            playerNameInput.characterLimit = 9;
+
         // Carica il nome salvato al caricamento del gioco
         if (PlayerPrefs.HasKey("PlayerName")&&playerNameInput)
         {
@@ -60,7 +63,7 @@ public class LeaderboardController : MonoBehaviour
             print(loopLength);
             for (int i = 0; i < loopLength; ++i)
             {
-                names[i].text = msg[i].Username;
+                names[i].text = (i+1).ToString()+' '+ msg[i].Username;
                 scores[i].text = msg[i].Score.ToString();
             }
         }));

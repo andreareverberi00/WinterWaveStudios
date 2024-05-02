@@ -53,13 +53,25 @@ public class PowerPool : MonoBehaviour
     {
         if (powerPool.Count == 0)
         {
-            Debug.LogError("error empty.");
-            return null;
+            Debug.LogWarning("error empty.");
+            RegeneratePower();
         }
 
         var power = powerPool.Dequeue();
         power.SetActive(true);
         return power;
+    }
+
+    void RegeneratePower() 
+    {
+        for(int i = 0;i < PowerPoolSize;i++) 
+        {
+            
+            var newpower = Instantiate(slowPrefab);
+            newpower.SetActive(false);
+            powerPool.Enqueue(newpower);
+        }
+   
     }
     public void ReturnPower(GameObject power)
     {
