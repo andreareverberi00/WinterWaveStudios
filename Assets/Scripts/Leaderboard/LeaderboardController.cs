@@ -26,7 +26,8 @@ public class LeaderboardController : MonoBehaviour
         else
         {
             playerName = "Player" + Random.Range(100, 1000);
-            playerNameInput.text = playerName;
+            if(playerNameInput)
+                playerNameInput.text = playerName;
             PlayerPrefs.SetString("PlayerName", playerName);
             PlayerPrefs.Save();
         }

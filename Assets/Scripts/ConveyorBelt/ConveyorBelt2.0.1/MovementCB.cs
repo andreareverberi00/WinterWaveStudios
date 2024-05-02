@@ -22,7 +22,6 @@ public class MovementCB : MonoBehaviour
     [SerializeField]
     //public bool isMoved=false;
 
-    private bool powerupIsActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -89,7 +88,7 @@ public class MovementCB : MonoBehaviour
     {
         //isMoved = true;
         onBelt.Remove(collision.gameObject);
-
+        collision.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
     void AddSpeed()
     {

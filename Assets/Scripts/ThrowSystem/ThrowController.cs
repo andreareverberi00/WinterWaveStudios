@@ -86,7 +86,6 @@ public class ThrowController : MonoSingleton<ThrowController>
         // Se sto tenendo un rifiuto e non è null
         if (holding && selectedWaste)
         {
-            print(rb.velocity);
             dragTimer += Time.deltaTime;
             PickupBall();
             HighlightCorrectBin();
@@ -112,8 +111,9 @@ public class ThrowController : MonoSingleton<ThrowController>
             {
                 SetupWaste(_hit.transform.gameObject);
                 
-                if (_hit.transform == selectedWaste.transform)
+                if (_hit.transform == selectedWaste.transform) // Secondo me da rimuovere, non necessario
                 {
+                    startMousePosition = Input.mousePosition; // Mancava questo
                     startTime = Time.time;
                     holding = true;
                 }
@@ -126,7 +126,7 @@ public class ThrowController : MonoSingleton<ThrowController>
             swipeTime = endTime - startTime;
 
             // Se il tempo di swipe è minore di 0.8 secondi e il movimento del mouse è verso l'alto
-            if (swipeTime < 0.8f && startMousePosition.y < Input.mousePosition.y)
+            if (swipeTime < 0.9f && startMousePosition.y < Input.mousePosition.y)
             {
                 LaunchObject(Input.mousePosition);
             }
@@ -140,7 +140,7 @@ public class ThrowController : MonoSingleton<ThrowController>
         if (Input.GetMouseButton(0))
         {
             // Se ci ho messo troppo a lanciare il rifiuto aggiorno la posizione del mouse
-            if (dragTimer>0.9f)
+            if (dragTimer>0.4f)
             {
                 startMousePosition = Input.mousePosition;
                 dragTimer = 0f;
@@ -149,11 +149,11 @@ public class ThrowController : MonoSingleton<ThrowController>
     }
     void LaunchObject(Vector2 lastMousePos)
     {
-
         Vector2 swipeDirection = lastMousePos - startMousePosition;
         Vector3 launchDirection = new Vector3(swipeDirection.x, 0, swipeDirection.y).normalized;
 
-        Debug.DrawRay(startMousePosition, launchDirection * speed, Color.red, 2f);
+
+        Debug.DrawRay(selectedWaste.transform.position, launchDirection * speed+force, Color.red, 2f);
 
         rb.AddForce(launchDirection * speed + force, ForceMode.Impulse);
 

@@ -9,7 +9,6 @@ public class ConveyorBeltController : MonoSingleton<ConveyorBeltController>
     public GameObject Wastepoint2;
     public bool anotherspawn = false;
     public int secondtoActive = 10;
-    private bool isObjectSpawned = false;
 
     void Start()
     {

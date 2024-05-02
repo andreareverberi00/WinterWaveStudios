@@ -14,8 +14,7 @@ public class GameController : MonoSingleton<GameController>
     public int pointsToActivateThirdBin = 150;
 
     bool isMagnetActive = false;
-    private float magnetVFXDuration = 10f; // Durata totale del VFX
-    private float magnetVFXEndTime; // Momento in cui il VFX deve terminare
+
     private void Start()
     {
         StartNewGame();
