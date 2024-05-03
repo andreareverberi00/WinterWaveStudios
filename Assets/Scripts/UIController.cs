@@ -77,16 +77,27 @@ public class UIController : MonoSingleton<UIController>
             float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
             energySlider.fillAmount = clampedEnergy;
 
-            // Aggiorna il colore dell'immagine di bordo in base all'energia rimanente
+            // Aggiorna il colore dell'immagine di bordo solo se l'energia è al 50% o meno
             if (deathBorderImg != null)
             {
-                Color color = deathBorderImg.color;
-                // Inverti la relazione in modo che l'alpha aumenti quando l'energia diminuisce
-                color.a = Mathf.Lerp(0f, 1f, 1f - clampedEnergy);
-                deathBorderImg.color = color;
+                if (newEnergy <= 50)
+                {
+                    Color color = deathBorderImg.color;
+                    // Inverti la relazione in modo che l'alpha aumenti quando l'energia diminuisce
+                    color.a = Mathf.Lerp(0f, 1f, Mathf.InverseLerp(50, 0, newEnergy));
+                    deathBorderImg.color = color;
+                }
+                else
+                {
+                    // Assicurati che l'alpha sia 0 se l'energia è superiore al 50%
+                    Color color = deathBorderImg.color;
+                    color.a = 0;
+                    deathBorderImg.color = color;
+                }
             }
         }
     }
+
 
     public void Restart()
     {
