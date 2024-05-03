@@ -44,6 +44,7 @@ public class PerkController : MonoSingleton<PerkController>
             else
             {
                 TD.SetActive(true);
+                TE.SetActive(false);
             }
         }
         if (Scene_Link2.Instance.tankantenna == true)

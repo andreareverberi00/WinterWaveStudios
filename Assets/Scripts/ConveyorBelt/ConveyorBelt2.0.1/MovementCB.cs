@@ -97,8 +97,8 @@ public class MovementCB : MonoBehaviour
         if (elapsedTime >= increaseSpeedInterval)
         {
             elapsedTime = 0f;
-            speed += 0.1f;
-            conveyorSpeed += 0.064f;
+            speed += 0.025f;
+            conveyorSpeed += 0.00160f;
             initialspeed = speed;
             initialcb = conveyorSpeed;
 
