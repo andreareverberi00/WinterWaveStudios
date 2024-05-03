@@ -16,6 +16,9 @@ public class PowerMulti : MonoBehaviour
     {
         transform.position = new Vector3(100, 100, 100);
         StartCoroutine(MultiplicatorGame());
+        int i;
+        i = Random.Range(0, 4);
+        OvertimeSound(i);
         //PowerPool.Instance.ReturnPower(gameObject);
 
     }
@@ -48,11 +51,23 @@ public class PowerMulti : MonoBehaviour
             //Jump();
         }
     }
-    void Jump()
+
+    void OvertimeSound(int i)
     {
-        if (isGrounded == true)
+        if (i == 1)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            SpeakerSpeakController.Instance.PlaySound("double 1");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
+        if (i == 2)
+        {
+            SpeakerSpeakController.Instance.PlaySound("double 2");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
+        if (i == 3)
+        {
+            SpeakerSpeakController.Instance.PlaySound("double 3");
+            SpeakerController.Instance.alreadyplayed = true;
         }
     }
 }
