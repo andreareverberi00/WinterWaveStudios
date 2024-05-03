@@ -46,7 +46,7 @@ public class MovementCB : MonoBehaviour
 
         if (accelaration == true)
         {
-            //AddSpeed();
+            AddSpeed();
             AddSpeedSpeaker();
         }
         if (GameController.Instance.slow==true)
@@ -97,8 +97,10 @@ public class MovementCB : MonoBehaviour
         if (elapsedTime >= increaseSpeedInterval)
         {
             elapsedTime = 0f;
-            speed += accelerationspeed;
-            conveyorSpeed += 0.077f * accelerationspeed;
+            speed += 0.1f;
+            conveyorSpeed += 0.064f;
+            initialspeed = speed;
+            initialcb = conveyorSpeed;
 
         }
 

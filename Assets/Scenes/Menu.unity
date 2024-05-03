@@ -325,6 +325,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1287192313}
+  - {fileID: 1442016329}
   m_Father: {fileID: 113794706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -480,7 +481,6 @@ RectTransform:
   - {fileID: 1076404872}
   - {fileID: 379648422}
   - {fileID: 1777785184}
-  - {fileID: 1442016329}
   - {fileID: 45567933}
   m_Father: {fileID: 2031184920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1672,7 +1672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &379648422
 Transform:
   m_ObjectHideFlags: 0
@@ -4578,6 +4578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0ca8d72ae7d1c4ca7048f77364a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easythrow: 0
   baseantenna: 0
   tankantenna: 0
   proantenna: 0
@@ -6156,6 +6157,8 @@ MonoBehaviour:
   Options: {fileID: 1191684332}
   OptionS: {fileID: 379648421}
   nametext: {fileID: 45567931}
+  Inputtext: {fileID: 45567931}
+  Employee: {fileID: 1442016328}
   highscoreText: {fileID: 860480583}
   musicToggle: {fileID: 676485310}
   easythrow: {fileID: 2052186125}
@@ -6850,14 +6853,14 @@ RectTransform:
   m_GameObject: {fileID: 1442016328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.051721778, y: 0.09127775, z: 1}
+  m_LocalScale: {x: 1.2499996, y: 1.2499999, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 113794706}
+  m_Father: {fileID: 45567933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36.375977, y: 23.650055}
+  m_AnchoredPosition: {x: -64.00091, y: 659.37415}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442016330

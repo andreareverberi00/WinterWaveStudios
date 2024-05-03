@@ -14,12 +14,16 @@ public class MenùUI : MonoBehaviour
     public GameObject Options;
     public GameObject OptionS;
     public GameObject nametext;
+    public GameObject Inputtext;
+    public GameObject Employee;
     public TMP_Text highscoreText;
     public Toggle musicToggle;
     public Toggle easythrow;
 
     void Start()
     {
+        Employee.SetActive(true);
+        Inputtext.SetActive(true);
         CreditsText.SetActive(false);
         OptionS.SetActive(false);
         Menu.SetActive(false);
@@ -28,7 +32,7 @@ public class MenùUI : MonoBehaviour
         Options.SetActive(true);
         Credit.SetActive(true);
         nametext.SetActive(true);
-        highscoreText.text = "Highscore: "+PlayerPrefs.GetInt("Highscore", 0).ToString();
+        highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
         musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
         easythrow.isOn = false;
     }
@@ -42,6 +46,10 @@ public class MenùUI : MonoBehaviour
 
     public void CREDITS()
     {
+
+        Inputtext.SetActive(false);
+        Employee.SetActive(true);
+        Inputtext.SetActive(true);
         CreditsText.SetActive(true);
         nametext.SetActive(false);
         OptionS.SetActive(false);
@@ -52,8 +60,10 @@ public class MenùUI : MonoBehaviour
         Credit.SetActive(false);
     }
 
-   public void BackToMenu()
+    public void BackToMenu()
     {
+
+        Inputtext.SetActive(true);
         CreditsText.SetActive(false);
         nametext.SetActive(true);
         OptionS.SetActive(false);
@@ -65,6 +75,8 @@ public class MenùUI : MonoBehaviour
     }
     public void OPTIONS()
     {
+
+        Inputtext.SetActive(false);
         CreditsText.SetActive(false);
         nametext.SetActive(false);
         OptionS.SetActive(true);
@@ -76,13 +88,32 @@ public class MenùUI : MonoBehaviour
     }
     private void Update()
     {
-        if(Scene_Link2.Instance.tankantenna==true)
+        if (Scene_Link2.Instance.tankantenna == true)
         {
             easythrow.isOn = true;
+            easythrow.interactable = true;
+            
         }
         else
         {
             easythrow.isOn = false;
+            easythrow.interactable = false;
+            Scene_Link2.Instance.easythrow = false;
+        }
+        Throw(easythrow);
+
+    }
+    void Throw(bool i)
+    {
+        {
+            if(i==true)
+            {
+                Scene_Link2.Instance.easythrow = true;
+            }
+            else
+            {
+                Scene_Link2.Instance.easythrow = false;
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scene_Link2 : MonoSingleton<Scene_Link2>
 {
+    public bool easythrow;
     public bool baseantenna;
     public bool tankantenna;
     public bool proantenna;

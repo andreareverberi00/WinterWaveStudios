@@ -5,6 +5,8 @@ using UnityEngine;
 public class PerkController : MonoSingleton<PerkController>
 {
     public bool nocustom=true;
+    public GameObject TD;
+    public GameObject TE;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject); // Memorizza l'oggetto tra le scene
@@ -34,12 +36,22 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.scoreAmount = 10;
             BatteryController.Instance.consumeEnergyAmount = 5;
+            if(Scene_Link2.Instance.easythrow==true)
+            {
+                TE.SetActive(true);
+                TD.SetActive(false);
+            }
+            else
+            {
+                TD.SetActive(true);
+            }
         }
         if (Scene_Link2.Instance.tankantenna == true)
         {
             ScoreController.Instance.scoreAmount = 3;
             BatteryController.Instance.consumeEnergyAmount = 1;
         }
+
     }
    
 }
