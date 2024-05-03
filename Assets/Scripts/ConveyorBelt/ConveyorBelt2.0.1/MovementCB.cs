@@ -99,6 +99,8 @@ public class MovementCB : MonoBehaviour
             elapsedTime = 0f;
             speed += 0.025f;
             conveyorSpeed += 0.00166f;
+            ac = speed * 2;
+            cb = conveyorSpeed*2;
             initialspeed = speed;
             initialcb = conveyorSpeed;
 
@@ -107,10 +109,19 @@ public class MovementCB : MonoBehaviour
     }
     void AddSpeedSpeaker()
     {
-        if (SpeakerController.Instance.Speed == true)
+        if (GameController.Instance.slow==false)
         {
-            speed = ac;
-            conveyorSpeed = cb;
+            if (SpeakerController.Instance.Speed == true)
+            {
+
+                speed = ac;
+                conveyorSpeed = cb;
+            }
+            else
+            {
+                speed = initialspeed;
+                conveyorSpeed = initialcb;
+            }
         }
         else
         {
@@ -127,11 +138,11 @@ public class MovementCB : MonoBehaviour
             conveyorSpeed = conveyorSpeed * 0.5f;
 
     }
-        if(speed==accelerationspeed && conveyorSpeed == 0.065f*accelerationspeed)
-        {
-            speed = speed* 1/(accelerationspeed*2);
-            conveyorSpeed = conveyorSpeed* 1 / (accelerationspeed*0.065f* 2);
-        }
+        //if(speed==accelerationspeed && conveyorSpeed == 0.065f*accelerationspeed)
+        //{
+        //    speed = speed* 1/(accelerationspeed*2);
+        //    conveyorSpeed = conveyorSpeed* 1 / (accelerationspeed*0.065f* 2);
+        //}
         else if (speed == ac && conveyorSpeed == cb)
 {
     speed = speed * 0.25f;

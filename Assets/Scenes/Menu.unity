@@ -4592,10 +4592,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   easythrow: 0
   baseantenna: 0
-  tankantenna: 0
+  tankantenna: 1
   proantenna: 0
   perkpaper: 0
-  perkglass: 0
+  perkglass: 1
   perkplastic: 0
   perkorganic: 0
   perkmetal: 0

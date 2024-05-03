@@ -8,6 +8,14 @@ public class CustomizationController : MonoSingleton<CustomizationController>
     void Start()
     {
         //PlayerPrefs.SetInt("Coins", coins); // Imposta le monete iniziali //da rimuovere perchè è solo per test
+        //Scene_Link2.Instance.proantenna = false;
+        //Scene_Link2.Instance.tankantenna = false;
+        //Scene_Link2.Instance.baseantenna = true;
+        //Scene_Link2.Instance.perkorganic = false;
+        //Scene_Link2.Instance.perkmetal = false;
+        //Scene_Link2.Instance.perkpaper = false;
+        //Scene_Link2.Instance.perkplastic = true;
+        //Scene_Link2.Instance.perkglass = false;
         LoadCoins();
         
     }

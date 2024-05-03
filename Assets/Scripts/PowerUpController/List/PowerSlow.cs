@@ -19,7 +19,7 @@ public class PowerSlow : MonoBehaviour
         StartCoroutine(SlowDownGame());
         int i;
         i = Random.Range(0, 4);
-        OvertimeSound(i);
+        slowSound(i);
 
 
 
@@ -59,7 +59,7 @@ public class PowerSlow : MonoBehaviour
                 
     }
 
-    void OvertimeSound(int i)
+    void slowSound(int i)
     {
         if (i == 1)
         {
