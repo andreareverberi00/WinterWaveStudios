@@ -11,6 +11,9 @@ public class WasteController : MonoSingleton<WasteController>
     [SerializeField] private float spawnDecayRate = 0.05f; // La quantità di tempo che si sottrae dall'intervallo di spawn
     [SerializeField, Range(0, 100)] private int spawnBatteryProbability = 10;
 
+    [SerializeField]
+    private bool isProductionPaused = false;
+
     [Header("Debug")]
     [SerializeField] private float spawnInterval;
 
@@ -25,16 +28,20 @@ public class WasteController : MonoSingleton<WasteController>
         while (true)
         {
             yield return new WaitForSeconds(spawnInterval);
-            bool spawnBattery = Random.Range(0, 100) < spawnBatteryProbability;
-            if (spawnBattery)
+            if (!isProductionPaused) // Controlla se la produzione è pausa
             {
-                SpawnBattery();
+                bool spawnBattery = Random.Range(0, 100) < spawnBatteryProbability;
+                if (spawnBattery)
+                {
+                    PowePoolController.Instance.PausePowerProduction(.2f);
+                    SpawnBattery();
+                }
+                else
+                {
+                    PowePoolController.Instance.PausePowerProduction(.2f);
+                    SpawnWaste();
+                }
             }
-            else
-            {
-                SpawnWaste();
-            }
-
             UpdateSpawnInterval();
         }
     }
@@ -46,6 +53,17 @@ public class WasteController : MonoSingleton<WasteController>
             spawnInterval -= spawnDecayRate;
             spawnInterval = Mathf.Max(spawnInterval, minimumSpawnInterval);
         }
+    }
+    public void PauseProduction(float seconds)
+    {
+        StartCoroutine(PauseProductionRoutine(seconds));
+    }
+
+    private IEnumerator PauseProductionRoutine(float seconds)
+    {
+        isProductionPaused = true;
+        yield return new WaitForSeconds(seconds);
+        isProductionPaused = false;
     }
 
     void SpawnBattery()

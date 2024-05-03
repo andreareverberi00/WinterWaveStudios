@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - ConveyorBelt
   - Waste
+  - Conveyor
   layers:
   - Default
   - TransparentFX

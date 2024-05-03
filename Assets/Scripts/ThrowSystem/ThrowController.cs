@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ThrowController : MonoSingleton<ThrowController>
@@ -23,6 +24,8 @@ public class ThrowController : MonoSingleton<ThrowController>
 
     bool alreadyHighlighted = false;
 
+    [SerializeField]
+    GameObject trailPrefab;
     void SetupWaste(GameObject selectedWaste)
     {
         this.selectedWaste = selectedWaste;
@@ -31,6 +34,7 @@ public class ThrowController : MonoSingleton<ThrowController>
         startRotation = this.selectedWaste.transform.rotation;
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = Vector3.zero;
+
     }
     void ResetProperties()
     {
@@ -51,6 +55,10 @@ public class ThrowController : MonoSingleton<ThrowController>
         selectedWaste = null;
         rb.velocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+        // Disattiva il trail
+        trailPrefab.SetActive(false);
+        trailPrefab.transform.SetParent(null);
     }
 
     void PickupBall()
@@ -91,7 +99,8 @@ public class ThrowController : MonoSingleton<ThrowController>
             HighlightCorrectBin();
         }
         else
-        {
+        {         
+
             dragTimer = 0f;
             alreadyHighlighted= false;
             StopHighlightCorrectBin();
@@ -128,6 +137,8 @@ public class ThrowController : MonoSingleton<ThrowController>
             // Se il tempo di swipe è minore di 0.8 secondi e il movimento del mouse è verso l'alto
             if (swipeTime < 0.9f && startMousePosition.y < Input.mousePosition.y)
             {
+                ActivateTrail();
+
                 LaunchObject(Input.mousePosition);
             }
             else
@@ -140,21 +151,40 @@ public class ThrowController : MonoSingleton<ThrowController>
         if (Input.GetMouseButton(0))
         {
             // Se ci ho messo troppo a lanciare il rifiuto aggiorno la posizione del mouse
-            if (dragTimer>0.4f)
+            if (dragTimer>0.3f)
             {
                 startMousePosition = Input.mousePosition;
                 dragTimer = 0f;
             }
         }
     }
+    private void ActivateTrail()
+    {
+        // Attiva il trail
+        trailPrefab.SetActive(true);
+        trailPrefab.transform.SetParent(selectedWaste.transform);
+        trailPrefab.transform.localPosition = Vector3.zero;
+    }
     void LaunchObject(Vector2 lastMousePos)
     {
-        Vector2 swipeDirection = lastMousePos - startMousePosition;
-        Vector3 launchDirection = new Vector3(swipeDirection.x, 0, swipeDirection.y).normalized;
 
-        Debug.DrawRay(selectedWaste.transform.position, launchDirection * speed+force, Color.red, 2f);
-        
-        rb.AddForce(launchDirection * speed + force, ForceMode.Impulse);
+        Vector2 swipeDirection = lastMousePos - startMousePosition;
+
+        float swipeLength = swipeDirection.magnitude; // Calcola la lunghezza dello swipe
+
+        // Normalizza la direzione dello swipe e calcola la forza basata sulla lunghezza dello swipe
+        Vector3 launchDirection = new Vector3(swipeDirection.x, swipeLength, swipeDirection.y).normalized;
+
+        // Calcola la forza aggiuntiva basata sulla lunghezza dello swipe
+        float additionalForceY = swipeLength * 0.001f;
+        float additionalForceZ = swipeLength * 0.004f;
+
+        // Applica la forza iniziale più la forza aggiuntiva basata sulla lunghezza dello swipe
+        Vector3 forceVector = (launchDirection * speed + new Vector3(0, additionalForceY, additionalForceZ) + force);
+
+        rb.AddForce(forceVector, ForceMode.Impulse);
+
+        Debug.DrawRay(selectedWaste.transform.position, forceVector, Color.red, 2f);
 
         holding = false;
         thrown = true;
@@ -162,5 +192,13 @@ public class ThrowController : MonoSingleton<ThrowController>
         selectedWaste.GetComponent<WasteDataHolder>().StartCoroutine("ReturnWaste");
         ResetProperties();
 
+        // Disattiva il trail dopo il lancio
+        StartCoroutine(DisableTrailAfterDelay());
+    }
+    IEnumerator DisableTrailAfterDelay()
+    {
+        yield return new WaitForSeconds(1.5f); // Imposta una durata adeguata per il trail dopo il lancio
+        trailPrefab.SetActive(false);
+        trailPrefab.transform.SetParent(null);
     }
 }

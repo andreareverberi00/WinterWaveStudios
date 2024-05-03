@@ -8,6 +8,7 @@ public class WasteDataHolder : MonoBehaviour
     public GameObject Portal;
     public int Counter = 0;
     public PerkController pk;
+    private bool isTouchingConveyor = false;
 
     void OnTriggerEnter(Collider other)
     {
@@ -75,13 +76,29 @@ public class WasteDataHolder : MonoBehaviour
             PerkVerification();
         }
     }
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("Conveyor"))
+        {
+            isTouchingConveyor = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Conveyor"))
+        {
+            isTouchingConveyor = false;
+        }
+    }
     public IEnumerator ReturnWaste()
     {
         yield return new WaitForSeconds(2.5f);
-        WastePool.Instance.ReturnWaste(gameObject);
-        ScoreController.Instance.RecordMissedThrow();
-        BatteryController.Instance.ConsumeEnergy();
+        if(!isTouchingConveyor)
+        {
+            WastePool.Instance.ReturnWaste(gameObject);
+            ScoreController.Instance.RecordMissedThrow();
+            BatteryController.Instance.ConsumeEnergy();
+        }
     }
 
     void PerkPlastic()
