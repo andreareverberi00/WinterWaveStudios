@@ -8772,11 +8772,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3907186543135565826, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Color.b
-      value: 0.41037738
+      value: 0.6273585
       objectReference: {fileID: 0}
     - target: {fileID: 3907186543135565826, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Color.g
-      value: 0.93156165
+      value: 0.9577673
       objectReference: {fileID: 0}
     - target: {fileID: 3907186543135565826, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Color.r
