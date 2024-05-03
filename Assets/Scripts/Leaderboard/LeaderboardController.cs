@@ -19,7 +19,7 @@ public class LeaderboardController : MonoBehaviour
     private void Start()
     {
         if(playerNameInput)
-            playerNameInput.characterLimit = 9;
+            playerNameInput.characterLimit = 10;
 
         // Carica il nome salvato al caricamento del gioco
         if (PlayerPrefs.HasKey("PlayerName")&&playerNameInput)
@@ -31,14 +31,15 @@ public class LeaderboardController : MonoBehaviour
             playerName = "Player" + Random.Range(100, 1000);
             if(playerNameInput)
                 playerNameInput.text = playerName;
-            PlayerPrefs.SetString("PlayerName", playerName);
-            PlayerPrefs.Save();
+            
+            SaveName();
         }
         // Aggiungi un listener per salvare il nome ogni volta che viene modificato
-        if(playerNameInput)
-            playerNameInput.onValueChanged.AddListener(SaveName);
+        if (playerNameInput)
+            playerNameInput.onValueChanged.AddListener(delegate { SaveName(); });
 
-        if(names.Count>0&&scores.Count>0)
+
+        if (names.Count>0&&scores.Count>0)
             GetLeaderboard();
     }
 
@@ -50,11 +51,17 @@ public class LeaderboardController : MonoBehaviour
         Debug.Log("Clear Saved Values");
     }
 
-    void SaveName(string newName)
+    void SaveName()
     {
-        PlayerPrefs.SetString("PlayerName", newName);
-        PlayerPrefs.Save();  // Non dimenticare di salvare le PlayerPrefs
+        if (playerNameInput != null)
+        {
+            string newName = playerNameInput.text;  // Leggi il nuovo nome direttamente dall'input field
+            PlayerPrefs.SetString("PlayerName", newName);
+            PlayerPrefs.Save();  // Salva le PlayerPrefs
+            Debug.Log("Name saved: " + newName);  // Aggiungi un log per confermare il salvataggio
+        }
     }
+
 
     public void GetLeaderboard()
     {
