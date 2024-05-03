@@ -7,7 +7,6 @@ public class Powergravity : MonoBehaviour
     public Rigidbody rb;
     public GameObject Portal;
     public int AttractionForce=1000;
-    private float previousval;
     public float jumpForce = 10;
     public bool isGrounded = false;
     private void Start()
@@ -19,7 +18,7 @@ public class Powergravity : MonoBehaviour
         transform.position = new Vector3(100, 100, 100);
         StartCoroutine(MultiplicatorGame());
         GameController.Instance.PlayMagnetVFXOnAllBins();
-        previousval = GravityBoxController.Instance.AttractionForce;
+
     }
 
 
@@ -29,7 +28,7 @@ public class Powergravity : MonoBehaviour
         GravityBoxController.Instance.AttractionForce = AttractionForce;
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp, GameController.Instance.GetRobotPosition(), 10f);
         yield return new WaitForSeconds(10f); // attendi per 10 secondi
-        GravityBoxController.Instance.AttractionForce = previousval; // ripristina la velocità normale del gioco
+        GravityBoxController.Instance.AttractionForce = GravityBoxController.Instance.Attractionmagnet; // ripristina la velocità normale del gioco
         PowerPool.Instance.ReturnPower(gameObject);
     }
     private void OnCollisionEnter(Collision collision)

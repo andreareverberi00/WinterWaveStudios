@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowControllerModified : MonoSingleton<ThrowController>
+public class ThrowControllerModified : MonoSingleton<ThrowControllerModified>
 {
     GameObject selectedWaste;
     Rigidbody rb;

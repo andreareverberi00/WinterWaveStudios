@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameMenu : MonoBehaviour
 {
     public MenùUI Menu;
     private bool play;
     private bool shop;
+
 
     void Start()
     {

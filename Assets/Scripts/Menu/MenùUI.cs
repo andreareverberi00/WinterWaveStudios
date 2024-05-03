@@ -16,6 +16,7 @@ public class MenùUI : MonoBehaviour
     public GameObject nametext;
     public TMP_Text highscoreText;
     public Toggle musicToggle;
+    public Toggle easythrow;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class MenùUI : MonoBehaviour
         nametext.SetActive(true);
         highscoreText.text = "Highscore: "+PlayerPrefs.GetInt("Highscore", 0).ToString();
         musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
+        easythrow.isOn = false;
     }
 
     public void SetMusicEnabled()
@@ -71,5 +73,16 @@ public class MenùUI : MonoBehaviour
         Custom.SetActive(false);
         Options.SetActive(false);
         Credit.SetActive(false);
+    }
+    private void Update()
+    {
+        if(Scene_Link2.Instance.tankantenna==true)
+        {
+            easythrow.isOn = true;
+        }
+        else
+        {
+            easythrow.isOn = false;
+        }
     }
 }
