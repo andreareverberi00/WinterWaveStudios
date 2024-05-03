@@ -17,6 +17,9 @@ public class PowerSlow : MonoBehaviour
     {
         transform.position = new Vector3(100, 100, 100);
         StartCoroutine(SlowDownGame());
+        int i;
+        i = Random.Range(0, 4);
+        OvertimeSound(i);
 
 
 
@@ -55,11 +58,23 @@ public class PowerSlow : MonoBehaviour
         }
                 
     }
-    void Jump()
+
+    void OvertimeSound(int i)
     {
-        if (isGrounded == true)
+        if (i == 1)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            SpeakerSpeakController.Instance.PlaySound("slow 3 d");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
+        if (i == 2)
+        {
+            SpeakerSpeakController.Instance.PlaySound("slow 2");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
+        if (i == 3)
+        {
+            SpeakerSpeakController.Instance.PlaySound("slow 3 d");
+            SpeakerController.Instance.alreadyplayed = true;
         }
     }
 

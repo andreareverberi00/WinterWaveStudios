@@ -16,7 +16,9 @@ public class Powergravity : MonoBehaviour
     private void OnMouseDown()
     {
         transform.position = new Vector3(100, 100, 100);
-        StartCoroutine(MultiplicatorGame());
+        StartCoroutine(MultiplicatorGame()); int i;
+        i = Random.Range(0, 4);
+        OvertimeSound(i);
         GameController.Instance.PlayMagnetVFXOnAllBins();
 
     }
@@ -45,6 +47,24 @@ public class Powergravity : MonoBehaviour
             isGrounded = true;
         }
 
+    }
+    void OvertimeSound(int i)
+    {
+        if (i == 1)
+        {
+            SpeakerSpeakController.Instance.PlaySound("magnetize 1");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
+        if (i == 2)
+        {
+            SpeakerSpeakController.Instance.PlaySound("magnetize 2");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
+        if (i == 3)
+        {
+            SpeakerSpeakController.Instance.PlaySound("magnetize 3");
+            SpeakerController.Instance.alreadyplayed = true;
+        }
     }
 
 }
