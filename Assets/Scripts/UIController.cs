@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.Claims;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -33,6 +34,7 @@ public class UIController : MonoSingleton<UIController>
     bool quit;
     bool restart;
     public Image energySlider;
+    public Image deathBorderImg;
 
     public Toggle musicToggle;
     public bool IsGameOver;
@@ -51,6 +53,12 @@ public class UIController : MonoSingleton<UIController>
         ShowMaxStreak();
         musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
 
+        if (deathBorderImg != null)
+        {
+            Color color = deathBorderImg.color;
+            color.a = 0f;
+            deathBorderImg.color = color;
+        }
     }
 
     public void SetScore(int score)
@@ -65,18 +73,32 @@ public class UIController : MonoSingleton<UIController>
     {
         if (energySlider != null)
         {
+            // Calcola la quantità di energia normalizzata da 0 a 100
             float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
             energySlider.fillAmount = clampedEnergy;
 
-            //if(Default)
-            //{ 
-            //if((clampedEnergy <= 10))
-            //{
-            //    //SpeakerController.Instance 
-            //}
-            //}  
+            // Aggiorna il colore dell'immagine di bordo solo se l'energia è al 50% o meno
+            if (deathBorderImg != null)
+            {
+                if (newEnergy <= 50)
+                {
+                    Color color = deathBorderImg.color;
+                    // Inverti la relazione in modo che l'alpha aumenti quando l'energia diminuisce
+                    color.a = Mathf.Lerp(0f, 1f, Mathf.InverseLerp(50, 0, newEnergy));
+                    deathBorderImg.color = color;
+                }
+                else
+                {
+                    // Assicurati che l'alpha sia 0 se l'energia è superiore al 50%
+                    Color color = deathBorderImg.color;
+                    color.a = 0;
+                    deathBorderImg.color = color;
+                }
+            }
         }
     }
+
+
     public void Restart()
     {
         restart = true;

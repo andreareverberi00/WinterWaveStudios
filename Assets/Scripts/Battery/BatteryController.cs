@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BatteryController : MonoSingleton<BatteryController>
 {
@@ -25,6 +26,7 @@ public class BatteryController : MonoSingleton<BatteryController>
             consumeEnergyAmount = 0;
         }
     }
+
     private void DrainEnergy()
     {
         currentEnergy = Mathf.Max(currentEnergy - Mathf.RoundToInt(energyDrainRate * energyDrainInterval), 0);
