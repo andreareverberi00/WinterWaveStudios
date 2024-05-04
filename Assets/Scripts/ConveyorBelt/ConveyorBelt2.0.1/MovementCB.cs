@@ -31,9 +31,9 @@ public class MovementCB : MonoBehaviour
          */
         material = GetComponent<MeshRenderer>().material;
         initialspeed = speed;
-        ac = speed * 2;
+        ac = speed*2;
         initialcb = conveyorSpeed;
-        cb = 0.175f;
+        cb = 0.181f;
         //accelaration = false;
     }
 
@@ -46,7 +46,7 @@ public class MovementCB : MonoBehaviour
 
         if (accelaration == true)
         {
-            AddSpeed();
+            //AddSpeed();
             AddSpeedSpeaker();
         }
         if (GameController.Instance.slow==true)
@@ -98,7 +98,7 @@ public class MovementCB : MonoBehaviour
         {
             elapsedTime = 0f;
             speed += 0.025f;
-            conveyorSpeed += 0.00166f;
+            conveyorSpeed += 0.0017083f;
             ac = speed * 2;
             cb = conveyorSpeed*2;
             initialspeed = speed;
@@ -109,8 +109,7 @@ public class MovementCB : MonoBehaviour
     }
     void AddSpeedSpeaker()
     {
-        if (GameController.Instance.slow==false)
-        {
+    
             if (SpeakerController.Instance.Speed == true)
             {
 
@@ -122,20 +121,15 @@ public class MovementCB : MonoBehaviour
                 speed = initialspeed;
                 conveyorSpeed = initialcb;
             }
-        }
-        else
-        {
-            speed = initialspeed;
-            conveyorSpeed = initialcb;
-        }
+    
     }
     public void SlowTime()
     {
         if (speed == initialspeed && conveyorSpeed==initialcb)
         {
             Debug.Log("tempo rallentato ");
-            speed = speed * 0.75f;
-            conveyorSpeed = conveyorSpeed * 0.75f;
+            speed = speed * 0.5f;
+            conveyorSpeed = conveyorSpeed * 0.5f;
 
     }
         //if(speed==accelerationspeed && conveyorSpeed == 0.065f*accelerationspeed)
@@ -144,10 +138,10 @@ public class MovementCB : MonoBehaviour
         //    conveyorSpeed = conveyorSpeed* 1 / (accelerationspeed*0.065f* 2);
         //}
         else if (speed == ac && conveyorSpeed == cb)
-{
-    speed = speed * 0.25f;
-    conveyorSpeed = conveyorSpeed * 0.25f;
-}
+        {
+            speed = speed * 0.5f;
+            conveyorSpeed = 0.0325f;
+        }
 
     }
 

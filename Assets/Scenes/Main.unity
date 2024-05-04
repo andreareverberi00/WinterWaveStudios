@@ -8478,6 +8478,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2066378181509296749, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: speed
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066378181509296749, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: conveyorSpeed
+      value: 0.082
+      objectReference: {fileID: 0}
     - target: {fileID: 2521205715368095176, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
@@ -8494,6 +8502,10 @@ PrefabInstance:
       propertyPath: pk
       value: 
       objectReference: {fileID: 1530463277}
+    - target: {fileID: 4353237164357196865, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: conveyorSpeed
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 4369709881346090510, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
@@ -8506,6 +8518,14 @@ PrefabInstance:
       propertyPath: pk
       value: 
       objectReference: {fileID: 1530463277}
+    - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: speed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: conveyorSpeed
+      value: 0.0325
+      objectReference: {fileID: 0}
     - target: {fileID: 5623212612924785996, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
