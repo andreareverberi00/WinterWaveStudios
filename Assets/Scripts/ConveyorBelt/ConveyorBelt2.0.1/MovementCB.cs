@@ -20,6 +20,10 @@ public class MovementCB : MonoBehaviour
     [SerializeField]
     public float accelerationspeed = 0;
     [SerializeField]
+    //private float textureSpeedMultiplier = 1f; // Moltiplicatore per calibrare la velocità della texture
+
+    //private float textureOffset = 0f; // Offset corrente della texture
+
     //public bool isMoved=false;
 
 
@@ -42,7 +46,8 @@ public class MovementCB : MonoBehaviour
     {
         // Move the conveyor belt texture to make it look like it's moving
         material.mainTextureOffset += new Vector2(0, texturedir) * conveyorSpeed * Time.deltaTime;
-      
+        //textureOffset += speed * textureSpeedMultiplier * Time.deltaTime;
+        //material.mainTextureOffset = new Vector2(0, textureOffset);
 
         if (accelaration == true)
         {
@@ -128,10 +133,12 @@ public class MovementCB : MonoBehaviour
         if (speed == initialspeed && conveyorSpeed==initialcb)
         {
             Debug.Log("tempo rallentato ");
+            //speed = speed * 0.5f;
+            //conveyorSpeed = conveyorSpeed * 0.5f;
             speed = speed * 0.5f;
-            conveyorSpeed = conveyorSpeed * 0.5f;
+            conveyorSpeed = 0.0325f;
 
-    }
+        }
         //if(speed==accelerationspeed && conveyorSpeed == 0.065f*accelerationspeed)
         //{
         //    speed = speed* 1/(accelerationspeed*2);
@@ -139,8 +146,8 @@ public class MovementCB : MonoBehaviour
         //}
         else if (speed == ac && conveyorSpeed == cb)
         {
-            speed = speed * 0.5f;
-            conveyorSpeed = 0.0325f;
+            speed = initialcb;
+            conveyorSpeed = initialcb;
         }
 
     }

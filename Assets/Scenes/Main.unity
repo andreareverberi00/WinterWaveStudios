@@ -8520,11 +8520,11 @@ PrefabInstance:
       objectReference: {fileID: 1530463277}
     - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: speed
-      value: 0.6
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: conveyorSpeed
-      value: 0.0325
+      value: 0.082
       objectReference: {fileID: 0}
     - target: {fileID: 5623212612924785996, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
