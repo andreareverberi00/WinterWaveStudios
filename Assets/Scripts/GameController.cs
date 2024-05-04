@@ -18,7 +18,6 @@ public class GameController : MonoSingleton<GameController>
     private void Start()
     {
         StartNewGame();
-
     }
 
     void StartNewGame()

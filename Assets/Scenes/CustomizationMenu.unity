@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 356064413b73333459188dd6b10f3a1d, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5005,6 +5005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0ca8d72ae7d1c4ca7048f77364a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easythrow: 0
   baseantenna: 0
   tankantenna: 0
   proantenna: 0

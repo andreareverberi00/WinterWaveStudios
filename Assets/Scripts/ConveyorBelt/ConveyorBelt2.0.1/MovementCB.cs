@@ -134,8 +134,8 @@ public class MovementCB : MonoBehaviour
         if (speed == initialspeed && conveyorSpeed==initialcb)
         {
             Debug.Log("tempo rallentato ");
-            speed = speed * 0.5f;
-            conveyorSpeed = conveyorSpeed * 0.5f;
+            speed = speed * 0.75f;
+            conveyorSpeed = conveyorSpeed * 0.75f;
 
     }
         //if(speed==accelerationspeed && conveyorSpeed == 0.065f*accelerationspeed)
@@ -145,8 +145,8 @@ public class MovementCB : MonoBehaviour
         //}
         else if (speed == ac && conveyorSpeed == cb)
 {
-    speed = speed * 0.25f;
-    conveyorSpeed = conveyorSpeed * 0.25f;
+    speed = speed * 0.37f;
+    conveyorSpeed = conveyorSpeed * 0.37f;
 }
 
     }

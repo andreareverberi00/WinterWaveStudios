@@ -9,7 +9,20 @@ public class WasteDataHolder : MonoBehaviour
     public int Counter = 0;
     public PerkController pk;
     private bool isTouchingConveyor = false;
+    private Rigidbody rb;
+    private Quaternion startRotation;
 
+    private void OnEnable()
+    {
+        startRotation = transform.rotation;
+        rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+    }
+    // set start rotation
+    private void OnDisable()
+    {
+        transform.rotation = startRotation;
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))

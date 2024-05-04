@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ThrowController : MonoSingleton<ThrowController>
@@ -24,11 +25,11 @@ public class ThrowController : MonoSingleton<ThrowController>
 
     bool alreadyHighlighted = false;
 
-    [SerializeField]
     GameObject trailPrefab;
     void SetupWaste(GameObject selectedWaste)
     {
         this.selectedWaste = selectedWaste;
+        trailPrefab=this.selectedWaste.gameObject.transform.GetChild(0).gameObject;
         rb = this.selectedWaste.GetComponent<Rigidbody>();
         startPosition = this.selectedWaste.transform.position;
         startRotation = this.selectedWaste.transform.rotation;
@@ -58,7 +59,6 @@ public class ThrowController : MonoSingleton<ThrowController>
 
         // Disattiva il trail
         trailPrefab.SetActive(false);
-        trailPrefab.transform.SetParent(null);
     }
 
     void PickupBall()
@@ -162,8 +162,7 @@ public class ThrowController : MonoSingleton<ThrowController>
     {
         // Attiva il trail
         trailPrefab.SetActive(true);
-        trailPrefab.transform.SetParent(selectedWaste.transform);
-        trailPrefab.transform.localPosition = Vector3.zero;
+        //trailPrefab.transform.localPosition = Vector3.zero;
     }
     void LaunchObject(Vector2 lastMousePos)
     {
@@ -177,7 +176,7 @@ public class ThrowController : MonoSingleton<ThrowController>
 
         // Calcola la forza aggiuntiva basata sulla lunghezza dello swipe
         float additionalForceY = swipeLength * 0.001f;
-        float additionalForceZ = swipeLength * 0.004f;
+        float additionalForceZ = swipeLength * 0.002f;
 
         // Applica la forza iniziale più la forza aggiuntiva basata sulla lunghezza dello swipe
         Vector3 forceVector = (launchDirection * speed + new Vector3(0, additionalForceY, additionalForceZ) + force);
@@ -199,6 +198,5 @@ public class ThrowController : MonoSingleton<ThrowController>
     {
         yield return new WaitForSeconds(1.5f); // Imposta una durata adeguata per il trail dopo il lancio
         trailPrefab.SetActive(false);
-        trailPrefab.transform.SetParent(null);
     }
 }

@@ -4,98 +4,8 @@ using UnityEngine;
 
 public class WasteController : MonoSingleton<WasteController>
 {
-    [SerializeField] private List<BinDataHolder> activeBins = new List<BinDataHolder>();
-    [SerializeField] private Transform spawnPosition;
-    [SerializeField] private float initialSpawnInterval = 2.5f;
-    [SerializeField] private float minimumSpawnInterval = 1.5f; // Il minimo intervallo di spawn raggiungibile
-    [SerializeField] private float spawnDecayRate = 0.05f; // La quantità di tempo che si sottrae dall'intervallo di spawn
-    [SerializeField, Range(0, 100)] private int spawnBatteryProbability = 10;
+    public List<BinDataHolder> activeBins = new List<BinDataHolder>();
 
-    [SerializeField]
-    private bool isProductionPaused = false;
-
-    [Header("Debug")]
-    [SerializeField] private float spawnInterval;
-
-    void Start()
-    {
-        spawnInterval = initialSpawnInterval;
-        StartCoroutine(SpawnRoutine());
-    }
-
-    IEnumerator SpawnRoutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(spawnInterval);
-            if (!isProductionPaused) // Controlla se la produzione è pausa
-            {
-                bool spawnBattery = Random.Range(0, 100) < spawnBatteryProbability;
-                if (spawnBattery)
-                {
-                    PowePoolController.Instance.PausePowerProduction(.2f);
-                    SpawnBattery();
-                }
-                else
-                {
-                    PowePoolController.Instance.PausePowerProduction(.2f);
-                    SpawnWaste();
-                }
-            }
-            UpdateSpawnInterval();
-        }
-    }
-
-    void UpdateSpawnInterval()
-    {
-        if (spawnInterval > minimumSpawnInterval)
-        {
-            spawnInterval -= spawnDecayRate;
-            spawnInterval = Mathf.Max(spawnInterval, minimumSpawnInterval);
-        }
-    }
-    public void PauseProduction(float seconds)
-    {
-        StartCoroutine(PauseProductionRoutine(seconds));
-    }
-
-    private IEnumerator PauseProductionRoutine(float seconds)
-    {
-        isProductionPaused = true;
-        yield return new WaitForSeconds(seconds);
-        isProductionPaused = false;
-    }
-
-    void SpawnBattery()
-    {
-        GameObject battery = WastePool.Instance.GetBattery();
-        if (battery != null)
-        {
-            battery.transform.position = spawnPosition.position;
-        }
-    }
-
-
-    void SpawnWaste()
-    {
-        GameObject waste = WastePool.Instance.GetWasteMatchingBins(activeBins);
-        if (waste != null)
-        {
-            waste.transform.position = spawnPosition.position;
-        }
-        else
-        {
-            Debug.LogWarning("No matching waste available to spawn.");
-        }
-    }
-
-    public void AddBin(BinDataHolder newBin)
-    {
-        if (!activeBins.Contains(newBin))
-        {
-            activeBins.Add(newBin);
-        }
-    }
     public void ActivateBin(BinDataHolder binDataHolder)
     {
         if (!activeBins.Contains(binDataHolder))
@@ -115,7 +25,7 @@ public class WasteController : MonoSingleton<WasteController>
             }
         }
         Debug.LogWarning("No bin found for waste type: " + type);
-        return null; // Nessun bin trovato per questo tipo di rifiuto
+        return null;
     }
 
     public void RemoveBin(BinDataHolder binToRemove)
