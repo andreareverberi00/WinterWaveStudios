@@ -145,8 +145,8 @@ public class MovementCB : MonoBehaviour
         //}
         else if (speed == ac && conveyorSpeed == cb)
 {
-    speed = speed * 0.37f;
-    conveyorSpeed = conveyorSpeed * 0.37f;
+    speed = speed * 0.25f;
+    conveyorSpeed = conveyorSpeed * 0.25f;
 }
 
     }
