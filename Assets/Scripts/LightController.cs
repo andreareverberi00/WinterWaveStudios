@@ -20,21 +20,21 @@ public class LightController : MonoBehaviour
         if (SpeakerController.Instance.Speed == true)
         {
             Spotlight.SetActive(true);
-            if(SpeakerController.Instance.alreadyplayed == false)
+
+            if (SpeakerController.Instance.alreadyplayed == false)
             {
                 int i;
                 i = Random.Range(0, 2);
                 OvertimeSound(i);
             }
-         
 
         }
         else
         {
+            SpeakerController.Instance.alreadyplayed = false;
             Spotlight.SetActive(false);
         }
     }
-
     void OvertimeSound(int i)
     {
         if (i == 1)
@@ -48,4 +48,5 @@ public class LightController : MonoBehaviour
             SpeakerController.Instance.alreadyplayed = true;
         }
     }
+
 }
