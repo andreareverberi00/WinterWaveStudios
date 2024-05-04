@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,13 +10,14 @@ public class BatteryController : MonoSingleton<BatteryController>
 
     public float energyDrainRate = 1f;
     public float energyDrainInterval = 1f;
+    public float transitionDuration = 1.0f; // Durata della transizione in secondi
 
     public bool infiniteEnergy = false;
 
     private void Start()
     {
         currentEnergy = maxEnergy;
-        InvokeRepeating("DrainEnergy", energyDrainInterval, energyDrainInterval);
+        InvokeRepeating("StartDrainEnergy", energyDrainInterval, energyDrainInterval);
 
         DontDestroyOnLoad(this.gameObject); //Check if this is necessary
 
@@ -27,9 +29,28 @@ public class BatteryController : MonoSingleton<BatteryController>
         }
     }
 
-    private void DrainEnergy()
+    private void StartDrainEnergy()
     {
-        currentEnergy = Mathf.Max(currentEnergy - Mathf.RoundToInt(energyDrainRate * energyDrainInterval), 0);
+        StartCoroutine(DrainEnergy());
+    }
+
+    private IEnumerator DrainEnergy()
+    {
+        int startEnergy = currentEnergy;
+        int targetEnergy = Mathf.Max(currentEnergy - Mathf.RoundToInt(energyDrainRate * energyDrainInterval), 0);
+
+        float startTime = Time.time;
+        float endTime = startTime + transitionDuration;
+
+        while (Time.time < endTime)
+        {
+            float t = (Time.time - startTime) / transitionDuration;
+            currentEnergy = Mathf.RoundToInt(Mathf.Lerp(startEnergy, targetEnergy, t));
+            UIController.Instance.UpdateEnergy(currentEnergy);
+            yield return null;
+        }
+
+        currentEnergy = targetEnergy; // Assicura che il valore finale sia corretto
         UIController.Instance.UpdateEnergy(currentEnergy);
         CheckForGameOver();
     }

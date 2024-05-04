@@ -39,6 +39,8 @@ public class UIController : MonoSingleton<UIController>
     public Toggle musicToggle;
     public bool IsGameOver;
 
+    public float transitionDuration = 1.0f; // Durata della transizione in secondi
+
     private void Start()
     {
         energySlider.fillAmount = 1f;
@@ -73,27 +75,43 @@ public class UIController : MonoSingleton<UIController>
     {
         if (energySlider != null)
         {
-            // Calcola la quantità di energia normalizzata da 0 a 100
-            float clampedEnergy = Mathf.InverseLerp(0, 100, newEnergy);
-            energySlider.fillAmount = clampedEnergy;
+            StartCoroutine(UpdateEnergyCoroutine(newEnergy));
+        }
+    }
 
-            // Aggiorna il colore dell'immagine di bordo solo se l'energia è al 50% o meno
-            if (deathBorderImg != null)
+    private IEnumerator UpdateEnergyCoroutine(int newEnergy)
+    {
+        float startTime = Time.time;
+        float endTime = startTime + transitionDuration;
+        float startAmount = energySlider.fillAmount;
+        float targetAmount = Mathf.InverseLerp(0, 100, newEnergy);
+
+        while (Time.time < endTime)
+        {
+            float t = (Time.time - startTime) / transitionDuration;
+            energySlider.fillAmount = Mathf.Lerp(startAmount, targetAmount, t);
+            UpdateDeathBorder(newEnergy);
+            yield return null;
+        }
+        energySlider.fillAmount = targetAmount; // Assicurati che il valore finale sia corretto
+        UpdateDeathBorder(newEnergy);
+    }
+
+    private void UpdateDeathBorder(int newEnergy)
+    {
+        if (deathBorderImg != null)
+        {
+            if (newEnergy <= 50)
             {
-                if (newEnergy <= 50)
-                {
-                    Color color = deathBorderImg.color;
-                    // Inverti la relazione in modo che l'alpha aumenti quando l'energia diminuisce
-                    color.a = Mathf.Lerp(0f, 1f, Mathf.InverseLerp(50, 0, newEnergy));
-                    deathBorderImg.color = color;
-                }
-                else
-                {
-                    // Assicurati che l'alpha sia 0 se l'energia è superiore al 50%
-                    Color color = deathBorderImg.color;
-                    color.a = 0;
-                    deathBorderImg.color = color;
-                }
+                Color color = deathBorderImg.color;
+                color.a = Mathf.Lerp(0f, 1f, Mathf.InverseLerp(50, 0, newEnergy));
+                deathBorderImg.color = color;
+            }
+            else
+            {
+                Color color = deathBorderImg.color;
+                color.a = 0;
+                deathBorderImg.color = color;
             }
         }
     }
