@@ -137,7 +137,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         UpdateHighscore();
         RewardCoins();
-        AudioController.Instance.PlaySound("GameOver");
+        AudioController.Instance.PlayGameOverSound();
 
         leaderboardScoreManager.SubmitScore(Score);
 

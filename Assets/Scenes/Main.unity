@@ -5854,7 +5854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   consumeEnergyAmount: 10
-  energyDrainRate: 1
+  energyDrainRate: 1.5
   energyDrainInterval: 1
   transitionDuration: 0.1
   infiniteEnergy: 0
@@ -7454,6 +7454,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ead31061eb5e9f2408f61d01aa9a32e5, type: 3}
   - {fileID: 8300000, guid: 702c5fa839a64c544a9a28c6e383d794, type: 3}
   - {fileID: 8300000, guid: 522b32dd92625d94381a92edb107f048, type: 3}
+  gameOverClipName: GameOver
 --- !u!1 &1704674704
 GameObject:
   m_ObjectHideFlags: 0

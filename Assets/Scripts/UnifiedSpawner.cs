@@ -89,7 +89,6 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
         {
             spawnInterval -= spawnDecayRate;
             spawnInterval = Mathf.Max(spawnInterval, minSpawnInterval);
-            startSpawnInterval = spawnInterval;
         }
         
     }
