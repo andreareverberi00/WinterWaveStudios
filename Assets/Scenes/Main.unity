@@ -1831,7 +1831,7 @@ MonoBehaviour:
   selectableLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  force: {x: 0.3, y: 1, z: 0.3}
+  force: {x: 0, y: 1, z: 0.3}
 --- !u!1 &621290575
 GameObject:
   m_ObjectHideFlags: 0
