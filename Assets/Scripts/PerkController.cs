@@ -19,13 +19,8 @@ public class PerkController : MonoSingleton<PerkController>
                 {
                     Antenna();
                 }
-            
-        
-  
-        
-       
-        
     }
+
     private void Update()
     {
         if (nocustom == false) //Gamemenu.Instance.nocustom==false)
@@ -36,6 +31,9 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 10;
         }
+
+        if(BatteryController.Instance.currentEnergy>=50&&already)
+            already = false;
     }
     void Antenna()
     {
@@ -43,7 +41,7 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 30;
             BatteryController.Instance.consumeEnergyAmount = 20;
-            if (BatteryController.Instance.currentEnergy <= 20)
+            if (BatteryController.Instance.currentEnergy <= 20&&!already)
             {
                 int i;
                 i = Random.Range(0, 4);
@@ -54,7 +52,7 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 10;
             BatteryController.Instance.consumeEnergyAmount = 5;
-            if (BatteryController.Instance.currentEnergy <= 5)
+            if (BatteryController.Instance.currentEnergy <= 15&&!already)
             {
                 int i;
                 i = Random.Range(0, 4);
@@ -75,7 +73,7 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 3;
             BatteryController.Instance.consumeEnergyAmount = 1;
-            if (BatteryController.Instance.currentEnergy <= 1 && already==false)
+            if (BatteryController.Instance.currentEnergy <= 10 && already==false)
             {
                 int i;
                 i = Random.Range(0, 4);

@@ -29,13 +29,13 @@ public class AudioController : MonoBehaviour
                 soundEffectSource.Stop();
             }
             soundEffectSource.PlayOneShot(clip);
+            print("Playing sound: " + clipName);
         }
         else
         {
             Debug.LogWarning("AudioClip not found: " + clipName);
         }
     }
-
     public void StopSound()
     {
         soundEffectSource.Stop();

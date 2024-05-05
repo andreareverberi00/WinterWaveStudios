@@ -12,7 +12,10 @@ public class ShopItemData : ScriptableObject
 {
     [HideInInspector] public string itemName;
     public int cost;
+    public Sprite coinSprite;
     public ShopItemType itemType;
     public bool bought;
+
     [HideInInspector] public TMP_Text itemCostText;
+    [HideInInspector] public GameObject coinIconInstance; // Riferimento all'istanza dell'icona della moneta
 }

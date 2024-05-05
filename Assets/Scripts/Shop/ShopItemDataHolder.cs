@@ -11,15 +11,13 @@ public class ShopItemDataHolder : MonoBehaviour
     {
         itemData.name= gameObject.name; // Assicurati che il nome dell'oggetto corrisponda al nome dello scriptable object
         itemData.itemCostText = gameObject.transform.GetChild(0).GetComponent<TMPro.TMP_Text>();
-        itemData.itemCostText.text=itemData.bought?"":"Cost: " + itemData.cost.ToString();
+        itemData.itemCostText.text=itemData.bought?"":itemData.cost.ToString();
 
         // check the playerprefs to see selected antenna and perk
         if(itemData.itemType == ShopItemType.Antenna)
         {
             if(PlayerPrefs.GetString("SelectedAntenna", "baseAntenna") == itemData.name)
             {
-                PlayerPrefs.SetInt("baseantenna", Scene_Link2.Instance.baseantenna ? 1 : 0);
-                Scene_Link2.Instance.baseantenna = PlayerPrefs.GetInt("baseantenna", 0) == 1;
                 itemData.itemCostText.text = "Selected";
             }
         }
@@ -30,8 +28,32 @@ public class ShopItemDataHolder : MonoBehaviour
                 itemData.itemCostText.text = "Selected";
             }
         }
+        SetupCoinIcon();
+
         purchaseButton = GetComponent<Button>(); // Assicurati che questo script sia attaccato al GameObject che contiene il Button
         purchaseButton.onClick.AddListener(PurchaseItem); // Aggiungi il listener qui direttamente
+    }
+    void SetupCoinIcon()
+    {
+        if (itemData.coinSprite != null && itemData.coinIconInstance == null) // Crea l'icona se non esiste
+        {
+            GameObject coinIcon = new GameObject("CoinIcon");
+            Image coinImage = coinIcon.AddComponent<Image>();
+            coinImage.sprite = itemData.coinSprite;
+            coinImage.rectTransform.sizeDelta = new Vector2(40, 40);
+            coinImage.rectTransform.anchoredPosition = new Vector2(itemData.itemCostText.preferredWidth + 4, 0); // Assumi che il testo sia allineato a sinistra
+
+            coinIcon.transform.SetParent(transform.GetChild(0), false);
+            itemData.coinIconInstance = coinIcon;
+        }
+        UpdateCoinIconVisibility();
+    }
+    void UpdateCoinIconVisibility()
+    {
+        if (itemData.coinIconInstance != null)
+        {
+            itemData.coinIconInstance.SetActive(!itemData.bought);
+        }
     }
 
     public void PurchaseItem()
@@ -53,15 +75,17 @@ public class ShopItemDataHolder : MonoBehaviour
                         if(item.itemData.name == itemData.name)
                         {
                             item.itemData.itemCostText.text = "Selected";
+                            UpdateCoinIconVisibility();
                         }
                         else
                         {
                             if (!item.itemData.bought)
                             {
-                                item.itemData.itemCostText.text = "Cost: "+item.itemData.cost.ToString();
+                                item.itemData.itemCostText.text = item.itemData.cost.ToString();
                             }
                             else
                             {
+                                UpdateCoinIconVisibility();
                                 item.itemData.itemCostText.text = ""; 
                             }
                         }
@@ -79,16 +103,18 @@ public class ShopItemDataHolder : MonoBehaviour
                         if(item.itemData.name == itemData.name)
                         {
                             item.itemData.itemCostText.text = "Selected";
+                            UpdateCoinIconVisibility();
                         }
                         else
                         {
                             if (!item.itemData.bought)
                             {
-                                item.itemData.itemCostText.text = "Cost: "+item.itemData.cost.ToString();
+                                item.itemData.itemCostText.text = item.itemData.cost.ToString();
                             }
                             else
                             {
                                 item.itemData.itemCostText.text = ""; 
+                                UpdateCoinIconVisibility();
                             }
                         }
                     }
