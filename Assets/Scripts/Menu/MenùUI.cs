@@ -17,7 +17,7 @@ public class MenùUI : MonoBehaviour
     public GameObject Inputtext;
     public GameObject Employee;
     public TMP_Text highscoreText;
-    public Toggle musicToggle;
+    public GameObject musicButton;
     public Toggle easythrow;
 
     void Start()
@@ -33,16 +33,31 @@ public class MenùUI : MonoBehaviour
         Credit.SetActive(true);
         nametext.SetActive(true);
         highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
-        musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
         easythrow.isOn = false;
     }
-
-    public void SetMusicEnabled()
+    public void OnMusicButtonPressed()
     {
-        bool isEnabled = musicToggle.isOn;
-        AudioListener.volume = isEnabled ? 1 : 0;
-        PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);
+        ToggleMusic();
     }
+
+    private void ToggleMusic()
+    {
+        // Leggi lo stato corrente della musica dalle PlayerPrefs (ritorna 0 se non definito)
+        bool isEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
+
+        // Cambia lo stato della musica
+        isEnabled = !isEnabled;
+
+        // Imposta il volume dell'audio listener
+        AudioListener.volume = isEnabled ? 1 : 0;
+
+        // Salva il nuovo stato nelle PlayerPrefs
+        PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);
+
+        // Aggiorna il testo del bottone
+        musicButton.GetComponentInChildren<TMP_Text>().text = "MUSIC: " + (isEnabled ? "ON" : "OFF");
+    }
+
 
     public void CREDITS()
     {

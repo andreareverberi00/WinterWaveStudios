@@ -42,6 +42,10 @@ public class GameMenu : MonoBehaviour
     {
         Menu.BackToMenu();
     }
+    public void Quit() 
+    {
+        Application.Quit();
+    }
 
     IEnumerator WaitandLoad()
     {

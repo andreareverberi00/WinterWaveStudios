@@ -36,7 +36,7 @@ public class UIController : MonoSingleton<UIController>
     public Image energySlider;
     public Image deathBorderImg;
 
-    public Toggle musicToggle;
+    public GameObject musicButton;
     public bool IsGameOver;
 
     public float transitionDuration = 1.0f; // Durata della transizione in secondi
@@ -53,14 +53,35 @@ public class UIController : MonoSingleton<UIController>
 
         IsGameOver = false;
         ShowMaxStreak();
-        musicToggle.isOn = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
-
+        musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1?"MUSIC: ON":"MUSIC: OFF";
+        AudioListener.volume = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? 1 : 0;
         if (deathBorderImg != null)
         {
             Color color = deathBorderImg.color;
             color.a = 0f;
             deathBorderImg.color = color;
         }
+    }
+    public void OnMusicButtonPressed()
+    {
+        ToggleMusic();
+    }
+    private void ToggleMusic()
+    {
+        // Leggi lo stato corrente della musica dalle PlayerPrefs (ritorna 0 se non definito)
+        bool isEnabled = PlayerPrefs.GetInt("MusicEnabled") == 1;
+        print(isEnabled);
+        // Cambia lo stato della musica
+        isEnabled = !isEnabled;
+
+        // Imposta il volume dell'audio listener
+        AudioListener.volume = isEnabled ? 1 : 0;
+
+        // Salva il nuovo stato nelle PlayerPrefs
+        PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);
+
+        // Aggiorna il testo del bottone
+        musicButton.GetComponentInChildren<TMP_Text>().text = "MUSIC: " + (isEnabled ? "ON" : "OFF");
     }
 
     public void SetScore(int score)
@@ -210,12 +231,7 @@ public class UIController : MonoSingleton<UIController>
 
 
     }
-    public void SetMusicEnabled()
-    {
-        bool isEnabled = musicToggle.isOn;
-        AudioListener.volume = isEnabled ? 1 : 0;
-        PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);
-    }
+
     private void Update()
     {
         if(quit==true )
