@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scene_Link2 : MonoSingleton<Scene_Link2>
 {
-    public bool easythrow;
+    public bool easythrow=false;
     public bool baseantenna;
     public bool tankantenna;
     public bool proantenna;
@@ -15,6 +15,7 @@ public class Scene_Link2 : MonoSingleton<Scene_Link2>
     public bool perkmetal;
     void Start()
     {
+
         PlayerPrefs.SetInt("baseantenna", baseantenna ? 1 : 0);
         baseantenna = PlayerPrefs.GetInt("baseantenna", 0) == 1;
         PlayerPrefs.SetInt("tankantenna", tankantenna ? 1 : 0);

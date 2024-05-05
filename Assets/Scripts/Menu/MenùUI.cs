@@ -92,7 +92,8 @@ public class MenùUI : MonoBehaviour
         {
 
             easythrow.interactable = true;
-            
+            Scene_Link2.Instance.easythrow = true;
+
         }
         else
         {
@@ -100,20 +101,8 @@ public class MenùUI : MonoBehaviour
             easythrow.interactable = false;
             Scene_Link2.Instance.easythrow = false;
         }
-        Throw(easythrow);
+        //Throw(easythrow);
 
     }
-    void Throw(bool i)
-    {
-        {
-            if(i==true)
-            {
-                Scene_Link2.Instance.easythrow = true;
-            }
-            else
-            {
-                Scene_Link2.Instance.easythrow = false;
-            }
-        }
-    }
+
 }

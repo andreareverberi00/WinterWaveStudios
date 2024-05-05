@@ -18,6 +18,8 @@ public class ShopItemDataHolder : MonoBehaviour
         {
             if(PlayerPrefs.GetString("SelectedAntenna", "baseAntenna") == itemData.name)
             {
+                PlayerPrefs.SetInt("baseantenna", Scene_Link2.Instance.baseantenna ? 1 : 0);
+                Scene_Link2.Instance.baseantenna = PlayerPrefs.GetInt("baseantenna", 0) == 1;
                 itemData.itemCostText.text = "Selected";
             }
         }

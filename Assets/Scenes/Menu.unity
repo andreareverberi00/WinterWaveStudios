@@ -4590,12 +4590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0ca8d72ae7d1c4ca7048f77364a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easythrow: 1
+  easythrow: 0
   baseantenna: 0
-  tankantenna: 1
+  tankantenna: 0
   proantenna: 0
   perkpaper: 0
-  perkglass: 1
+  perkglass: 0
   perkplastic: 0
   perkorganic: 0
   perkmetal: 0
