@@ -58,16 +58,7 @@ public class PerkController : MonoSingleton<PerkController>
                 i = Random.Range(0, 4);
                 Killshot(i);
             }
-            if (Scene_Link2.Instance.easythrow==true)
-            {
-                TE.SetActive(true);
-                TD.SetActive(false);
-            }
-            else
-            {
-                TD.SetActive(true);
-                TE.SetActive(false);
-            }
+           
         }
         if (Scene_Link2.Instance.tankantenna == true)
         {
@@ -79,6 +70,16 @@ public class PerkController : MonoSingleton<PerkController>
                 i = Random.Range(0, 4);
                 Killshot(i);
                 Debug.Log("cambiato");
+            }
+            if (Scene_Link2.Instance.easythrow == true)
+            {
+                TE.SetActive(true);
+                TD.SetActive(false);
+            }
+            else
+            {
+                TD.SetActive(true);
+                TE.SetActive(false);
             }
         }
 
