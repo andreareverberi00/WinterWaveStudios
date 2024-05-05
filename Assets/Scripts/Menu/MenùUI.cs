@@ -90,7 +90,7 @@ public class MenùUI : MonoBehaviour
     {
         if (Scene_Link2.Instance.tankantenna == true)
         {
-            easythrow.isOn = true;
+
             easythrow.interactable = true;
             
         }

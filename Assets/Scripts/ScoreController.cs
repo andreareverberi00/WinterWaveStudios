@@ -14,7 +14,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int MissedWastes { get; private set; }
     public int ConsecutiveCorrectThrows { get; private set; }
     public int HighestConsecutiveCorrectThrows { get; private set; }  // Record per la sessione corrente
-
+    public int punteggio;
     public int scoreAmount;
     public int half;
     public int Double;
@@ -29,6 +29,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     bool alreadystreak;
        private void Start()
     {
+        scoreAmount = punteggio;
         initial = scoreAmount;
         half = scoreAmount / 2;
         Double = scoreAmount * 2;
@@ -46,7 +47,7 @@ public class ScoreController : MonoSingleton<ScoreController>
 
     public void AddScore()
     {
-        Score += scoreAmount;
+        Score += punteggio;
         GameController.Instance.AddScore();
         UpdateScoreUI();
     }
@@ -223,9 +224,9 @@ public class ScoreController : MonoSingleton<ScoreController>
                 //    break;
         }
     }
-    //private void Update()
-    //{
-    //    Debug.Log(scoreAmount);
-    //}
+    private void Update()
+    {
+        Debug.Log(punteggio);
+    }
 
 }

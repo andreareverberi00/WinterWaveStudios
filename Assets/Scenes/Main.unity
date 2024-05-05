@@ -3757,6 +3757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsForEveryXScore: 100
   coinsReward: 10
+  punteggio: 0
   scoreAmount: 10
   half: 0
   Double: 0

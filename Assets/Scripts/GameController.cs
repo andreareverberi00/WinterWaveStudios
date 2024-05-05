@@ -33,7 +33,7 @@ public class GameController : MonoSingleton<GameController>
 
     public void AddScore()
     {
-        score += scoreToAdd;
+        score += ScoreController.Instance.punteggio;
         CheckAndActivateBins();
     }
     public Vector3 GetRobotPosition() 

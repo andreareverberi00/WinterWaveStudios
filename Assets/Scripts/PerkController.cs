@@ -25,11 +25,18 @@ public class PerkController : MonoSingleton<PerkController>
        
         
     }
+    private void Update()
+    {
+        if (nocustom == false) //Gamemenu.Instance.nocustom==false)
+        {
+            Antenna();
+        }
+    }
     void Antenna()
     {
         if (Scene_Link2.Instance.proantenna == true)
         {
-            ScoreController.Instance.scoreAmount = 30;
+            ScoreController.Instance.punteggio = 30;
             BatteryController.Instance.consumeEnergyAmount = 20;
             if (BatteryController.Instance.currentEnergy <= 20)
             {
@@ -40,7 +47,7 @@ public class PerkController : MonoSingleton<PerkController>
         }
         if (Scene_Link2.Instance.baseantenna == true)
         {
-            ScoreController.Instance.scoreAmount = 10;
+            ScoreController.Instance.punteggio = 10;
             BatteryController.Instance.consumeEnergyAmount = 5;
             if (BatteryController.Instance.currentEnergy <= 5)
             {
@@ -61,13 +68,14 @@ public class PerkController : MonoSingleton<PerkController>
         }
         if (Scene_Link2.Instance.tankantenna == true)
         {
-            ScoreController.Instance.scoreAmount = 3;
+            ScoreController.Instance.punteggio = 3;
             BatteryController.Instance.consumeEnergyAmount = 1;
             if (BatteryController.Instance.currentEnergy <= 1)
             {
                 int i;
                 i = Random.Range(0, 4);
                 Killshot(i);
+                Debug.Log("cambiato");
             }
         }
 

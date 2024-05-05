@@ -34,4 +34,8 @@ public class Scene_Link2 : MonoSingleton<Scene_Link2>
 
 
     }
+    //private void Update()
+    //{
+    //    Debug.Log(ScoreController.Instance.scoreAmount);
+    //}
 }
