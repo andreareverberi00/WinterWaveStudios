@@ -47,6 +47,7 @@ public class LightController : MonoBehaviour
             SpeakerSpeakController.Instance.PlaySound("overtime_2");
             SpeakerController.Instance.alreadyplayed = true;
         }
+
     }
 
 }

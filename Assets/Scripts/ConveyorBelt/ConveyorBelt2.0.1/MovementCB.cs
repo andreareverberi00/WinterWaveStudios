@@ -146,7 +146,7 @@ public class MovementCB : MonoBehaviour
         //}
         else if (speed == ac && conveyorSpeed == cb)
         {
-            speed = initialcb;
+            speed = initialspeed;
             conveyorSpeed = initialcb;
         }
 

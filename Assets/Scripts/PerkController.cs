@@ -7,6 +7,7 @@ public class PerkController : MonoSingleton<PerkController>
     public bool nocustom=true;
     public GameObject TD;
     public GameObject TE;
+    bool already;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject); // Memorizza l'oggetto tra le scene
@@ -30,6 +31,10 @@ public class PerkController : MonoSingleton<PerkController>
         if (nocustom == false) //Gamemenu.Instance.nocustom==false)
         {
             Antenna();
+        }
+        else
+        {
+            ScoreController.Instance.punteggio = 10;
         }
     }
     void Antenna()
@@ -70,7 +75,7 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 3;
             BatteryController.Instance.consumeEnergyAmount = 1;
-            if (BatteryController.Instance.currentEnergy <= 1)
+            if (BatteryController.Instance.currentEnergy <= 1 && already==false)
             {
                 int i;
                 i = Random.Range(0, 4);
@@ -85,17 +90,17 @@ public class PerkController : MonoSingleton<PerkController>
         if (i == 1)
         {
             SpeakerSpeakController.Instance.PlaySound("one shot 1");
-            SpeakerController.Instance.alreadyplayed = true;
+            already = true;
         }
         if (i == 2)
         {
             SpeakerSpeakController.Instance.PlaySound("one shot 2");
-            SpeakerController.Instance.alreadyplayed = true;
+            already = true;
         }
         if (i == 3)
         {
             SpeakerSpeakController.Instance.PlaySound("one shot 3");
-            SpeakerController.Instance.alreadyplayed = true;
+            already=true;
         }
     }
    
