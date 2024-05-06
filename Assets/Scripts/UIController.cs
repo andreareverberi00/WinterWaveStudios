@@ -40,6 +40,7 @@ public class UIController : MonoSingleton<UIController>
     public bool IsGameOver;
 
     public float transitionDuration = 1.0f; // Durata della transizione in secondi
+    public TMP_Text batteryValueNum;
 
     private void Start()
     {
@@ -50,7 +51,7 @@ public class UIController : MonoSingleton<UIController>
         optionPanel.SetActive(false);
         restartPanel.SetActive(false);
         quitPanel.SetActive(false);
-
+        batteryValueNum.text = "100";
         IsGameOver = false;
         ShowMaxStreak();
         musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1?"MUSIC: ON":"MUSIC: OFF";
@@ -115,6 +116,7 @@ public class UIController : MonoSingleton<UIController>
             yield return null;
         }
         energySlider.fillAmount = targetAmount; // Assicurati che il valore finale sia corretto
+        batteryValueNum.text = newEnergy.ToString("000");
         UpdateDeathBorder(newEnergy);
     }
 
