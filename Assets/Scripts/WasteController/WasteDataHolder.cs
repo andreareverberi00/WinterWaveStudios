@@ -38,7 +38,7 @@ public class WasteDataHolder : MonoBehaviour
                     Debug.Log("Correct sorting!");
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
-                    BatteryController.Instance.CollectBattery(10);
+                    //BatteryController.Instance.CollectBattery(10);
                     VFXController.Instance.PlayVFXAtPosition(VFXType.CorrectSorting, transform.position, 1f);
 
                     //int compliments;
