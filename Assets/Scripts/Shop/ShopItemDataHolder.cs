@@ -19,6 +19,7 @@ public class ShopItemDataHolder : MonoBehaviour
             if(PlayerPrefs.GetString("SelectedAntenna", "baseAntenna") == itemData.name)
             {
                 itemData.itemCostText.text = "Selected";
+                GetComponent<Image>().color = Color.yellow;
             }
         }
         else if(itemData.itemType == ShopItemType.Perk)
@@ -26,6 +27,7 @@ public class ShopItemDataHolder : MonoBehaviour
             if(PlayerPrefs.GetString("SelectedPerk", "") == itemData.name)
             {
                 itemData.itemCostText.text = "Selected";
+                GetComponent<Image>().color = Color.yellow;
             }
         }
         SetupCoinIcon();
@@ -75,6 +77,7 @@ public class ShopItemDataHolder : MonoBehaviour
                         if(item.itemData.name == itemData.name)
                         {
                             item.itemData.itemCostText.text = "Selected";
+                            item.GetComponent<Image>().color = Color.yellow;
                             UpdateCoinIconVisibility();
                         }
                         else
@@ -86,7 +89,8 @@ public class ShopItemDataHolder : MonoBehaviour
                             else
                             {
                                 UpdateCoinIconVisibility();
-                                item.itemData.itemCostText.text = ""; 
+                                item.itemData.itemCostText.text = "";
+                                item.GetComponent<Image>().color = Color.white;
                             }
                         }
                     }
@@ -103,6 +107,7 @@ public class ShopItemDataHolder : MonoBehaviour
                         if(item.itemData.name == itemData.name)
                         {
                             item.itemData.itemCostText.text = "Selected";
+                            item.GetComponent<Image>().color = Color.yellow;
                             UpdateCoinIconVisibility();
                         }
                         else
@@ -114,6 +119,7 @@ public class ShopItemDataHolder : MonoBehaviour
                             else
                             {
                                 item.itemData.itemCostText.text = ""; 
+                                item.GetComponent<Image>().color = Color.white;
                                 UpdateCoinIconVisibility();
                             }
                         }

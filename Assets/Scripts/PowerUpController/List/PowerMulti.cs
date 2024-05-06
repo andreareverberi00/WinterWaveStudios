@@ -27,12 +27,12 @@ public class PowerMulti : MonoBehaviour
     IEnumerator MultiplicatorGame()
     {
         
-        ScoreController.Instance.scoreAmount=ScoreController.Instance.scoreAmount * 2;
+        ScoreController.Instance.punteggio=ScoreController.Instance.Double;
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp, GameController.Instance.GetRobotPosition(), 10f);
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp2X, SpeakerController.Instance.GetPosition(), 10f);
         yield return new WaitForSeconds(10f);
         Debug.Log("torna normale");
-        ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
+        ScoreController.Instance.punteggio = ScoreController.Instance.initial;
         PowerPool.Instance.ReturnPower(gameObject);
     }
     private void OnCollisionEnter(Collision collision)

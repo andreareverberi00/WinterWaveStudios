@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ec459155a3a53274ba1aa6f407e43573, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -796,8 +796,8 @@ MonoBehaviour:
   minSpawnInterval: 1
   spawnDecayRate: 0.0025
   wasteProbability: 80
-  batteryProbability: 8
-  powerUpProbability: 12
+  batteryProbability: 6
+  powerUpProbability: 10
   slowProbability: 30
   multiProbability: 40
   gravityProbability: 30
@@ -5854,7 +5854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   consumeEnergyAmount: 10
-  energyDrainRate: 1.5
+  energyDrainRate: 1.25
   energyDrainInterval: 1
   transitionDuration: 0.1
   infiniteEnergy: 0

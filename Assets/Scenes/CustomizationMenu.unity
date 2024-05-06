@@ -1160,7 +1160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: d9258ebebc93ff740b0b2ed1c473782c, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &701731748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1653,7 +1652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: b2655426530102a4bacdbe8dcdd20464, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &838652803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &986094587
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2787,7 +2785,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 5bea402581f2f64459b62d74559fbdc9, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &1184568135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,7 +2934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 050eff617229a07409c9741daae27f44, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &1190345082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3608,7 +3604,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: fc570b6d339d4da4b8b6d39c50144fe2, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &1540226349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3758,7 +3753,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 696127d1b11d66f4e99e580c65a89061, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &1554807493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4251,7 +4245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 6cef5d69aa0ca7c42b950e067439ad07, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &1590372742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4389,7 +4382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 5c364707127d5dd4da05ceb4e3fac96e, type: 2}
-  coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
 --- !u!114 &1610035962
 MonoBehaviour:
   m_ObjectHideFlags: 0

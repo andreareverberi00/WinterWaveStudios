@@ -29,7 +29,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     bool alreadystreak;
        private void Start()
     {
-        scoreAmount = punteggio;
+        punteggio = scoreAmount;
         initial = scoreAmount;
         half = scoreAmount / 2;
         Double = scoreAmount * 2;
@@ -77,7 +77,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         UpdateOvertimePeriodsUI();
     }
 
-    public void RemoveScore()
+    /*public void RemoveScore()
     {
         Score -= scoreAmount;
         if (Score < 0)
@@ -85,7 +85,7 @@ public class ScoreController : MonoSingleton<ScoreController>
             Score = 0;
         }
         UpdateScoreUI();
-    }
+    }*/
 
     public void RecordCorrectThrow()
     {
