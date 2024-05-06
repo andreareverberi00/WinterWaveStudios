@@ -27,10 +27,7 @@ public class PerkController : MonoSingleton<PerkController>
         {
             Antenna();
         }
-        else
-        {
-            ScoreController.Instance.punteggio = 10;
-        }
+
 
         if(BatteryController.Instance.currentEnergy>=50&&already)
             already = false;
@@ -39,7 +36,7 @@ public class PerkController : MonoSingleton<PerkController>
     {
         if (Scene_Link2.Instance.proantenna == true)
         {
-            ScoreController.Instance.punteggio = 30;
+            ScoreController.Instance.punteggio = 20;
             BatteryController.Instance.consumeEnergyAmount = 20;
             if (BatteryController.Instance.currentEnergy <= 20&&!already)
             {
@@ -51,7 +48,7 @@ public class PerkController : MonoSingleton<PerkController>
         if (Scene_Link2.Instance.baseantenna == true)
         {
             ScoreController.Instance.punteggio = 10;
-            BatteryController.Instance.consumeEnergyAmount = 5;
+            BatteryController.Instance.consumeEnergyAmount = 10;
             if (BatteryController.Instance.currentEnergy <= 15&&!already)
             {
                 int i;
@@ -62,8 +59,8 @@ public class PerkController : MonoSingleton<PerkController>
         }
         if (Scene_Link2.Instance.tankantenna == true)
         {
-            ScoreController.Instance.punteggio = 3;
-            BatteryController.Instance.consumeEnergyAmount = 1;
+            ScoreController.Instance.punteggio = 5;
+            BatteryController.Instance.consumeEnergyAmount = 5;
             if (BatteryController.Instance.currentEnergy <= 10 && already==false)
             {
                 int i;

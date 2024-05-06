@@ -20,7 +20,13 @@ public class AudioController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("MusicEnabled", 1) == 0)
+        {
+            StopAllSounds();
+        }
+    }
     public void PlaySound(string clipName)
     {
         AudioClip clip = System.Array.Find(audioClips, item => item.name == clipName);

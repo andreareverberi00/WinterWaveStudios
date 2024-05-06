@@ -38,7 +38,7 @@ public class WasteDataHolder : MonoBehaviour
                     Debug.Log("Correct sorting!");
                     ScoreController.Instance.RecordCorrectThrow();
                     ScoreController.Instance.AddScore();
-                    //BatteryController.Instance.CollectBattery(10);
+                    BatteryController.Instance.CollectBattery(2);
                     VFXController.Instance.PlayVFXAtPosition(VFXType.CorrectSorting, transform.position, 1f);
 
                     //int compliments;
@@ -118,11 +118,7 @@ public class WasteDataHolder : MonoBehaviour
     {
         if (wasteData.wasteType == Waste.WasteType.Plastic)
         {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.Double;
-        }
-        if (wasteData.wasteType == Waste.WasteType.Paper)
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.half;
+            ScoreController.Instance.scoreAmount *= (int)1.5f;
         }
         else
         {
@@ -136,10 +132,6 @@ public class WasteDataHolder : MonoBehaviour
         {
             ScoreController.Instance.scoreAmount = ScoreController.Instance.Double;
         }
-        if (wasteData.wasteType == Waste.WasteType.Plastic)
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.half;
-        }
         else
         {
             ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
@@ -149,11 +141,7 @@ public class WasteDataHolder : MonoBehaviour
     {
         if (wasteData.wasteType == Waste.WasteType.Paper)
         {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.Double;
-        }
-        if (wasteData.wasteType == Waste.WasteType.Organic)
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.half;
+            ScoreController.Instance.scoreAmount *=(int)3f;
         }
         else
         {
@@ -164,11 +152,7 @@ public class WasteDataHolder : MonoBehaviour
     {
         if (wasteData.wasteType == Waste.WasteType.Metal)
         {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.Double;
-        }
-        if (wasteData.wasteType == Waste.WasteType.Organic)
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.half;
+            ScoreController.Instance.scoreAmount *= (int)1.5f;
         }
         else
         {
@@ -179,11 +163,7 @@ public class WasteDataHolder : MonoBehaviour
     {
         if (wasteData.wasteType == Waste.WasteType.Organic)
         {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.Double;
-        }
-        if (wasteData.wasteType == Waste.WasteType.Metal)
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.half;
+            ScoreController.Instance.scoreAmount *=4;
         }
         else
         {

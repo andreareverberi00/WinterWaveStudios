@@ -17,12 +17,21 @@ public class MenuAndShopMusic : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void Start()
+    {
+        if(PlayerPrefs.GetInt("MusicEnabled", 1) == 0)
+        {
+            StopMusic();
+        }
+    }
     private void Update()
     {
         CheckCurrentScene();
     }
-
+    public void StopMusic()
+    {
+        gameObject.SetActive(false);
+    }
     private void CheckCurrentScene()
     {
         // Lista delle scene in cui non vuoi che la musica suoni

@@ -4113,7 +4113,7 @@ MonoBehaviour:
   - type: 1
     prefab: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
   - type: 6
-    prefab: {fileID: 7329176251244005324, guid: 5831c23344b604c409bdbd86d282c28b, type: 3}
+    prefab: {fileID: 7430082947502676719, guid: da4e3f3a9e176eb47916fe82c2f6db7d, type: 3}
   - type: 4
     prefab: {fileID: 5819354077875966258, guid: aea1abeaf0f43d74c84d9d3768cb2715, type: 3}
   - type: 5
@@ -6109,7 +6109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   consumeEnergyAmount: 10
-  energyDrainRate: 1.25
+  energyDrainRate: 0.75
   energyDrainInterval: 1
   transitionDuration: 0.1
   infiniteEnergy: 0
@@ -7827,7 +7827,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 56dbbeefbea59cb4ebb0280d2b19c2ef, type: 3}
   - {fileID: 8300000, guid: ead31061eb5e9f2408f61d01aa9a32e5, type: 3}
   - {fileID: 8300000, guid: 702c5fa839a64c544a9a28c6e383d794, type: 3}
-  - {fileID: 8300000, guid: 522b32dd92625d94381a92edb107f048, type: 3}
+  - {fileID: 8300000, guid: e3472c2714295b5478b509b4120e5e41, type: 3}
   gameOverClipName: GameOver
 --- !u!1 &1704674704
 GameObject:
@@ -9572,9 +9572,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 265535559819835616, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 431168811624626472, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 446218060980822159, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 722901610010705417, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 915963400733896902, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_IsActive
@@ -9592,13 +9604,17 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 2025201793289798038, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2066378181509296749, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: speed
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2066378181509296749, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: conveyorSpeed
-      value: 0.082
+      value: 0.089
       objectReference: {fileID: 0}
     - target: {fileID: 2123999721267103593, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
@@ -9646,11 +9662,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: conveyorSpeed
-      value: 0.082
+      value: 0.089
       objectReference: {fileID: 0}
     - target: {fileID: 4832641730649014105, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150570371452216444, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5623212612924785996, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
@@ -9712,6 +9732,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6348855103908768575, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6432710289406974530, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
@@ -9728,6 +9752,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 6018d248b27bbd241b26d35d9e441e66, type: 2}
+    - target: {fileID: 6696407025079964548, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716312391444250719, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746946874100780003, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914701216850974471, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7535398724820102484, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 

@@ -77,33 +77,46 @@ public class ScoreController : MonoSingleton<ScoreController>
         UpdateOvertimePeriodsUI();
     }
 
-    /*public void RemoveScore()
-    {
-        Score -= scoreAmount;
-        if (Score < 0)
-        {
-            Score = 0;
-        }
-        UpdateScoreUI();
-    }*/
-
     public void RecordCorrectThrow()
     {
         CorrectlyThrownWastes++;
         ConsecutiveCorrectThrows++;
-         if(ConsecutiveCorrectThrows % 5 == 0  && ConsecutiveCorrectThrows!=0)
+
+        if(ConsecutiveCorrectThrows == 5 && ConsecutiveCorrectThrows!=0)
         {
             
             int compliments;
             compliments = Random.Range(1, 6);
             Compliment(compliments);
             alreadystreak = true;
+            Score += 50;
+            UpdateScoreUI();
+            BatteryController.Instance.CollectBattery(10);
+
         }
+        if (ConsecutiveCorrectThrows == 3) 
+        {
+            int compliments;
+            compliments = Random.Range(1, 6);
+            Compliment(compliments);
+            alreadystreak = true;
+            Score += 30;
+            UpdateScoreUI();
+        }
+        if (ConsecutiveCorrectThrows == 10) 
+        {
+            int compliments;
+            compliments = Random.Range(1, 6);
+            Compliment(compliments);
+            alreadystreak = true;
+            Score += 50;
+            UpdateScoreUI();
+            BatteryController.Instance.CollectBattery(10);
+        }
+
         if (ConsecutiveCorrectThrows > HighestConsecutiveCorrectThrows)
         {
-            HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;
-           
-            AddScore();
+            HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;           
         }
         UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
     }
