@@ -97,19 +97,26 @@ public class MovementCB : MonoBehaviour
     }
     void AddSpeed()
     {
-        elapsedTime += Time.deltaTime;
+        //elapsedTime += Time.deltaTime;
 
-        if (elapsedTime >= increaseSpeedInterval)
+        //if (elapsedTime >= increaseSpeedInterval)
+        //{
+        //    elapsedTime = 0f;
+        //    speed += 0.025f;
+        //    conveyorSpeed += 0.0017083f;
+        //    ac = speed * 2;
+        //    cb = conveyorSpeed*2;
+        //    initialspeed = speed;
+        //    initialcb = conveyorSpeed;
+
+        //}
+
+        if (ScoreController.Instance.Score % 500 == 0)
         {
-            elapsedTime = 0f;
-            speed += 0.025f;
-            conveyorSpeed += 0.0017083f;
-            ac = speed * 2;
-            cb = conveyorSpeed*2;
-            initialspeed = speed;
-            initialcb = conveyorSpeed;
-
+            Marcia();
         }
+        
+
 
     }
     void AddSpeedSpeaker()
@@ -152,5 +159,44 @@ public class MovementCB : MonoBehaviour
 
     }
 
-
+    void Marcia()
+    {
+        speed=speed+0.1f;
+        initialspeed = speed;
+        Checkspeed();
+        
+    }
+    void Checkspeed()
+    {
+        if (speed == 1.3f)
+        {
+            conveyorSpeed = 0.09f;
+            conveyorSpeed = initialcb;
+        }
+        if (speed == 1.4f)
+        {
+            conveyorSpeed = 0.096f;
+            conveyorSpeed = initialcb;
+        }
+        if (speed == 1.5f)
+        {
+            conveyorSpeed = 0.105f;
+            conveyorSpeed = initialcb;
+        }
+        if (speed == 1.6f)
+        {
+            conveyorSpeed = 0.115f;
+            conveyorSpeed = initialcb;
+        }
+        if (speed == 1.7f)
+        {
+            conveyorSpeed = 0.12f;
+            conveyorSpeed = initialcb;
+        }
+        if (speed == 1.8f)
+        {
+            conveyorSpeed = 0.13f;
+            conveyorSpeed = initialcb;
+        }
+    }
 }
