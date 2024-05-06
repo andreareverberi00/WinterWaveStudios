@@ -16,6 +16,6 @@ MonoBehaviour:
   cost: 1000
   coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
   itemType: 0
-  bought: 0
+  bought: 1
   itemCostText: {fileID: 0}
   coinIconInstance: {fileID: 0}

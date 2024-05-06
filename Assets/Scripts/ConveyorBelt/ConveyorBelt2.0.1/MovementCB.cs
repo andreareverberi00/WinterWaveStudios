@@ -161,10 +161,14 @@ public class MovementCB : MonoBehaviour
 
     void Marcia()
     {
-        speed=speed+0.1f;
-        initialspeed = speed;
+        if(speed<=1.8f)
+        {
+            speed = speed + 0.1f;
+            initialspeed = speed;
+            Checkspeed();
+        }
         Checkspeed();
-        
+
     }
     void Checkspeed()
     {
