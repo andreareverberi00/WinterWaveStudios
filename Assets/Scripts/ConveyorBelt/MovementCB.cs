@@ -121,7 +121,7 @@ public class MovementCB : MonoBehaviour
     }
     public void SlowTime()
     {
-        if (speed == initialspeed && conveyorSpeed==initialcb)
+        if (speed == initialspeed && conveyorSpeed == initialcb)
         {
             Debug.Log("tempo rallentato ");
             //Deaccelaration.Instance.Slowspeed(speed,conveyorSpeed);
@@ -129,23 +129,22 @@ public class MovementCB : MonoBehaviour
             //conveyorSpeed = Deaccelaration.Instance.slowcb;
             //if(SpeakerController.Instance.Speed==false)
             //{
-                speed = 0.6f;
-                conveyorSpeed = 0.03f;
-            //}
-           else
-            {
-                speed = initialspeed;
-                conveyorSpeed = initialcb;
-            }
-             
-
+            speed = 0.6f;
+            conveyorSpeed = 0.03f;
+            //
+            //
         }
+
         else if (speed == ac && conveyorSpeed == cb)
         {
             speed = initialspeed;
             conveyorSpeed = initialcb;
         }
-
+        else
+        {
+            speed = initialspeed;
+            conveyorSpeed = initialcb;
+        }
     }
 
     void Marcia()
