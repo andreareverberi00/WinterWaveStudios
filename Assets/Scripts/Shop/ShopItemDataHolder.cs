@@ -11,7 +11,7 @@ public class ShopItemDataHolder : MonoBehaviour
     {
         itemData.name= gameObject.name; // Assicurati che il nome dell'oggetto corrisponda al nome dello scriptable object
         itemData.itemCostText = gameObject.transform.GetChild(0).GetComponent<TMPro.TMP_Text>();
-        itemData.itemCostText.text=itemData.bought?"":itemData.cost.ToString();
+        itemData.itemCostText.text=itemData.bought?"":itemData.cost.ToString("0000");
 
         // check the playerprefs to see selected antenna and perk
         if(itemData.itemType == ShopItemType.Antenna)
@@ -43,7 +43,7 @@ public class ShopItemDataHolder : MonoBehaviour
             Image coinImage = coinIcon.AddComponent<Image>();
             coinImage.sprite = itemData.coinSprite;
             coinImage.rectTransform.sizeDelta = new Vector2(40, 40);
-            coinImage.rectTransform.anchoredPosition = new Vector2(itemData.itemCostText.preferredWidth + 4, 0); // Assumi che il testo sia allineato a sinistra
+            coinImage.rectTransform.anchoredPosition = new Vector2(itemData.itemCostText.preferredWidth, 0); // Assumi che il testo sia allineato a sinistra
 
             coinIcon.transform.SetParent(transform.GetChild(0), false);
             itemData.coinIconInstance = coinIcon;
@@ -62,73 +62,13 @@ public class ShopItemDataHolder : MonoBehaviour
     {
         int coins = PlayerPrefs.GetInt("Coins");
 
-        if(itemData.bought)
+        if (itemData.bought)
         {
             Debug.Log("Hai già acquistato questo oggetto, ma lo seleziono");
-
-            if(itemData.itemType == ShopItemType.Antenna)
-            {
-                RobotVisualController.Instance.SelectAntenna(itemData.name);
-                // set cost text to "Selected" and all others to nothing if bought otherwise to cost
-                foreach (var item in FindObjectsOfType<ShopItemDataHolder>())
-                {
-                    if(item.itemData.itemType == ShopItemType.Antenna)
-                    {
-                        if(item.itemData.name == itemData.name)
-                        {
-                            item.itemData.itemCostText.text = "Selected";
-                            item.GetComponent<Image>().color = Color.yellow;
-                            UpdateCoinIconVisibility();
-                        }
-                        else
-                        {
-                            if (!item.itemData.bought)
-                            {
-                                item.itemData.itemCostText.text = item.itemData.cost.ToString();
-                            }
-                            else
-                            {
-                                UpdateCoinIconVisibility();
-                                item.itemData.itemCostText.text = "";
-                                item.GetComponent<Image>().color = Color.white;
-                            }
-                        }
-                    }
-                }
-            }
-            else if(itemData.itemType == ShopItemType.Perk)
-            {
-                RobotVisualController.Instance.SelectPerk(itemData.name);
-                // set cost text to "Selected" and all others to nothing if bought otherwise to cost
-                foreach (var item in FindObjectsOfType<ShopItemDataHolder>())
-                {
-                    if(item.itemData.itemType == ShopItemType.Perk)
-                    {
-                        if(item.itemData.name == itemData.name)
-                        {
-                            item.itemData.itemCostText.text = "Selected";
-                            item.GetComponent<Image>().color = Color.yellow;
-                            UpdateCoinIconVisibility();
-                        }
-                        else
-                        {
-                            if (!item.itemData.bought)
-                            {
-                                item.itemData.itemCostText.text = item.itemData.cost.ToString();
-                            }
-                            else
-                            {
-                                item.itemData.itemCostText.text = ""; 
-                                item.GetComponent<Image>().color = Color.white;
-                                UpdateCoinIconVisibility();
-                            }
-                        }
-                    }
-                }
-            }
+            SelectItem(itemData.itemType);
             return;
         }
-        else if(coins >= itemData.cost)
+        else if (coins >= itemData.cost)
         {
             coins -= itemData.cost;
             PlayerPrefs.SetInt("Coins", coins);
@@ -140,10 +80,48 @@ public class ShopItemDataHolder : MonoBehaviour
         {
             Debug.Log("Non hai abbastanza monete");
         }
-
     }
-    //private void OnDisable()
-    //{
-    //    purchaseButton.onClick.RemoveListener(PurchaseItem);
-    //}
+
+    private void SelectItem(ShopItemType itemType)
+    {
+        var currentSelected = PlayerPrefs.GetString(itemType.ToString());
+
+        if (currentSelected == itemData.name)
+        {
+            // Deselect item
+            PlayerPrefs.SetString(itemType.ToString(), "");
+            RobotVisualController.Instance.SelectItemOfType(itemType, "");
+            Debug.Log(itemData.name + " deselezionato");
+        }
+        else
+        {
+            RobotVisualController.Instance.SelectItemOfType(itemType, itemData.name);
+            PlayerPrefs.SetString(itemType.ToString(), itemData.name);
+            Debug.Log(itemData.name + " selezionato");
+        }
+
+        foreach (var item in FindObjectsOfType<ShopItemDataHolder>())
+        {
+            if (item.itemData.itemType == itemType)
+            {
+                var itemName = item.itemData.name;
+                var isCurrentItem = itemName == itemData.name;
+                var isSelected = PlayerPrefs.GetString(itemType.ToString()) == itemName;
+
+                item.itemData.itemCostText.text = isSelected ? "Selected" : item.itemData.bought ? "" : item.itemData.cost.ToString("0000");
+                item.GetComponent<Image>().color = isSelected ? Color.yellow : item.itemData.bought ? Color.white : item.GetComponent<Image>().color;
+
+                if (item.itemData.bought)
+                {
+                    UpdateCoinIconVisibility();
+                }
+            }
+        }
+    }
+
+
+    private void OnDisable()
+    {
+        purchaseButton.onClick.RemoveListener(PurchaseItem);
+    }
 }

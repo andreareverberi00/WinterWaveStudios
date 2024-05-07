@@ -54,8 +54,9 @@ public class UIController : MonoSingleton<UIController>
         batteryValueNum.text = "100";
         IsGameOver = false;
         ShowMaxStreak();
-        musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1?"MUSIC: ON":"MUSIC: OFF";
-        AudioListener.volume = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? 1 : 0;
+        AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
+        musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? "MUSIC: ON" : "MUSIC: OFF";
+
         if (deathBorderImg != null)
         {
             Color color = deathBorderImg.color;
@@ -76,7 +77,7 @@ public class UIController : MonoSingleton<UIController>
         isEnabled = !isEnabled;
 
         // Imposta il volume dell'audio listener
-        AudioListener.volume = isEnabled ? 1 : 0;
+        AudioListener.pause = isEnabled ? false : true;
 
         // Salva il nuovo stato nelle PlayerPrefs
         PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);

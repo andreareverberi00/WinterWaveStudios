@@ -44,33 +44,41 @@ public class RobotVisualController : MonoBehaviour
 
     public void UpdateVisuals()
     {
-        // Leggi le preferenze salvate per selezionare la corretta antenna e i perk
-        string selectedAntenna = PlayerPrefs.GetString("SelectedAntenna", "baseAntenna");
+        string selectedAntenna = PlayerPrefs.GetString("SelectedAntenna", "");
         string selectedPerk = PlayerPrefs.GetString("SelectedPerk", "");
 
-        Debug.Log("Antenna selezionata: " + selectedAntenna);
-        Debug.Log("Perk selezionato: " + selectedPerk);
-        // Disattiva tutti gli elementi e attiva solo quelli selezionati
         foreach (var antenna in antennas)
         {
-            antenna.SetActive(antenna.name == selectedAntenna);
+            antenna.SetActive(selectedAntenna != "" && antenna.name == selectedAntenna);
         }
 
         foreach (var perk in perks)
         {
-            perk.SetActive(perk.name == selectedPerk);
+            perk.SetActive(selectedPerk != "" && perk.name == selectedPerk);
         }
     }
-    public void SelectAntenna(string antennaName)
+    private void SelectAntenna(string antennaName)
     {
         PlayerPrefs.SetString("SelectedAntenna", antennaName);
         UpdateVisuals();
     }
 
-    public void SelectPerk(string perkName)
+    private void SelectPerk(string perkName)
     {
         PlayerPrefs.SetString("SelectedPerk", perkName);
         UpdateVisuals();
+    }
+
+    public void SelectItemOfType(ShopItemType itemType, string itemName)
+    {
+        if (itemType == ShopItemType.Antenna)
+        {
+            SelectAntenna(itemName);
+        }
+        else if (itemType == ShopItemType.Perk)
+        {
+            SelectPerk(itemName);
+        }
     }
 
 }

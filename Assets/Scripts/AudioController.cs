@@ -26,6 +26,7 @@ public class AudioController : MonoBehaviour
         {
             StopAllSounds();
         }
+        soundEffectSource.ignoreListenerPause = true;
     }
     public void PlaySound(string clipName)
     {
@@ -58,10 +59,12 @@ public class AudioController : MonoBehaviour
     public void StopAllSounds()
     {
         // Ferma qualsiasi AudioSource nella scena, si assume che tutti gli AudioController condividano questo metodo
-        foreach (var audioSource in FindObjectsOfType<AudioSource>())
-        {
-            if (audioSource == soundEffectSource) continue;
-            audioSource.Stop();
-        }
+        //foreach (var audioSource in FindObjectsOfType<AudioSource>())
+        //{
+        //    if (audioSource == soundEffectSource) continue;
+        //    audioSource.Stop();
+        //}
+        AudioListener.pause = true;
+
     }
 }

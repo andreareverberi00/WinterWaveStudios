@@ -33,6 +33,8 @@ public class MenùUI : MonoBehaviour
         Credit.SetActive(true);
         nametext.SetActive(true);
         highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
+        musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? "MUSIC: ON" : "MUSIC: OFF";
+        AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
         easythrow.isOn = false;
     }
     public void OnMusicButtonPressed()
@@ -43,13 +45,13 @@ public class MenùUI : MonoBehaviour
     private void ToggleMusic()
     {
         // Leggi lo stato corrente della musica dalle PlayerPrefs (ritorna 0 se non definito)
-        bool isEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
-
+        bool isEnabled = PlayerPrefs.GetInt("MusicEnabled") == 1;
+        print(isEnabled);
         // Cambia lo stato della musica
         isEnabled = !isEnabled;
 
         // Imposta il volume dell'audio listener
-        AudioListener.volume = isEnabled ? 1 : 0;
+        AudioListener.pause = isEnabled ? false : true;
 
         // Salva il nuovo stato nelle PlayerPrefs
         PlayerPrefs.SetInt("MusicEnabled", isEnabled ? 1 : 0);

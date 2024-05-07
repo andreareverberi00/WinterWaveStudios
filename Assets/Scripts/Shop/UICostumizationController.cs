@@ -15,7 +15,7 @@ public class UICustomizationController : MonoSingleton<UICustomizationController
 
     public void UpdateUI()
     {
-        coinsText.text = PlayerPrefs.GetInt("Coins", 0).ToString();
+        coinsText.text = PlayerPrefs.GetInt("Coins", 0).ToString("0000");
     }
     public void BackToMenu()
     {
