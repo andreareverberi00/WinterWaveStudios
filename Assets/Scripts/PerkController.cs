@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PerkController : MonoSingleton<PerkController>
 {
-    //public bool nocustom=false;
+    public bool nocustom=true;
     public GameObject TD;
     public GameObject TE;
     bool already;
@@ -15,18 +15,18 @@ public class PerkController : MonoSingleton<PerkController>
 
     private void Start()
     {
-                //if (nocustom == false) //Gamemenu.Instance.nocustom==false)
-                //{
+                if (nocustom == false) //Gamemenu.Instance.nocustom==false)
+                {
                     Antenna();
-                //}
+                }
     }
 
     private void Update()
     {
-        //if (nocustom == false) //Gamemenu.Instance.nocustom==false)
-        //{
+        if (nocustom == false) //Gamemenu.Instance.nocustom==false)
+        {
             Antenna();
-        //}
+        }
 
 
         if(BatteryController.Instance.currentEnergy>=50&&already)
