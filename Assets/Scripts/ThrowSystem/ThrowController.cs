@@ -28,6 +28,8 @@ public class ThrowController : MonoSingleton<ThrowController>
     GameObject trailPrefab;
     public float minSwipeDistance=0f;
 
+    public float outwardForceXMax = 0.4f;
+
     void SetupWaste(GameObject selectedWaste)
     {
         this.selectedWaste = selectedWaste;
@@ -181,8 +183,11 @@ public class ThrowController : MonoSingleton<ThrowController>
         float additionalForceY = swipeLength * 0.001f;
         float additionalForceZ = swipeLength * 0.002f;
 
+        // Calcola la forza laterale basata sulla direzione dello swipe orizzontale
+        float outwardForceX = Mathf.Clamp(swipeDirection.x / Screen.width * outwardForceXMax, -outwardForceXMax, outwardForceXMax);
+
         // Applica la forza iniziale più la forza aggiuntiva basata sulla lunghezza dello swipe
-        Vector3 forceVector = (launchDirection * speed + new Vector3(0, additionalForceY, additionalForceZ) + force);
+        Vector3 forceVector = (launchDirection * speed + new Vector3(outwardForceX, additionalForceY, additionalForceZ) + force);
 
         rb.AddForce(forceVector, ForceMode.Impulse);
 
