@@ -124,9 +124,19 @@ public class MovementCB : MonoBehaviour
         if (speed == initialspeed && conveyorSpeed==initialcb)
         {
             Debug.Log("tempo rallentato ");
-            Deaccelaration.Instance.Slowspeed(speed,conveyorSpeed);
-            speed = Deaccelaration.Instance.slow;
-            conveyorSpeed = Deaccelaration.Instance.slowcb;
+            //Deaccelaration.Instance.Slowspeed(speed,conveyorSpeed);
+            //speed = Deaccelaration.Instance.slow;
+            //conveyorSpeed = Deaccelaration.Instance.slowcb;
+            //if(SpeakerController.Instance.Speed==false)
+            //{
+                speed = 0.6f;
+                conveyorSpeed = 0.03f;
+            //}
+           else
+            {
+                speed = initialspeed;
+                conveyorSpeed = initialcb;
+            }
              
 
         }
