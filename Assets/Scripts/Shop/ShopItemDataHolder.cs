@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class ShopItemDataHolder : MonoBehaviour
 {
@@ -7,6 +9,8 @@ public class ShopItemDataHolder : MonoBehaviour
 
     private Button purchaseButton;
 
+    [SerializeField] private GameObject purchaseConfirmationPanel;
+    [SerializeField] private TMP_Text confirmationDescriptionText;
     private void Awake()
     {
         itemData.name= gameObject.name; // Assicurati che il nome dell'oggetto corrisponda al nome dello scriptable object
@@ -32,9 +36,11 @@ public class ShopItemDataHolder : MonoBehaviour
         }
         SetupCoinIcon();
 
-        purchaseButton = GetComponent<Button>(); // Assicurati che questo script sia attaccato al GameObject che contiene il Button
-        purchaseButton.onClick.AddListener(PurchaseItem); // Aggiungi il listener qui direttamente
+        Button purchaseButton = GetComponent<Button>();
+        purchaseButton.onClick.AddListener(() =>
+            FindObjectOfType<ShopController>().RequestPurchaseConfirmation(this));
     }
+
     void SetupCoinIcon()
     {
         if (itemData.coinSprite != null && itemData.coinIconInstance == null) // Crea l'icona se non esiste
@@ -74,6 +80,8 @@ public class ShopItemDataHolder : MonoBehaviour
             PlayerPrefs.SetInt("Coins", coins);
             itemData.bought = true;
             UICustomizationController.Instance.UpdateUI();
+            itemData.itemCostText.text = "";
+            UpdateCoinIconVisibility();
             Debug.Log("Acquisto completato");
         }
         else
@@ -119,9 +127,4 @@ public class ShopItemDataHolder : MonoBehaviour
         }
     }
 
-
-    private void OnDisable()
-    {
-        purchaseButton.onClick.RemoveListener(PurchaseItem);
-    }
 }

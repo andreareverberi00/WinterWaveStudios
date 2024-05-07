@@ -17,5 +17,7 @@ MonoBehaviour:
   coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
   itemType: 0
   bought: 1
+  description: Players receive a bonus of +10 points for each correct throw and incur
+    a penalty of -10 energy points for incorrect throws.
   itemCostText: {fileID: 0}
   coinIconInstance: {fileID: 0}
