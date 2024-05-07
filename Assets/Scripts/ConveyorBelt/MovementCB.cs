@@ -11,7 +11,7 @@ public class MovementCB : MonoBehaviour
     [SerializeField]
     private List<GameObject> onBelt;
     [SerializeField]
-    public bool accelaration;
+    public bool accelaration , ax1;
     [SerializeField]
     private Material material;
     [SerializeField]
@@ -98,19 +98,20 @@ public class MovementCB : MonoBehaviour
     
             if (SpeakerController.Instance.Speed == true)
             {
-              if(speed<=2)
+              if(speed<2)
             {
                 speed = ac;
                 conveyorSpeed = cb;
-            }
-
-            //  else 
-            //{
-            //    speed = ac2;
-            //    conveyorSpeed = cb2;
-            //}
 
             }
+
+            else if(initialspeed > 2)
+            {
+                speed = ac2;
+                conveyorSpeed = cb2;
+            }
+
+        }
             else
             {
                 speed = initialspeed;
