@@ -10,7 +10,9 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
     [SerializeField] private float minSpawnInterval = 1.5f;  // Il minimo intervallo di spawn raggiungibile
     [SerializeField] private float spawnDecayRate = 0.001f; // La quantità di tempo che si sottrae dall'intervallo di spawn ad ogni ciclo
     private float startSpawnInterval;
-    private float doubledSpawnInterval;
+    private float SlowSpawnInterval;
+    private float slowslowSpawnInterval;
+    public float speedcheck;
 
     [Header("Spawn Probabilities")]
     [Range(0, 100)] public int wasteProbability = 50;
@@ -26,13 +28,18 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
     {
         StartCoroutine(SpawnRoutine());
         startSpawnInterval = spawnInterval;
-        doubledSpawnInterval = startSpawnInterval * 2;
+        SlowSpawnInterval = startSpawnInterval +1 ;
+        slowslowSpawnInterval = SlowSpawnInterval +0.75f;
     }
     private void Update()
     {
         if (GameController.Instance.slow == true)
         {
-            spawnInterval = doubledSpawnInterval;
+            spawnInterval = SlowSpawnInterval;
+            if (speedcheck <= 1)
+            {
+                spawnInterval = slowslowSpawnInterval;
+            }
         }
         else
         {

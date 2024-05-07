@@ -60,7 +60,7 @@ public class MovementCB : MonoBehaviour
         {
             AddSpeedSpeaker();
         }
-        
+        UnifiedSpawner.Instance.speedcheck = speed;
     }
 
     void FixedUpdate()
@@ -127,7 +127,7 @@ public class MovementCB : MonoBehaviour
             Deaccelaration.Instance.Slowspeed(speed,conveyorSpeed);
             speed = Deaccelaration.Instance.slow;
             conveyorSpeed = Deaccelaration.Instance.slowcb;
-           
+             
 
         }
         else if (speed == ac && conveyorSpeed == cb)
