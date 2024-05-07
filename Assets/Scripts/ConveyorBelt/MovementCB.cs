@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementCB : MonoBehaviour
 {
     [SerializeField]
-    private  float speed, conveyorSpeed, initialspeed, ac,initialcb,cb,texturedir;
+    private  float speed, conveyorSpeed, initialspeed, ac,ac2,initialcb,cb,cb2,texturedir;
     [SerializeField]
     private Vector3 direction;
     [SerializeField]
@@ -32,16 +32,18 @@ public class MovementCB : MonoBehaviour
 
         material = GetComponent<MeshRenderer>().material;
         initialspeed = speed;
-        ac = speed*2;
+        ac = 2.4f;
+        ac2 = 3.5f;
         initialcb = conveyorSpeed;
         cb = 0.181f;
+        cb2 = 0.27f;
         //accelaration = false;
-        InvokeRepeating("Marcia", 1, 4);
+        InvokeRepeating("Marcia", 10, 40);
     }
 
     private void Update()
     {
-        // Move the conveyor belt texture to make it look like it's moving
+
         material.mainTextureOffset += new Vector2(0, texturedir) * conveyorSpeed * Time.deltaTime;
         //textureOffset += speed * textureSpeedMultiplier * Time.deltaTime;
         //material.mainTextureOffset = new Vector2(0, textureOffset);
@@ -58,6 +60,7 @@ public class MovementCB : MonoBehaviour
         {
             AddSpeedSpeaker();
         }
+        
     }
 
     void FixedUpdate()
@@ -68,7 +71,10 @@ public class MovementCB : MonoBehaviour
             onBelt[i].GetComponent<Rigidbody>().velocity = speed * direction;
 
         }
+        
     }
+
+       
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -92,9 +98,18 @@ public class MovementCB : MonoBehaviour
     
             if (SpeakerController.Instance.Speed == true)
             {
-
+              if(speed<=2)
+            {
                 speed = ac;
                 conveyorSpeed = cb;
+            }
+
+            //  else 
+            //{
+            //    speed = ac2;
+            //    conveyorSpeed = cb2;
+            //}
+
             }
             else
             {
@@ -108,9 +123,10 @@ public class MovementCB : MonoBehaviour
         if (speed == initialspeed && conveyorSpeed==initialcb)
         {
             Debug.Log("tempo rallentato ");
-
-            speed = speed * 0.5f;
-            conveyorSpeed = 0.0325f;
+            Deaccelaration.Instance.Slowspeed(speed,conveyorSpeed);
+            speed = Deaccelaration.Instance.slow;
+            conveyorSpeed = Deaccelaration.Instance.slowcb;
+           
 
         }
         else if (speed == ac && conveyorSpeed == cb)
@@ -123,44 +139,18 @@ public class MovementCB : MonoBehaviour
 
     void Marcia()
     {
-        if(speed<=1.8f)
+        if (speed <= 2.8f)
         {
-            speed = speed + 0.1f;
+            speed = speed + 0.2f;
             initialspeed = speed;
-            Checkspeed();
+            Normal.Instance.Checkspeed(speed, conveyorSpeed, initialcb);
+            conveyorSpeed = Normal.Instance.convospeed;
+            initialcb = conveyorSpeed;
+
         }
-        Checkspeed();
+        Normal.Instance.Checkspeed(speed, conveyorSpeed, initialcb);
+
 
     }
-    void Checkspeed()
-    {
-
-        if (speed >= 1.3f&&speed<1.4f)
-        {
-            print("speed 1.3");
-            conveyorSpeed = 0.09f;
-        }
-        if (speed >= 1.4f && speed < 1.5f)
-        {
-            conveyorSpeed = 0.096f;
-        }
-        if (speed >= 1.5f && speed < 1.6f)
-        {
-            conveyorSpeed = 0.105f;
-        }
-        if (speed >= 1.6f && speed < 1.7f)
-        {
-            conveyorSpeed = 0.115f;
-        }
-        if (speed >= 1.7f && speed < 1.8f)
-        {
-            conveyorSpeed = 0.12f;
-        }
-        if (speed >= 1.8f && speed < 1.9f)
-        {
-            conveyorSpeed = 0.13f;
-        }
-        initialcb = conveyorSpeed;
-
-    }
+ 
 }

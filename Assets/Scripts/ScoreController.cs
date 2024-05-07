@@ -238,9 +238,9 @@ public class ScoreController : MonoSingleton<ScoreController>
                 //    break;
         }
     }
-    private void Update()
-    {
-        Debug.Log(punteggio);
-    }
+    //private void Update()
+    //{
+    //    Debug.Log(punteggio);
+    //}
 
 }

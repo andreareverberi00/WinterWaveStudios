@@ -2664,6 +2664,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705240941}
   m_CullTransparentMesh: 1
+--- !u!1 &726077633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726077634}
+  - component: {fileID: 726077636}
+  - component: {fileID: 726077635}
+  m_Layer: 0
+  m_Name: ConveyorVelocitycontroller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &726077634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726077633}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.431985, y: 15.170806, z: -2.5399845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1235922325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &726077635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726077633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803e68eb6123b1342b4999dcadbba7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slow: 0
+  slowcb: 0
+--- !u!114 &726077636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726077633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f5031304848a2409ff2e8fe8b79139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  convospeed: 0
 --- !u!1 &728234743
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,6 +5449,7 @@ Transform:
   - {fileID: 910224769}
   - {fileID: 55932496}
   - {fileID: 198360924}
+  - {fileID: 726077634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243588909
@@ -9604,6 +9665,10 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1817290705739550621, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2025201793289798038, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: outlineMode
       value: 1
@@ -9661,8 +9726,12 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: conveyorSpeed
-      value: 0.089
+      value: 0.082
       objectReference: {fileID: 0}
     - target: {fileID: 4832641730649014105, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
