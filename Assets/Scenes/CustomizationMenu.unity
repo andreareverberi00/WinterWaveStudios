@@ -636,6 +636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   purchaseConfirmationPanel: {fileID: 1659100922}
   confirmationDescriptionText: {fileID: 1822665695}
+  purchaseConfirmationButton: {fileID: 1215826029}
 --- !u!1 &419278559
 GameObject:
   m_ObjectHideFlags: 0
