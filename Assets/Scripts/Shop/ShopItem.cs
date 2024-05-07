@@ -16,6 +16,9 @@ public class ShopItemData : ScriptableObject
     public ShopItemType itemType;
     public bool bought;
 
+    [TextAreaAttribute]
+    public string description;
+
     [HideInInspector] public TMP_Text itemCostText;
     [HideInInspector] public GameObject coinIconInstance; // Riferimento all'istanza dell'icona della moneta
 }
