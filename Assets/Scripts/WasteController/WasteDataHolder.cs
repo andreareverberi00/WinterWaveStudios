@@ -85,10 +85,10 @@ public class WasteDataHolder : MonoBehaviour
     private void Update()
     {    
         Camera();
-        if(pk.nocustom==false)
-        {
+        //if(pk.nocustom==false)
+        //{
             PerkVerification();
-        }
+        //}
     }
     private void OnCollisionStay(Collision collision)
     {
