@@ -110,7 +110,7 @@ public class MenùUI : MonoBehaviour
         {
 
             easythrow.interactable = true;
-            Scene_Link2.Instance.easythrow = true;
+            
 
         }
         else
