@@ -38,14 +38,44 @@ public class WasteDataHolder : MonoBehaviour
                 {
                     Debug.Log("Correct sorting!");
                     ScoreController.Instance.RecordCorrectThrow();
-                    ScoreController.Instance.AddScore();
+
+                    if (Scene_Link2.Instance.perkplastic&&binHolder.binData.acceptsType==Waste.WasteType.Plastic) 
+                    {
+                        ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 1.5f);
+                        ScoreController.Instance.AddScore();
+                        ScoreController.Instance.punteggio = 10;
+                    }
+                    else if (Scene_Link2.Instance.perkmetal && binHolder.binData.acceptsType == Waste.WasteType.Metal) 
+                    {                         
+                        ScoreController.Instance.punteggio = 15;
+                        ScoreController.Instance.AddScore();
+                        ScoreController.Instance.punteggio = 10;
+                    }
+                    else if (Scene_Link2.Instance.perkglass && binHolder.binData.acceptsType == Waste.WasteType.Glass)
+                    {
+                        ScoreController.Instance.punteggio = 20;
+                        ScoreController.Instance.AddScore();
+                        ScoreController.Instance.punteggio = 10;
+                    }
+                    else if (Scene_Link2.Instance.perkpaper && binHolder.binData.acceptsType == Waste.WasteType.Paper)
+                    {
+                        ScoreController.Instance.punteggio = 30;
+                        ScoreController.Instance.AddScore();
+                        ScoreController.Instance.punteggio = 10;
+                    }
+                    else if (Scene_Link2.Instance.perkorganic && binHolder.binData.acceptsType == Waste.WasteType.Organic)
+                    {
+                        ScoreController.Instance.punteggio = 40;
+                        ScoreController.Instance.AddScore();
+                        ScoreController.Instance.punteggio = 10;
+                    }
+                    else
+                    {
+                        ScoreController.Instance.AddScore();
+                    }
+                    
                     BatteryController.Instance.CollectBattery(2);
                     VFXController.Instance.PlayVFXAtPosition(VFXType.CorrectSorting, transform.position, 1f);
-
-                    //int compliments;
-                    //compliments = Random.Range(1, 6);
-                    //Compliment(compliments);
-                    //FirstRow();
 
                 }
 
@@ -55,10 +85,6 @@ public class WasteDataHolder : MonoBehaviour
                     ScoreController.Instance.RecordMissedThrow();
                     BatteryController.Instance.ConsumeEnergy();
                     VFXController.Instance.PlayVFXAtPosition(VFXType.Explosion, transform.position, 3f);
-
-                    //int insults;
-                    //insults = Random.Range(1,7);
-                    //Insult(insults);
 
                 }
                 PlaySoundBasedOnWasteType();
@@ -85,10 +111,6 @@ public class WasteDataHolder : MonoBehaviour
     private void Update()
     {    
         Camera();
-        //if(pk.nocustom==false)
-        //{
-            PerkVerification();
-        //}
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -116,63 +138,6 @@ public class WasteDataHolder : MonoBehaviour
         }
     }
 
-    void PerkPlastic()
-    {
-        if (wasteData.wasteType == Waste.WasteType.Plastic)
-        {
-            ScoreController.Instance.scoreAmount *= (int)1.5f;
-        }
-        else
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
-        }
-    }
-
-    void PerkGlass()
-    {
-        if (wasteData.wasteType == Waste.WasteType.Glass)
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.Double;
-        }
-        else
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
-        }
-    }
-    void PerkPaper()
-    {
-        if (wasteData.wasteType == Waste.WasteType.Paper)
-        {
-            ScoreController.Instance.scoreAmount *=(int)3f;
-        }
-        else
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
-        }
-    }
-    void PerkMetal()
-    {
-        if (wasteData.wasteType == Waste.WasteType.Metal)
-        {
-            ScoreController.Instance.scoreAmount *= (int)1.5f;
-        }
-        else
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
-        }
-    }
-    void PerkOrganic()
-    {
-        if (wasteData.wasteType == Waste.WasteType.Organic)
-        {
-            ScoreController.Instance.scoreAmount *=4;
-        }
-        else
-        {
-            ScoreController.Instance.scoreAmount = ScoreController.Instance.initial;
-        }
-    }
-
     private void PlaySoundBasedOnWasteType()
     {
         switch (wasteData.wasteType)
@@ -196,30 +161,6 @@ public class WasteDataHolder : MonoBehaviour
                 Debug.LogError("Unsupported waste type for sound.");
                 break;
         }
-    }
-   public void PerkVerification()
-    {
-        if (Scene_Link2.Instance.perkglass == true)
-        {
-            PerkPaper();
-        }
-        if (Scene_Link2.Instance.perkpaper == true)
-        {
-            PerkGlass();
-        }
-        if (Scene_Link2.Instance.perkplastic == true)
-        {
-            PerkPlastic();
-        }
-        if (Scene_Link2.Instance.perkorganic == true)
-        {
-            PerkMetal();
-        }
-        if (Scene_Link2.Instance.perkmetal == true)
-        {
-            PerkOrganic();
-        }
-
     }
     void Camera()
     {

@@ -45,6 +45,12 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
         {
             spawnInterval = startSpawnInterval;
         }
+        if (ScoreController.Instance.Score >= 500) 
+        {
+            wasteProbability = 90;
+            batteryProbability = 6;
+            powerUpProbability = 4;
+        }
     }
     IEnumerator SpawnRoutine()
     {

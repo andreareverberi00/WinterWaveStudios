@@ -13,8 +13,9 @@ public class UIController : MonoSingleton<UIController>
     public GameObject optionPanel;
     public GameObject restartPanel;
     public GameObject quitPanel;
-    [Space(10)]
+    public GameObject suggestionPanel;
 
+    [Space(10)]
 
     [Header("Texts")]
     public TMP_Text finalScoreText;
@@ -40,18 +41,15 @@ public class UIController : MonoSingleton<UIController>
     public bool IsGameOver;
 
     public float transitionDuration = 1.0f; // Durata della transizione in secondi
-    public TMP_Text batteryValueNum;
-
+    
     private void Start()
     {
         energySlider.fillAmount = 1f;
-
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
         optionPanel.SetActive(false);
         restartPanel.SetActive(false);
         quitPanel.SetActive(false);
-        batteryValueNum.text = "100";
         IsGameOver = false;
         ShowMaxStreak();
         AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
@@ -62,6 +60,14 @@ public class UIController : MonoSingleton<UIController>
             color.a = 0f;
             deathBorderImg.color = color;
         }
+        StartCoroutine(SuggestionPanel());
+    }
+    IEnumerator SuggestionPanel()
+    {
+        yield return new WaitForSeconds(1);
+        suggestionPanel.SetActive(true);
+        yield return new WaitForSeconds(4);
+        suggestionPanel.SetActive(false);
     }
     public void OnMusicButtonPressed()
     {
@@ -117,7 +123,6 @@ public class UIController : MonoSingleton<UIController>
             yield return null;
         }
         energySlider.fillAmount = targetAmount; // Assicurati che il valore finale sia corretto
-        batteryValueNum.text = newEnergy.ToString("000");
         UpdateDeathBorder(newEnergy);
     }
 
