@@ -26,6 +26,8 @@ public class ThrowController : MonoSingleton<ThrowController>
     bool alreadyHighlighted = false;
 
     GameObject trailPrefab;
+    public float minSwipeDistance=0f;
+
     void SetupWaste(GameObject selectedWaste)
     {
         this.selectedWaste = selectedWaste;
@@ -133,9 +135,10 @@ public class ThrowController : MonoSingleton<ThrowController>
         {
             endTime = Time.time;
             swipeTime = endTime - startTime;
+            float swipeDistance = Vector2.Distance(startMousePosition, Input.mousePosition);
 
             // Se il tempo di swipe è minore di 0.8 secondi e il movimento del mouse è verso l'alto
-            if (swipeTime < 0.9f && startMousePosition.y < Input.mousePosition.y)
+            if (swipeTime < 0.9f && startMousePosition.y < Input.mousePosition.y&&swipeDistance>minSwipeDistance)
             {
                 ActivateTrail();
 

@@ -56,7 +56,6 @@ public class UIController : MonoSingleton<UIController>
         ShowMaxStreak();
         AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
         musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? "MUSIC: ON" : "MUSIC: OFF";
-
         if (deathBorderImg != null)
         {
             Color color = deathBorderImg.color;
@@ -84,6 +83,7 @@ public class UIController : MonoSingleton<UIController>
 
         // Aggiorna il testo del bottone
         musicButton.GetComponentInChildren<TMP_Text>().text = "MUSIC: " + (isEnabled ? "ON" : "OFF");
+        PlayerPrefs.Save();
     }
 
     public void SetScore(int score)

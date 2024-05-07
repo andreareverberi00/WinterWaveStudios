@@ -53,6 +53,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     }
     private void RewardCoins()
     {
+        tempScore = Score;
         if (tempScore >= coinsForEveryXScore)
         {
             tempScore=Score;
@@ -150,6 +151,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         UpdateHighscore();
         RewardCoins();
+        PlayerPrefs.Save();
         AudioController.Instance.PlayGameOverSound();
 
         leaderboardScoreManager.SubmitScore(Score);

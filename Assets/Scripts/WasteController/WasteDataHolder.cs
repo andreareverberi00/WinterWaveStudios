@@ -22,6 +22,7 @@ public class WasteDataHolder : MonoBehaviour
     private void OnDisable()
     {
         transform.rotation = startRotation;
+        transform.GetChild(0).gameObject.SetActive(false);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -103,6 +104,7 @@ public class WasteDataHolder : MonoBehaviour
             isTouchingConveyor = false;
         }
     }
+    
     public IEnumerator ReturnWaste()
     {
         yield return new WaitForSeconds(2.5f);

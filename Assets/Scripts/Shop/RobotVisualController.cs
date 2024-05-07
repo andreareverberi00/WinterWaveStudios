@@ -79,6 +79,7 @@ public class RobotVisualController : MonoBehaviour
         {
             SelectPerk(itemName);
         }
+        PlayerPrefs.Save();
     }
 
 }

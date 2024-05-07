@@ -39,6 +39,8 @@ public class ShopItemDataHolder : MonoBehaviour
         Button purchaseButton = GetComponent<Button>();
         purchaseButton.onClick.AddListener(() =>
             FindObjectOfType<ShopController>().RequestPurchaseConfirmation(this));
+
+        PlayerPrefs.Save();
     }
 
     void SetupCoinIcon()
@@ -88,6 +90,7 @@ public class ShopItemDataHolder : MonoBehaviour
         {
             Debug.Log("Non hai abbastanza monete");
         }
+        PlayerPrefs.Save();
     }
 
     private void SelectItem(ShopItemType itemType)

@@ -931,9 +931,10 @@ MonoBehaviour:
   spawnInterval: 2.2
   minSpawnInterval: 1
   spawnDecayRate: 0.0025
+  speedcheck: 0
   wasteProbability: 80
-  batteryProbability: 6
-  powerUpProbability: 10
+  batteryProbability: 5
+  powerUpProbability: 8
   slowProbability: 30
   multiProbability: 40
   gravityProbability: 30
@@ -9638,6 +9639,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 431168811624626472, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 431168811624626472, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 431168811624626472, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
       value: 0.8
       objectReference: {fileID: 0}
@@ -9662,12 +9671,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: f21e129f215ce0549a287f33732652c5, type: 2}
     - target: {fileID: 1738858813073271404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738858813073271404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738858813073271404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1817290705739550621, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817290705739550621, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_TagString
+      value: Conveyor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887774312980903484, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2025201793289798038, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: outlineMode
@@ -9682,6 +9707,14 @@ PrefabInstance:
       value: 0.089
       objectReference: {fileID: 0}
     - target: {fileID: 2123999721267103593, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123999721267103593, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2123999721267103593, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
       value: 0.8
       objectReference: {fileID: 0}
@@ -9690,6 +9723,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1530463277}
     - target: {fileID: 3162528912486942518, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162528912486942518, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162528912486942518, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
       value: 0.8
       objectReference: {fileID: 0}
@@ -9697,6 +9738,10 @@ PrefabInstance:
       propertyPath: pk
       value: 
       objectReference: {fileID: 1530463277}
+    - target: {fileID: 3525005220306170082, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_TagString
+      value: Conveyor
+      objectReference: {fileID: 0}
     - target: {fileID: 3831254426141712320, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: pk
       value: 
@@ -9732,6 +9777,14 @@ PrefabInstance:
     - target: {fileID: 4813633158576164404, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: conveyorSpeed
       value: 0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832641730649014105, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.x
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832641730649014105, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 4832641730649014105, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.z
@@ -9874,7 +9927,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1887774312980903484, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1043237841599300599, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       insertIndex: 1

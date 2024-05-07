@@ -58,6 +58,7 @@ public class MenùUI : MonoBehaviour
 
         // Aggiorna il testo del bottone
         musicButton.GetComponentInChildren<TMP_Text>().text = "MUSIC: " + (isEnabled ? "ON" : "OFF");
+        PlayerPrefs.Save();
     }
 
 
