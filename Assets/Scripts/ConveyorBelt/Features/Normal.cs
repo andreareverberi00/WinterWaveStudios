@@ -46,7 +46,7 @@ public class Normal : MonoSingleton<Normal>
         }
         if (speed >= 2f && speed < 2.1f)
         {
-            conveyorSpeed = 0.46f;
+            conveyorSpeed = 0.146f;
             convospeed = conveyorSpeed;
         }
         if (speed >= 2.2f && speed < 2.3f)

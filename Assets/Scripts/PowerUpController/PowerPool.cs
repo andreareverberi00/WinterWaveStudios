@@ -29,13 +29,6 @@ public class PowerPool : MonoBehaviour
 
         for (int i = 0; i < PowerPoolSize; i++)
         {
-            var newpower = Instantiate(slowPrefab);
-            newpower.transform.SetParent(powerUpContainer.transform);
-            newpower.SetActive(false);
-            powerPool.Enqueue(newpower);
-        }
-        for (int i = 0; i < PowerPoolSize; i++)
-        {
             var newpower2 = Instantiate(multiPrefab);
             newpower2.transform.SetParent(powerUpContainer.transform);
             newpower2.SetActive(false);
@@ -64,14 +57,51 @@ public class PowerPool : MonoBehaviour
 
     void RegeneratePower() 
     {
-        for(int i = 0;i < PowerPoolSize;i++) 
+        for (int i = 0; i < PowerPoolSize; i++)
         {
-            
-            var newpower = Instantiate(slowPrefab);
-            newpower.SetActive(false);
-            powerPool.Enqueue(newpower);
+            if (ScoreController.Instance.Score >= 500)
+            {
+                int regenerate = Random.Range(1, 4);
+                if (regenerate == 1)
+                {
+                    var newpower = Instantiate(multiPrefab);
+                    newpower.SetActive(false);
+                    powerPool.Enqueue(newpower);
+                }
+                if (regenerate == 2)
+                {
+                    var newpower = Instantiate(slowPrefab);
+                    newpower.SetActive(false);
+                    powerPool.Enqueue(newpower);
+                }
+                if (regenerate == 3)
+                {
+                    var newpower = Instantiate(gravityPrefab);
+                    newpower.SetActive(false);
+                    powerPool.Enqueue(newpower);
+                }
+            }
+            else
+            {
+                int regenerate = Random.Range(1, 3);
+                if (regenerate == 1)
+                {
+                    var newpower = Instantiate(multiPrefab);
+                    newpower.SetActive(false);
+                    powerPool.Enqueue(newpower);
+                }
+                if (regenerate == 2)
+                {
+                    var newpower = Instantiate(gravityPrefab);
+                    newpower.SetActive(false);
+                    powerPool.Enqueue(newpower);
+                }
+            }
+
+
+
         }
-   
+
     }
     public void ReturnPower(GameObject power)
     {

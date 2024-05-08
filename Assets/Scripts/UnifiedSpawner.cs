@@ -23,10 +23,13 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
     [Range(0, 100)] public int slowProbability = 33;
     [Range(0, 100)] public int multiProbability = 33;
     [Range(0, 100)] public int gravityProbability = 34;
+    int returnslow;
 
     void Start()
     {
         StartCoroutine(SpawnRoutine());
+        
+        returnslow = slowProbability;
         startSpawnInterval = spawnInterval;
         SlowSpawnInterval = startSpawnInterval +1 ;
         slowslowSpawnInterval = SlowSpawnInterval +0.75f;
@@ -45,12 +48,17 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
         {
             spawnInterval = startSpawnInterval;
         }
-        if (ScoreController.Instance.Score >= 500) 
-        {
-            wasteProbability = 90;
-            batteryProbability = 6;
-            powerUpProbability = 4;
-        }
+        //SlowProbability();
+        //if (ScoreController.Instance.Score <= 500)
+        //{
+            
+        //    slowProbability = 101;
+        //}
+        //else
+        //{
+        //    slowProbability = returnslow;
+        //}
+        Debug.Log("lento"+slowProbability);
     }
     IEnumerator SpawnRoutine()
     {
@@ -108,29 +116,64 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
     void SpawnPowerUp()
     {
         int powerUpRoll = Random.Range(0, 101);
-        if (powerUpRoll <= slowProbability)
-        {
-            GameObject slow = PowerPool.Instance.GetPower();
-            if (slow != null)
+        //if (slowProbability < 100)
+        //{
+            if (powerUpRoll <= slowProbability)
             {
-                slow.transform.position = spawnPosition.position;
+
+                GameObject slow = PowerPool.Instance.GetPower();
+                if (slow != null)
+                {
+
+                    slow.transform.position = spawnPosition.position;
+                }
+
             }
-        }
-        else if (powerUpRoll <= slowProbability + multiProbability)
-        {
-            GameObject multi = PowerPool.Instance.GetPower();
-            if (multi != null)
+            else if (powerUpRoll <= slowProbability + multiProbability)
             {
-                multi.transform.position = spawnPosition.position;
+                GameObject multi = PowerPool.Instance.GetPower();
+                if (multi != null)
+                {
+                    multi.transform.position = spawnPosition.position;
+                }
             }
-        }
-        else
-        {
-            GameObject gravity = PowerPool.Instance.GetPower();
-            if (gravity != null)
+            else
             {
-                gravity.transform.position = spawnPosition.position;
+                GameObject gravity = PowerPool.Instance.GetPower();
+                if (gravity != null)
+                {
+                    gravity.transform.position = spawnPosition.position;
+                }
             }
-        }
-    }
+        //}
+        //else
+        //{
+        //if (powerUpRoll <=  multiProbability)
+        //{
+        //    GameObject multi = PowerPool.Instance.GetPower();
+        //    if (multi != null)
+        //    {
+        //        multi.transform.position = spawnPosition.position;
+        //    }
+        //}
+        //else
+        //{
+        //    GameObject gravity = PowerPool.Instance.GetPower();
+        //    if (gravity != null)
+        //    {
+        //        gravity.transform.position = spawnPosition.position;
+        //    }
+        //}
+    
 }
+    }
+    //void SlowProbability()
+    //{
+    //    if (ScoreController.Instance.Score <= 500)
+    //    {
+    //        wasteProbability = 90;
+    //        batteryProbability = 6;
+    //        powerUpProbability = 4;
+    //    }
+    //}
+
