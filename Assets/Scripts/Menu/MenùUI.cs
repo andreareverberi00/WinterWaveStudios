@@ -18,7 +18,6 @@ public class MenùUI : MonoBehaviour
     public GameObject Employee;
     public TMP_Text highscoreText;
     public GameObject musicButton;
-    public Toggle easythrow;
 
     void Start()
     {

@@ -11,7 +11,7 @@ public class MovementCB : MonoBehaviour
     [SerializeField]
     private List<GameObject> onBelt;
     [SerializeField]
-    public bool accelaration , ax1;
+    public bool accelaration ;
     [SerializeField]
     private Material material;
     [SerializeField]
@@ -124,15 +124,15 @@ public class MovementCB : MonoBehaviour
         if (speed == initialspeed && conveyorSpeed == initialcb)
         {
             Debug.Log("tempo rallentato ");
-            //Deaccelaration.Instance.Slowspeed(speed,conveyorSpeed);
-            //speed = Deaccelaration.Instance.slow;
-            //conveyorSpeed = Deaccelaration.Instance.slowcb;
-            //if(SpeakerController.Instance.Speed==false)
-            //{
-            speed = 0.6f;
-            conveyorSpeed = 0.03f;
-            //
-            //
+            Deaccelaration.Instance.Slowspeed(speed, conveyorSpeed);
+            speed = Deaccelaration.Instance.slow;
+            conveyorSpeed = Deaccelaration.Instance.slowcb;
+            ////if(SpeakerController.Instance.Speed==false)
+            ////{
+            //speed = 0.6f;
+            //conveyorSpeed = 0.03f;
+            ////
+            ////
         }
 
         else if (speed == ac && conveyorSpeed == cb)

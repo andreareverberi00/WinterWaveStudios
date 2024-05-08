@@ -17,19 +17,18 @@ public class PerkController : MonoSingleton<PerkController>
     {
                 //if (nocustom == false) //Gamemenu.Instance.nocustom==false)
                 //{
-                    Antenna();
+                    //Antenna();
                 //}
     }
 
     private void Update()
     {
-        //if (nocustom == false) //Gamemenu.Instance.nocustom==false)
-        //{
-            Antenna();
-        //}
+      
+        Antenna();
+        
 
 
-        if(BatteryController.Instance.currentEnergy>=50&&already)
+        if (BatteryController.Instance.currentEnergy>=50&&already)
             already = false;
     }
     void Antenna()
@@ -38,7 +37,7 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 20;
             BatteryController.Instance.consumeEnergyAmount = 20;
-            if (BatteryController.Instance.currentEnergy <= 20&&!already)
+            if (BatteryController.Instance.currentEnergy <= 20 && !already)
             {
                 int i;
                 i = Random.Range(0, 4);
@@ -49,26 +48,26 @@ public class PerkController : MonoSingleton<PerkController>
         {
             ScoreController.Instance.punteggio = 10;
             BatteryController.Instance.consumeEnergyAmount = 10;
-            if (BatteryController.Instance.currentEnergy <= 15&&!already)
+            if (BatteryController.Instance.currentEnergy <= 15 && !already)
             {
                 int i;
                 i = Random.Range(0, 4);
                 Killshot(i);
             }
-           
+
         }
         if (Scene_Link2.Instance.tankantenna == true)
         {
             ScoreController.Instance.punteggio = 5;
             BatteryController.Instance.consumeEnergyAmount = 5;
-            if (BatteryController.Instance.currentEnergy <= 10 && already==false)
+            if (BatteryController.Instance.currentEnergy <= 10 && already == false)
             {
                 int i;
                 i = Random.Range(0, 4);
                 Killshot(i);
                 Debug.Log("cambiato");
             }
-     
+
         }
 
     }

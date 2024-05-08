@@ -39,14 +39,14 @@ public class WasteDataHolder : MonoBehaviour
                     Debug.Log("Correct sorting!");
                     ScoreController.Instance.RecordCorrectThrow();
 
-                    if (Scene_Link2.Instance.perkplastic&&binHolder.binData.acceptsType==Waste.WasteType.Plastic) 
+                    if (Scene_Link2.Instance.perkplastic && binHolder.binData.acceptsType == Waste.WasteType.Plastic)
                     {
                         ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 1.5f);
                         ScoreController.Instance.AddScore();
                         ScoreController.Instance.punteggio = 10;
                     }
-                    else if (Scene_Link2.Instance.perkmetal && binHolder.binData.acceptsType == Waste.WasteType.Metal) 
-                    {                         
+                    else if (Scene_Link2.Instance.perkmetal && binHolder.binData.acceptsType == Waste.WasteType.Metal)
+                    {
                         ScoreController.Instance.punteggio = 15;
                         ScoreController.Instance.AddScore();
                         ScoreController.Instance.punteggio = 10;
@@ -73,7 +73,7 @@ public class WasteDataHolder : MonoBehaviour
                     {
                         ScoreController.Instance.AddScore();
                     }
-                    
+
                     BatteryController.Instance.CollectBattery(2);
                     VFXController.Instance.PlayVFXAtPosition(VFXType.CorrectSorting, transform.position, 1f);
 
