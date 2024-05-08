@@ -48,17 +48,13 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
         {
             spawnInterval = startSpawnInterval;
         }
-        //SlowProbability();
-        //if (ScoreController.Instance.Score <= 500)
-        //{
-            
-        //    slowProbability = 101;
-        //}
-        //else
-        //{
-        //    slowProbability = returnslow;
-        //}
-        Debug.Log("lento"+slowProbability);
+        if (ScoreController.Instance.Score <= 500)
+        {
+            wasteProbability = 90;
+            batteryProbability = 6;
+            powerUpProbability = 4;
+        }
+
     }
     IEnumerator SpawnRoutine()
     {
@@ -116,8 +112,7 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
     void SpawnPowerUp()
     {
         int powerUpRoll = Random.Range(0, 101);
-        //if (slowProbability < 100)
-        //{
+
             if (powerUpRoll <= slowProbability)
             {
 
@@ -145,35 +140,8 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
                     gravity.transform.position = spawnPosition.position;
                 }
             }
-        //}
-        //else
-        //{
-        //if (powerUpRoll <=  multiProbability)
-        //{
-        //    GameObject multi = PowerPool.Instance.GetPower();
-        //    if (multi != null)
-        //    {
-        //        multi.transform.position = spawnPosition.position;
-        //    }
-        //}
-        //else
-        //{
-        //    GameObject gravity = PowerPool.Instance.GetPower();
-        //    if (gravity != null)
-        //    {
-        //        gravity.transform.position = spawnPosition.position;
-        //    }
-        //}
-    
+ 
 }
     }
-    //void SlowProbability()
-    //{
-    //    if (ScoreController.Instance.Score <= 500)
-    //    {
-    //        wasteProbability = 90;
-    //        batteryProbability = 6;
-    //        powerUpProbability = 4;
-    //    }
-    //}
+
 

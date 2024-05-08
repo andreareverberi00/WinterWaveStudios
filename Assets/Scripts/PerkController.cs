@@ -68,16 +68,7 @@ public class PerkController : MonoSingleton<PerkController>
                 Killshot(i);
                 Debug.Log("cambiato");
             }
-            if (Scene_Link2.Instance.easythrow == true)
-            {
-                TE.SetActive(true);
-                TD.SetActive(false);
-            }
-            else
-            {
-                TD.SetActive(true);
-                TE.SetActive(false);
-            }
+     
         }
 
     }

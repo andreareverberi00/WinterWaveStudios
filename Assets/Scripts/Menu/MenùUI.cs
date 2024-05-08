@@ -35,7 +35,7 @@ public class MenùUI : MonoBehaviour
         highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
         musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? "MUSIC: ON" : "MUSIC: OFF";
         AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
-        easythrow.isOn = false;
+  
     }
     public void OnMusicButtonPressed()
     {
@@ -103,24 +103,6 @@ public class MenùUI : MonoBehaviour
         Custom.SetActive(false);
         Options.SetActive(false);
         Credit.SetActive(false);
-    }
-    private void Update()
-    {
-        if (Scene_Link2.Instance.tankantenna == true)
-        {
-
-            easythrow.interactable = true;
-            
-
-        }
-        else
-        {
-            easythrow.isOn = false;
-            easythrow.interactable = false;
-            Scene_Link2.Instance.easythrow = false;
-        }
-        //Throw(easythrow);
-
     }
 
 }

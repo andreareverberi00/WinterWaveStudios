@@ -932,9 +932,9 @@ MonoBehaviour:
   minSpawnInterval: 1
   spawnDecayRate: 0.0025
   speedcheck: 0
-  wasteProbability: 50
-  batteryProbability: 0
-  powerUpProbability: 50
+  wasteProbability: 95
+  batteryProbability: 3
+  powerUpProbability: 2
   slowProbability: 30
   multiProbability: 40
   gravityProbability: 30
