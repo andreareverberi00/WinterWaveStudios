@@ -55,7 +55,7 @@ public class ScoreController : MonoSingleton<ScoreController>
         tempScore = Score;
     
             tempScore=Score;
-            Coins += tempScore/10;
+            Coins += tempScore/5;
 
             PlayerPrefs.SetInt("Coins", Coins); // Salva le monete nel PlayerPrefs
             PlayerPrefs.Save();
