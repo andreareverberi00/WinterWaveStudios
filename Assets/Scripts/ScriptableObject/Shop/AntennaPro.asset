@@ -19,5 +19,6 @@ MonoBehaviour:
   bought: 1
   description: It significantly raises the stakes by rewarding +20 points for each
     correct throw but also penalizes -20 energy points for incorrect ones.
+  bonusDescription: 'Antenna points: +20'
   itemCostText: {fileID: 0}
   coinIconInstance: {fileID: 0}

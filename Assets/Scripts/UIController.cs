@@ -94,9 +94,17 @@ public class UIController : MonoSingleton<UIController>
         PlayerPrefs.Save();
     }
 
-    public void SetScore(int score)
+    public void SetScore(int score,int addedScore)
     {
         scoreText.text = score.ToString("0000");
+        //StartCoroutine(SetAddedScoreText(addedScore));
+    }
+    IEnumerator SetAddedScoreText(int addedScore)
+    {
+        string startText = scoreText.text;
+        scoreText.text += "+" + addedScore;
+        yield return new WaitForSeconds(2);
+        scoreText.text = startText;
     }
     public void SetOvertimePeriods(int overtimePeriods)
     {

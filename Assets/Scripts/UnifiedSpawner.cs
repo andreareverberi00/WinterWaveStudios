@@ -36,19 +36,7 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
     }
     private void Update()
     {
-        if (GameController.Instance.slow == true)
-        {
-            spawnInterval = SlowSpawnInterval;
-            if (speedcheck <= 1)
-            {
-                spawnInterval = slowslowSpawnInterval;
-            }
-        }
-        else
-        {
-            spawnInterval = startSpawnInterval;
-        }
-        if (ScoreController.Instance.Score <= 500)
+        if (ScoreController.Instance.Score >= 500)
         {
             wasteProbability = 90;
             batteryProbability = 6;
@@ -60,6 +48,22 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
             
         }
 
+    }
+    public void CallChangeSpawnEnumerator()
+    {
+        StartCoroutine(ChangeSpawnInterval());
+    }
+    IEnumerator ChangeSpawnInterval()
+    {
+        float tempSpawnInterval = spawnInterval;
+
+            spawnInterval = SlowSpawnInterval;
+            if (speedcheck <= 1)
+            {
+                spawnInterval = slowslowSpawnInterval;
+            }
+        yield return new WaitForSeconds(10);
+        spawnInterval = tempSpawnInterval;
     }
     IEnumerator SpawnRoutine()
     {

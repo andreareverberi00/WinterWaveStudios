@@ -11,7 +11,7 @@ public class LeaderboardController : MonoBehaviour
     [SerializeField] 
     private List<TMP_Text> scores;
 
-    private string publicLeaderboardKey = "70d9d771d9d759a0b1383e28aee57a791f35587dd0ca2e239fe3be1a72fed936";
+    private string publicLeaderboardKey = "5fa65fbfee8f647c93f6b873447a123ddd0728b24f8223f727bb5aa8d1cb659e";
 
     public TMP_InputField playerNameInput;
     string playerName;

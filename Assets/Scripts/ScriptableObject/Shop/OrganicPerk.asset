@@ -20,5 +20,6 @@ MonoBehaviour:
   description: 'Boosts the score for organic items by multiplying it x4
 
 '
+  bonusDescription: 'Perk bonus: Organic X4'
   itemCostText: {fileID: 0}
   coinIconInstance: {fileID: 0}

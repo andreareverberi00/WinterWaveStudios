@@ -20,5 +20,6 @@ MonoBehaviour:
   description: 'Boosts the score for paper items by multiplying it x3
 
 '
+  bonusDescription: 'Perk bonus: Paper X3'
   itemCostText: {fileID: 0}
   coinIconInstance: {fileID: 0}

@@ -31,6 +31,7 @@ public class PowerSlow : MonoBehaviour
 
         //Time.timeScale = 0.5f;
         GameController.Instance.slow = true;
+        UnifiedSpawner.Instance.CallChangeSpawnEnumerator();
         VFXController.Instance.PlayVFXAtPosition(VFXType.PowerUp, GameController.Instance.GetRobotPosition(), 10f);
         yield return new WaitForSeconds(10f);
         GameController.Instance.slow = false;

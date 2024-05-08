@@ -31,8 +31,8 @@ public class ScoreController : MonoSingleton<ScoreController>
     {
         punteggio = scoreAmount;
         initial = scoreAmount;
-        half = scoreAmount / 2;
-        Double = scoreAmount * 2;
+        half = punteggio / 2;
+        Double = punteggio * 2;
         Highscore = PlayerPrefs.GetInt("Highscore", 0);
         Coins = PlayerPrefs.GetInt("Coins", 0);
         alreadystreak = false;
@@ -48,8 +48,9 @@ public class ScoreController : MonoSingleton<ScoreController>
     public void AddScore()
     {
         Score += punteggio;
+        print("Score: "+Score+"\nPunteggio: "+punteggio);
         GameController.Instance.AddScore();
-        UpdateScoreUI();
+        UpdateScoreUI(punteggio);
     }
     private void RewardCoins()
     {
@@ -93,9 +94,11 @@ public class ScoreController : MonoSingleton<ScoreController>
             alreadystreak = true;
 
             int pointsToAdd = (ConsecutiveCorrectThrows == 3) ? 30 : 50;
-            Score += pointsToAdd;
-            UpdateScoreUI();
+            int startAddPoints = punteggio;
+            punteggio = pointsToAdd;
+            AddScore();
 
+            punteggio = startAddPoints;
             if (ConsecutiveCorrectThrows == 5 || ConsecutiveCorrectThrows == 10)
             {
                 BatteryController.Instance.CollectBattery(10);
@@ -138,9 +141,9 @@ public class ScoreController : MonoSingleton<ScoreController>
 
     }
 
-    private void UpdateScoreUI()
+    private void UpdateScoreUI(int addedScore)
     {
-        UIController.Instance.SetScore(Score);
+        UIController.Instance.SetScore(Score,addedScore);
     }
 
     private void UpdateOvertimePeriodsUI()

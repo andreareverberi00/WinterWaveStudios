@@ -10,6 +10,7 @@ public class PowerPool : MonoBehaviour
     [SerializeField] private GameObject gravityPrefab;
     [SerializeField] private int PowerPoolSize = 3;
     private Queue<GameObject> powerPool = new Queue<GameObject>();
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -42,6 +43,7 @@ public class PowerPool : MonoBehaviour
             powerPool.Enqueue(newpower);
         }
     }
+
     public GameObject GetPower()
     {
         if (powerPool.Count == 0)
@@ -59,8 +61,6 @@ public class PowerPool : MonoBehaviour
     {
         for (int i = 0; i < PowerPoolSize; i++)
         {
-            if (ScoreController.Instance.Score >= 500)
-            {
                 int regenerate = Random.Range(1, 4);
                 if (regenerate == 1)
                 {
@@ -81,28 +81,8 @@ public class PowerPool : MonoBehaviour
                     powerPool.Enqueue(newpower);
                 }
             }
-            else
-            {
-                int regenerate = Random.Range(1, 3);
-                if (regenerate == 1)
-                {
-                    var newpower = Instantiate(multiPrefab);
-                    newpower.SetActive(false);
-                    powerPool.Enqueue(newpower);
-                }
-                if (regenerate == 2)
-                {
-                    var newpower = Instantiate(gravityPrefab);
-                    newpower.SetActive(false);
-                    powerPool.Enqueue(newpower);
-                }
-            }
-
-
-
-        }
-
     }
+
     public void ReturnPower(GameObject power)
     {
         power.SetActive(false);

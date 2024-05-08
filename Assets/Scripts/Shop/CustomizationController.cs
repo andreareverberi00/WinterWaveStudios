@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-using UnityEditor;
 using UnityEngine;
 
 public class CustomizationController : MonoSingleton<CustomizationController>

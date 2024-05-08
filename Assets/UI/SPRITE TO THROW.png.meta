@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: 45049900276822741831c0155cb9bff5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE TO THROW_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3804
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5c9b8f70b399d419880ada97cc8917
+      internalID: 207807544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_1
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 3804
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb017030b79f04945875212795abbb9d
+      internalID: -688927088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_2
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 3804
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0e7923bc4382fb488125e42a20d5ece
+      internalID: -1322666267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_3
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 3804
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3494c1e3462da2142ab8f7ed16c23d29
+      internalID: -262030304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_4
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 3804
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b501c359fe789a54e9e27df338206bc6
+      internalID: 820746069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3171
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1315a8651b1664e917685da7717b2a
+      internalID: 2063169869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_6
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 3171
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc34ef90c30eaf49a114beda1f2b166
+      internalID: 1302282876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_7
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 3171
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb234b7ae23b31047aeb9ea890b3143a
+      internalID: 282406538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_8
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 3171
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f489d1b4d270eb34bb08138523846099
+      internalID: 940050235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_9
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 3171
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c54a73c6235668468842d6e62875600
+      internalID: 1129390352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2538
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7caeded1ecc2c4c993240b9afa12cd
+      internalID: -799445082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_11
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 2538
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b582b75d8b5dfe246b521095a0b39da0
+      internalID: -1376122525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_12
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 2538
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fa3130606aa864683fd2b7274d7f08
+      internalID: 612752772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_13
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 2538
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b993a81c3bc65a449af5d44925202bf1
+      internalID: -787009917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_14
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 2538
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf13a42d4591494cab5b11d4dfb0a93
+      internalID: 1457404190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1905
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30ff42b8dcd4374b9ce2d0d42954dd7
+      internalID: 1885107392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_16
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 1905
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f937b61c64a4af468d0e66d287fbbc7
+      internalID: -462683190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_17
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 1905
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec985bd70a00a14aa6bf4102f8f9c9c
+      internalID: -794836646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_18
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 1905
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a798860a9e95494692a9c61dff09e85
+      internalID: 1619487415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_19
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 1905
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee07f483f2f40f141be31d8e0770e2fa
+      internalID: 1463476148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1272
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e4616cc3bb0d349a059cb5bae368ec
+      internalID: 327981444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_21
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 1272
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7311b661feba1e243ae9b1a53d52c0b6
+      internalID: -151413288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_22
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 1272
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0541023d08231ee43a6df63ba27d2a3a
+      internalID: -1816724227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_23
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 1272
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94690724eafaeb4498a84c74a0528de
+      internalID: 1604868171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_24
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 1272
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45339dde1ca208349ab75468f45abda8
+      internalID: -308721529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 639
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 147f7d196eb41c94fb11274f3247d73a
+      internalID: -1402566669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_26
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 639
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32bdb1b9e72d5e047ac7e5c4081f3300
+      internalID: -1515168166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_27
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 639
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f24062741f3024f8fdc16b69c1f7b2
+      internalID: 1788236972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_28
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 639
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9f1017991762f4a801a272ec522e0c
+      internalID: -1995831654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_29
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 639
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd32289de784a34e88fe77917b36dcf
+      internalID: 948729964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309614444ee656f40bb138ad543939f0
+      internalID: 514492590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_31
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 6
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e347e157c0b04b34eba56d3402756450
+      internalID: -1167744820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_32
+      rect:
+        serializedVersion: 2
+        x: 2252
+        y: 6
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51dbac54060f2b4c8418774c428ba9e
+      internalID: 1246216187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_33
+      rect:
+        serializedVersion: 2
+        x: 3378
+        y: 6
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8045c3382ea3f6b40b0d89cd9ae1ccec
+      internalID: 1378271907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE TO THROW_34
+      rect:
+        serializedVersion: 2
+        x: 4504
+        y: 6
+        width: 1126
+        height: 633
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1377b5d9e7567d3449a242aca4126b10
+      internalID: 1951177949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 62b8c54023b4afc4ca63a7f75e4b96de
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SPRITE TO THROW_0: 207807544
+      SPRITE TO THROW_1: -688927088
+      SPRITE TO THROW_10: -799445082
+      SPRITE TO THROW_11: -1376122525
+      SPRITE TO THROW_12: 612752772
+      SPRITE TO THROW_13: -787009917
+      SPRITE TO THROW_14: 1457404190
+      SPRITE TO THROW_15: 1885107392
+      SPRITE TO THROW_16: -462683190
+      SPRITE TO THROW_17: -794836646
+      SPRITE TO THROW_18: 1619487415
+      SPRITE TO THROW_19: 1463476148
+      SPRITE TO THROW_2: -1322666267
+      SPRITE TO THROW_20: 327981444
+      SPRITE TO THROW_21: -151413288
+      SPRITE TO THROW_22: -1816724227
+      SPRITE TO THROW_23: 1604868171
+      SPRITE TO THROW_24: -308721529
+      SPRITE TO THROW_25: -1402566669
+      SPRITE TO THROW_26: -1515168166
+      SPRITE TO THROW_27: 1788236972
+      SPRITE TO THROW_28: -1995831654
+      SPRITE TO THROW_29: 948729964
+      SPRITE TO THROW_3: -262030304
+      SPRITE TO THROW_30: 514492590
+      SPRITE TO THROW_31: -1167744820
+      SPRITE TO THROW_32: 1246216187
+      SPRITE TO THROW_33: 1378271907
+      SPRITE TO THROW_34: 1951177949
+      SPRITE TO THROW_4: 820746069
+      SPRITE TO THROW_5: 2063169869
+      SPRITE TO THROW_6: 1302282876
+      SPRITE TO THROW_7: 282406538
+      SPRITE TO THROW_8: 940050235
+      SPRITE TO THROW_9: 1129390352
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

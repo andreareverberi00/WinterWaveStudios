@@ -18,5 +18,6 @@ MonoBehaviour:
   itemType: 1
   bought: 1
   description: Boosts the score for plastic items by multiplying it x1.5.
+  bonusDescription: 'Perk bonus: Plastic X1.5'
   itemCostText: {fileID: 0}
   coinIconInstance: {fileID: 0}

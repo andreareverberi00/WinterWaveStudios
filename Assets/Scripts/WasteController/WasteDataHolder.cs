@@ -74,7 +74,7 @@ public class WasteDataHolder : MonoBehaviour
                         ScoreController.Instance.AddScore();
                     }
 
-                    BatteryController.Instance.CollectBattery(2);
+                    BatteryController.Instance.CollectBattery(3);
                     VFXController.Instance.PlayVFXAtPosition(VFXType.CorrectSorting, transform.position, 1f);
 
                 }

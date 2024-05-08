@@ -127,6 +127,7 @@ public class ShopItemDataHolder : MonoBehaviour
                 }
             }
         }
+        DisplayBonuses.Instance.UpdateBonusesText();
     }
 
 }

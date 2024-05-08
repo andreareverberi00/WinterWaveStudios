@@ -4,21 +4,11 @@ using UnityEngine;
 
 public class PerkController : MonoSingleton<PerkController>
 {
-    //public bool nocustom=false;
-    public GameObject TD;
-    public GameObject TE;
+
     bool already;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject); // Memorizza l'oggetto tra le scene
-    }
-
-    private void Start()
-    {
-                //if (nocustom == false) //Gamemenu.Instance.nocustom==false)
-                //{
-                    //Antenna();
-                //}
     }
 
     private void Update()
