@@ -36,12 +36,14 @@ public class UIController : MonoSingleton<UIController>
     bool restart;
     public Image energySlider;
     public Image deathBorderImg;
+    public Image streakBackgroundImg;
 
     public GameObject musicButton;
     public bool IsGameOver;
 
     public float transitionDuration = 1.0f; // Durata della transizione in secondi
-    
+    int currentStreakCount = 0;
+
     private void Start()
     {
         energySlider.fillAmount = 1f;
@@ -176,12 +178,40 @@ public class UIController : MonoSingleton<UIController>
         HidePauseButton();
     }
 
-    public void ShowMaxStreak(int streakCount=0)
+    // Metodo unificato per mostrare lo streak e opzionalmente evidenziare lo sfondo
+    public void ShowMaxStreak(int streakCount = 0, bool highlight = false)
     {
-        streakFeedbackText.text = "Max streak: " + streakCount;
+        currentStreakCount = streakCount;
+        if (highlight)
+        {
+            // Evidenzia lo sfondo per lo streak attuale
+            HighlightStreakBackground(streakCount);
+        }
+        else
+        {
+            // Mostra solo lo streak massimo senza evidenziare
+            streakFeedbackText.text = "Max streak: " + streakCount;
+        }
     }
 
+    private void HighlightStreakBackground(int streakCount)
+    {
+        StartCoroutine(HighlightStreakBackgroundForSeconds(2f, streakCount));
+    }
 
+    private IEnumerator HighlightStreakBackgroundForSeconds(float seconds, int actualStreakCount)
+    {
+        // Evidenzia lo sfondo e mostra il numero dello streak attuale
+        streakBackgroundImg.color = Color.yellow;
+        streakFeedbackText.text = "STREAK OF: " + actualStreakCount;
+
+        // Attendi per un periodo specificato
+        yield return new WaitForSeconds(seconds);
+
+        // Ripristina lo sfondo e mostra il massimo streak raggiunto
+        streakBackgroundImg.color = Color.white;
+        streakFeedbackText.text = "Max streak: " + currentStreakCount;
+    }
     public void HidePausePanel()
     {
         //AudioListener.volume = 1;

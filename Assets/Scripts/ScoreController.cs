@@ -83,44 +83,45 @@ public class ScoreController : MonoSingleton<ScoreController>
         CorrectlyThrownWastes++;
         ConsecutiveCorrectThrows++;
 
-        if(ConsecutiveCorrectThrows == 5 && ConsecutiveCorrectThrows!=0)
-        {
-            
-            int compliments;
-            compliments = Random.Range(1, 6);
-            Compliment(compliments);
-            alreadystreak = true;
-            Score += 50;
-            UpdateScoreUI();
-            BatteryController.Instance.CollectBattery(10);
+        bool updatedUI = false; // Flag per tenere traccia se l'UI dello streak è stata aggiornata
 
-        }
-        if (ConsecutiveCorrectThrows == 3) 
+        // Esegui le azioni specifiche per gli streak di 3, 5, e 10
+        if (ConsecutiveCorrectThrows == 3 || ConsecutiveCorrectThrows == 5 || ConsecutiveCorrectThrows == 10)
         {
-            int compliments;
-            compliments = Random.Range(1, 6);
+            int compliments = Random.Range(1, 6);
             Compliment(compliments);
             alreadystreak = true;
-            Score += 30;
+
+            int pointsToAdd = (ConsecutiveCorrectThrows == 3) ? 30 : 50;
+            Score += pointsToAdd;
             UpdateScoreUI();
-        }
-        if (ConsecutiveCorrectThrows == 10) 
-        {
-            int compliments;
-            compliments = Random.Range(1, 6);
-            Compliment(compliments);
-            alreadystreak = true;
-            Score += 50;
-            UpdateScoreUI();
-            BatteryController.Instance.CollectBattery(10);
+
+            if (ConsecutiveCorrectThrows == 5 || ConsecutiveCorrectThrows == 10)
+            {
+                BatteryController.Instance.CollectBattery(10);
+            }
+
+            // Evidenzia lo sfondo dello streak per la durata specificata
+            UIController.Instance.ShowMaxStreak(ConsecutiveCorrectThrows, true);
+            updatedUI = true;
         }
 
+        // Aggiorna il massimo streak raggiunto solo se l'attuale è maggiore del massimo precedentemente registrato
         if (ConsecutiveCorrectThrows > HighestConsecutiveCorrectThrows)
         {
-            HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;           
+            HighestConsecutiveCorrectThrows = ConsecutiveCorrectThrows;
+            if (!updatedUI) // Aggiorna solo se non è già stato aggiornato con un highlight
+            {
+                UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
+            }
         }
-        UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
+        else if (!updatedUI) // Aggiorna l'UI con il massimo streak attuale se non ci sono nuovi record
+        {
+            UIController.Instance.ShowMaxStreak(HighestConsecutiveCorrectThrows);
+        }
     }
+
+
 
     public void RecordMissedThrow()
     {
