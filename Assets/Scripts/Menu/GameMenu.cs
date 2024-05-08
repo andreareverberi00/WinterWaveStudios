@@ -17,11 +17,7 @@ public class GameMenu : MonoBehaviour
         shop = false;
     }
 
-    void ClearPlayerPrefs()
-    {
-        print("Clearing PlayerPrefs");
-        PlayerPrefs.DeleteAll();
-    }
+
     public void Play()
     {
         play=true;
@@ -78,9 +74,6 @@ public class GameMenu : MonoBehaviour
             StartCoroutine(WaitandLoad2());
             shop = false;
         }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            ClearPlayerPrefs();
-        }
+
     }
 }

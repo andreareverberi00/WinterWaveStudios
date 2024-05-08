@@ -34,6 +34,10 @@ public class CustomizationController : MonoSingleton<CustomizationController>
             PlayerPrefs.SetInt("Coins", 9999);
             UICustomizationController.Instance.UpdateUI();
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            ClearPlayerPrefs();
+        }
     }
 
 }
