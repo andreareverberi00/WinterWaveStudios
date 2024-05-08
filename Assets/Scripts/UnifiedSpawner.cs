@@ -50,9 +50,14 @@ public class UnifiedSpawner : MonoSingleton<UnifiedSpawner>
         }
         if (ScoreController.Instance.Score <= 500)
         {
-            wasteProbability = 90;
-            batteryProbability = 6;
-            powerUpProbability = 4;
+            wasteProbability = 95;
+            batteryProbability = 3;
+            powerUpProbability = 2;
+
+            slowProbability = 40;
+            multiProbability = 30;
+            gravityProbability = 30;
+            
         }
 
     }

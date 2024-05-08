@@ -932,9 +932,9 @@ MonoBehaviour:
   minSpawnInterval: 1
   spawnDecayRate: 0.0025
   speedcheck: 0
-  wasteProbability: 95
-  batteryProbability: 3
-  powerUpProbability: 2
+  wasteProbability: 80
+  batteryProbability: 10
+  powerUpProbability: 10
   slowProbability: 30
   multiProbability: 40
   gravityProbability: 30
@@ -6408,7 +6408,7 @@ MonoBehaviour:
   energyDrainRate: 0.75
   energyDrainInterval: 1
   transitionDuration: 0.1
-  infiniteEnergy: 0
+  infiniteEnergy: 1
 --- !u!4 &1384702684
 Transform:
   m_ObjectHideFlags: 0
