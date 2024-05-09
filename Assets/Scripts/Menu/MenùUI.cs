@@ -33,7 +33,11 @@ public class MenùUI : MonoBehaviour
         nametext.SetActive(true);
         highscoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore", 0).ToString();
         musicButton.GetComponentInChildren<TMP_Text>().text = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? "MUSIC: ON" : "MUSIC: OFF";
-        AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
+
+        if(PlayerPrefs.HasKey("MusicEnabled"))
+            AudioListener.pause = PlayerPrefs.GetInt("MusicEnabled", 1) == 1 ? false : true;
+        else 
+            PlayerPrefs.SetInt("MusicEnabled", 1);
   
     }
     public void OnMusicButtonPressed()
