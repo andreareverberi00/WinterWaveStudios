@@ -42,13 +42,13 @@ public class PowerPool : MonoBehaviour
             newpower.SetActive(false);
             powerPool.Enqueue(newpower);
         }
-        for (int i = 0; i < PowerPoolSize; i++)
-        {
-            var newpower = Instantiate(slowPrefab);
-            newpower.transform.SetParent(powerUpContainer.transform);
-            newpower.SetActive(false);
-            powerPool.Enqueue(newpower);
-        }
+        //for (int i = 0; i < PowerPoolSize; i++)
+        //{
+        //    var newpower = Instantiate(slowPrefab);
+        //    newpower.transform.SetParent(powerUpContainer.transform);
+        //    newpower.SetActive(false);
+        //    powerPool.Enqueue(newpower);
+        //}
     }
 
     public GameObject GetPower()

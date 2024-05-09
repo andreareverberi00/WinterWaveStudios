@@ -799,9 +799,9 @@ MonoBehaviour:
   wasteProbability: 95
   batteryProbability: 2
   powerUpProbability: 3
-  slowProbability: 15
-  multiProbability: 55
-  gravityProbability: 30
+  slowProbability: 0
+  multiProbability: 50
+  gravityProbability: 50
 --- !u!1 &200561415
 GameObject:
   m_ObjectHideFlags: 0
