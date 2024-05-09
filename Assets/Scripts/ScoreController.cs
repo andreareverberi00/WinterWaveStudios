@@ -161,32 +161,31 @@ public class ScoreController : MonoSingleton<ScoreController>
 
         if (CorrectlyThrownWastes + MissedWastes == 0)
             return "N/A"; // No throws were made
-        float scoreIndex = Mathf.Min(Score / maxExpectedScore,100);
-
-        float accuracyIndex = (float) CorrectlyThrownWastes / (CorrectlyThrownWastes + MissedWastes);
+        float scoreIndex = Mathf.Min((Score / maxExpectedScore)*100,100);
+        float accuracyIndex = (float) (CorrectlyThrownWastes / (CorrectlyThrownWastes + MissedWastes))*100;
         float finalGrade = (scoreIndex+accuracyIndex)*0.5f;
 
-        if (finalGrade >= 85f)
+        if (finalGrade >= 80f)
         {
             return "S";
         }
-        else if (finalGrade >= 80f)
+        else if (finalGrade >= 75f)
         {
             return "A";
         }
-        else if (finalGrade >= 75f)
+        else if (finalGrade >= 70f)
         {
             return "B";
         }
-        else if (finalGrade >= 70f)
+        else if (finalGrade >= 65f)
         {
             return "C";
         }
-        else if (finalGrade >= 65)
+        else if (finalGrade >= 60f)
         {
             return "D";
         }
-        else if (finalGrade >= 60)
+        else if (finalGrade >= 55f)
         {
             return "E";
         }
