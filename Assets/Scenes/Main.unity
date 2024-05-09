@@ -9798,6 +9798,10 @@ PrefabInstance:
       propertyPath: outlineMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 467445871766579995, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.878
+      objectReference: {fileID: 0}
     - target: {fileID: 722901610010705417, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: outlineMode
       value: 1

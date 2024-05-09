@@ -6,8 +6,9 @@ public class DisplayBonuses : MonoSingleton<DisplayBonuses>
 {
     public TMP_Text text;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.5f);
         UpdateBonusesText();
     }
 
