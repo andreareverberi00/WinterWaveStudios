@@ -21,6 +21,7 @@ public class ScoreController : MonoSingleton<ScoreController>
     public int rewardScore = 10;
     //public int rewardEnergy = 10;
     private int tempScore;
+    public int maxExpectedScore = 4000;
 
     public LeaderboardScoreManager leaderboardScoreManager;
 
@@ -160,30 +161,32 @@ public class ScoreController : MonoSingleton<ScoreController>
 
         if (CorrectlyThrownWastes + MissedWastes == 0)
             return "N/A"; // No throws were made
+        float scoreIndex = Mathf.Min(Score / maxExpectedScore,100);
 
-        float correctPercentage = (float)CorrectlyThrownWastes / (CorrectlyThrownWastes + MissedWastes) * 100;
+        float accuracyIndex = (float) CorrectlyThrownWastes / (CorrectlyThrownWastes + MissedWastes);
+        float finalGrade = (scoreIndex+accuracyIndex)*0.5f;
 
-        if (correctPercentage >= 90)
+        if (finalGrade >= 85f)
         {
             return "S";
         }
-        else if (correctPercentage >= 85)
+        else if (finalGrade >= 80f)
         {
             return "A";
         }
-        else if (correctPercentage >= 80)
+        else if (finalGrade >= 75f)
         {
             return "B";
         }
-        else if (correctPercentage >= 70)
+        else if (finalGrade >= 70f)
         {
             return "C";
         }
-        else if (correctPercentage >= 60)
+        else if (finalGrade >= 65)
         {
             return "D";
         }
-        else if (correctPercentage >= 50)
+        else if (finalGrade >= 60)
         {
             return "E";
         }

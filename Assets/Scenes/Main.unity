@@ -799,8 +799,8 @@ MonoBehaviour:
   wasteProbability: 95
   batteryProbability: 2
   powerUpProbability: 3
-  slowProbability: 30
-  multiProbability: 40
+  slowProbability: 15
+  multiProbability: 55
   gravityProbability: 30
 --- !u!1 &200561415
 GameObject:
@@ -4201,6 +4201,7 @@ MonoBehaviour:
   Double: 0
   initial: 0
   rewardScore: 10
+  maxExpectedScore: 4000
   leaderboardScoreManager: {fileID: 910224768}
 --- !u!4 &996913722
 Transform:
