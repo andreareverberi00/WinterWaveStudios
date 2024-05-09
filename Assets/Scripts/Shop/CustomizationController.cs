@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CustomizationController : MonoSingleton<CustomizationController>
 {
@@ -37,6 +38,7 @@ public class CustomizationController : MonoSingleton<CustomizationController>
         if (Input.GetKeyDown(KeyCode.O))
         {
             ClearPlayerPrefs();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

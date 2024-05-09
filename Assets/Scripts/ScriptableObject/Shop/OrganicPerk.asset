@@ -16,7 +16,7 @@ MonoBehaviour:
   cost: 500
   coinSprite: {fileID: 21300000, guid: 9652722307087564f88c37012322196a, type: 3}
   itemType: 1
-  bought: 1
+  bought: 0
   description: 'Boosts the score for organic items by multiplying it x4
 
 '

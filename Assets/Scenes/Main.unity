@@ -4195,8 +4195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934ab4ee6c44bc84c8330b9f244c5dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsForEveryXScore: 100
-  coinsReward: 10
   punteggio: 0
   scoreAmount: 10
   half: 0
@@ -9861,7 +9859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066378181509296749, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: conveyorSpeed
-      value: 0.089
+      value: 0.082
       objectReference: {fileID: 0}
     - target: {fileID: 2123999721267103593, guid: 093a53a2a630bcd4983813ebad44cd96, type: 3}
       propertyPath: m_Size.x

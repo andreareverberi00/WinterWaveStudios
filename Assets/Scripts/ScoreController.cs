@@ -28,7 +28,7 @@ public class ScoreController : MonoSingleton<ScoreController>
        private void Start()
     {
         punteggio = scoreAmount;
-        initial = scoreAmount;
+        initial = punteggio;
         half = punteggio / 2;
         Double = punteggio * 2;
         Highscore = PlayerPrefs.GetInt("Highscore", 0);

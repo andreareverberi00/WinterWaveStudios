@@ -41,33 +41,38 @@ public class WasteDataHolder : MonoBehaviour
 
                     if (Scene_Link2.Instance.perkplastic && binHolder.binData.acceptsType == Waste.WasteType.Plastic)
                     {
+                        int startScore = ScoreController.Instance.punteggio;
                         ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 1.5f);
                         ScoreController.Instance.AddScore();
-                        ScoreController.Instance.punteggio = 10;
+                        ScoreController.Instance.punteggio = startScore;
                     }
                     else if (Scene_Link2.Instance.perkmetal && binHolder.binData.acceptsType == Waste.WasteType.Metal)
                     {
-                        ScoreController.Instance.punteggio = 15;
+                        int startScore = ScoreController.Instance.punteggio;
+                        ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 1.5f);
                         ScoreController.Instance.AddScore();
-                        ScoreController.Instance.punteggio = 10;
+                        ScoreController.Instance.punteggio = startScore;
                     }
                     else if (Scene_Link2.Instance.perkglass && binHolder.binData.acceptsType == Waste.WasteType.Glass)
                     {
-                        ScoreController.Instance.punteggio = 20;
+                        int startScore = ScoreController.Instance.punteggio;
+                        ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 2f);
                         ScoreController.Instance.AddScore();
-                        ScoreController.Instance.punteggio = 10;
+                        ScoreController.Instance.punteggio = startScore;
                     }
                     else if (Scene_Link2.Instance.perkpaper && binHolder.binData.acceptsType == Waste.WasteType.Paper)
                     {
-                        ScoreController.Instance.punteggio = 30;
+                        int startScore = ScoreController.Instance.punteggio;
+                        ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 3f);
                         ScoreController.Instance.AddScore();
-                        ScoreController.Instance.punteggio = 10;
+                        ScoreController.Instance.punteggio = startScore;
                     }
                     else if (Scene_Link2.Instance.perkorganic && binHolder.binData.acceptsType == Waste.WasteType.Organic)
                     {
-                        ScoreController.Instance.punteggio = 40;
+                        int startScore = ScoreController.Instance.punteggio;
+                        ScoreController.Instance.punteggio = (int)(ScoreController.Instance.punteggio * 4f);
                         ScoreController.Instance.AddScore();
-                        ScoreController.Instance.punteggio = 10;
+                        ScoreController.Instance.punteggio = startScore;
                     }
                     else
                     {
