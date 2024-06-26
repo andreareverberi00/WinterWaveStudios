@@ -12,7 +12,6 @@ public class GameController : MonoSingleton<GameController>
     public int pointsToActivateFirstBin = 50;
     public int pointsToActivateSecondBin = 100;
     public int pointsToActivateThirdBin = 150;
-
     bool isMagnetActive = false;
 
     private void Start()
